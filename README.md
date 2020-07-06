@@ -4,22 +4,21 @@
 ## Biotech 7005: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2019
+Semester 2 2020
 
 Coordinator:
-- Dan Kortschak
+- Dave Adelson
 
 Instructors:
+- Dave Adelson
 - Dan Kortschak
-- Nathan Watson-Haigh
-- Steve Pederson
-- Jimmy Breen
+- Steve DeLean
 
 __*Course Contact*__
-Dan Kortschak
-Email: dan.kortschak@adelaide.edu.au
-Phone: 08 8313 0928
-Office: Braggs 2.60
+Dave Adelson
+Email: david.adelson@adelaide.edu.au
+Phone: 08 8313 7555
+Office: Braggs 2.61
 
 ### Contact Hours
 
