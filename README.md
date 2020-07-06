@@ -15,10 +15,10 @@ Instructors:
 - Steve DeLean
 
 __*Course Contact*__
-Dave Adelson\\
-Email: david.adelson@adelaide.edu.au\\
-Phone: 08 8313 7555\\
-Office: Braggs 2.61
+Dave Adelson
+- Email: david.adelson@adelaide.edu.au
+- Phone: 08 8313 7555
+- Office: Braggs 2.61
 
 ### Contact Hours
 We are following current advice from University administration and SA Health with respect to face to face teaching. All lectures will be delivered online. All tutorials and practicals are currently planned to be delivered face to face, in compliance with COVID-19 venue capacities and spatial distancing requirements. 
