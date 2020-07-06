@@ -48,20 +48,20 @@ Practicals: Monday 11am-1pm, Mawson, G12 Computer Suite
 
 | **Week** | **Monday** | **Lecture**                                   | **Practical**                     | **Tutorial**                             |
 |----------|------------|-----------------------------------------------|-----------------------------------|------------------------------------------|
-| **1**    | 29/7       | [Introduction to Bioinformatics][1]\* (Dan)   | [Introduction to R] (1) (Steve)   | *Discussion*                             |
-| **2**    | 5/8        | [Evolutionary Processes][3]\* (Dan)           | [Introduction to R] (2) (Steve)   | Continue practical                       |
-| **3**    | 12/8‡      | [Statistics][2] (Steve)                       | [Introduction To Bash] (Steve)    | *Evolution test*                         |
-| **4**    | 19/8       | [Alignment Process][4]\* (Nathan)             | [Scripting In Bash] (Steve)       | *Stats Test* <br> [Statistics worksheet] |
-| **5**    | 26/8       | [Alignment Process][5]\* (Nathan)             | [Evolutionary processes] (Dan)    |                                          |
-| **6**    | 2/9‡       | [Next-generation sequencing][6]\*  (Dan)      | [NGS data practical (1)] (Steve)  | *Alignment test*                         |
-| **7**    | 9/9        | Genome assembly (Lloyd)                       | [NGS data practical (2)] (Steve)  | *NGS sequencing test*                    |
-| **8**    | 16/9       | [Transcriptomics][8] (Nathan)                 | [RNAseq practical] (Jimmy)        | *Genome assembly test*                   |
-| **-**    | 23/9       | Semester Break                                |                                   |                                          |
-| **-**    | 30/9       | Semester Break                                |                                   |                                          |
-| **9**    | 7/10 (PH)  | Systems Biology (Ville)                       | No practical (PH)                 | *Transcriptomics test*                   |
-| **10**   | 14/10      | [Introduction to Systems Biology][10]\* (Dan) | [Graphical analyses] (Dan)        |                                          |
-| **11**   | 21/10      | [Epigenetics][11]\* (Jimmy)                   |                                   | *Systems biology test*                   |
-| **12**   | 28/10      | [The Future — wooooooo][12]\* (Dan)           |                                   | Wrap-up (Jimmy/Dan/Steve) *Q&A*          |
+| **1**    | 27/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steve)   | *Discussion*                             |
+| **2**    | 3/8        | [Evolutionary Processes][3]\* (Dave)           | [Introduction to R] (2) (Steve)   | Continue practical                       |
+| **3**    | 10/8‡      | [Statistics][2] (Steve)                       | [Introduction To Bash] (Steve)    | *Evolution test*                         |
+| **4**    | 17/8       | [Alignment Process][4]\* (Dave)             | [Scripting In Bash] (Dave)       | *Stats Test* <br> [Statistics worksheet] |
+| **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    |                                          |
+| **6**    | 31/8‡       | [Next-generation sequencing][6]\*  (Dave)      | [NGS data practical (2)] (Dave)  | *Alignment test*                         |
+| **7**    | 7/9        | Genome assembly (Lloyd)                       | [TBA] (TBA)  | *NGS sequencing test*                    |
+| **8**    | 14/9       | [TBA][8] (TBA)                 | [TBA] (TBA)        | *Genome assembly test*                   |
+| **-**    | 21/9       | Semester Break                                |                                   |                                          |
+| **-**    | 28/9       | Semester Break                                |                                   |                                          |
+| **9**    | 5/10 (PH)  | Systems Biology (Ville)                       | No practical (PH)                 | *TBD test*                   |
+| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) | [Graphical analyses] (Dan)        |                                          |
+| **11**   | 19/10      | [Epigenetics][11]\* (Bastien Llamas)                   |                                   | *Systems biology test*                   |
+| **12**   | 26/10      | [The Future — wooooooo][12]\* (Dave)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
 ‡ Lectures and tutorials at special times.
 \* Slides not visible outside UofA network.
@@ -91,7 +91,7 @@ Practicals: Monday 11am-1pm, Mawson, G12 Computer Suite
 
 ## Assessment
 
-### Assessment Schedule & Weighting (Provisional)
+### Assessment Schedule & Weighting (Not Up To Date!)
 
 | **Assessment**                                               | **Subject**                 | **Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|------------|-----------------------|
