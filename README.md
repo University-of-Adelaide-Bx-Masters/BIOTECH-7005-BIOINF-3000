@@ -21,28 +21,16 @@ Phone: 08 8313 7555
 Office: Braggs 2.61
 
 ### Contact Hours
+We are following current advice from University administration and SA Health with respect to face to face teaching. All lectures will be delivered online. All tutorials and practicals are currently planned to be delivered face to face, in compliance with COVID-19 venue capacities and spatial distancing requirements. 
 
-Lectures: Thursday 1pm, Barr Smith South, 3022
-- 1 Aug — 8 Aug
-- 12 Aug ‡ *(Monday 4pm, Hughes 309 Lecture theatre)*
-- 22 Aug — 29 Aug
-- 2 Sep ‡ *(Monday 4pm, Hughes 309 Lecture theatre)*
-- 12 Sep — 19 Sep
-- 10 Oct — 31 Oct
+Lectures: Thursday 1pm, Online - details on MyUni
+- 30 July — 29 Oct
 
-Tutorials: Thursday 9am-11am, Benham, G25
-- 1 Aug — 8 Aug
-- 12 Aug ‡ *(Monday 9-10am, Benham, G25)*
-- ~16 Aug ‡ *(Friday 4-5pm, Ligertwood, 113)*~
-- 22 Aug — 29 Aug
-- 2 Sep ‡ *(Monday 9-10am, Benham, G25)*
-- 6 Sep ‡ *(Friday 4-5pm, Ligertwood, 113)*
-- 12 Sep — 19 Sep
-- 10 Oct — 31 Oct
+Tutorials: Monday 11am-1pm, Barr Smith South, 1063
+- 27 July — 26 Oct
 
-Practicals: Monday 11am-1pm, Mawson, G12 Computer Suite
-- 29 Jul — 16 Sep
-- 14 Oct — 28 Oct
+Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
+- 28 Jul — 27 Oct
 
 ### Timetable (Provisional)
 
