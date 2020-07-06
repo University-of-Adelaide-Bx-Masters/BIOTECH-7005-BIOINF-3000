@@ -1,0 +1,593 @@
+---
+title: "Transcriptomics Practical"
+author: "Steve Pederson/Jimmy Breen"
+date: '16th September, 2019'
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = "hide",
+                      eval = FALSE,
+                      message = FALSE, warning = FALSE)
+```
+
+```{r loadPackages, echo=FALSE, eval=TRUE}
+library(tidyverse)
+library(limma)
+library(ggrepel)
+library(pander)
+library(RColorBrewer)
+library(reshape2)
+library(scales)
+library(pheatmap)
+library(VennDiagram)
+library(edgeR)
+library(DiagrammeR)
+theme_set(theme_bw())
+```
+
+## Introduction
+
+The motivation behind many RNA-Seq or transcriptomic studies is to detect the level of activity at a genomic locus, and determine if any changes are evident due to the specific biological question.
+Whilst we use RNA-Seq as one of the most common data types, in this context the sequence content is secondary to the abundances of genes/transcripts.
+
+However, sequence information is still highly important as we can use this information to:
+
+- align reads to the genome/transcriptome
+- detect splicing events
+- find which transcripts are in usage
+- identify novel transcripts
+- detect allele specific expression patterns
+
+In the interests of time, we will focus primarily on quantifying gene abundances today.
+
+### Workflow summary
+
+The basic outline of a common RNA-Seq analysis workflow is given in the following diagram.
+Today we'll focus primarily on the gene-level analysis which follows the path shown on the left.
+This uses the genome as the reference, with alignment performed by `hisat2`.
+An alternative would be to align to the transcriptome using `kallisto`, however this is beyond the limits of what we can realistically do in a two-hour session.
+
+```{r Pipeline, echo=FALSE, results='asis', fig.height=5, eval = TRUE}
+steps <- 6
+nodes <- create_node_df(
+  n = steps ,
+  label = c("Raw Data", "Trimmed Data", "Aligned Data", "Transcript Level\nCounts", "Gene Level\nCounts", "Downstream\nAnalysis"),
+  type = "number",
+  shape = "rectangle",
+  style = "filled",
+  fillcolor = colorRampPalette(ngsReports::pwf %>% ngsReports::getColours() %>% magrittr::extract(3:1))(steps),
+  fontcolor = rgb(0, 0, 0),
+  fontsize = 12,
+  width = 1.5
+)
+edges <- create_edge_df(
+  from = c(1, 2, 2, 3, 4, 5),
+  to = c(2, 3, 4, 5, 6, 6),
+  rel = "leading_to",
+  label = c("Adapter Removal\nQuality Trimming", "HISAT2", "kallisto", "featureCounts"),
+  fontsize = 10
+)
+graph_attrs <- c("layout = neato", "overlap = FALSE", "outputorder = nodesfirst")
+create_graph(nodes_df = nodes, edges_df = edges, 
+             attr_theme = list(graph_attrs= graph_attrs)) %>%
+  render_graph()
+```
+
+## VM Setup
+
+### Directory setup
+
+We’ll be working today in the folder `~/Practical_8`. 
+
+Please ensure you use this _exact_ path as any variations will undoubtedly cause you problems & lead to unnecessary confusion. An example data structure to use for today has already been made for you & can be obtained using the following strategy, much like you did in the last practical.
+
+```
+cd ~
+wget https://github.com/UofABioinformaticsHub/ngsSkeleton/archive/master.zip
+unzip master.zip
+mv ngsSkeleton-master Practical_8
+rm master.zip
+cd Practical_8
+```
+
+Now that we’ve setup our directories, have a quick look using `ls ` to see the top-level directories. Here we have directories for each step as well as folders for `R` and `bash` scripts. The directory `slurm` is where output would go from an HPC where we’re required to submit jobs to queues and need specify where to write `stdout` and `stderr`. The queuing system on the University of Adelaide’s HPC (phoenix) is the `slurm` system. We won’t need that directory today.
+
+Inside each of these directories are the directories `fastq`, `FastQC`, `bam`, `log` or various directories where we’ll place our output. The more you perform bioinformatics, the more you realise how important getting your directories organised is. Let’s have a look in a few.
+
+```
+ls 0_rawData
+ls 1_trimmedData
+ls 2_alignedData
+```
+
+### Copy our data across
+
+Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
+
+```
+cp ~/data/rnaseq/*gz 0_rawData/fastq/
+ls 0_rawData/fastq/
+```
+
+This should show you the output: 
+
+`README.md`
+`SRR945375.skm.fastq.gz SRR945377.skm.fastq.gz SRR945379.skm.fastq.gz SRR945381.skm.fastq.gz`
+`SRR945419.cbc.fastq.gz SRR945421.cbc.fastq.gz SRR945423.cbc.fastq.gz SRR945427.cbc.fastq.gz`
+
+From here, we’re into running our workflow.
+
+Now let's just check our installations first to make sure nothing has gone wrong during setup.
+If you don't get the expected results, call Jimmy or Dan over.
+
+### HISAT2
+
+The aligner we'll use today is called `hisat2` and it's an aligner which is splice aware, meaning it's able to handle alignments which contain sequences from two separate exons.
+Let's check that it's installed
+
+```
+which hisat2
+```
+
+This should give you the output `/usr/bin/hisat2`
+
+### Feature Counts
+
+We'll also need the software `featureCounts` from the `Subread` set of tools.
+
+```
+which featureCounts
+```
+
+This should give `/usr/bin/featureCounts`
+
+
+## R
+
+We already have `R` installed on your VM and this can be accessed by opening your favourite internet browser (i.e. Firefox, Chrome, Safari) on your local laptop.
+In the address bar go to: `your.ip.address:8787`
+
+*Make sure you enter your actual IP address (10.150.8.xx)*
+
+### Create an R Project for This Practical
+
+Earlier, we made a folder called `Practical_8` when we copied the data across.
+Let's make an R Project for this folder
+
+1. `File` > `New Project`
+2. Select `Existing Directory`
+3. Click the `Browse` button
+4. Navigate to the `Practical_8` folder and select `Choose`
+5. Click `Create Project`
+
+
+**That's everything done for the setup!!!**
+
+## RNA Seq Analysis
+
+### Raw Data
+
+By now, your data will have completed downloading.
+Here we have our 8 samples, with 4 from `skm` and another 4 from `cbc`.
+Let's run FastQC to make sure they're acceptable.
+
+#### FastQC
+
+```
+cd ~/Practical_8/0_rawData
+mkdir -p FastQC
+fastqc -o FastQC fastq/*gz
+```
+
+As we have logged onto our VM using RStudio, we can inspect these reports directly in our browser.
+Using the Files pane in RStudio, navigate to the `FastQC` directory and click on one of the `.html` files.
+When asked, choose `View in Web Browser`
+
+These should all look pretty good, but we can get a few pieces of key information about these files.
+
+**How many reads are in each file?**  
+**How long are the reads?**
+
+### Genome Information
+
+For this section, we need Sequence (fasta) and Gene Descriptions(gtf) files
+
+For today, we'll need the sequence from Chromosome 1 and a `gtf` which corresponds.
+We'll get these from Ensembl, so cut and paste the following code directly into your VM.
+
+```
+cd
+mkdir -p genomes/Mmusculus
+cd genomes/Mmusculus
+wget ftp://ftp.ensembl.org/pub/release-93/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.chromosome.1.fa.gz
+gunzip Mus_musculus.GRCm38.dna.chromosome.1.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-93/gtf/mus_musculus/Mus_musculus.GRCm38.93.chr.gtf.gz
+```
+
+You may have already realised that this `gtf` contains all the information for the entire genome, so we'll need to create one containing just the gene information for `chr1`.
+
+First we'll copy the file header.
+
+```
+zcat Mus_musculus.GRCm38.93.chr.gtf.gz | egrep "^#!" > Mus_musculus.GRCm38.93.chr1.gtf
+```
+
+Then we'll just get the gene information for chr1.
+The first field in a `gtf` file is the chromosome, we this will be easy to extract using `egrep`
+
+```
+zcat Mus_musculus.GRCm38.93.chr.gtf.gz | egrep "^1\s" >> Mus_musculus.GRCm38.93.chr1.gtf
+```
+
+To avoid confusing ourselves, let's delete the full gtf so we only have the one.
+
+```
+rm Mus_musculus.GRCm38.93.chr.gtf.gz
+```
+
+### Aligning our data
+
+Before we align our data, we need to create an index of the genome.
+This basically allows the algorithm to perform the alignments quickly.
+This always needs to be performed by the aligner that we'll be using, and today we'll use `hisat2`.
+
+In order to create a list of splice sites, we'll first create a list of these using a script supplied with `hisat2` based on those in the gtf file 
+
+```
+cd ~/genomes/Mmusculus
+hisat2-build Mus_musculus.GRCm38.dna.chromosome.1.fa Mus_musculus.GRCm38.dna.chromosome.1
+```
+
+This will take about 5 minutes to complete for chromosome 1, and considerably longer if we chose the entire mouse genome.
+
+Once this process is complete, we'll need to align each of our files to the indexed genome.
+To do this we'll have to write a script.
+
+First we'll create all the directories we need:
+
+```
+cd ~/Practical_8
+mkdir -p 2_alignedData/sam
+mkdir -p 2_alignedData/bam
+mkdir -p 2_alignedData/log
+touch runAlignments.sh
+nano runAlignments.sh
+```
+
+This list line will open the empty script in `nano` for you, so cut & paste the following code into the open script.
+
+```
+#!/bin/bash
+
+FQDIR=~/Practical_8/0_rawData/fastq
+SAMDIR=~/Practical_8/2_alignedData/sam
+LOGDIR=~/Practical_8/2_alignedData/log
+BAMDIR=~/Practical_8/2_alignedData/bam
+IDX=~/genomes/Mmusculus/Mus_musculus.GRCm38.dna.chromosome.1
+
+for f in ${FQDIR}/*gz
+  do
+    echo -e "Running alignment on ${f}"
+    SAM=${SAMDIR}/$(basename ${f} _1.fq.gz).sam
+    BAM=${BAMDIR}/$(basename ${f} _1.fq.gz).sorted.bam
+    hisat2 \
+    -x ${IDX} \
+    -p 3 \
+    -U ${f} \
+    -S ${SAM} &> ${LOGDIR}/$(basename ${f} _1.fq.gz).log
+    echo -e "done"
+    echo "Converting ${SAM} to ${BAM}"
+    samtools view -bh ${SAM} | samtools sort -o ${BAM}
+    rm ${SAM}
+  done
+
+```
+
+To exit & save the script hit `Ctrl+x` followed by `y`.
+
+Now we need to make this script executable so enter.
+
+```
+chmod +x runAlignments.sh
+./runAlignments.sh
+```
+
+These alignments will take quite a while, so while we're waiting, go to the hisat2 page https://ccb.jhu.edu/software/hisat2/manual.shtml
+
+#### Questions
+
+1. Explain what the following parameters meant during the call to hisat2
+    a. `-x ${IDX}`
+    b. `-p 3`
+    c. `-U ${f}`
+2. How could we have specified splice sites?
+3. What does the `\` symbol mean in the above script
+4. `hisat2` only outputs data as a .`sam`format so we've converted this to a .`bam` format as part of the script. As part of this, we've used the pipe symbol `(|)`. 
+    a. What does this second step do to our data? 
+    b. Why might this be an advantage
+5. Once at least one sample has finished being aligned, have a look at the log files. Can you interpret the output?
+6. Do you have any suggestions for improving the above script?
+
+### Counting Alignments
+
+Once we've aligned our data, we need to count how many reads have aligned to each gene, and we'll do this using the software `featureCounts`.
+This is the fastest part of today's practical, especially as we sorted our `bam` files.
+Again, we'll write a script to perform this step
+
+First we'll create all the directories we need:
+
+```
+cd ~/Practical_8
+mkdir -p 2_alignedData/counts
+touch countAlignments.sh
+nano countAlignments.sh
+```
+
+```
+#!/bin/bash
+
+BAMDIR=~/Practical_8/2_alignedData/bam
+COUNTDIR=~/Practical_8/2_alignedData/counts
+GTF=~/genomes/Mmusculus/Mus_musculus.GRCm38.93.chr1.gtf
+
+# Find the entire list of files
+BAMS=`find ${BAMDIR} -name "*sorted.bam" | tr '\n' ' '`
+
+# Count all files in a single process
+featureCounts \
+  -Q 10 \
+  -T 3 \
+  -a ${GTF} \
+  -o ${COUNTDIR}/counts.out ${BAMS}
+```
+
+## RNA Seq Analysis using `R`
+
+### Loading the data into `R`
+
+The above script will create a file with a single header line, followed by column names and the data.
+Some of the columns are not relevant for us today, so we'll first load the file, then remove all the columns which are not required.
+
+However, first we need to load the `R` packages for differential gene analysis.
+
+*If you'd like to directly download the data from your VM instead of using the provided file, install FileZilla for easy data transfer between your local laptop and the VM (see the end of this page)*
+
+```{r}
+library(tidyverse)
+library(edgeR)
+library(limma)
+theme_set(theme_bw())
+```
+
+```{r}
+file <- "counts.out"
+counts <- read_delim(file, comment = "#", delim = "\t")
+```
+
+Columns 2 to 6 are not particularly relevant for us today.
+The counts for each gene are in columns 7 & beyond, whilst the first column contains the gene IDs.
+
+The type of object we like to use in `R` is known as a `DGEList` and we'll need to set our data up as this object type before being able to do any meaningful analysis.
+
+First we'll select the columns we need, then we'll change this into a matrix, which is what the `DGEList` objects need
+
+```{r}
+dgeList <- counts %>%
+  dplyr::select(Geneid, ends_with("bam")) %>%
+  as.data.frame() %>%
+  column_to_rownames("Geneid") %>%
+  as.matrix() %>%
+  DGEList()
+```
+
+Obviously these sample names are not convenient, so let's edit these a little.
+In `DGEList` objects, the sample names are also the column names.
+
+```{r}
+colnames(dgeList) <- basename(colnames(dgeList))
+colnames(dgeList) <- gsub(".sorted.bam", "", colnames(dgeList))
+```
+
+Let's have a look at the object
+
+```{r}
+dgeList
+```
+
+You can see that we have the counts for every gene in a component called `dgeList$counts`, and information about the samples in a component called `dgeList$samples`.
+
+Let's add a column to the `$samples` component which defines which sample group we are in.
+
+```{r}
+dgeList$samples$type <- gsub("SRR.+\\.(.+).fastq.gz$", "\\1", rownames(dgeList$samples))
+dgeList$samples$type <- as.factor(dgeList$samples$type)
+dgeList$samples$group <- as.integer(dgeList$samples$type)
+```
+
+In the second line above, we converted the text to a categorical variable (i.e. a `factor`), and then we used the category number to assign the values in the `group` column.
+
+Notice in the `$samples` component, there is also a column called `lib.size`.
+This is the total number of reads aligned to genes within each sample.
+
+Let's see if we have much difference between samples & groups?
+
+```{r}
+dgeList$samples %>%
+  rownames_to_column("sample") %>%
+  ggplot(aes(x = sample, y = lib.size / 1e6, fill = type)) +
+  geom_bar(stat = "identity") +
+  ylab("Library size (millions)")
+```
+
+In today's data, we don't have a huge difference, but this can vary greatly in many experiments.
+When analysing counts, the number of counts will clearly be affected by the total library size (i.e. the total number of reads counted as aligning to genes).
+We before passing this data to any statistical models, we need to calculate a scaling factor that compensates for this.
+
+```{r}
+dgeList <- calcNormFactors(dgeList)
+```
+
+Notice that now the column `norm.factors`is no longer all `1`.
+This is used by all downstream functions in `edgeR`.
+
+### Data Exploration
+
+One of the things we look for in a dataset, is that the samples from each treatment,group together when we apply dimensional reduction techniques such as Principal Component Analysis (PCA) or Multi Dimensional Scaling (MDS).
+The package `edgeR` comes with a convenient function to allow this.
+
+```{r}
+plotMDS(dgeList, labels = dgeList$samples$type, col = dgeList$samples$group)
+```
+
+Here we can see a clear pattern of separation between the groups.
+
+(If we don't see this, it may mean we have some difficult decisions to make.
+Maybe we need to check our samples for mislabelling?
+Maybe there is some other experimental factor which we're unaware of.)
+
+
+An interesting way to view our data is to use the value known as `Counts per million`.
+This accounts for difference in library sizes and gives an estimate of how abundant each gene is.
+
+```{r}
+head(cpm(dgeList))
+```
+
+You can see from this first 6 genes, that we have one highly abundant gene, and a couple with far lower expression levels.
+
+### Filtering out genes
+
+Genes with low count numbers give us minimal statistical power to detect an changes in expression level, so a common approach is to filter out these genes.
+This reduces the issues which we will face due to multiple hypothesis testing, effectively increasing the statistical power of a study.
+
+A common method would be to remove any genes which are below a specific CPM threshold in the majority of samples.
+In this dataset, we might like to remove genes which have $<1$ CPM in 3 or more samples.
+As we have 3 samples in each group, this means we need genes to have greater than about 10 reads aligning to them, in each sample from at least one group.
+Any number of strategies can be applied for this stage.
+
+We can plot the densities of each of our samples using log-transformed CPM values, and the clear peak in the range of very low expression is clearly visible.
+
+```{r}
+plotDensities(cpm(dgeList, log = TRUE))
+```
+
+Let's filter our dataset, and remove genes with low abundances.
+
+```{r}
+genes2keep <- rowSums(cpm(dgeList) > 1) > 4
+```
+
+Here we've created a logical vector defining which genes to keep.
+To get a quick summary of this enter
+
+```{r}
+summary(genes2keep)
+```
+
+Now let's look at the densities after filtering.
+
+```{r}
+plotDensities(cpm(dgeList, log = TRUE)[genes2keep, ])
+```
+
+Now we're happy that we have the genes we can extract meaningful results from, let's remove them from our dataset.
+
+```{r}
+dgeList <- dgeList[genes2keep, ]
+```
+
+
+### Calculating moderated dispersions
+
+Most RNA-Seq analysis is performed using the *Negative Binomial Distribution*.
+This is similar to a *Poisson* distribution, where we **count** the number of times something appears in a given interval.
+The difference with a Negative Binomial approach is that we can model data which is more variable.
+Under the Poisson assumptions, the variance equals the mean, whilst under the *NB* this is no longer required.
+
+This extra variability is known as the *dispersion*, and our estimates of dispersion will be too high for some genes, and too low for others.
+Taking advantage of the large numbers of genes in an experiment, we can shrink the ones that are too high, and increase the ones that are too small.
+This is an important step in RNA Seq analysis, as it reduces the number of false positives, and increase the numbers of true positives.
+
+Before we do this, we need to define our statistical model.
+Here, our term of interest is in the column `type`.
+
+```{r}
+design <- model.matrix(~0 + type, data = dgeList$samples)
+design
+```
+
+
+```{r}
+dgeList <- estimateDisp(dgeList, design = design)
+```
+
+### Performing differential expression analysis
+
+The most common analytic approach we use is an Exact Test, proposed by Robinson and Smyth.
+This is analogous to Fisher's Exact Test, as once again we are dealing with count data, not Normally distributed data.
+
+In the following line of code, we are comparing the first two groups in our data.
+Clearly we only have two groups in this dataset,but it is quite common to have multiple groups in other analyses.
+
+```{r}
+etResults <- exactTest(dgeList, pair = 1:2)$table 
+```
+
+As we've discovered, we need to account for our multiple testing considerations.
+Under the null hypothesis, we would expect the distribution of $p$-values to be approximately uniform on the interval [0, 1]
+.
+However, under the the alternative hypothesis, we should see a spike of $p$-values near zero.
+A "healthy" dataset will likely have a mixture of the two distributions, so we should see a flat distribution, with a cluster of values near zero.
+
+```{r}
+hist(etResults[,"PValue"], breaks= 50)
+```
+
+This gives us confidence that we will be able to detect DE genes in this dataset.
+Now, we can proceed to estimate the False Discovery Rate in this data.
+
+```{r}
+etResults <- etResults %>%
+  rownames_to_column("Geneid") %>%
+  mutate(FDR = p.adjust(PValue)) %>%
+  arrange(PValue) %>%
+  as_tibble()
+```
+
+Find the highest ranked gene in this dataset
+If it's been given a negative value for logFC, this means it's down-regulated in the second of the two conditions.
+The opposite is true for a positive value for logFC.
+Let's check the raw counts using *counts per million*
+
+```{r}
+cpm(dgeList, log= TRUE)["ENSMUSG00000026407",]
+```
+
+Inspect a few more of the highly ranked genes, so make sure you can understand these results.
+
+Let's get a list of significant genes, by using an FDR of 0.01, and logFC $>1$.
+(logFC is fold-change on the $\log_2$ scale, so that logFC=1, is a two-fold increase, logFC=2 is a 4-fold increase,and logFC=-1 is a halving of expression)
+
+```{r}
+sigGenes <- filter(etResults, FDR< 0.01, abs(logFC) > 1)$Geneid
+```
+
+Now we can visualise the pattern of logFC to expression level.
+
+```{r}
+plotMD(dgeList, status = rownames(dgeList) %in% sigGenes)
+```
+
+An alternative is to plot the logFC in relation to the $p$-value, to make what is known as a volcano plot.
+
+```{r}
+etResults %>%
+  mutate(DE = Geneid %in% sigGenes) %>%
+  ggplot(aes(x = logFC, y = -log10(PValue),colour = DE)) +
+  geom_point() +
+  scale_colour_manual(values = c("grey50", "red"))
+```
+

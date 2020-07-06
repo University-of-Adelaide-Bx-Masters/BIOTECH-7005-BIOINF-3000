@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+Assignments/Submissions/*
+Submissions/*
+*Results*
+*fastq.gz
+*pdf
+VMs.tsv
