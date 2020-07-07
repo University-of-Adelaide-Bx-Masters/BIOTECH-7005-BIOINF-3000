@@ -51,7 +51,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **11**   | 19/10      | [Epigenetics][11]\* (Bastien Llamas)                   |                                   | *Systems biology test*                   |
 | **12**   | 26/10      | [The Future — wooooooo][12]\* (Dave)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
-‡ Lectures and tutorials at special times.
+
 \* Slides not visible outside UofA network.
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
