@@ -43,11 +43,11 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    |                                          |
 | **6**    | 31/8‡       | [Next-generation sequencing][6]\*  (Dave)      | [NGS data practical (2)] (Dave)  | *Alignment test*                         |
 | **7**    | 7/9        | Genome assembly (Lloyd)                       | [TBA] (TBA)  | *NGS sequencing test*                    |
-| **8**    | 14/9       | [TBA][8] (TBA)                 | [TBA] (TBA)        | *Genome assembly test*                   |
+| **8**    | 14/9       | [Variant Calling][8] (Rick)                 | [Variant Calling] (TBA)        | *Genome assembly test*                   |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
 | **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |                  | *Public Holiday 5/10*                  |
-| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) | [Graphical analyses] (Dan)        |                 *TBD test*                         |
+| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) | [Graphical analyses] (Dan)        |                 *Variant Calling test*                         |
 | **11**   | 19/10      | [Epigenetics][11]\* (Bastien Llamas)                   |                                   | *Systems biology test*                   |
 | **12**   | 26/10      | [The Future — wooooooo][12]\* (Dave)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
