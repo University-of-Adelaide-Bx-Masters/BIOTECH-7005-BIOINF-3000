@@ -87,14 +87,14 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 
 | **Assessment**                                               | **Subject**                 | **Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               | 6%         | Tuesday 13th August    |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics | 6%         | Monday 2nd September    |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Monday 9th September  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS practical          | 6%         | Monday 23rd September |
-| [Assessment 5](Assignments/Assignment5.html)                 | Variant Calling practical            | 6%         | Monday 30th September |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               | 6%         | Tuesday 11th August    |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics | 6%         | Tuesday 25th August    |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Tuesday 1st September  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS practical          | 6%         | Tuesday 15th September |
+| [Assessment 5](Assignments/Assignment5.html)                 | Variant Calling practical            | 6%         | Tuesday 6th October |
 | [Assessment 6]()      | Graphical analyses          | 6%         | Monday 28th October   |
 | Tests                                                        |                             | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Monday 4th November   |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
 | Exam                                                         |                             | 40%        |                       |
 
 ### Assessment Checklist
