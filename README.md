@@ -45,7 +45,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **3**    | 10/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
 | **4**    | 17/8       | [Next-generation sequencing][4]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
 | **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    | *NGS sequencing test*                |
-| **6**    | 31/8       | [Alignment Process][6]\* (Dave)      |[TBA] (TBA)   |                          |
+| **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |                              |                          |
 | **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS] (Dave)  | *Alignment test*                 |
 | **8**    | 14/9       | Genome assembly (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
