@@ -83,7 +83,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 
 ## Assessment
 
-### Assessment Schedule & Weighting (Not Up To Date!)
+### Assessment Schedule & Weighting
 
 | **Assessment**                                               | **Subject**                 | **Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|------------|-----------------------|
