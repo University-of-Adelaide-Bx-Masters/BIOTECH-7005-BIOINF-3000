@@ -13,6 +13,10 @@ Instructors:
 - Dave Adelson
 - Dan Kortschak
 - Steve DeLean
+- Lloyd Low
+- Rick Tearle
+- Bastien Llamas
+- Jimmy Breen
 
 __*Course Contact*__
 Dave Adelson
@@ -37,19 +41,19 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **Week** | **Monday** | **Lecture**                                   | **Practical**                     | **Tutorial**                             |
 |----------|------------|-----------------------------------------------|-----------------------------------|------------------------------------------|
 | **1**    | 27/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steve)   | *Discussion*                             |
-| **2**    | 3/8        | [Evolutionary Processes][3]\* (Dave)           | [Introduction to R] (2) (Steve)   | Continue practical                       |
-| **3**    | 10/8‡      | [Statistics][2] (Steve)                       | [Introduction To Bash] (Steve)    | *Evolution test*                         |
-| **4**    | 17/8       | [Alignment Process][4]\* (Dave)             | [Scripting In Bash] (Dave)       | *Stats Test* <br> [Statistics worksheet] |
-| **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    |                                          |
-| **6**    | 31/8‡       | [Next-generation sequencing][6]\*  (Dave)      | [NGS data practical (2)] (Dave)  | *Alignment test*                         |
-| **7**    | 7/9        | Genome assembly (Lloyd)                       | [TBA] (TBA)  | *NGS sequencing test*                    |
-| **8**    | 14/9       | [Variant Calling][8] (Rick)                 | [Variant Calling] (TBA)        | *Genome assembly test*                   |
+| **2**    | 3/8        | [Statistics][2] (Steve)          | [Introduction to R] (2) (Steve)   | Continue practical                       |
+| **3**    | 10/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
+| **4**    | 17/8       | [Next-generation sequencing][4]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
+| **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    | *NGS sequencing test*                |
+| **6**    | 31/8       | [Alignment Process][6]\* (Dave)      |[TBA] (TBA)   |                          |
+| **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS] (Dave)  | *Alignment test*                 |
+| **8**    | 14/9       | Genome assembly (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
 | **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |                  | *Public Holiday 5/10*                  |
-| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) | [Graphical analyses] (Dan)        |                 *Variant Calling test*                         |
-| **11**   | 19/10      | [Epigenetics][11]\* (Bastien Llamas)                   |                                   | *Systems biology test*                   |
-| **12**   | 26/10      | [The Future — wooooooo][12]\* (Dave)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
+| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) |         |                *Genome assembly test*     |
+| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   | [Graphical analyses] (Dan)                                  | *Systems biology test*                   |
+| **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
 
 \* Slides not visible outside UofA network.
