@@ -92,7 +92,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Tuesday 1st September  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS practical          | 6%         | Tuesday 15th September |
 | [Assessment 5](Assignments/Assignment5.html)                 | Variant Calling practical            | 6%         | Tuesday 6th October |
-| [Assessment 6]()      | Graphical analyses          | 6%         | Monday 28th October   |
+| [Assessment 6]()      | Graphical analyses          | 6%         | Tuesday 27th October   |
 | Tests                                                        |                             | 9%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
 | Exam                                                         |                             | 40%        |                       |
