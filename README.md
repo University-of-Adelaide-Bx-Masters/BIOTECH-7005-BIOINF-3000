@@ -51,8 +51,8 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
 | **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |                  | *Public Holiday 5/10*                  |
-| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) |         |                *Genome assembly test*     |
-| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   | [Graphical analyses] (Dan)                                  | *Systems biology test*                   |
+| **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) |    [Graphical analyses] (Dan)       |                *Genome assembly test*     |
+| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   |                                 | *Systems biology test*                   |
 | **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
 
