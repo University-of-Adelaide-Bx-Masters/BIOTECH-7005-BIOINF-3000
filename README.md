@@ -125,7 +125,7 @@ In this course, the following next-generation sequencing (NGS) datasets/protocol
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
-You have the freedom to choose any dataset you would like before we start week 5's practical (Evolutionary Porocesses practical), or choose from four datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
+You have the freedom to choose any dataset you would like before we start week 5's practical (Alignment practical), or choose from four datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
 
 ## Useful Links
 
