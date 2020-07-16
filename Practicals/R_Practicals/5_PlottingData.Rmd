@@ -1,12 +1,14 @@
 ---
-title: "Practical 2.2: Plotting Data"
-subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
+title: 'Practical 2.2: Plotting Data'
 author: "University of Adelaide, Bioinformatics Hub"
 date: "5 August 2019"
-output: 
-  html_document: 
+output:
+  html_document:
     fig_caption: yes
     toc: yes
+  word_document:
+    toc: yes
+subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
 ```{r, loadPackages, echo = FALSE, include = FALSE}

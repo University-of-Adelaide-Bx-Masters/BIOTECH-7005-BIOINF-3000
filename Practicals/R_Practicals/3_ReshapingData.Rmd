@@ -1,12 +1,14 @@
 ---
-title: "Practical 1.3: Reshaping Data in R"
-subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
+title: 'Practical 1.3: Reshaping Data in R'
 author: "Bioinformatics Hub, University of Adelaide"
 date: "29 July 2019"
-output: 
-  html_document: 
+output:
+  html_document:
     fig_caption: yes
     toc: yes
+  word_document:
+    toc: yes
+subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
 ```{r, echo = FALSE}
@@ -75,9 +77,9 @@ Our tasks will be to:
 - count how many of each gender use each transport method
 - add a column with BMI
 
-### Subsetting a `data.frame`
+### Sub-setting a `data.frame`
 
-The conventional `R` method of subsetting a `data.frame` is to use the square brackets (`[]`) and specify rows/columns by position or by name.
+The conventional `R` method of sub-setting a `data.frame` is to use the square brackets (`[]`) and specify rows/columns by position or by name.
 
 For example, to get back the first value of the second column we could type:
 
@@ -128,7 +130,7 @@ This is an alternate method to skipping the column when importing using `read_cs
 In the function `select()`, we can also use column numbers but in general it is best practice to use column names.
 
 <details><summary><b>Why would using column names be better than numbers</b></summary>
-Using column names is much easier to read back, and to cummincate with others.
+Using column names is much easier to read back, and to communicate with others.
 We immediately know what we've done, whereas if we use numbers, we would have to reload the object, then look to see what columns correspond to the given numbers.
 Given that you'll often be looking back at your own code, this is a very good habit to get into, and you will be making your life easier.
 </details>
@@ -306,7 +308,7 @@ This dataset is in what we refer to as `wide` form where we have a row of measur
 The information is _structured around the gene_.
 In `long` form, the information would be  _structured around the measurement_.
 
-To perform this in`R` we can simply use the package `tidyr` which is loaded with the call to `library(tidyverse)`.
+To perform this in `R` we can simply use the package `tidyr` which is loaded with the call to `library(tidyverse)`.
 The function we'll use is `gather()`, which *gathers* multiple columns into a single column. 
 
 ```{r}

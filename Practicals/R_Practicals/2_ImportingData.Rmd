@@ -1,12 +1,14 @@
 ---
-title: "Practical 1.2: Importing Data Into R"
-subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
+title: 'Practical 1.2: Importing Data Into R'
 author: "Bioinformatics Hub, University of Adelaide"
 date: "29 July 2019"
-output: 
-  html_document: 
+output:
+  html_document:
     fig_caption: yes
     toc: yes
+  word_document:
+    toc: yes
+subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
 ```{r, echo = FALSE}
@@ -88,7 +90,7 @@ Now we've gone through some formalities, let's import some data using the Graphi
 This can be used to open (small) files in the `Script Window` and view them as plain text files.
 When doing this **the file is not loaded into R**.
 However, it can be useful just to have a quick look at what the file contains.
-Here we can see that we have a series of comma-separaed entries, which is what we expect for a `.csv` file.
+Here we can see that we have a series of comma-separated entries, which is what we expect for a `.csv` file.
 
 Now close the file again by clicking the cross next to the file name in the Script Window.
 
@@ -108,7 +110,7 @@ This will open the **Preview Window** as seen below.
 
 As highlighted in the circle below, this gives us a preview of the data as `R` will see it.
 This is helpful to check that the columns are as we expect.
-If there are problems with delimiters (sometimes files can be labelled `.csv` files but use a tab or semi-colon as delimiters) we will spot the problem here.
+If there are problems with delimiters (sometimes files can be labeled `.csv` files but use a tab or semi-colon as delimiters) we will spot the problem here.
 If the column names are not as expected, we can also spot any problems here.
 
 ```{r, echo=FALSE, out.width='900mm', fig.align='center', fig.cap = "The Preview Window showing where we can see a preview of the data."}
@@ -206,7 +208,7 @@ transport <- read_csv("path/to/file", skip = 3)
 </details>
 
 <details><summary><b>The `read_csv()` function can take an argument `trim_ws`. What do you think the argument `trim_ws` does?</b></summary>
-Removes whitespace at the start/end of any fields.
+Removes white-space at the start/end of any fields.
 </details>
 
 ```{r, echo = FALSE}
@@ -313,7 +315,7 @@ We never need to worry about this in Excel, but it can be very useful in `R`.
 
 **What if we get that wrong?**
 
-Let's mis-specify the third column as a number instead of a text-string, i.e. "character"
+Let's miss-specify the third column as a number instead of a text-string, i.e. "character"
 
 ```{r}
 no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE, col_types = "-cnnnc")

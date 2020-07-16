@@ -1,12 +1,14 @@
 ---
 title: "Practical 2.3 Using R Markdown"
-subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
 author: "University of Adelaide, Bioinformatics Hub"
 date: "5 August 2019"
-output: 
-  html_document: 
+output:
+  word_document:
+    toc: yes
+  html_document:
     fig_caption: yes
     toc: yes
+subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
 ```{r, echo=FALSE, message=FALSE}
