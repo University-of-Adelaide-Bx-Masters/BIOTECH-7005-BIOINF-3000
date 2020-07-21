@@ -56,7 +56,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
 
 
-\* Slides not visible outside UofA network.
+\* Slides not visible outside UofA network unless you connect via Uni VPN.
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
 [2]: Lectures/03-statistics.html
