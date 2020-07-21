@@ -1,6 +1,6 @@
 # Assignment 2 [*29 marks*]
 
-**Due before 12pm, Monday 2nd September**
+**Due before 12pm, Tuesday 25th August**
 
 Your answers to all questions should be submitted to myUni as a `.zip` file containing three files:
 1) a bash script for Q1 2) a bash script for Q2, and 3) the answers to the statistics questions (Q3 and Q4) in a single Rmarkdown document.
