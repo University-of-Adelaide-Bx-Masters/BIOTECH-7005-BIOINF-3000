@@ -92,7 +92,8 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics | 6%         | Tuesday 25th August    |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Tuesday 1st September  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS          | 6%         | Tuesday 15th September |
-| [Assessment 5](Assignments/)                                 | Variant Calling            | 6%         | Tuesday 6th October |
+[//]: # (the following link needs to be updated)
+| [Assessment 5](/)                                 | Variant Calling            | 6%         | Tuesday 6th October |
 | [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          | 6%         | Tuesday 27th October   |
 | Tests                                                        |                             | 9%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
