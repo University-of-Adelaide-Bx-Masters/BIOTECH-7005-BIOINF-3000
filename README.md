@@ -91,7 +91,7 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics | 6%         | Tuesday 25th August    |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Tuesday 1st September  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS practical          | 6%         | Tuesday 15th September |
-| [Assessment 5](Assignments/Assignment5.html)                 | Variant Calling practical            | 6%         | Tuesday 6th October |
+| [Assessment 5](Assignments/)                 | Variant Calling practical            | 6%         | Tuesday 6th October |
 | [Assessment 6]()      | Graphical analyses          | 6%         | Tuesday 27th October   |
 | Tests                                                        |                             | 9%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
@@ -115,13 +115,13 @@ Have you:
 
 ### Major Project (15%)
 
-In this course, the following next-generation sequencing (NGS) datasets/protocols will be in detail:
+In this course, the following next-generation sequencing (NGS) datasets/protocols are covered:
 
 1. Whole genome sequencing/Resequencing
 2. Transcriptome Sequencing (RNAseq)
 3. DNA Methylation/Bisulfite Sequencing
 4. Enrichment/Capture sequencing (Methyl-capture, ChIPseq, RIPseq)
-5. Metagenomics/Microbial profiling
+5. Variant Calling
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
