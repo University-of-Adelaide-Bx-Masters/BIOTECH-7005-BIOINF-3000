@@ -86,17 +86,17 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 
 ### Assessment Schedule & Weighting
 
-| **Assessment**                                               | **Subject**                 | **Weight** | **Due Date**          |
-|--------------------------------------------------------------|-----------------------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               | 6%         | Tuesday 11th August    |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics | 6%         | Tuesday 25th August    |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      | 6%         | Tuesday 1st September  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS          | 6%         | Tuesday 15th September |
-| [Assessment 5](/)                                 | Variant Calling            | 6%         | Tuesday 6th October |
-| [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          | 6%         | Tuesday 27th October   |
-| Tests                                                        |                             | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
-| Exam                                                         |                             | 40%        |                       |
+| **Assessment**                                               | **Subject**                 |  **UG Weight**  | **PG Weight** | **Due Date**          |
+|--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  8%             | 6%         | Tuesday 11th August    |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Tuesday 25th August    |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 1st September  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 15th September |
+| [Assessment 5](/)                                 | Variant Calling                        |  8%             | 6%         | Tuesday 6th October |
+| [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          |  8%             | 6%         | Tuesday 27th October   |
+| Tests                                                        |                             |  12%            | 9%         |                       |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 3rd November   |
+| Exam                                                         |                             |  40%            | 40%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
 
