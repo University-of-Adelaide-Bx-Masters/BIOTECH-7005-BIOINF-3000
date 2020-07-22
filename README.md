@@ -98,6 +98,8 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 | [Project](Assignments/major_project.md)                      | Complete Dataset            | 15%        | Tuesday 3rd November   |
 | Exam                                                         |                             | 40%        |                       |
 
+Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
+
 ### Assessment Checklist
 
 Have you:
