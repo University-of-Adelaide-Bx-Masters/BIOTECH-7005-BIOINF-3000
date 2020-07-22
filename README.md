@@ -33,7 +33,7 @@ Lectures: Thursday 1pm, Online - details on MyUni
 Tutorials: Monday 11am-1pm, Barr Smith South, 1063
 - 27 July — 26 Oct
 
-Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
+Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 - 28 Jul — 27 Oct
 
 ### Timetable (Provisional)
