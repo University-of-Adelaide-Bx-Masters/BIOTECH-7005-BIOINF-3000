@@ -1,7 +1,7 @@
 ---
 title: 'Practical 2.2: Plotting Data'
-author: "University of Adelaide, Bioinformatics Hub"
-date: "5 August 2019"
+author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
+date: "4 August 2020"
 output:
   html_document:
     fig_caption: yes
@@ -58,7 +58,7 @@ This strategy also allows for additional data to be provided as more experiments
 **Remember to load all packages at the top of your `R` script for easier reference in the future!**
 
 ```{r}
-csvFile <- file.path("~", "data", "intro_r", "transport.csv")
+csvFile <- file.path("./", "data", "transport.csv")
 file.exists(csvFile)
 data <- read_csv(csvFile) %>%
   mutate(height = height/100, BMI = weight / height^2) %>%

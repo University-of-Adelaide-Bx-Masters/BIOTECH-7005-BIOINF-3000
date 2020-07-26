@@ -1,7 +1,7 @@
 ---
 title: 'Practical 2.1: Working With Text In R'
-author: "Bioinformatics Hub, University of Adelaide"
-date: "5 August 2019"
+author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
+date: "4 August 2020"
 output:
   html_document:
     fig_caption: yes
@@ -60,7 +60,7 @@ Let's load last week's pcr.csv file to have a look.
 
 ```{r, results='hide'}
 library(tidyverse)
-pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
+pcrFile <- file.path("./", "data", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```

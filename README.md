@@ -12,7 +12,7 @@ Coordinator:
 Instructors:
 - Dave Adelson
 - Dan Kortschak
-- Steve DeLean
+- Steven Delean
 - Lloyd Low
 - Rick Tearle
 - Bastien Llamas
@@ -40,8 +40,8 @@ Practicals: Tuesday 11am-1pm, Mawson, G12 Computer Suite
 
 | **Week** | **Monday** | **Lecture**                                   | **Practical**                     | **Tutorial**                             |
 |----------|------------|-----------------------------------------------|-----------------------------------|------------------------------------------|
-| **1**    | 27/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steve)   | *Discussion*                             |
-| **2**    | 3/8        | [Statistics][2] (Steve)          | [Introduction to R] (2) (Steve)   | Continue practical                       |
+| **1**    | 27/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steven)   | *Discussion*                             |
+| **2**    | 3/8        | [Statistics][2] (Steven)          | [Introduction to R] (2) (Steven)   | Continue practical                       |
 | **3**    | 10/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
 | **4**    | 17/8       | [Next-generation sequencing][4]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
 | **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    | *NGS sequencing test*                |
