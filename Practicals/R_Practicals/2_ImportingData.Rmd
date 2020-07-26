@@ -154,7 +154,7 @@ We have just loaded data using the default settings of `read_csv()`.
 <details><summary><b>The `~` symbol</b></summary>
 You may have seen the `~` symbol in the code above.
 This is MacOS and Linux shorthand for your home directory.
-We'll cover this in more details once we get to our Bash Practicals, but is shorthand for the directory `/home/biotech7005` on your VM.
+We'll cover this in more details once we get to our Bash Practicals, but is shorthand for the directory `/home/student` on your VM.
 </details>
 
 To demonstrate this:
