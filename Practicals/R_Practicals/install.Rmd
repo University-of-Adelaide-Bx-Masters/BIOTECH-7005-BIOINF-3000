@@ -1,7 +1,7 @@
 ---
 title: "R Setup"
-author: "Steve Pederson"
-date: "23 July 2018"
+author: "Steven Delean (based on notes by Steve Pederson)"
+date: "28 July 2020"
 output: html_document
 ---
 
@@ -18,8 +18,8 @@ You will need to be connected to the internet during installation.
 ### OSX
 
 1. **The [R Software](https://cran.r-project.org/bin/macosx/) itself.**
-    + The latest release is 3.5.1, however any version >3.5 will be suitable. 
-    + If you have Mavericks or lower (OSX $\leq$ 10.9) you will be restricted to R 3.3.3. Whilst this will be mostly compatabile with today's material, you may like to consider upgrading your OS relatively soon. Bioinformatics tools are often developed quickly and may render this OS as more and more of a problem as time moves on.
+    + The latest release is 4.0.2, however any version >4.0 will be suitable. 
+    + If you have El Capitan or lower (OSX $\leq$ 10.11) you will be restricted to R 3.6.3. Whilst this will be mostly compatabile with today's material, you may like to consider upgrading your OS relatively soon. Bioinformatics tools are often developed quickly and may render this OS as more and more of a problem as time moves on.
 2. **The IDE [R Studio](https://www.rstudio.com/products/rstudio/download/#download)** which is the software we use to interact with R
 3. R is also dependent on [XQuartz](https://www.xquartz.org/) so please ensure you have the latest version
 
@@ -28,24 +28,23 @@ You will need to be connected to the internet during installation.
 If you are running your own laptop where *you are the administrator*, installation is relatively easy.
 Please install the following software in order:
 
-1. **The [R Software](https://cran.r-project.org/bin/windows/) itself.** The latest release is 3.5.1, however any version >3.5 will be suitable
+1. **The [R Software](https://cran.r-project.org/bin/windows/base/) itself.** The latest release is 4.0.2, however any version >3.6 will be suitable
 2. The IDE [R Studio](https://www.rstudio.com/products/rstudio/download/#download) which is the software we use to interact with R
 
 ### Ubuntu
 
 Open a terminal (`Ctrl + Alt +T`).
-For Ubuntu 16.04 simply enter the following, however if you are on another version you'll need to change "xenial" to your specific version (i.e. trusty, bionic etc)
+For Ubuntu 18.04 simply enter the following, however if you are on another version you'll need to change "bionic" to your specific version (e.g., xenial)
 
 ```
-sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial-cran35/" | sudo tee -a /etc/apt/sources.list
+sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu bionic-cran40/" | sudo tee -a /etc/apt/sources.list
 ```
 
 From there just enter the following. One line at a time is best as you may be required to enter `yes` or `no` at various times.
 First we'll need to setup a key server
 
 ```
-gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-gpg -a --export E084DAB9 | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 ```
 From here we can install all the software we need
 
@@ -54,20 +53,20 @@ sudo apt-get update
 sudo apt-get install r-base r-base-dev gdebi-core
 ```
 
-For Ubuntu 16.04 or later
+For Ubuntu 18.04 or later
 
 ```
-wget https://download1.rstudio.org/rstudio-xenial-1.1.453-amd64.deb
-sudo gdebi -n rstudio-xenial-1.1.453-amd64.deb
-rm rstudio-xenial-1.1.453-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1056-amd64.deb
+sudo gdebi -n rstudio-1.3.1056-amd64.deb
+rm rstudio-1.3.1056-amd64.deb
 ```
 
-For Ubuntu 15.10 or earlier
+For Ubuntu 16.10 or earlier
 
 ```
-wget https://download1.rstudio.org/rstudio-1.1.453-amd64.deb
-sudo gdebi -n rstudio-1.1.453-amd64.deb
-rm rstudio-1.1.453-amd64.deb
+wget https://download1.rstudio.org/desktop/xenial/amd64/rstudio-1.3.1056-amd64.deb
+sudo gdebi -n rstudio-1.3.1056-amd64.deb
+rm rstudio-1.3.1056-amd64.deb
 ```
 
 ##
@@ -78,7 +77,7 @@ Paste the following lines all at once, followed by **Enter**. If you are prompte
 ```{r, eval=FALSE}
 pkgs <- c("tidyverse", "pander", "plotly", "ggrepel", "gridExtra", 
           "knitr", "rmarkdown", "readxl", "devtools")
-install.packages(pkgs, dependencies = TRUE )
+install.packages(pkgs, dependencies = TRUE)
 ```
 
 This will install the required packages for the course.

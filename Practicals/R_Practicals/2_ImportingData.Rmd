@@ -1,7 +1,7 @@
 ---
 title: 'Practical 1.2: Importing Data Into R'
-author: "Bioinformatics Hub, University of Adelaide"
-date: "29 July 2019"
+author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
+date: "28 July 2020"
 output:
   html_document:
     fig_caption: yes
@@ -28,8 +28,8 @@ As well as forming objects like we did in the introductory session, we often imp
 Sometimes we have to manipulate & 'wrangle' the data a little and as part of this.
 We also make plots to see what everything looks like as a common part of this process.
 
-Today we'll start the ball rolling and will introduce a set of packages known as the `tidyverse`.
-This is a core set of packages produced by the RStudio team which make working with data as painless as possible.
+Today we'll start the ball rolling by introducing a set of packages known as the `tidyverse`.
+This is a core set of packages produced by the RStudio team that make working with data as painless as possible.
 A brief introduction to these packages and the general approach is summarised below.
 
 ![](images/tidy_workflow.png)
@@ -38,7 +38,7 @@ A brief introduction to these packages and the general approach is summarised be
 
 Like most programming languages `R` is very strict about data formats.
 We can import `.xlsx`, `xls`, `csv`, `txt`, `gtf/gff` files + many more file types, but understanding the structure of the imported data is often required.
-For Excel files, some things we do to make it "look nice" can create problems, or are just ignored:
+For Excel files, some things we do to make it "look nice" in the Excel program can create problems, or are just ignored:
 
 - Merged cells can lead to errors and unexpected results
 - Specifying missing values can give misleading values
@@ -64,17 +64,17 @@ This will load several packages which contains many useful functions for the fol
 You should see something like the following, which tells us which individual packages have been loaded
 
 ```
-── Attaching packages ─────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-✔ ggplot2 3.2.0     ✔ purrr   0.3.2
-✔ tibble  2.1.3     ✔ dplyr   0.8.3
-✔ tidyr   0.8.3     ✔ stringr 1.4.0
-✔ readr   1.3.1     ✔ forcats 0.4.0
-── Conflicts ────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
+── Attaching packages ────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+✓ tibble  3.0.3     ✓ dplyr   1.0.0
+✓ tidyr   1.1.0     ✓ stringr 1.4.0
+✓ readr   1.3.1     ✓ forcats 0.5.0
+── Conflicts ───────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
 ```
 
-This strategy of loading pacages at the start of your script using the command `library(packageName)`, is a best practice commonly used by R programmers.
+This strategy of loading packages at the start of your script using the command `library(packageName)`, is a best practice commonly used by R programmers.
 This will be helpful for any collaborators, and for yourself when you look back at a script in 6 months.
 
 
@@ -82,8 +82,8 @@ This will be helpful for any collaborators, and for yourself when you look back 
 
 Now we've gone through some formalities, let's import some data using the Graphical User Interface (GUI) that comes with RStudio
 
-1. Navigate to your `~/data/intro_r` folder using the `Files` Tab.
-    - First click the ![](images/home.png) icon then click into `data`.then `intro_r`
+1. Navigate to your `~/data` folder using the `Files` Tab
+    - First click the ![](images/home.png) icon then click into `data`
 2. Click on the file `transport.csv`
 3. Select `View File`
 
@@ -136,22 +136,22 @@ The code we copied has 3 lines:
     + The package `readr` contains the function `read_csv()`
     + We have already loaded this package when we entered `library(tidyverse)`, so this line is a little redundant but won't hurt to include.
     Reloading a package generally does nothing.
-2. `transport <- read_csv("~/data/intro_r/transport.csv")`
+2. `transport <- read_csv("~/data/transport.csv")`
     + This is the code executed to load the data into your `R Environment`
     + It created an object named `transport` by using the file name without the suffix. (`transport <-`)
     + The location of the file on your hard drive was passed to the function `read_csv()`
     + The function `read_csv()` was then used to parse the plain text into the `R Environment`
 3. `View(transport)` opened a preview in a familiar `Excel-like` format
-    + *We never use this in the Bioinformatics Hub*
+    + *This approach is seldom used and we will show you more informative ways to 'view' your data*
     + Edits in here will not affect the main `R` object, and only affect this preview 
     + Close the preview by clicking the cross next to `transport` in the `Script Window`
     + Delete `View(transport)` from your pasted code
 
 We have just loaded data using the default settings of `read_csv()`.
-(If we'd change any options in the GUI, the code would have changed.)
+(If we'd changed any options in the GUI, the code would have changed.)
 **Now we've saved the code in our script, we no longer have any need the GUI to perform this operation again.**
 
-<details><summary><b>The `~ symbol</b></summary>
+<details><summary><b>The `~` symbol</b></summary>
 You may have seen the `~` symbol in the code above.
 This is MacOS and Linux shorthand for your home directory.
 We'll cover this in more details once we get to our Bash Practicals, but is shorthand for the directory `/home/biotech7005` on your VM.
@@ -165,7 +165,7 @@ To demonstrate this:
 2. Select the code we've just pasted and run it all again
 3. Check the `Environment Tab` again and `transport` is back!
 
-This idea is at the very heart of **Reproducible Research!!!**
+The idea that the source code is truth is at the very heart of **Reproducible Research!!!**
 
 ### Understanding `read_csv()`
 
@@ -179,21 +179,21 @@ To find out how the function works, we can check the help page by typing a `?` f
 This page lists four functions, but stick to `read_csv()`
 This function has numerous arguments given with names like `file`, `col_names` etc.
 
-- If just the name is given in the function (e.g. `file`), we need to specify something or the function will not know what to do
-- For any *argument* which is given a default value (e.g. `col_names = TRUE`), the function has a default value and we don't need to specify anything, unless over-riding the defaults, or wishing to be explicit for anyone reading our code.
+- We need to specify the name of the file to read (e.g. `file`) or the function will not know what to do (i.e., there is no default value for the `file` argument)
+- For any *argument* which is given a default value (e.g. `col_names = TRUE`), the function uses the default value and we don't need to specify anything, unless over-riding the defaults, or wishing to be explicit for anyone reading our code.
 - **If specifying arguments in order, we don't need to name them**
 - All `arguments` for the function were defined somewhere in the GUI
 
 For example:
 
 ```{r, eval=FALSE}
-transport <- read_csv("~/data/intro_r/transport.csv")
+transport <- read_csv("~/data/transport.csv")
 ```
 
 Is equivalent to:
 
 ```{r, eval=FALSE}
-transport <- read_csv(file = "~/data/intro_r/transport.csv")
+transport <- read_csv(file = "~/data/transport.csv")
 ```
 
 #### Questions
@@ -218,8 +218,8 @@ opts_chunk$set(eval = FALSE)
 #### An important side note regarding `read_csv()`
 
 When you get to the point of reading other people's scripts, you may sometimes come across another function `read.csv()`.
-This is a very old function which is still in regular use, but is far inferior to `read_csv()`.
-If you ask for help and we see `read.csv()` instead of `read_csv()`, we will definitely ask why you are trying to make your life harder.
+This is the original function in base R, which is still in regular use, but is inferior to `read_csv()`.
+If you ask for help and we see `read.csv()` instead of `read_csv()`, we will definitely ask why you are trying to make your life harder!
 
 
 <!-- ### Working with Files -->
@@ -266,7 +266,7 @@ head(transport)
 
 ## Dealing With Difficult Data
 
-**What if the data we have isn't nice?**
+**What if the data we have isn't nice and clean?**
 
 - Missing values might be given an actual value (e.g. 9999, "NA")
 - Column names might be missing
@@ -286,7 +286,7 @@ This row is used to tell `R` how many columns you have.
 Let's see what happens if we get this wrong, by loading a file without column names.
 
 ```{r}
-no_header <- read_csv("~/data/intro_r/no_header.csv")
+no_header <- read_csv("~/data/no_header.csv")
 no_header
 ```
 
@@ -297,7 +297,7 @@ Clearly the first row has been used as column names, whereas these are really va
 We can easily fix this using the argument `col_names` inside the function `read_csv()`
 
 ```{r}
-no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE)
+no_header <- read_csv("~/data/no_header.csv", col_names = FALSE)
 ```
 
 **What about that first column?**
@@ -307,7 +307,7 @@ We can specify what is loaded or skipped using `col_types`.
 Use the help page for `read_csv()` to try and understand what `"-ccnnc"` means. 
 
 ```{r}
-no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE, col_types = "-ccnnc")
+no_header <- read_csv("~/data/no_header.csv", col_names = FALSE, col_types = "-ccnnc")
 ```
 
 Notice that we have specifically told `R` what type of values we have in each column. 
@@ -318,7 +318,7 @@ We never need to worry about this in Excel, but it can be very useful in `R`.
 Let's miss-specify the third column as a number instead of a text-string, i.e. "character"
 
 ```{r}
-no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE, col_types = "-cnnnc")
+no_header <- read_csv("~/data/no_header.csv", col_names = FALSE, col_types = "-cnnnc")
 ```
 
 **Did the error message make any sense?**
@@ -337,7 +337,7 @@ We'll return to this idea later.
 Let's get it wrong first
 
 ```{r}
-comments <- read_csv("~/data/intro_r/comments.csv")
+comments <- read_csv("~/data/comments.csv")
 ```
 
 Did the data load as an `R` object?
@@ -350,7 +350,7 @@ Did the data load as an `R` object?
 Now we can get it right by telling `read_csv()` to ignore any rows beginning with `#`
 
 ```{r}
-comments <- read_csv("~/data/intro_r/comments.csv", comment = "#")
+comments <- read_csv("~/data/comments.csv", comment = "#")
 ```
 
 
@@ -359,7 +359,7 @@ comments <- read_csv("~/data/intro_r/comments.csv", comment = "#")
 What happens when you try to load the file `bad_colnames_.csv`?
 
 ```{r}
-bad_colnames <- read_csv("~/data/intro_r/bad_colnames.csv")
+bad_colnames <- read_csv("~/data/bad_colnames.csv")
 ```
 
 <details><summary><b>Does this look right to you?</b></summary>
@@ -371,7 +371,7 @@ Thus, the column names are shifted left by one column.
 Here's my solution, where I've set the column names manually.
 
 ```{r,tidy=TRUE}
-bad_colnames <- read_csv("~/data/intro_r/bad_colnames.csv",  skip =  1, col_names = FALSE)
+bad_colnames <- read_csv("~/data/bad_colnames.csv",  skip =  1, col_names = FALSE)
 colnames(bad_colnames)
 colnames(bad_colnames) <- c("rowname", "gender", "name", "weight", "height", "transport")
 ```
@@ -396,7 +396,7 @@ We'll see this function a great deal when using `R`.
 Let's get it wrong first:
 
 ```{r}
-missing_data <- read_csv("~/data/intro_r/missing_data.csv")
+missing_data <- read_csv("~/data/missing_data.csv")
 ```
 
 <details><summary><b>Where have the errors appeared?</b></summary>
@@ -406,6 +406,6 @@ The `weight` column is no longer numeric, but appears to be a column of text (ch
 Now we can get it right using both the `na` and `col_types` arguments.
 
 ```{r}
-missing_data <- read_csv("~/data/intro_r/missing_data.csv", na = "-", col_types = "-ccnnc")
+missing_data <- read_csv("~/data/missing_data.csv", na = "-", col_types = "-ccnnc")
 ```
 

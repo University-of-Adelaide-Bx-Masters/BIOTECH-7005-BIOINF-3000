@@ -1,7 +1,7 @@
 ---
 title: 'Practical 1.3: Reshaping Data in R'
-author: "Bioinformatics Hub, University of Adelaide"
-date: "29 July 2019"
+author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
+date: "28 July 2020"
 output:
   html_document:
     fig_caption: yes
@@ -14,7 +14,7 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ```{r, echo = FALSE}
 library(knitr)
 opts_chunk$set(echo = TRUE,
-               eval = FALSE,
+               #eval = FALSE,
                results = "hide",
                message = FALSE, warning =  FALSE)
 ```
@@ -36,8 +36,8 @@ We'll cover:
     - `summarise()`: obtaining summary values for a column
     - `group_by()`: defining grouping variables for summaries
 - Changing from wide to long form using `tidyr`
-    - `gather()`: changing from wide to long form
-    - `spread()`: changing from long to wide form
+    - `pivot_longer()`: changing from wide to long form
+    - `pivot_wider()`: changing from long to wide form
 - Editing text using `stringr`
     - `str_extract_all()`: using regular expressions to extract patterns within strings
 
@@ -56,7 +56,7 @@ To check that we have this correct, we'll first check that the file exists, usin
 
 ```{r, results='hide'}
 library(tidyverse)
-csvFile <- file.path("~", "data", "intro_r", "transport.csv")
+csvFile <- file.path("./", "data", "transport.csv")
 file.exists(csvFile)
 data <- read_csv(csvFile)
 data
@@ -81,7 +81,7 @@ Our tasks will be to:
 
 The conventional `R` method of sub-setting a `data.frame` is to use the square brackets (`[]`) and specify rows/columns by position or by name.
 
-For example, to get back the first value of the second column we could type:
+For example, to get back the first value (i.e., row) of the second column we could type:
 
 ```{r}
 data[1, 2]
@@ -165,7 +165,7 @@ data <- mutate(data, height_m = height/100, BMI = weight / height_m^2)
 
 Now we have a column called `height` and another called `height_m` so it might be sensible to rename our original column as `height_cm` to make this clear.
 The function `rename()` is all we need to perform this action.
-This time we'll just overwrite the new version of `data` straight away.
+This time we'll just overwrite with the new version of `data` straight away.
 
 ```{r}
 data <- rename(data, height_cm = height)
@@ -223,7 +223,7 @@ We can chain functions together using the symbol `%>%`, which behaves like a pip
 This function/symbol is called *The Magrittr* or *The Pipe* after a [famous painting by Rene Magritte](https://en.wikipedia.org/wiki/The_Treachery_of_Images)
 It is contained in the package `magrittr`, and is loaded by `dplyr` every time we load `dplyr`.
 
-The `%>%` symbol places whatever precedes it as the first argument of the next function.
+The `%>%` symbol places whatever precedes it as the first argument of the next function. We can think of the `%>%` symbol as saying *then*. As in, do the first step *then* do the next step, and so on.
 An alternative way to write our previous line of code would be:
 
 ```{r}
@@ -257,7 +257,7 @@ We can get summaries for entire columns:
 data %>% summarise(mean(weight), mean(height_cm))
 ```
 
-Or we could chain together a few commands, and provide new names for our sumary columns.
+Or we could chain together a few commands, and provide new names for our summary columns.
 
 ```{r}
 data %>%
@@ -281,8 +281,8 @@ data %>%
 ```
 
 As you can see, this is very similar to Excel, except we don't have to repeat anything if new data arrives.
-We just load the now file, and run our code.
-And we can remember exactly what we've done, withouth accidentally over-writing our original data.
+We just load the new file, and run our code.
+And we can remember exactly what we've done, without accidentally over-writing our original data.
 It's all happened in `R` while our original file is still unchanged on our hard-drive.
 This can aid with reproducible research, and also help prevent catastrophes.
 
@@ -296,7 +296,7 @@ Let's load the data first by placing this at the beginning of your new script fi
 
 ```{r}
 library(tidyverse)
-pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
+pcrFile <- file.path("./", "data", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
@@ -309,28 +309,28 @@ The information is _structured around the gene_.
 In `long` form, the information would be  _structured around the measurement_.
 
 To perform this in `R` we can simply use the package `tidyr` which is loaded with the call to `library(tidyverse)`.
-The function we'll use is `gather()`, which *gathers* multiple columns into a single column. 
+The function we'll use is `pivot_longer()`, which *gathers* multiple columns into a single *longer* column.
 
 ```{r}
-pcrData %>% gather(key = "variable", value = "value", -Gene)
+pcrData %>% pivot_longer(-Gene, names_to = "variable", values_to = "value")
 ```
 
 Notice that this has held the `Gene` column fixed but the remainder of the columns have been 'gathered' down the screen.
 The column names are in a new column called `variable`, and the values are in a column called `value`.
 Now you can see that we have a unique row for each measurement, containing all the information about that measurement.
 
-By adding the final `-Gene` we are telling gather to ignore the `Gene` column.
-An alternative method would be to use `ends_with("hr")`.
+By adding the `cols` argument `-Gene` we are telling `pivot_longer` to ignore the `Gene` column when gathering up the data.
+An alternative method would be to use `ends_with("hr")` because all of the columns we want to retain end with the character string "hr".
 Try it if you are interested.
 
 Let's save that as a new object, and give those columns better names while we're at it.
 
 ```{r}
-pcrLong <- pcrData %>% gather(key = "Treatment", value = "Ct", -Gene)
+pcrLong <- pcrData %>% pivot_longer(-Gene, names_to = "Treatment", values_to = "Ct")
 head(pcrLong)
 ```
 
-The important column here is called `Treatment` and contains data that should be placed in two columns.
+The important column here is called `Treatment`, but it actually contains data that should be placed in two columns.
 We can separate this column at the `_` using the function `separate()`.
 
 ```{r}
@@ -339,4 +339,9 @@ pcrLong %>%
 ```
 
 
-If we wanted to return this to wide form we can use the function `spread()`.
+If we wanted to return the 'pcrLong' data to wide form (before separating the original `Treatment` variable into two variables) we can use the function `pivot_wider()`.
+
+```{r}
+pcrLong %>% pivot_wider(names_from = "Treatment", values_from = "Ct")
+```
+

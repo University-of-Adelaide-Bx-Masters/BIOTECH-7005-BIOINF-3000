@@ -1,8 +1,8 @@
 ---
 title: "Practical 1.1: Introduction to R and R Studio"
 subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
-author: "Bioinformatics Hub, University of Adelaide"
-date: "29 July 2019"
+author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
+date: "28 July 2020"
 output: 
   html_document: 
     fig_caption: yes
@@ -66,8 +66,8 @@ In the top left corner, directly below the blue 'R' logo, you can see the word `
 Click this and you should see the following text:
 
 ```
-R version 3.6.1 (2019-07-05) -- "Action of the Toes"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -108,8 +108,7 @@ Mess around with a few more simple calculations, then move on to the next sectio
 In the simple exercise above, we interacted directly with the R Console, but most of the time we will use the R Studio Integrated Development Environment (IDE).
 As you're probably aware, this is how we've logged into our VM and this will be our main environment for the practical series.
 
-Both R and R Studio as also able to be installed on your own computer, and you may need to do this outside of this course.
-However, *it will not be required for this course.*
+Both R and R Studio can also be installed on your own computer, and you may need to do this outside of this course. However, *it will not be required for this course.*
 
 ### Starting with R Studio: Creating an `R Project`
 
@@ -120,7 +119,7 @@ If you don't follow this step, you will be making your life immeasurably harder 
 
 In the middle of the screen you will see the home icon (![home](images/home.png)).
 Click on ![NewFolder](images/NewFolder.png) directly above this and call this folder `Practical_1`.
-**Please ensure you spell this correctly, including the underscore and capitalised first letter**
+**Please ensure you spell this correctly, including the underscore and capitalised first letter. It is important when using scripting languages to never use spaces in the names of files or folders, so please get into the practice of following this rule from now on!**
 
 This is where we'll run everything for today's session.
 To make an R Project for this folder use the following commands in the menu bar at the top of your R Studio session:
@@ -136,7 +135,7 @@ If you look at the top right of your RStudio session you will also see `Practica
 We only have one project at this point, but this is where you can switch between projects.
 For this practical series, we'll start a new project for every session.
 This will help you keep everything organised so you can find everything later.
-Managing your data and code intelligently is a considerable challenge in bioinformatics.
+Managing your data and code intelligently is a considerable challenge in bioinformatics, so it is important to be organised from the beginning!
 
 
 ### Starting with R Studio: Creating an `R Script`
@@ -176,7 +175,7 @@ Let's take a tour through the various panes and tools within RStudio.
 
 - Where we can execute commands directly, as we've already seen
 - This is essentially the _engine_
-- In recent versions of RStudio we also have a `Terminal` which we have already used to change our password. We'll also spend a fair bit of time here later in the course.
+- We also have a `Terminal` which we have already used to change our password. We'll also spend a fair bit of time here later in the course.
 
 As well as performing simple calculations in the Console, as we've already done:
 
@@ -190,7 +189,7 @@ To create an `R` object:
 
 - We need to give it a name, and some data, just like we create a Spreadsheet in Excel, name it and start entering data.
 - In `R`, the process looks like `nameOfObject <- data`
-    - The `<-` symbol is like an arrow
+    - The `<-` symbol is like an arrow, and is the assignment operator
     - Tells `R` to put the `data` in the object
 
 In the Console type:
@@ -238,12 +237,12 @@ Using the object `x` we created as an example:
 x^2
 ```
 
-**NB: R is *case sensitive**
+**NB: R is *case sensitive***
 
 #### Functions
 
 `R` has a series of in-built functions, e.g. `sqrt()`, `log()`, `max()`, `min()` etc. loaded into your Environment.
-We place an object or value inside the `()` after the name of a function
+We place an object or value inside the `()` after the name of a function - these are the *arguments* to the function. 
 
 ```{r}
 sqrt(x)
@@ -254,6 +253,7 @@ Many in-built functions are organised into a package called `base`
 
 - Always installed with `R`
 - Packages group similar/related functions together
+- Currently, there are >20,000 R packages - how is your memory?
 
 ### The Help Pane
 
@@ -264,7 +264,7 @@ We can also search for help with any function by starting with a question mark i
 For another example, we could try `?sqrt`
 
 Also in the pane are the `Files` and `Plots` panes.
-We've already used the `Files` pane to create our Practical_1 folder.
+We've already used the `Files` pane to create our `Practical_1` folder.
 Whenever will plot anything in a script, or in the R Console, the figures will appear in the `Plots` pane in this section of RStudio.
 
 If we generate any html output, this will appear in the `Viewer` pane.
@@ -293,7 +293,7 @@ When writing code
 - We can write comments by starting a line with the `#`
     - Anything following this symbol will not be executed
     - Can write notes to ourselves and collaborators
-    - We can also place `#` at the end of a line with a comment following
+    - We can also place `#` at the end of a line of code with a comment following
 
 To see how this works:
 
@@ -327,7 +327,7 @@ Again, type this into your script window, then send it to the Console
 x > 1
 ```
 
-As well as logical test, we can perform mathematical operations on a vector.
+As well as a logical test, we can perform mathematical operations on a vector.
 
 ```{r}
 # Let's square every value in `x`
