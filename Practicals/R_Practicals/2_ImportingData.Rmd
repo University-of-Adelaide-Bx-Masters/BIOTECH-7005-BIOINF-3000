@@ -82,8 +82,8 @@ This will be helpful for any collaborators, and for yourself when you look back 
 
 Now we've gone through some formalities, let's import some data using the Graphical User Interface (GUI) that comes with RStudio
 
-1. Navigate to your `~/data` folder using the `Files` Tab
-    - First click the ![](images/home.png) icon then click into `data`
+1. Navigate to your `~/data/intro_r` folder using the `Files` Tab
+    - First click the ![](images/home.png) icon then click into `data`, then `intro_r`
 2. Click on the file `transport.csv`
 3. Select `View File`
 
@@ -136,7 +136,7 @@ The code we copied has 3 lines:
     + The package `readr` contains the function `read_csv()`
     + We have already loaded this package when we entered `library(tidyverse)`, so this line is a little redundant but won't hurt to include.
     Reloading a package generally does nothing.
-2. `transport <- read_csv("~/data/transport.csv")`
+2. `transport <- read_csv("~/data/intro_r/transport.csv")`
     + This is the code executed to load the data into your `R Environment`
     + It created an object named `transport` by using the file name without the suffix. (`transport <-`)
     + The location of the file on your hard drive was passed to the function `read_csv()`
@@ -187,13 +187,13 @@ This function has numerous arguments given with names like `file`, `col_names` e
 For example:
 
 ```{r, eval=FALSE}
-transport <- read_csv("~/data/transport.csv")
+transport <- read_csv("~/data/intro_r/transport.csv")
 ```
 
 Is equivalent to:
 
 ```{r, eval=FALSE}
-transport <- read_csv(file = "~/data/transport.csv")
+transport <- read_csv(file = "~/data/intro_r/transport.csv")
 ```
 
 #### Questions
@@ -286,7 +286,7 @@ This row is used to tell `R` how many columns you have.
 Let's see what happens if we get this wrong, by loading a file without column names.
 
 ```{r}
-no_header <- read_csv("~/data/no_header.csv")
+no_header <- read_csv("~/data/intro_r/no_header.csv")
 no_header
 ```
 
@@ -297,7 +297,7 @@ Clearly the first row has been used as column names, whereas these are really va
 We can easily fix this using the argument `col_names` inside the function `read_csv()`
 
 ```{r}
-no_header <- read_csv("~/data/no_header.csv", col_names = FALSE)
+no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE)
 ```
 
 **What about that first column?**
@@ -307,7 +307,7 @@ We can specify what is loaded or skipped using `col_types`.
 Use the help page for `read_csv()` to try and understand what `"-ccnnc"` means. 
 
 ```{r}
-no_header <- read_csv("~/data/no_header.csv", col_names = FALSE, col_types = "-ccnnc")
+no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE, col_types = "-ccnnc")
 ```
 
 Notice that we have specifically told `R` what type of values we have in each column. 
@@ -318,7 +318,7 @@ We never need to worry about this in Excel, but it can be very useful in `R`.
 Let's miss-specify the third column as a number instead of a text-string, i.e. "character"
 
 ```{r}
-no_header <- read_csv("~/data/no_header.csv", col_names = FALSE, col_types = "-cnnnc")
+no_header <- read_csv("~/data/intro_r/no_header.csv", col_names = FALSE, col_types = "-cnnnc")
 ```
 
 **Did the error message make any sense?**
@@ -337,7 +337,7 @@ We'll return to this idea later.
 Let's get it wrong first
 
 ```{r}
-comments <- read_csv("~/data/comments.csv")
+comments <- read_csv("~/data/intro_r/comments.csv")
 ```
 
 Did the data load as an `R` object?
@@ -350,7 +350,7 @@ Did the data load as an `R` object?
 Now we can get it right by telling `read_csv()` to ignore any rows beginning with `#`
 
 ```{r}
-comments <- read_csv("~/data/comments.csv", comment = "#")
+comments <- read_csv("~/data/intro_r/comments.csv", comment = "#")
 ```
 
 
@@ -359,7 +359,7 @@ comments <- read_csv("~/data/comments.csv", comment = "#")
 What happens when you try to load the file `bad_colnames_.csv`?
 
 ```{r}
-bad_colnames <- read_csv("~/data/bad_colnames.csv")
+bad_colnames <- read_csv("~/data/intro_r/bad_colnames.csv")
 ```
 
 <details><summary><b>Does this look right to you?</b></summary>
@@ -371,7 +371,7 @@ Thus, the column names are shifted left by one column.
 Here's my solution, where I've set the column names manually.
 
 ```{r,tidy=TRUE}
-bad_colnames <- read_csv("~/data/bad_colnames.csv",  skip =  1, col_names = FALSE)
+bad_colnames <- read_csv("~/data/intro_r/bad_colnames.csv",  skip =  1, col_names = FALSE)
 colnames(bad_colnames)
 colnames(bad_colnames) <- c("rowname", "gender", "name", "weight", "height", "transport")
 ```
@@ -396,7 +396,7 @@ We'll see this function a great deal when using `R`.
 Let's get it wrong first:
 
 ```{r}
-missing_data <- read_csv("~/data/missing_data.csv")
+missing_data <- read_csv("~/data/intro_r/missing_data.csv")
 ```
 
 <details><summary><b>Where have the errors appeared?</b></summary>
@@ -406,6 +406,6 @@ The `weight` column is no longer numeric, but appears to be a column of text (ch
 Now we can get it right using both the `na` and `col_types` arguments.
 
 ```{r}
-missing_data <- read_csv("~/data/missing_data.csv", na = "-", col_types = "-ccnnc")
+missing_data <- read_csv("~/data/intro_r/missing_data.csv", na = "-", col_types = "-ccnnc")
 ```
 

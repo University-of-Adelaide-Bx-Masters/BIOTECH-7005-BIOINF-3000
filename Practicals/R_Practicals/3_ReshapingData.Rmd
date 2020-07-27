@@ -56,7 +56,7 @@ To check that we have this correct, we'll first check that the file exists, usin
 
 ```{r, results='hide'}
 library(tidyverse)
-csvFile <- file.path("./", "data", "transport.csv")
+csvFile <- file.path("~", "data", "intro_r", "transport.csv")
 file.exists(csvFile)
 data <- read_csv(csvFile)
 data
@@ -296,7 +296,7 @@ Let's load the data first by placing this at the beginning of your new script fi
 
 ```{r}
 library(tidyverse)
-pcrFile <- file.path("./", "data", "pcr.csv")
+pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
