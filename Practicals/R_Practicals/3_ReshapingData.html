@@ -426,7 +426,7 @@ summary {
 <h3>Starting with <code>dplyr</code></h3>
 <p>This package is also loaded by default when we enter <code>library(tidyverse)</code>. For this session we’ll use the same data as for the previous session. Note that now we’ll define it as an R object and then we’ll pass it to <code>read_csv()</code>. To check that we have this correct, we’ll first check that the file exists, using the appropriately named function <code>file.exists()</code>.</p>
 <pre class="r"><code>library(tidyverse)
-csvFile &lt;- file.path(&quot;./&quot;, &quot;data&quot;, &quot;transport.csv&quot;)
+csvFile &lt;- file.path(&quot;~&quot;, &quot;data&quot;, &quot;intro_r&quot;, &quot;transport.csv&quot;)
 file.exists(csvFile)
 data &lt;- read_csv(csvFile)
 data</code></pre>
@@ -537,7 +537,7 @@ arrange(data, desc(weight))</code></pre>
 <h3>Wide Form Vs Long Form</h3>
 <p>In this section we will need the <code>pcr.csv</code> dataset in the data folder. Let’s load the data first by placing this at the beginning of your new script file.</p>
 <pre class="r"><code>library(tidyverse)
-pcrFile &lt;- file.path(&quot;./&quot;, &quot;data&quot;, &quot;pcr.csv&quot;)
+pcrFile &lt;- file.path(&quot;~&quot;, &quot;data&quot;, &quot;intro_r&quot;, &quot;pcr.csv&quot;)
 file.exists(pcrFile)
 pcrData &lt;- read_csv(pcrFile)</code></pre>
 <p>Here we have RT-PCR data from T cells as a time course for two treatments (Resting and Stim). The values are <code>Ct</code> values and we have three genes under investigation.</p>

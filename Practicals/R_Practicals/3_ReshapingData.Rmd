@@ -14,7 +14,7 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ```{r, echo = FALSE}
 library(knitr)
 opts_chunk$set(echo = TRUE,
-               #eval = FALSE,
+               eval = FALSE,
                results = "hide",
                message = FALSE, warning =  FALSE)
 ```
@@ -62,7 +62,7 @@ data <- read_csv(csvFile)
 data
 ```
 
-So we have a `r nrow(data)` x `r ncol(data)` `data frame`, which has the familiar structure of rows and columns, and may look a little like a spreadsheet in Excel.
+So we have a 80 x 6 `data frame`, which has the familiar structure of rows and columns, and may look a little like a spreadsheet in Excel.
 We can check the dimensions of this object.
 
 ```{r, results='hide'}
