@@ -21,7 +21,7 @@ To do this we're going to briefly use another language known as `bash` which we'
 
 **Follow all instructions here very, very carefully**
 
-1. Inside RStudio *click the Terminal* tab at the top left. You will see something like `student@bioinf_2020S2-student-1:~$` with a cursor flashing and indicating you can type here.
+1. Inside RStudio *click the Terminal* tab at the top left. You will see something like `(base) student@bioinf_2020S2-student-1:~$` with a cursor flashing and indicating you can type here.
 This is also known as the prompt.
 2. Type the command `passwd` followed by <kbd>Enter</kbd>
     - You will now be asked to enter your existing password. NOTE THAT WHEN ENTERING YOUR PASSWORD **NO TEXT WILL APPEAR AT THE PROMPT**. This is a security feature.
