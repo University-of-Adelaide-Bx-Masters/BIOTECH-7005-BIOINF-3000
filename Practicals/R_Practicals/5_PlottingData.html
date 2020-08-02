@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -332,6 +331,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -408,7 +408,7 @@ summary {
 <pre class="r"><code>library(tidyverse)</code></pre>
 <p>We’ll also use the transport dataset from our previous session. This time, we’ll just overwrite the <code>height</code> column with the same values in <em>m</em> instead of <em>cm</em>. We’ll also remove <code>X1</code> and add the BMI information directly as we’re loading the data. Hopefully you can see the usefulness of the <code>%&gt;%</code> from this example. This way we never need to edit our raw data files, but perform all manipulation in <code>R</code> in a completely reproducible manner. This strategy also allows for additional data to be provided as more experiments or data points are added.</p>
 <p><strong>Remember to load all packages at the top of your <code>R</code> script for easier reference in the future!</strong></p>
-<pre class="r"><code>csvFile &lt;- file.path(&quot;./&quot;, &quot;data&quot;, &quot;transport.csv&quot;)
+<pre class="r"><code>csvFile &lt;- file.path(&quot;~&quot;, &quot;data&quot;, &quot;intro_r&quot;, &quot;transport.csv&quot;)
 file.exists(csvFile)
 data &lt;- read_csv(csvFile) %&gt;%
   mutate(height = height/100, BMI = weight / height^2) %&gt;%

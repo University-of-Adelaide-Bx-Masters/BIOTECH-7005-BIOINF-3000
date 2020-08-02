@@ -57,7 +57,16 @@ This strategy also allows for additional data to be provided as more experiments
 
 **Remember to load all packages at the top of your `R` script for easier reference in the future!**
 
-```{r}
+```{r, eval = FALSE}
+csvFile <- file.path("~", "data", "intro_r", "transport.csv")
+file.exists(csvFile)
+data <- read_csv(csvFile) %>%
+  mutate(height = height/100, BMI = weight / height^2) %>%
+  select(-X1)
+data
+```
+
+```{r, echo = FALSE}
 csvFile <- file.path("./", "data", "transport.csv")
 file.exists(csvFile)
 data <- read_csv(csvFile) %>%
@@ -65,6 +74,7 @@ data <- read_csv(csvFile) %>%
   select(-X1)
 data
 ```
+
 
 The main `ggplot2` function is `ggplot()`.
 In this first stage we first *define the aesthetic mappings using* `aes()`.

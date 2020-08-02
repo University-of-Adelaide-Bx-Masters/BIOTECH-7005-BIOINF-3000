@@ -294,12 +294,19 @@ This can aid with reproducible research, and also help prevent catastrophes.
 In this section we will need the `pcr.csv` dataset in the data folder.
 Let's load the data first by placing this at the beginning of your new script file.
 
-```{r}
+```{r, eval = FALSE}
 library(tidyverse)
 pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
+```{r, results='hide', echo = FALSE}
+library(tidyverse)
+pcrFile <- file.path(".", "data", "intro_r", "pcr.csv")
+file.exists(pcrFile)
+pcrData <- read_csv(pcrFile)
+```
+
 
 Here we have RT-PCR data from T cells as a time course for two treatments (Resting and Stim).
 The values are `Ct` values and we have three genes under investigation.

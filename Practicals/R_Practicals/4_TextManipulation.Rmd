@@ -58,9 +58,15 @@ The package `lubridate` is excellent for managing time & date data, whilst `forc
 Some immediately useful functions in the `stringr` package are `str_to_lower()`, `str_to_upper()` and `str_to_title()`.
 Let's load last week's pcr.csv file to have a look.
 
-```{r, results='hide'}
+```{r, results='hide', eval = FALSE}
 library(tidyverse)
-pcrFile <- file.path("./", "data", "pcr.csv")
+pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
+file.exists(pcrFile)
+pcrData <- read_csv(pcrFile)
+```
+```{r, results='hide', echo = FALSE}
+library(tidyverse)
+pcrFile <- file.path(".", "data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
@@ -112,7 +118,7 @@ Here we are searching the `string` "Hi Mum" for the `pattern` "Mum", and replaci
 str_replace(string = "Hi Mum", pattern = "Mum", replacement =  "Dad")
 ```
 
-Note that we didn't technically need specify the argument name as we called them in order.
+Note that we didn't technically need to specify the argument name as we called them in order.
 A more succinct version of the above code would be.
 
 ```{r}
@@ -141,7 +147,7 @@ str_replace(string = "Hi Mother", pattern = "M.+", replacement = "Dad")
 
 ### Text captures
 
-We can also capture words/phrases/patterns using the round brackets containing or target `(pattern)`.
+We can also capture words/phrases/patterns using the round brackets containing our target `(pattern)`.
 We can then return these in the order we capture them by using the double backslash symbol followed by their capture number.
 *The double backslash is `R`-specific syntax and won't apply when we move to bash in a couple of weeks*.
 
