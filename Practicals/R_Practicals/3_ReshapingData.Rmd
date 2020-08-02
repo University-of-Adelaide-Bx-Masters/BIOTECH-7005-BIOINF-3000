@@ -300,12 +300,6 @@ pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
-```{r, results='hide', echo = FALSE}
-library(tidyverse)
-pcrFile <- file.path(".", "data", "intro_r", "pcr.csv")
-file.exists(pcrFile)
-pcrData <- read_csv(pcrFile)
-```
 
 
 Here we have RT-PCR data from T cells as a time course for two treatments (Resting and Stim).
