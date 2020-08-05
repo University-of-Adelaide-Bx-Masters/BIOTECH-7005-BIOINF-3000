@@ -1,5 +1,5 @@
 ---
-title: "03 Statistics"
+title: "02 Statistics"
 subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
 author: "Steven Delean (based on original notes by Steve Pederson)"
 date: "6 August 2020"
@@ -74,7 +74,7 @@ Every experiment is considered as a **random sample** from all possible repeated
 
 Many data collections can also be considered as experimental datasets
 
-In the 1000 Genomes Project a risk allele for T1D has a frequency of $\pi = 0.07$ in European Populations.  
+In the 100,000 Genomes Project a risk allele for T1D has a frequency of $\pi = 0.07$ in European Populations.  
 
 - **Does this mean, the allele occurs in exactly 7% of Europeans?**
 
@@ -83,7 +83,7 @@ In the 1000 Genomes Project a risk allele for T1D has a frequency of $\pi = 0.07
 In our *in vitro* experiment, we found that 90% of HeLa cells were lysed by exposure to our drug.
 
 - **Does this mean that exactly 90% of HeLa cells will always be destroyed?**
-- **What does this say about *in vivo* responses to the drug?**
+<!-- - **What does this say about *in vivo* responses to the drug?** -->
 
 ## Population Parameters {.build}
 
@@ -153,7 +153,7 @@ x <- c(2.1, 2.8, 2.5, 2.6)
 
 - Comparing expression levels of *FOXP3* in T~reg~ and T~h~ cells ($n = `r length(x)`$ donors)
 - The difference within each donor is obtained as $\Delta \Delta C_t$ values 
-- $\mathbf{x} =$ (`r pander(x)`)
+- $\mathbf{x} =$ (`r x`)
 
 ## The Sample Mean | A qPCR Experiment
 
@@ -274,7 +274,7 @@ df <- data_frame(x = seq(-5, 5, length.out = 1000),
 ```{r, fig.show='asis', fig.align='center', fig.height=4}
 ggplot(df, aes(x = x, y = y)) +
   geom_path() +
-  theme_bw() +
+  theme_bw(base_size = 18) +
   labs(x = "Z", y = "") +
   scale_y_continuous(expand = c(0, 0)) +
   theme(axis.text.y = element_blank(),
@@ -296,7 +296,7 @@ ggplot(df, aes(x = x, y = y)) +
               aes(x= x, ymax =y, ymin = 0),
               fill = "grey") +
   geom_vline(xintercept = 1) +
-  theme_bw() +
+  theme_bw(base_size = 18) +
   labs(x = "Z", y = "") +
   scale_y_continuous(expand = c(0, 0)) +
   theme(axis.text.y = element_blank(),
@@ -309,7 +309,7 @@ ggplot(df, aes(x = x, y = y)) +
 
 ## The Null Hypothesis
 
-**Would a value $>2$ be likely if $H_0$ is `TRUE`?**
+**Would a value $>2$ be likely if $H_0$ is TRUE?**
 
 ```{r, echo=FALSE, fig.show='asis', fig.align='center', fig.height=4}
 ggplot(df, aes(x = x, y = y)) +
@@ -318,7 +318,7 @@ ggplot(df, aes(x = x, y = y)) +
               aes(x= x, ymax =y, ymin = 0),
               fill = "grey") +
   geom_vline(xintercept = 2) +
-  theme_bw() +
+  theme_bw(base_size = 18) +
   labs(x = "Z", y = "") +
   scale_y_continuous(expand = c(0, 0)) +
   theme(axis.text.y = element_blank(),
@@ -368,7 +368,7 @@ ggplot(df, aes(x = x, y = y)) +
               aes(x= x, ymax =y, ymin = 0),
               fill = "grey") +
   geom_vline(xintercept = c(-2, 2)) +
-  theme_bw() +
+  theme_bw(base_size = 18) +
   labs(x = "Z", y = "") +
   scale_y_continuous(expand = c(0, 0)) +
   theme(axis.text.y = element_blank(),
@@ -402,7 +402,7 @@ To summarise:
 
 1. We calculate a test statistic $Z$ using $\mu = 0$ and $\sigma$
 2. Compare this to $\mathcal{N}(0, 1)$ to find the probability ($p$) of observing data as extreme, or more extreme, than we observed if $H_0$ is true
-3. If $p$ is low (e.g. $p<0.05$), we reject $H_0$ as unlikely and accept $H_A$
+3. If $p$ is low (e.g. $p<0.05$), we reject $H_0$ as unlikely and infer $H_A$
 
 # The $t$-test
 
@@ -447,7 +447,7 @@ df %>%
   mutate(variable = factor(variable, levels = c("t_3", "t_10", "Z"))) %>%
   ggplot(aes(x = x, y= value, colour = variable)) +
   geom_line(size = 1)+
-  theme_bw() +
+  theme_bw(base_size = 18) +
   labs(x = "", y = "",colour = "Distribution") +
   scale_y_continuous(expand = c(0, 0)) +
   scale_colour_discrete(breaks =  c("t_3", "t_10", "Z"),
@@ -459,7 +459,7 @@ df %>%
         panel.border = element_blank(),
         panel.grid = element_blank(),
         legend.position = c(0.85, 0.7),
-        legend.text = element_text(size = 11))
+        legend.text = element_text(size = 16))
 ```
 
 ## $t$-tests | Degrees Of Freedom
@@ -501,8 +501,8 @@ df %>%
   mutate(variable = factor(variable, levels = c("t_3", "t_10", "Z"))) %>%
   ggplot(aes(x = x, y= value, colour = variable)) +
   geom_line(size = 1)+
-  geom_vline(xintercept = t) +
-  theme_bw() +
+  geom_vline(xintercept = t, color='purple', linetype = "longdash") +
+  theme_bw(base_size = 18) +
   labs(x = "", y = "",colour = "Distribution") +
   scale_y_continuous(expand = c(0, 0)) +
   scale_colour_discrete(breaks =  c("t_3", "t_10", "Z"),
@@ -513,7 +513,7 @@ df %>%
         axis.line.x = element_line(colour = "black"),
         panel.border = element_blank(),
         panel.grid = element_blank(),
-        legend.position = c(0.85, 0.7),
+        legend.position = c(0.75, 0.7),
         legend.text = element_text(size = 11))
 ```
 
@@ -525,7 +525,7 @@ df %>%
 $$p = `r sprintf("%0.5f", t.test(x)[["p.value"]])`$$
 
 - Thus, the probability of observing data as (or more) extreme as this is very low if $H_0$ was true (1 in ~2300 experiments).
-- We reject $H_0$ and accept $H_A$
+- We reject $H_0$ and infer that our alternative $H_A$ is more likely
 
 ## Hypothesis Testing | Summary
 
@@ -533,7 +533,7 @@ $$p = `r sprintf("%0.5f", t.test(x)[["p.value"]])`$$
 2. Calculate sample mean ($\bar{x}$) and variance ($s^2$)
 3. Calculate $T$-statistic and degrees of freedom ($\nu$)
 4. Compare to $t_{\nu}$ and obtain probability of observing $\bar{x}$ if $H_0$ is true
-5. Accept or reject $H_0$ if $p < 0.05$ (or some other value)
+5. Fail to reject or reject $H_0$ if $p < 0.05$ (or some other value)
 
 ## Hypothesis Testing | Summary
 
@@ -541,10 +541,10 @@ $$p = `r sprintf("%0.5f", t.test(x)[["p.value"]])`$$
 2. Calculate sample mean ($\bar{x}$) and variance ($s^2$)
 3. Calculate $T$-statistic and degrees of freedom ($\nu$)
 4. Compare to $t_{\nu}$ and obtain probability of observing $\bar{x}$ if $H_0$ is true
-5. Accept or reject $H_0$ if $p < 0.05$ (or some other value)
+5. Fail to reject  or reject $H_0$ if $p < 0.05$ (or some other value)
 
 - This applies to most situations
-- Assumes data is normally distributed
+- Assumes errors (deviations of our data around the mean) are normally distributed
 
 ## Two Sample $t$-tests {.build}
 
@@ -581,7 +581,7 @@ $$
 
 1. We  compare our test-statistic to this distribution
 2. Are we likely to see this value (or more extreme) under $H_0$?
-3. Accept or Reject $H_0$
+3. Fail to reject or Reject $H_0$
 
 # Hypothesis Testing For Non-Normal Data
 
@@ -658,7 +658,7 @@ About 1 in 20 times, we will see $p < 0.05$ if $H_0$ is true
 ## Error Types
 
 - Type I errors are when we reject $H_0$ but $H_0$ is true
-- Type II errors are when we accept $H_0$ when $H_0$ is false
+- Type II errors are when we fail to reject $H_0$ when $H_0$ is false
 
 |                    | $H_0$ `TRUE` | $H_0$ `FALSE` |
 | ------------------:| ------------ | ------------- |
@@ -762,3 +762,17 @@ For those interested, the BH procedure for $m$ tests is (not-examinable)
 1. Arrange $p$-values in ascending order $p_{(1)}, p_{(2)}, ..., p_{(m)}$ 
 2. Find the largest number $k$ such that $p_{(k)} \leq \frac{k}{m}\alpha$
 3. Reject $H_0$ for all $H_{(i)}$ where $i \leq k$
+
+## The False Discovery Rate
+Controlling the FDR at $\alpha = 0.05$
+
+```{r, results = "asis"}
+fdr_eg <- data.frame(Rank = 1:10, Pvalue = c(0.0008, 0.009, 0.165, 0.205, 0.396, 0.450, 0.641, 0.781, 0.900, 0.993))
+fdr_eg$BH_Pvalue <- with(fdr_eg, Rank/10*0.05)
+fdr_eg$Reject_null <- with(fdr_eg, 1*(Pvalue <= BH_Pvalue))
+# pander(fdr_eg, style = 'rmarkdown')
+knitr::kable(fdr_eg, "html", align = "lrrr") %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+

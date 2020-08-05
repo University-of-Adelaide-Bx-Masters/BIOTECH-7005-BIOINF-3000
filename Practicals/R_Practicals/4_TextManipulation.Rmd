@@ -64,12 +64,6 @@ pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```
-```{r, results='hide', echo = FALSE}
-library(tidyverse)
-pcrFile <- file.path(".", "data", "intro_r", "pcr.csv")
-file.exists(pcrFile)
-pcrData <- read_csv(pcrFile)
-```
 
 We can actually just grab the `Gene` column out from this `tibble` using the `$` symbol followed by the column name.
 Note that auto-complete will be your friend here.

@@ -66,16 +66,6 @@ data <- read_csv(csvFile) %>%
 data
 ```
 
-```{r, echo = FALSE}
-csvFile <- file.path("./", "data", "transport.csv")
-file.exists(csvFile)
-data <- read_csv(csvFile) %>%
-  mutate(height = height/100, BMI = weight / height^2) %>%
-  select(-X1)
-data
-```
-
-
 The main `ggplot2` function is `ggplot()`.
 In this first stage we first *define the aesthetic mappings using* `aes()`.
 These simply define what is plotted on which axis, and what defines the colour/shape etc.
