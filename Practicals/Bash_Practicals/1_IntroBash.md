@@ -96,17 +96,17 @@ The command `pwd` is what we use to __p__rint the current (i.e. __w__orking) __d
 Even though we are not using `R`, if you have setup the R project like we instructed above this command will probably return the directory. 
 
 ```
-/home/biotech7005/Practical_3
+/home/student/Practical_3
 ```
 
 Check with your neighbour to see if you get the same thing.
 If not, see if you can figure out why.
 
-At the beginning of this section we mentioned that `~/Practical_3` represented your current directory, but now our machine is telling us that our directory is `/home/biotech7005/Practical_3`.
+At the beginning of this section we mentioned that `~/Practical_3` represented your current directory, but now our machine is telling us that our directory is `/home/student/Practical_3`.
 This raises an important and very useful point.
 In `bash` the `~` symbol is a shortcut for the home directory of the current user.
-If Dan was logged in, this would be `/home/Dan` whilst if Steve was logged in this would be `/home/Steve`.
-As we are all logged on as `biotech7005`, this now stands for `/home/biotech7005`.
+If Dave was logged in, this would be `/home/Dave` whilst if Dan was logged in this would be `/home/Dan`.
+As we are all logged on as `student`, this now stands for `/home/student`.
 (Formally, `~` is  a variable, but we'll deal with variables later.)
 
 Importantly every user with an account on a machine will have their own home directory of the format `/home/username1`, `/home/username2` etc..
@@ -165,7 +165,7 @@ For example, `/foo` would refer to a directory called `foo` in the root director
 In contrast, a **relative path** can begin with either the current directory (indicated by `./`) or a higher-level directory (indicated by `../` as mentioned above).
 A subdirectory `foo` of the current directory could thus be specified as `./foo`, whilst a subdirectory of the next higher directory would be specified by `../foo`.
 
-Another common absolute path is the one mentioned right at the start of the session, specified with `~`, which stands for your home directory `/home/biotech7005`, which also starts with a `/`.
+Another common absolute path is the one mentioned right at the start of the session, specified with `~`, which stands for your home directory `/home/student`, which also starts with a `/`.
 
 We can also move through multiple directories in one command by separating them with the slash `/`.
 For example, we could also get to the root directory from our home directory by typing
@@ -236,7 +236,7 @@ cd
 cd ..
 ```
 
-Now to get back to your home directory (`/home/biotech7005`) start typing `cd b` followed by the <kbd>Tab</kbd> key.
+Now to get back to your home directory (`/home/student`) start typing `cd b` followed by the <kbd>Tab</kbd> key.
 This should auto-complete for you and will save you making any errors.
 This also makes navigating your computer system very fast once you get the hang of it.
 
@@ -327,7 +327,7 @@ ls -l
 
 The above will give one or more lines of output, and one of the first lines should be something similar to:
 
-`drwxrwxr-x 2 biotech7005 biotech7005 4096 Aug 12 hh:mm test`
+`drwxrwxr-x 2 student student 4096 Aug 11 hh:mm test`
 
 where `hh:mm` is the time of file/directory creation.
 
@@ -339,7 +339,7 @@ Beyond this first position, the triplet of values `rwx` simply refer to who is a
 These three triplets refer to 1) the file's owner, 2) the group of users that the owner belongs to & 3) all users, and will only contain the values "r" (read), "w" (write), "x" (execute) or "-" (not enabled).
 These are very helpful attributes for data security, protection against malicious software, and accidental file deletions.
 
-The entries `biotech7005 biotech7005` respectively refer to who is the owner of the directory (or file) & to which group of users the owner belongs.
+The entries `student student` respectively refer to who is the owner of the directory (or file) & to which group of users the owner belongs.
 Again, this information won't be particularly relevant to us today, but this type of information is used to control who can read and write to a file or directory.
 Finally, the value `4096` is the size of the directory structure in bytes, whilst the date & time refer to when the directory was created.
 
@@ -462,7 +462,7 @@ As well as entering the command `man` before the name of a command you need help
 Note the convention of a single hyphen which indicates an individual letter will follow, or a double-hyphen which indicates that a word will follow.
 Unfortunately the methods can vary a little from command to command, so if one method doesn't get you the manual, just try one of the others.
 
-Sometimes it can take a little bit of looking to find something and it's important to be realise we won't break the computer or accidentally launch a nuclear bomb when we look around.
+Sometimes it can take a little bit of looking to find something and it's important to realise we won't break the computer or accidentally launch a nuclear bomb when we look around.
 It's very much like picking up a piece of paper to see what's under it.
 If you don't find something  at first, just keep looking and you'll find it eventually.
 
@@ -506,7 +506,7 @@ Write your answers on a piece of paper, or in a plain text file.
 | `uniq`      |                               |                    |
 | `wget`      |                               |                    |
 | `gunzip`    |                               |                    |
-
+| `apropos`   |                               | `--usage`          |
 
 ## Putting It All Together
 
@@ -578,6 +578,11 @@ First **change into your `test` directory** using the `cd` command, then enter t
 
 ```bash
 cp ~/data/intro_bash/words words
+```
+**NOTE: this may need to be**
+
+```bash
+cp ~/data/data/intro_bash/words words
 ```
 
 Now page through the first few lines of the file using `less` to get an idea about what it contains.
