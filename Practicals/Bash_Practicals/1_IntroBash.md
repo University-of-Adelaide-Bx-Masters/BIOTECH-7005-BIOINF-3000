@@ -579,11 +579,6 @@ First **change into your `test` directory** using the `cd` command, then enter t
 ```bash
 cp ~/data/intro_bash/words words
 ```
-**NOTE: this may need to be**
-
-```bash
-cp ~/data/data/intro_bash/words words
-```
 
 Now page through the first few lines of the file using `less` to get an idea about what it contains.
 
