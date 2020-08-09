@@ -30,33 +30,33 @@ In the lectures we discussed a few things:
 3. The sample mean ($\bar{x}$) is Normally Distributed around the population mean ($\mu$)
 4. We can use our sample variance ($s^2$) to estimate population variance ($\sigma^2$)
 5. A $T$-statistic can be calculated using the formula <br> <center>$T = \frac{\bar{x} - \mu}{s / \sqrt{n}}$</center>
-6. We compare our $T$-statistic to a $t$-distribution to see how likely more extreme values are if $H_0$ is true, and reject $H_0$ if these $p$-values are suitably low.
+6. We compare our $T$-statistic to a $t$-distribution to see how likely more extreme values are if $H_0$ is true, and reject $H_0$ if these $p$-values are low.
 
 ### Non-parametric Tests
 
-For data which is not normally distributed we learned two new tests besides a $t$-test
+For data that is not normally distributed we learned two new tests besides a $t$-test:
 
-1. The Wilcoxon Rank Sum Test
+1. The Wilcoxon Rank-Sum Test
 2. Fisher's Exact Test
 
 ## Exercises
 
-### Q1
+### Question 1
 
-In the following, try to describe the value that the experiment is investigating
+In the following, try to describe the value that the experiment is investigating:
 
-a. The SNP at http://exac.broadinstitute.org/variant/3-8787263-G-A was found in 0.09% of 16366 South Asian genomes, and 0.05% of 8644 East Asian genomes. 
+a. The SNP at https://gnomad.broadinstitute.org/variant/3-8787263-G-A?dataset=exac was found in 0.09% of 16366 South Asian genomes, and 0.05% of 8644 East Asian genomes. 
     i. *What do these numbers represent?*
     ii. *Do you think that these values represent normally distributed data?*
 b. In a qPCR experiment, the gene CTLA4 was found to be expressed in Treg cells at levels 10 times higher than those found in Th cells. *What is this number an estimate of?*
 c. In three transfection experiments, the average transfection efficiency was found to be 6%. *What is this number estimating?*
 
-### Q2
+### Question 2
 
 The average age of all students at the University of Adelaide was calculated. *Is this an estimate? Explain your reasoning*
 
 
-### Q3
+### Question 3
 
 a) We think that a gene will be silenced by over-expression of a targeted siRNA. *What would our null hypothesis and alternate hypothesis be?*
 b) We suspect that a given SNP will provide increased zebrafish survival in a low-oxygen environment. We place 100 fish in a low-oxygen tank, and 100 fish in a normal-oxygen tank for 6 hours. At the end, we collect the survivors in each tank and genotype them at this SNP, giving the following results:
@@ -69,7 +69,7 @@ b) We suspect that a given SNP will provide increased zebrafish survival in a lo
 *What would the null and alternate hypotheses be for this experiment?*
 
 
-### Q4
+### Question 4
 
 `R` allows us to easily take random samples from a normal distribution.
 We can generate 10 random samples from $\mathcal{N}(5, 1)$ using the following code.
@@ -96,14 +96,14 @@ ncol(rnd)
 nrow(rnd)
 ```
 
-We could get the sample means from each column using the command `colMeans()` and plot a histogram.
+We could get the sample means from each column using the command `colMeans()` and plot a histogram of the means.
 
 ```{r}
 xbar <- colMeans(rnd)
 hist(xbar, breaks = 50, freq = FALSE)
 ```
 
-This is a histogram of the sample means from each of our random samples. 
+This is a histogram of the sample means from each of our 1000 random samples. 
 
 c) *Does it look like a normal distribution?*
 
@@ -124,10 +124,10 @@ lines(x, y)
 
 We can clearly see that each sample mean is truly a single random sample from this distribution.
 
-### Q5
+### Question 5
 
-In the above, we knew the variance ($\sigma = 1$) because we set this in our random sampling step.
-In reality we don't know this, so we would use our sample variance ($s^2$) and a $t$-test.
+In the above example, we knew the variance ($\sigma = 1$) because we set this value as an argument to the `rnorm` function in our random sampling step.
+In reality we don't know this value, so we would use our sample variance ($s^2$) and a $t$-test to calculate the $t$-statistic and compare this to a null distribution of the $t$-statistic.
 Let's have a look at how the sample variances are distributed.
 
 ```{r}
@@ -211,7 +211,7 @@ We also learned about:
 3. The Bonferroni Adjustment
 4. The False Discovery Rate
 
-### Q6
+### Question 6
 
 We could do this for every column in our matrix of random samples, which **we know** is a sample of 10 from $\mathcal{N}(5, 1)$
 
@@ -269,7 +269,7 @@ sample1 <- c(5.5, 2.45, 1000, 6)
 sample2 <- c(-1.1, 1.2, 2.4, -40)
 ```
 
-### Q7
+### Question 7
 
 a) *Do you think these values come from the same distribution?*
 
@@ -341,7 +341,7 @@ Vs \\
 H_A: \text{There is an association between alleles and survival in hypoxic conditions}
 $$
 
-### Q8 
+### Question 8 
 
 a) *Do you think there is an association just by looking at the data?*
 
