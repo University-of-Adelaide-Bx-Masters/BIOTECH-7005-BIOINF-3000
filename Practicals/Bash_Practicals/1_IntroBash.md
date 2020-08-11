@@ -236,7 +236,7 @@ cd
 cd ..
 ```
 
-Now to get back to your home directory (`/home/student`) start typing `cd b` followed by the <kbd>Tab</kbd> key.
+Now to get back to your home directory (`/home/student`) start typing `cd s` followed by the <kbd>Tab</kbd> key.
 This should auto-complete for you and will save you making any errors.
 This also makes navigating your computer system very fast once you get the hang of it.
 
