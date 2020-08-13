@@ -61,53 +61,49 @@ Show all working & code.
 
 | ID       | Species                       | Taxonomy ID | Common Name                    |
 |:---------|:------------------------------|------------:|:-------------------------------|
-| a1627307 | Neovison vison                |      452646 | American Mink                  |
+| a1627307 | Apteryx rowi                  |      308060 | Okarito Brown Kiwi             |
 | a1675025 | Ursus americanus              |        9643 | American Black Bear            |
-| a1680671 | Procavia capensis             |        9813 | Cape Rock Hyrax                |
+| a1680671 | Calidris pygmaea              |      425635 | Spoon-Billed Sandpiper         |
 | a1681781 | mus musculus c3hhej           |       10090 |                                |
-| a1686550 | marmota marmota marmota       |        9993 | Alpine Marmot                  |
-| a1686683 | Xiphophorus couchianus        |       32473 | Monterrey Platyfish            |
-| a1704339 | Apteryx rowi                  |      308060 | Okarito Brown Kiwi             |
+| a1686550 | Felis catus                   |        9685 | Domestic Cat                   |
+| a1686683 | Rhinopithecus bieti           |       61621 | Black Snub-Nosed Monkey        |
+| a1704339 | mus musculus pwkphj           |       10090 |                                |
 | a1717593 | Paramormyrops kingsleyae      |     1676925 |                                |
-| a1720273 | Crocodylus porosus            |        8502 | Australian Saltwater Crocodile |
+| a1720273 | Bos mutus                     |       72004 | Wild Yak                       |
 | a1723812 | Ovis aries                    |        9940 | Sheep                          |
-| a1724529 | Oreochromis niloticus         |        8128 | Nile Tilapia                   |
-| a1725889 | Xiphophorus maculatus         |        8083 | Southern Platyfish             |
-| a1731521 | equus asinus asinus           |        9793 |                                |
+| a1724529 | Periophthalmus magnuspinnatus |      409849 |                                |
+| a1725889 | Melopsittacus undulatus       |       13146 | Budgerigar                     |
+| a1731521 | Meriones unguiculatus         |       10047 | Mongolian Gerbil               |
 | a1740160 | Monodelphis domestica         |       13616 | Gray Short-Tailed Opossum      |
-| a1747903 | Felis catus                   |        9685 | Domestic Cat                   |
-| a1748603 | Oryzias melastigma            |       30732 | Indian Medaka                  |
-| a1749756 | Anser brachyrhynchus          |      132585 | Pink-Footed Goose              |
-| a1754274 | Sus scrofa                    |        9823 | Pig                            |
-| a1754994 | canis lupus dingo             |        9612 | Dingo                          |
-| a1758223 | mus musculus dba2j            |       10090 |                                |
-| a1765286 | mus musculus lpj              |       10090 |                                |
+| a1747903 | Oryzias melastigma            |       30732 | Indian Medaka                  |
+| a1748603 | mus musculus lpj              |       10090 |                                |
+| a1749756 | Sus scrofa                    |        9823 | Pig                            |
+| a1754274 | equus asinus asinus           |        9793 |                                |
+| a1754994 | Salvator merianae             |       96440 | Argentine Black And White Tegu |
+| a1756655 | marmota marmota marmota       |        9993 | Alpine Marmot                  |
+| a1758223 | Microtus ochrogaster          |       79684 | Prairie Vole                   |
+| a1765286 | Anser brachyrhynchus          |      132585 | Pink-Footed Goose              |
 | a1767858 | Mus spretus                   |       10096 | Western Wild Mouse             |
-| a1776797 | mus musculus pwkphj           |       10090 |                                |
-| a1776998 | Meriones unguiculatus         |       10047 | Mongolian Gerbil               |
+| a1776797 | Mus musculus                  |       10090 | House Mouse                    |
 | a1778718 | Cavia aperea                  |       37548 | Brazilian Guinea Pig           |
 | a1783527 | Cercocebus atys               |        9531 | Sooty Mangabey                 |
-| a1785023 | Periophthalmus magnuspinnatus |      409849 |                                |
-| a1786514 | mus musculus cbaj             |       10090 |                                |
-| a1786706 | Microtus ochrogaster          |       79684 | Prairie Vole                   |
-| a1786921 | Anolis carolinensis           |       28377 | Green Anole                    |
-| a1787867 | Salvator merianae             |       96440 | Argentine Black And White Tegu |
-| a1789951 | Bos mutus                     |       72004 | Wild Yak                       |
-| a1791929 | Calidris pygmaea              |      425635 | Spoon-Billed Sandpiper         |
-| a1792295 | Melopsittacus undulatus       |       13146 | Budgerigar                     |
-| a1792442 | Ciona intestinalis            |        7719 | Vase Tunicate                  |
-| a1794812 | Zonotrichia albicollis        |       44394 | White-Throated Sparrow         |
-| a1794835 | Manacus vitellinus            |      328815 | Golden-Collared Manakin        |
-| a1795434 | Takifugu rubripes             |       31033 | Torafugu                       |
+| a1786514 | mus musculus dba2j            |       10090 |                                |
+| a1786706 | canis lupus dingo             |        9612 | Dingo                          |
+| a1786921 | Xiphophorus maculatus         |        8083 | Southern Platyfish             |
+| a1787867 | Takifugu rubripes             |       31033 | Torafugu                       |
+| a1789951 | Xiphophorus couchianus        |       32473 | Monterrey Platyfish            |
+| a1791929 | Ciona intestinalis            |        7719 | Vase Tunicate                  |
+| a1792295 | Manacus vitellinus            |      328815 | Golden-Collared Manakin        |
+| a1792442 | Crocodylus porosus            |        8502 | Australian Saltwater Crocodile |
+| a1794835 | Neovison vison                |      452646 | American Mink                  |
 | a1795646 | Propithecus coquereli         |      379532 | Coquerel's Sifaka              |
-| a1805170 | Rhinopithecus bieti           |       61621 | Black Snub-Nosed Monkey        |
 | a1805535 | Capra hircus                  |        9925 | Goat                           |
-| a1805954 | Otolemur garnettii            |       30611 | Small-Eared Galago             |
-| a1811380 | Macaca nemestrina             |        9545 | Pig-Tailed Macaque             |
+| a1805954 | Procavia capensis             |        9813 | Cape Rock Hyrax                |
+| a1811380 | Anolis carolinensis           |       28377 | Green Anole                    |
 | a1811637 | Astatotilapia calliptera      |        8154 | Eastern Happy                  |
-| a1812900 | Pelodiscus sinensis           |       13735 | Chinese Soft-Shelled Turtle    |
-| a1817954 | Drosophila melanogaster       |        7227 | Fruit Fly                      |
-| a1819113 | Mus musculus                  |       10090 | House Mouse                    |
+| a1812900 | Oreochromis niloticus         |        8128 | Nile Tilapia                   |
+| a1817954 | mus musculus cbaj             |       10090 |                                |
+| a1819113 | Pelodiscus sinensis           |       13735 | Chinese Soft-Shelled Turtle    |
 | a1820124 | Apteryx haastii               |        8823 | Great Spotted Kiwi             |
 
 ## Values For Question 4
@@ -139,14 +135,13 @@ You can simply paste these values into your RMarkdown document as the object `x`
 | a1749756 | x <- c(1.8281, 0.6641, 0.4096, 1.536, 2.8583, 1.6934, 3.0151, -0.4723, -0.1255, 1.6146)     |
 | a1754274 | x <- c(-2.6509, 3.6036, 2.2295, 1.7117, 1.4966, 0.3151, 0.4794)                             |
 | a1754994 | x <- c(-0.7017, 2.2433, -1.0716, 2.2364, -0.1599, 2.0544, 4.6681, -1.8806, 1.2852)          |
+| a1756655 | x <- c(0.831, 2.9776, -0.1775, 1.8246, 3.0893, -0.688, 2.004, 1.6759)                       |
 | a1758223 | x <- c(2.4081, -0.1234, 1.0343, 0.1866, 1.2536, 3.0342, 1.3065, 1.9026, 1.9277, 0.8871)     |
 | a1765286 | x <- c(-1.4421, 1.4301, 1.9076, 1.9282, -1.4257)                                            |
 | a1767858 | x <- c(-1.3356, -1.4163, 3.043, 0.7998, -0.0624, -0.4481, 2.9551, 1.7119)                   |
 | a1776797 | x <- c(-0.0907, 0.9193, 1.5532, -1.0124, 0.0248, 2.5968, 2.8069, -0.2281)                   |
-| a1776998 | x <- c(1.17, 1.5779, 2.1255, 0.2414, -0.2254, 3.6169, -0.4608)                              |
 | a1778718 | x <- c(0.7971, -0.822, -3.8884, -1.4897, 0.3142, 3.4211, 0.3878, 2.1248)                    |
 | a1783527 | x <- c(0.9781, -2.229, -0.227, 0.8415, -1.6074, 1.0363, 1.6418, 0.3249, 0.4077)             |
-| a1785023 | x <- c(0.3931, -0.1935, 1.5417, 2.3634)                                                     |
 | a1786514 | x <- c(0.1062, -2.2914, 2.1582, -0.2737, 1.5965, 0.3698)                                    |
 | a1786706 | x <- c(0.7194, -1.4352, -1.9274, -1.1021, -0.7713)                                          |
 | a1786921 | x <- c(0.1195, 1.2584, -0.7798, 0.8793)                                                     |
@@ -155,11 +150,8 @@ You can simply paste these values into your RMarkdown document as the object `x`
 | a1791929 | x <- c(0.4146, -1.3487, -1.8892, -0.5764, 1.0161, 0.1756, 1.5125, -0.6207, -0.7289, 1.9736) |
 | a1792295 | x <- c(0.8889, 1.1257, 1.1197, 3.7577, -0.298, 1.8663, 2.2503, 1.1981)                      |
 | a1792442 | x <- c(-1.4627, -1.9357, 3.3449, 4.4048, 0.0861)                                            |
-| a1794812 | x <- c(-0.846, 0.3075, -1.8654, -1.9604, -0.2841, -0.8452, -0.7557)                         |
 | a1794835 | x <- c(1.5051, 0.0913, 0.0845, 0.4578, 3.1312, 0.5306, -0.7336, 1.0874, 0.1603, -1.1161)    |
-| a1795434 | x <- c(-0.3451, -1.3179, 0.6032, -1.3503, -1.1937, 3.0785)                                  |
 | a1795646 | x <- c(1.1928, 2.8593, 1.0546, -1.9531)                                                     |
-| a1805170 | x <- c(-0.8655, 2.9458, 0.9016, 0.8348, 0.3233, -0.1327, -2.7245, -1.5902, -0.8443, 1.8666) |
 | a1805535 | x <- c(0.021, 3.9584, 1.9891, 2.0794, 1.058)                                                |
 | a1805954 | x <- c(0.3024, 1.437, 0.079, 0.7626, 0.2164, 2.0368, 1.0834, 2.914, 2.0474, 0.4952)         |
 | a1811380 | x <- c(0.9845, 1.1896, 1.2549, -2.4693, -0.2006, -1.0952)                                   |
