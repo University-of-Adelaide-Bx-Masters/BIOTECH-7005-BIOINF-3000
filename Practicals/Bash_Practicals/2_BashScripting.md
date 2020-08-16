@@ -98,7 +98,7 @@ Let's get a more serious file to work with for today.
 curl ftp://ftp.ensembl.org/pub/release-89/fasta/drosophila_melanogaster/ncrna/Drosophila_melanogaster.BDGP6.ncrna.fa.gz > Drosophila_melanogaster.BDGP6.ncrna.fa.gz
 ```
 
-If we hadn't placed this symbol at the end of this command, `curl` would literally stream all of the contents of this file to `stdout`, but now we have redirected this to a file!
+If we hadn't placed the `>` symbol at the end of this command, `curl` would literally stream all of the contents of this file to `stdout`, but now we have redirected this to a file!
 
 After you've downloaded this file, unzip it using `gunzip`.
 Inspect the contents of the extracted file using `head`.
