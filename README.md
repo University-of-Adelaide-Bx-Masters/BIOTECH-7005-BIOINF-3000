@@ -63,14 +63,15 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [3]: http://biotech7005.services.adelaide.edu.au/03-evoprocess.slide
 [4]: http://biotech7005.services.adelaide.edu.au/04-sequencing.slide
 [5]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
-[6]: # http://biotech7005.services.adelaide.edu.au/06-alignment.slide
 [//]: # (the following two links need to be updated)
-[7]: # https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
-[8]: # https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
+[6]: http://biotech7005.services.adelaide.edu.au/06-alignment.slide
+[//]: # (the following two links need to be updated)
+[7]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
+[8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [10]: http://biotech7005.services.adelaide.edu.au/10-graphs.slide
 [11]: http://biotech7005.services.adelaide.edu.au/09-epigenetics.slide
 [//]: # (the following link needs to be updated)
-[12]: # https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
+[12]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 
 [Introduction to R]: Practicals/R_Practicals
 [Introduction To Bash]: Practicals/Bash_Practicals/1_IntroBash.md
