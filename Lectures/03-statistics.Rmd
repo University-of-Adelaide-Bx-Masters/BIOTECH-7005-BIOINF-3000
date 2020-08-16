@@ -217,7 +217,8 @@ $$
 where:
 
 - $\mu$ represents the true population mean
-- $\sigma$ represents the variance in the population (probably unknown)
+- $\sigma$ represents the standard deviation in the population (probably unknown)
+- Recall that the standard deviation, $\sigma$, is the square root of the variance, $\sigma^2$
 
 ## The Null Hypothesis
 

@@ -10,7 +10,7 @@ library(tidyverse)
 
 # Get the species with a gtf in release 96
 ah <- AnnotationHub()
-sp <- ah %>% 
+sp <- ah %>%
 	subset(dataprovider == "Ensembl") %>%
 	subset(rdataclass == "GRanges") %>%
 	query(".gtf") %>%
@@ -43,7 +43,7 @@ id2sp <- tibble(ID = paste0(ids$Emplid)) %>%
 	        species == "Nothoprocta perdicaria" ~ "Chilean tinamou",
 	        species != "Nothoprocta perdicaria" ~ Name
 	    )
-	) 
+	)
 
 id2sp %>%
 	rename(
