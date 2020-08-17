@@ -300,7 +300,7 @@ Note that we haven't edited the file on disk, we've just streamed the data conta
 One additional and very useful command in the terminal is `sed`, which is short for *stream editor*.
 Instead of the `man` page for `sed` the `info sed` page is larger but a little easier to digest.
 This is a very powerful command which can be a little overwhelming at first.
-If using this for your own scripts & you can't figure something out, remember 'Google is your friend' & sites like <www.stackoverflow.com> are full of people wrestling with similar problems to you.
+If using this for your own scripts & you can't figure something out, remember 'Google is your friend' & sites like <https://www.stackoverflow.com> are full of people wrestling with similar problems to you.
 These are great places to start looking for help & even advanced programmers use these tools.
 
 For today, there are two key `sed` functionalities that we want to introduce.
@@ -317,7 +317,7 @@ Input can be given to `sed` as either a file, or just as a text stream via the *
 
 In the following example the script begins with an `s` to indicate that we are going to make a substitution.
 The beginning of the first pattern (i.e. the *regexp* we are searching for) is denoted with the slash, with the identical delimiter indicating the replacement pattern, and this is in turn completed with the same delimiter.
-Try this simple example from the link <http://www.grymoire.com/Unix/Sed.html> which is a very detailed & helpful resource about the usage `sed`.
+Try this simple example from the link <https://www.grymoire.com/Unix/Sed.html> which is a very detailed & helpful resource about the usage `sed`.
 Here we are sending the input (`echo Sunday`) to the command via the pipe, so no `INPUT` section is required:
 
 ```
