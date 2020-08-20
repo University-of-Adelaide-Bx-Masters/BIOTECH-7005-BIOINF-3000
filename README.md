@@ -43,9 +43,9 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | **1**    | 27/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steven)   | *Discussion*                             |
 | **2**    | 3/8        | [Statistics][2] (Steven)          | [Introduction to R] (2) (Steven)   | Continue practical                       |
 | **3**    | 10/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
-| **4**    | 17/8       | [Next-generation sequencing][4]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
-| **5**    | 24/8       | [Alignment Process][5]\* (Dave)             | [Evolutionary processes] (Dave)    | *NGS sequencing test*  Continue Scripting              |
-| **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |                              |                          |
+| **4**    | 17/8       | [Alignment Process][5]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
+| **5**    | 24/8       | [Next-generation sequencing][4]\* (Dave)             | [Evolutionary processes] (Dave)    |   Continue Scripting              |
+| **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |                              |   *NGS sequencing test*                       |
 | **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS] (Dave)  | *Alignment test*                 |
 | **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
