@@ -14,7 +14,7 @@ This again helps us keep our code organised and is good practice.
 
 ## Prepare the sequence data
 
-Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa> using `wget`.
+Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
 
 ### Reduced the size of the dataset
 
@@ -22,7 +22,7 @@ Run the following command using your student number for id:
 ```
 ./subset -id aXXXXXXX -n 50 -in bovidea_118_mtDNA.fa > bovidea_50_mtDNA.fa
 ```
-(The subset command can be obtained from [here](subset)<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/subset>
+(The subset command can be obtained from [here](subset) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/subset>)
  using `wget`.)
 Remember to make `subset` executable (see the `bash` practical for a reminder on how to do this)
 
@@ -236,7 +236,7 @@ sumt
 This will output a large quantity of data about the estimated paramaters and the statistical support for branch nodes, and two trees, one showing the consensus branch lengths and one showing the branch node support.
 It will also output a consensus tree file called "model-\<num\>.con.tre".
 
-Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). Select the best download type for your computer and install it. .
+Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). `FigTree` is a tree visualising tool that you will need to run on your computer. Select the best download type for your computer/operating system and install it. 
 
 **Do the trees from the two models differ? How does the branch support differ between the two trees? Do the trees agree with the known taxonomic groupings?**
 
@@ -254,13 +254,13 @@ Answer the questions in **bold** above.
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
-You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. In order to get the sequences from NCBI you will need to run the command:
+You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
 ```
 ./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
 ```
-The server requires your email to send you the sequences and the `-out <outfile>` is required unless you want to stream the sequences to `stdout`.
+The server requires your email to fetch the sequences and the `-out <outfile>` is required unless you want to stream the sequences to `stdout`.
 
-Alternatively, these genomes can be obtained from [here](https://www.ncbi.nlm.nih.gov/nuccore/?term=txid9263%5BOrganism%5D+AND+(refseq%5Bfilter%5D+AND+mitochondrion%5Bfilter%5D)).
+Alternatively, these genomes can be obtained the way a biologist would from [here](https://www.ncbi.nlm.nih.gov/nuccore/?term=txid9263%5BOrganism%5D+AND+(refseq%5Bfilter%5D+AND+mitochondrion%5Bfilter%5D)).
 - Reset the page view from 20 per page to 50 per page.
 - Under the `Summary` link, select `FASTA (text`) this will open a tab with all of the sequences as text
 - Copy the text in the browser window and paste it into a new document in the `source` pane.
@@ -268,11 +268,11 @@ Alternatively, these genomes can be obtained from [here](https://www.ncbi.nlm.ni
 
 
 
-1. What two species are the best to use as an outgroup?
-2. Which two leaves are the closest related/have the shortest branch? What is the evolutionary distance between these two leaves?
-3. Which of the following two species are more closely related?
-    1. silky-shrew oppossum
-    2. Tasmanian wolf
-    3. koala
-    4. platypus
+1. **What two species are the best to use as an outgroup?**
+2. **Which two leaves are the closest related/have the shortest branch? What is the evolutionary distance between these two leaves?**
+3. **Which of the following two species are more closely related?**
+    1. **silky-shrew oppossum**
+    2. **Tasmanian wolf**
+    3. **koala**
+    4. **platypus**
 
