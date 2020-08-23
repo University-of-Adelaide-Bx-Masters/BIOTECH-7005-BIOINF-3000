@@ -1,8 +1,20 @@
 # Evolutionary Processes assignment (1/9/2020)
 
+## Setup the directory for today
+
+Just as we've created a new `R Project` for practicals 1 to 3, let's create a new one for today to make sure we're all in the same place.
+
+- Using the `File` menu at the top left, select `New Project`
+- Select `New Directory`
+- Select `New Project`
+- If you're not already asked to create this project as a subdirectory of `~`, navigate to the Home directory using the <kbd>Browse</kbd> button 
+- In the `Directory Name` space, enter `Practical_5`, then hit the <kbd>Create Project</kbd> button.
+
+This again helps us keep our code organised and is good practice.
+
 ## Prepare the sequence data
 
-Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa).
+Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa> using `wget`.
 
 ### Reduced the size of the dataset
 
@@ -10,17 +22,28 @@ Run the following command using your student number for id:
 ```
 ./subset -id aXXXXXXX -n 50 -in bovidea_118_mtDNA.fa > bovidea_50_mtDNA.fa
 ```
-
-(The subset command can be obtained from [here](subset).)
+(The subset command can be obtained from [here](subset)<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/subset>
+ using `wget`.)
+Remember to make `subset` executable (see the `bash` practical for a reminder on how to do this)
 
 This selects 50 sequences from the input alignment according to your student number and writes them to a new file.
 This is not normal practice, and is only necessary because of prac time limits.
+
+### Software installation using conda
+
+Before you can move on to doing a multiple alignment and building a tree you will need to install the software you will need; `MAFFT`, `Mr Bayes`, `seqmagick` and `Gblocks`.
+
+To do this run the following command from within `~/Practical_5`:
+```
+conda install -c bioconda -c conda-forge mafft mrbayes seqmagick gblocks
+```
+When prompted to install type <kbd>y</kbd>.
 
 ### Multiple alignment
 
 In order to construct a phylogenetic tree, we need to provide positional information to the tree reconstruction program so that related positions are comparable.
 This is done by constructing a multiple sequence alignment.
-There are many programs that can be used to do this; two fast programs are MUSCLE and MAFFT
+There are many programs that can be used to do this; two fast programs are MUSCLE and MAFFT, today we have installed and will be using MAFFT.
 
 Run the following commands:
 
@@ -53,8 +76,26 @@ Look at the NEXUS alignment file. At the beginning of the alignment and near the
 
 The phylogenetic reconstruction methods we will be using cannot handle missing bases, so these must be removed. 
 We can use Gblocks to remove the non-conserved regions of the alignment.
-Gblocks can be obtained from [here](http://molevol.cmima.csic.es/castresana/Gblocks/Gblocks_Linux64_0.91b.tar.Z); use `wget` to get the program.
-Extract the program by executing `tar xaf Gblocks_Linux64_0.91b.tar.Z` and then run it by entering `Gblocks_0.91b/Gblocks`.
+Run `Gblocks` by entering `Gblocks`.
+
+You should see something like this:
+```
+******************************************************
+                    GBLOCKS 0.91b                     
+SELECTION OF CONSERVED BLOCKS FROM MULTIPLE ALIGNMENTS
+        FOR THEIR USE IN PHYLOGENETIC ANALYSIS        
+******************************************************
+
+o. Open File
+
+b. Block Parameters
+
+s. Saving Options
+
+g. (Get Blocks)
+
+q. Quit
+```
 Use the menu options in the program to remove the non-conserved regions from the `fa` file (not the `nex` file).
 This will give you a file `bovidea_50_mtDNA-named.fa-gb`.
 
@@ -66,7 +107,8 @@ The program we will be using to perform phylogenetic reconstruction uses a seque
 The NEXUS format is fairly widely used for phylogenetic data as it can be used to encode a variety characters, not limited to sequence data.
 
 Use `seqmagick` to convert the `fa-gb` file to a nexus format with the name `bovidea_50_mtDNA-named.nex`.
-Note that you will need to rename the `fa-gb` file so that it has an `fa` file extension.
+Note that you will need to rename the `fa-gb` file so that it has an `fa` file extension, remember not to overwrite your original `bovidea_50_mtDNA-named.fa` when doing so.
+Look at your `.nex` file to satisfy yourself that things are as they should be.
 
 ## Run Mr Bayes
 
@@ -185,7 +227,7 @@ Find where the plateau starts by choosing different burnin lengths (note that th
 
 ### Examine trees
 
-When you are happy with the burnin - that the log likelihood has pateaued - you can get the consensus tree to be calculated.
+When you are happy with the burnin - that the log likelihood has plateaued - you can get the consensus tree to be calculated.
 
 ```
 sumt
@@ -194,7 +236,7 @@ sumt
 This will output a large quantity of data about the estimated paramaters and the statistical support for branch nodes, and two trees, one showing the consensus branch lengths and one showing the branch node support.
 It will also output a consensus tree file called "model-\<num\>.con.tre".
 
-Repeat the analysis with another model and compare the trees using the [Archeopteryx program](https://sites.google.com/site/cmzmasek/home/software/archaeopteryx).
+Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). Select the best download type for your computer and install it. .
 
 **Do the trees from the two models differ? How does the branch support differ between the two trees? Do the trees agree with the known taxonomic groupings?**
 
@@ -202,7 +244,7 @@ Repeat the analysis with another model and compare the trees using the [Archeopt
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear-tree.jpg)
 
-## Tasks (due 7/9/2018)
+## Tasks (due 1/9/2020)
 
 ### Practical questions
 
@@ -211,12 +253,20 @@ Answer the questions in **bold** above.
 ### Bayesean Trees with whole mitochondrian genomes
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
-These genomes can be obtained from [here](https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/) with a search of "metatheria".
-The NC\_nnnnnn.1 links in the "Replicons" column link to the sequence pages.
-In the sequence page, use the "Send to" menu to send to a file as FASTA (you will want to do this on the virtual machine).
-When you have all the sequences, concatenate them with the `cat` command to a multiple FASTA file.
-An alternative is to use [this program](fetch) (you will need to `chmod +x` to get it to work and will also need to curate the sequences since a number of species are represented more than once).
-If you use `fetch`, you need to invoke it as `fetch -email <youremailaddress> -out <outfile>`, otherwise the sequence will be dumped to the screen.
+
+You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. In order to get the sequences from NCBI you will need to run the command:
+```
+./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
+```
+The server requires your email to send you the sequences and the `-out <outfile>` is required unless you want to stream the sequences to `stdout`.
+
+Alternatively, these genomes can be obtained from [here](https://www.ncbi.nlm.nih.gov/nuccore/?term=txid9263%5BOrganism%5D+AND+(refseq%5Bfilter%5D+AND+mitochondrion%5Bfilter%5D)).
+- Reset the page view from 20 per page to 50 per page.
+- Under the `Summary` link, select `FASTA (text`) this will open a tab with all of the sequences as text
+- Copy the text in the browser window and paste it into a new document in the `source` pane.
+- Save the source pane file into your `Practical_5` subdirectory as `metatheria_mtDNA.fa`
+
+
 
 1. What two species are the best to use as an outgroup?
 2. Which two leaves are the closest related/have the shortest branch? What is the evolutionary distance between these two leaves?
