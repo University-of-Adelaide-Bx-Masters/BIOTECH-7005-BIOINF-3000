@@ -250,7 +250,7 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 
 Answer the questions in **bold** above.
 
-### Bayesean Trees with whole mitochondrian genomes
+### Bayesean Trees with whole mitochondrial genomes
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
