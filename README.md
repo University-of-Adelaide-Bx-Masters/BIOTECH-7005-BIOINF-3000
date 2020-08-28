@@ -123,13 +123,11 @@ In this course, the following next-generation sequencing (NGS) datasets/protocol
 
 1. Whole genome sequencing/Resequencing
 2. Transcriptome Sequencing (RNAseq)
-3. DNA Methylation/Bisulfite Sequencing
-4. Enrichment/Capture sequencing (Methyl-capture, ChIPseq, RIPseq)
-5. Variant Calling
+3. Variant Calling
 
-Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
+There are other approaches such as Bisulfite Sequencing and Enrichment capture (ChIPseq) that we do not cover in depth. Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
-You have the freedom to choose any dataset you would like before we start week 5's practical (Alignment practical), or choose from four datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
+You have the freedom to choose any dataset you would like before we start week 6's practical (Alignment/NGS practical), or choose from four datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
 
 ## Useful Links
 
