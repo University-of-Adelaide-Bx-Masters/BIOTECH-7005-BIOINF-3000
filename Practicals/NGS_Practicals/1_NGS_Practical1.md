@@ -21,7 +21,7 @@ You will most likely encounter some messages asking for permission to update `gr
 Please answer yes or y as appropriate.
 
 ```
-wget https://raw.githubusercontent.com/UofABioinformaticsHub/Biotech7005/master/updateVMs.sh
+wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005/blob/ngsPrac2020/updateVMs.sh
 chmod +x updateVMs.sh
 sudo ./updateVMs.sh
 ```
@@ -62,8 +62,8 @@ A single barcode is shown in B) of the following image (taken from https://rnase
 As the sequences are extended during the sequencing reaction, an image is recorded which is effectively a movie or series of frames at which the addition of bases is recorded and detected. 
 We mostly don’t deal with these image files, but will handle data generated from these in *fastq* format, which can commonly have the file suffix .fq or .fastq. 
 As these files are often very large, they will often be zipped using `gzip` or `bzip`.  
-Whilst we would instinctively want to unzip these files using the command gunzip, most NGS tools are able to work with zipped fastq files, so decompression (or extraction) is not usually necessary. 
-This can save considerable hard drive space, which is an important consideration when handling NGS datasets as the quantity of data can easily push your storage capacity to its limit.
+*Whilst we would instinctively want to unzip these files using the command gunzip, most NGS tools are able to work with zipped fastq files, so decompression (or extraction) is not usually necessary.* 
+*This can save considerable hard drive space, which is an important consideration when handling NGS datasets as the quantity of data can easily push your storage capacity to its limit.*
 
 The data for today's practical has not yet been copied during the VM setup, so *let's get the files we need for today.*
 This file may take a few moments to download if we all do this simultaneously, but hopefully it will work for all of you without too many issues.
