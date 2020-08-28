@@ -14,19 +14,13 @@ mkdir Practical_6
 **Once you have this setup, create a new R Project which can live in this directory.**
 If you can't remember how to do this, call a tutor over.
 
-In addition, we've found that some software wasn't installed as expected on your VMs.
+You will need to install some software before you can proceed.
 Please execute the following code.
-Hopefully it makes sense, but if not, ask a tutor.
-You will most likely encounter some messages asking for permission to update `grub`. 
-Please answer yes or y as appropriate.
+
 
 ```
-wget https://raw.githubusercontent.com/UofABioinformaticsHub/Biotech7005/master/updateVMs.sh
-chmod +x updateVMs.sh
-sudo ./updateVMs.sh
+conda install -c bioconda -c conda-forge samtools bowtie2 picard jalview freebayes cutadapt sabre star fastqc bwa sambamba hisat2 bedtools subread bcftools
 ```
-
-Also note that after you've entered that final line (beginning with `sudo`), you'll need to enter your password.
 
 
 # NGS Data 
@@ -62,8 +56,8 @@ A single barcode is shown in B) of the following image (taken from https://rnase
 As the sequences are extended during the sequencing reaction, an image is recorded which is effectively a movie or series of frames at which the addition of bases is recorded and detected. 
 We mostly don’t deal with these image files, but will handle data generated from these in *fastq* format, which can commonly have the file suffix .fq or .fastq. 
 As these files are often very large, they will often be zipped using `gzip` or `bzip`.  
-Whilst we would instinctively want to unzip these files using the command gunzip, most NGS tools are able to work with zipped fastq files, so decompression (or extraction) is not usually necessary. 
-This can save considerable hard drive space, which is an important consideration when handling NGS datasets as the quantity of data can easily push your storage capacity to its limit.
+*Whilst we would instinctively want to unzip these files using the command gunzip, most NGS tools are able to work with zipped fastq files, so decompression (or extraction) is not usually necessary.* 
+*This can save considerable hard drive space, which is an important consideration when handling NGS datasets as the quantity of data can easily push your storage capacity to its limit.*
 
 The data for today's practical has not yet been copied during the VM setup, so *let's get the files we need for today.*
 This file may take a few moments to download if we all do this simultaneously, but hopefully it will work for all of you without too many issues.
