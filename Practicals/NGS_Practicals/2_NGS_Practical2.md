@@ -63,7 +63,7 @@ ls 2_alignedData
 Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
 
 ```
-cp ~/intro_ngs/*gz 0_rawData/fastq/
+cp home/student/data/data/intro_ngs/*gz 0_rawData/fastq/
 ls 0_rawData/fastq/
 ```
 
@@ -84,7 +84,7 @@ The script you'll need to run to perform these steps is given below:
 #!/bin/bash
 
 ## Define the key directories
-PROJROOT=/home/biotech7005/Practical_7
+PROJROOT=/home/student/Practical_7
 RAWFQ=${PROJROOT}/0_rawData/fastq
 RAWQC=${PROJROOT}/0_rawData/FastQC
 TRIMFQ=${PROJROOT}/1_trimmedData/fastq
@@ -204,7 +204,7 @@ Call Dan or Steve over if you can't find it somewhere (use `ls ~/intro_ngs`).
 
 ```
 mkdir -p ~/Practical_7/genome
-cp ~/intro_ngs/chrI.fa ~/Practical_7/genome/
+cp ~/data/data/intro_ngs/chrI.fa ~/Practical_7/genome/
 ```
 
 Let's have a look at this file just make sure we know what we have
@@ -407,7 +407,7 @@ For example, if the read is paired & mapped in a proper pair, but no other attri
 
 
 
-Things can easily begin to confuse people once you start searching for specific flags, but if you remember that each attribute is like an individual flag that is either on or off (i.e. it is actually a binary bit with values 0 or 1).
+Things can easily begin to confuse people once you start searching for specific flags, but it helps if you remember that each attribute is like an individual flag that is either on or off (i.e. it is actually a binary bit with values 0 or 1).
 If you searched for flags with the value 1, you wouldn't obtain the alignments with the exact value 1, rather you would obtain the alignments **for which the first flag is set** & these can take a range of values.
 
 
@@ -546,6 +546,10 @@ freebayes \
   --region I:1-1000000 \
   2_alignedData/sorted_bam/SRR2003569_chI.bam > \
   2_alignedData/vcf/SRR2003569_chI_1Mb.vcf
+```
+
+```
+freebayes -f genome/chrI.fa --region I:1-1000000 2_alignedData/sorted_bam/SRR2003569_chI.bam > 2_alignedData/vcf/SRR2003569_chI_1Mb.vcf
 ```
 
 If you're interested in getting all variants from ChrI, run the command without the `--region I:1-5000000` parameter.

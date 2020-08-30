@@ -46,7 +46,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | **4**    | 17/8       | [Alignment Process][5]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
 | **5**    | 24/8       | [Next-generation sequencing][4]\* (Dave)             | [Evolutionary processes] (Dave)    |   Continue Scripting              |
 | **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |    [Alignment/NGS (1)] (Dave)         |   *NGS sequencing test*                       |
-| **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS (2)] (Dave)  | *Alignment test*                 |
+| **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS (2)] (Dave)  | *Alignment test*   [DE gene tutorial][]              |
 | **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
@@ -81,7 +81,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
 [Variant Calling practical]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [Graphical analyses]: https://github.com/kortschak/graphprac/
-
+[DE gene tutorial]: DE_gene_tutorial/
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 
 ## Assessment

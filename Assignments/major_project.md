@@ -4,8 +4,6 @@ In this course, the following next-generation sequencing (NGS) datasets/protocol
 
 - Whole genome sequencing/Resequencing
 - Transcriptome Sequencing (RNAseq) - We provide a dataset for this as a Major Project, see below. 
-- DNA Methylation/Bisulfite Sequencing
-- Enrichment/Capture sequencing (Methyl-capture, ChIPseq, RIPseq)
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. They also aim to address a particular scientific question and investigate a scientific hypothesis. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) and write up a report. This report must be structured like a small journal article, with abstract (summarising the project), introduction (background on the study and identification of the research hypothesis), methods (analysis steps and programs used), results (what you found) and discusson (how the results relate to the research hypothesis) sections. Marks will also be awarded to the bash/R or RMarkdown scripts that you use.
 
@@ -18,7 +16,7 @@ Each of these NGS approaches uses similar programs and analysis approaches, such
 |References                 |5%   |
 |Analysis scripts           |30%  |
 
-**You have the freedom to choose any dataset from any research article you would like**, however you need to let either Dan or Steve know beforehand.
+**You have the freedom to choose any dataset from any research article you would like**, however you need to let Dave know beforehand.
 
 If you cannot find a suitable dataset, we have provided a dataset from a plant RNAseq profiling study, which has multiple mutants of the histone deacetylase gene [`hda`](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4848314/), which is involved in the regulation of flowering time in *Arabidopsis thaliana*. The details of the sequencing experiment [are found at this GEO link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE78946). To ensure that everyone is not working on the same data, each student should work on a separate sample group:
 
