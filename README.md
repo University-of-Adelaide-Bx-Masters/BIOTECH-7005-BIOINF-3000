@@ -45,15 +45,15 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | **3**    | 10/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
 | **4**    | 17/8       | [Alignment Process][5]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
 | **5**    | 24/8       | [Next-generation sequencing][4]\* (Dave)             | [Evolutionary processes] (Dave)    |   Continue Scripting              |
-| **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |    [Alignment/NGS] (Dave)         |   *NGS sequencing test*                       |
-| **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS] (Dave)  | *Alignment test*                 |
+| **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |    [Alignment/NGS (1)] (Dave)         |   *NGS sequencing test*                       |
+| **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS (2)] (Dave)  | *Alignment test*   [DE gene tutorial][]              |
 | **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
-| **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |                  | *Public Holiday 5/10*                  |
+| **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |    No practical, time can be used to work on Major Project              | *Public Holiday 5/10*                  |
 | **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) |    [Graphical analyses] (Dan)       |                *Genome assembly test*     |
-| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   |                                 | *Systems biology test*                   |
-| **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
+| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   |       No practical, time can be used to work on Major Project                          | *Systems biology test*                   |
+| **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |     No practical, time can be used to work on Major Project                              | Wrap-up (Dave/Dan) *Q&A*          |
 
 
 \* Slides not visible outside UofA network unless you connect via Uni VPN.
@@ -77,10 +77,11 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Introduction To Bash]: Practicals/Bash_Practicals/1_IntroBash.md
 [Scripting In Bash]: Practicals/Bash_Practicals/2_BashScripting.md
 [Evolutionary processes]: Practicals/evolutionary_prac/evolutionary.md
-[NGS data practical (1)]: Practicals/NGS_Practicals/1_NGS_Practical1.md
+[Alignment/NGS (1)]: Practicals/NGS_Practicals/1_NGS_Practical1.md
+[Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
 [Variant Calling practical]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [Graphical analyses]: https://github.com/kortschak/graphprac/
-
+[DE gene tutorial]: DE_gene_tutorial/
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 
 ## Assessment

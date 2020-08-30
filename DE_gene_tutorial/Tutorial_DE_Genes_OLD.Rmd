@@ -1,13 +1,11 @@
 ---
 title: "DE tutorial"
-author: "Modified by Dave Adelson from Jimmy Breen & Steve Pederson"
-date: "30/08/2020"
+author: "Jimmy Breen & Steve Pederson"
+date: "12/10/2016"
 output: html_document
 ---
 
 # Differential Expression Tutorial
-
-This tutorial is designed to give you the needed background for your DE gene major project. For those of you not doing a DE gene based major project it is still an extremely valuable learning experience.
 
 While in the previous assignments we have processed next-generation sequencing data, generally the major goal of most transcriptome projects is to identify differences in expression between two or more conditions. In this tutorial, we are going to look for the differential expression between two control and treatment samples. Our species is mouse
 
@@ -31,10 +29,10 @@ To do this, navigate to the directory in your _Files_ pane, then click the **Mor
 Now open a terminal, and go to this directory using the `cd` command, and enter the following lines. You can use Cut & Paste if you'd like.
 
 ```
-wget "https://universityofadelaide.box.com/s/er5ftlfibxwopw1ooex7zgr0eksg1t5s" -O "Treatment1.out"  
-wget "https://universityofadelaide.box.com/s/7vklpn16anq52b7np8trgv7rydqpkiuq" -O "Treatment2.out"  
-wget "https://universityofadelaide.box.com/s/fvi9h2t05dc9f41k0k7gjz9a7f5gw944" -O "Control2.out"  
-wget "https://universityofadelaide.box.com/s/ojz1djtswpkj8ozbcgscwg2kldf6qz8s" -O "Control1.out"  
+wget "https://www.dropbox.com/s/teaolpgdeswpyr7/Treatment1.out?dl=0" -O "Treatment1.out"  
+wget "https://www.dropbox.com/s/bqw8rpsa4rvpi60/Treatment2.out?dl=0" -O "Treatment2.out"  
+wget "https://www.dropbox.com/s/9ib5ib8mqb462dj/Control2.out?dl=0" -O "Control2.out"  
+wget "https://www.dropbox.com/s/svjkl9eqcebsw40/Control1.out?dl=0" -O "Control1.out"  
 ```
 
 First, edgeR requires the the dataset to contain only the counts with the row names as the gene ids and the column names as the sample ids. So we're going to load in the four files using a looping function (similar to ones that you used in bash)
@@ -302,6 +300,23 @@ genesDE <- inner_join(de.tgw, Results, by = "ensembl_gene_id") %>%
 What is the gene name of our most significant differentially expressed gene?
 
 
-## Note that there is no assessment for these questions/answers; they are intended to help you learn the material because it is directly relevant to the major project that the majority of you will carry out. ##
+## This Week's Assessment 
+
+1. Answer the questions in the above tutorial (1 Mark each) = 5 Marks
+
+2. Long form questions (Epigenetics): (1 Mark each) = 5 Marks
+
+- Define Epigenetics and how does it differ from Genetics
+
+- Define Polyphenism and give three examples of it from biology
+
+- What are the major challenges involved in the Bioinformatics analysis of bisulfite treated DNA?
+
+- What is a "Gene Knock-down" and how is it used as a tool in molecular biology?
+
+- Discuss CpG islands, their methylation status and how the possible effects that they have on the transcription of a gene
+
+Total (10 Marks)
+
 
 

@@ -364,7 +364,7 @@ In our dataset of two samples it is quite easy to think about the whole experime
 
 Each .zip archive contains text files with the information which can easily be parsed into an overall summary.
 We could write a script to extract this information if we had the time.
-However, some members of the Bioinformatics Hub have published an `R` package to help with this, which is available from https://bioconductor.org/packages/release/bioc/html/ngsReports.html and is installed on your VM already.
+However, some members of the now defunct Bioinformatics Hub have published an `R` package to help with this, which is available from https://bioconductor.org/packages/release/bioc/html/ngsReports.html and is installed on your VM already.
 It won't be too useful today, but may be useful in the future.
 
 # Trimming and Quality Filtering of NGS data
@@ -416,16 +416,18 @@ cutadapt \
 	-q 20 \
 	-a AGATCGGAAGAGCACACGTCTGAAC \
 	-A AGATCGGAAGAGCGTCGTGTAGGGA \
-	-o 1_trimmedData/fastq/Run1_R1.fastq.gz \
-	-p 1_trimmedData/fastq/Run1_R2.fastq.gz \
-	0_rawData/fastq/Run1_R1.fastq.gz 0_rawData/fastq/Run1_R2.fastq.gz > \
+	-o 1_trimmedData/fastq/Run1_R1.1.fastq.gz \
+	-p 1_trimmedData/fastq/Run1_R2.2.fastq.gz \
+	0_rawData/fastq/Run1_R1.1.fastq.gz 0_rawData/fastq/Run1_R2.2.fastq.gz > \
 	1_trimmedData/log/cutadapt.log
 ```
 
 Note that the symbol `\` has been included at the end of some of these lines.
 This is often used in a script to break a long command over multiple lines to make it easier to read.
 Notice how by using this technique, it's very easy to see every parameter and argument that has been set when we run `cutadapt`.
-
+```
+cutadapt -m 35 -q 20 -a AGATCGGAAGAGCACACGTCTGAAC -A AGATCGGAAGAGCGTCGTGTAGGGA -o 1_trimmedData/fastq/Run1_R1.fastq.gz -p 1_trimmedData/fastq/Run1_R2.fastq.gz 0_rawData/fastq/Run1_R1.fastq.gz 0_rawData/fastq/Run1_R2.fastq.gz > 1_trimmedData/log/cutadapt.log
+```
 Another point worth making is how we've created the directory structure.
 NGS data analysis often requires multiple steps and keeping every step well organised can be extremely helpful for finding your way around later.
 Although this may appear trivial, in the real world decisions you make at this point can become quite significant.
@@ -541,7 +543,9 @@ sabre pe \
 *How many read pairs were extracted in each sample?*
 *Does this match the number we found by grabbing out the first 7 bases in bash?*
 
-
+```
+sabre pe -m 1 -f ../../1_trimmedData/fastq/Run1_R1.fastq -r ../../1_trimmedData/fastq/Run1_R2.fastq -b ../../barcodes_R1.txt -u unknown_R1.fastq -w unknown_R2.fastq
+```
 Run the command again without the one mismatch. *How many read are now in each?*
 
 Note the clear directory structure that we've used.
@@ -569,7 +573,7 @@ At the beginning of this file, add the shebang:
 Leaving a blank line after the shebang, copy and paste the following code into this script:
 
 ```
-PROJROOT=/home/biotech7005/Practical_6
+PROJROOT=/home/student/Practical_6
 RAWDIR=${PROJROOT}/0_rawData
 
 # Check the project root has been defined correctly
