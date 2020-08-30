@@ -50,10 +50,10 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
-| **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |                  | *Public Holiday 5/10*                  |
+| **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |    No practical, time can be used to work on Major Project              | *Public Holiday 5/10*                  |
 | **10**   | 12/10      | [Introduction to Systems Biology][10]\* (Dan) |    [Graphical analyses] (Dan)       |                *Genome assembly test*     |
-| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   |                                 | *Systems biology test*                   |
-| **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |                                   | Wrap-up (Dave/Dan) *Q&A*          |
+| **11**   | 19/10      | [Epigenetics][11]\* (Jimmy)                   |       No practical, time can be used to work on Major Project                          | *Systems biology test*                   |
+| **12**   | 26/10      | [Ancient DNA][12]\* (Bastien)           |     No practical, time can be used to work on Major Project                              | Wrap-up (Dave/Dan) *Q&A*          |
 
 
 \* Slides not visible outside UofA network unless you connect via Uni VPN.
