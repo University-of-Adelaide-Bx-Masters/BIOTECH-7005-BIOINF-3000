@@ -81,7 +81,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
 [Variant Calling practical]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [Graphical analyses]: https://github.com/kortschak/graphprac/
-[DE gene tutorial]: DE_gene_tutorial/
+[DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 
 ## Assessment
