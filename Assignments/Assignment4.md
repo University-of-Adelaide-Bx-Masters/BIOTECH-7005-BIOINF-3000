@@ -45,6 +45,8 @@ All other folders must be created as subdirectories of this. [*1 mark*]
 
 *If your student number is not listed, please contact Dan to ensure you are added to the list*
 
+# This list needs to be updated for 2020 #
+
 | ID       | Gene      |
 |:---------|:----------|
 | a1762813 | AT5G39980 |
