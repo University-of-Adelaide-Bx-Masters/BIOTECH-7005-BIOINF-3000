@@ -22,37 +22,37 @@ If you cannot find a suitable dataset, we have provided datasets from two plant 
 
 |ID      |Group |
 |:-------|:-----|
-|a1762813|hda5-1|
-|a1202401|hda5-1|
-|a1776494|hda9-1|
-|a1778618|hda6-6|
-|a1705074|hda6-6|
-|a1790457|hda9-1|
-|a1758382|hda9-1|
-|a1789913|hda5-1|
-|a1776998|hda6-6|
-|a1776430|hda6-6|
-|a1770716|hda5-1|
-|a1739682|hda6-6|
-|a1758693|hda6-6|
-|a1781987|hda9-1|
-|a1768114|hda5-1|
-|a1700271|hda6-6|
-|a1646510|hda9-1|
-|a1779487|hda6-6|
-|a1778287|hda9-1|
-|a1783535|hda6-6|
-|a1789486|hda9-1|
-|a1758223|hda9-1|
-|a1769266|hda9-1|
-|a1771465|hda9-1|
-|a1768183|hda6-6|
-|a1781873|hda6-6|
-|a1755783|hda9-1|
-|a1679475|hda5-1|
-|a1662216|hda5-1|
-|a1780859|hda6-6|
-|a1775769|hda5-1|
+|a1792295|hda9-1 vs wild-type (arabidopsis dataset)|
+|a1731521|fae1 at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1794835|PDAT at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1627307|fae1 at 11-12 vs 9-10 (fatty acid synthesis dataset)|
+|a1704339|CL37 vs fae1 at 11-12 (fatty acid synthesis dataset)|
+|a1776797|PDAT at 11-12 vs 9-10 (fatty acid synthesis dataset)|
+|a1819113|PDAT at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1812900|fae1 at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1724529|CL37 vs fae1 at 9-10 (fatty acid synthesis dataset)|
+|a1805535|PDAT at 11-12 vs 7-8 (fatty acid synthesis dataset)|
+|a1811637|PDAT at 11-12 vs 7-8 (fatty acid synthesis dataset)|
+|a1820124|CL37 vs PDAT at 11-12 (fatty acid synthesis dataset)|
+|a1783527|PDAT at 11-12 vs 7-8 (fatty acid synthesis dataset)|
+|a1778718|CL37 vs fae1 at 11-12 (fatty acid synthesis dataset)|
+|a1795646|CL37 vs PDAT at 11-12 (fatty acid synthesis dataset)|
+|a1681781|hda9-1 vs wild-type (arabidopsis dataset)|
+|a1686683|CL37 vs PDAT at 11-12 (fatty acid synthesis dataset)|
+|a1787867|CL37 vs PDAT at 7-8 (fatty acid synthesis dataset)|
+|a1789951|hda5-1 vs wild-type (arabidopsis dataset)|
+|a1754994|hda5-1 vs wild-type (arabidopsis dataset)|
+|a1720273|CL37 at 11-12 vs 9-10 (fatty acid synthesis dataset)|
+|a1786706|CL37 vs fae1 at 11-12 (fatty acid synthesis dataset)|
+|a1792442|hda9-1 vs wild-type (arabidopsis dataset)|
+|a1758223|CL37 at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1791929|CL37 vs PDAT at 11-12 (fatty acid synthesis dataset)|
+|a1786514|CL37 vs PDAT at 7-8 (fatty acid synthesis dataset)|
+|a1786921|CL37 at 7-8 vs 9-10 (fatty acid synthesis dataset)|
+|a1680671|CL37 vs PDAT at 9-10 (fatty acid synthesis dataset)|
+|a1817954|hda6-6 vs wild-type (arabidopsis dataset)|
+|a1805954|CL37 vs fae1 at 9-10 (fatty acid synthesis dataset)|
+|a1811380|PDAT vs fae1 at 11-12 (fatty acid synthesis dataset)|
 
 
 For this particular dataset, we expect you to run a differential expression analysis between the replicates of your sample group against the Col wildtype control sample. You will report differentially expressed genes in your results section and discuss how this relates to the study's experimental hypothesis
