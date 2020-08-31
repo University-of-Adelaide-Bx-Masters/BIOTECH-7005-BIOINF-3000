@@ -57,4 +57,4 @@ If you cannot find a suitable dataset, we have provided datasets from two plant 
 
 For this particular dataset, we expect you to run a differential expression analysis between the replicates of your sample group against the Col wildtype control sample. You will report differentially expressed genes in your results section and discuss how this relates to the study's experimental hypothesis
 
-Raw FASTQ files will be provided via a data link provided in a myuni announcement/email.
+Raw FASTQ files will be provided via a data link provided in a myuni announcement/email and in the MyUni Major Project assignment page.
