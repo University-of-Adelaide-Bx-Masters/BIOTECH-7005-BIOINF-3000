@@ -63,7 +63,7 @@ ls 2_alignedData
 Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
 
 ```
-cp home/student/data/data/intro_ngs/*gz 0_rawData/fastq/
+cp /home/student/data/data/intro_ngs/*gz 0_rawData/fastq/
 ls 0_rawData/fastq/
 ```
 
