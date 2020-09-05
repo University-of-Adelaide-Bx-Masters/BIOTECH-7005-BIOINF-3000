@@ -38,7 +38,7 @@ An example data structure to use for today has already been made for you & can b
 cd ~
 wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005/tree/master/Practicals/NGS_Practicals/ngsSkeleton-master.zip
 unzip master.zip
-mv ngsSkeleton-master Practical_7
+mv ./ngsSkeleton-master/* ./Practical_7/
 rm master.zip
 cd Practical_7
 ```
