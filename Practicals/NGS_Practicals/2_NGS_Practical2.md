@@ -297,13 +297,19 @@ However, SAM files are plain text files which can take up a significant amount o
 To do this, we pipe `stdout` to the program `samtools`:
 
 ```
-samtools view -bh -F4 - 
+samtools view -bhS -F4 - 
 ```
 
 In this context, `samtools` view is the general command that allows the conversion of the SAM to BAM. 
 The *globbed* arguments are 1) `-b` [output in binary format]; and 2) `-h` include the file header, followed by the option `-F4` which only include reads with the flag bit `4` set.
 (We'll discuss flags in the next section).
 The binary output is then written to the file `2_alignedData/bam/SRR2003569_chI.bam` using the `>` symbol.
+
+Here is the command for you to cut and paste:
+```
+bwa mem -t 2 genome/Celegans_chrI 1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz 1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR2003569_chI.bam
+
+```
 
 This process may take 10 minutes so once you run the command, be patient and read ahead.
 
@@ -391,7 +397,7 @@ This is a lot of information, so let's step through everything carefully.
 ## SAM Flags
 
 These are second field in a sam/bam file and are quite useful pieces of information, however they can be difficult at first look.
-Head to http://broadinstitute.github.io/picard/explain-flags.html to see a helpful description, then try clicking on a few combinations to see how the numbers change.
+Head to [http://broadinstitute.github.io/picard/explain-flags.html](http://broadinstitute.github.io/picard/explain-flags.html) to see a helpful description, then try clicking on a few combinations to see how the numbers change.
 The simplest way to understand these is that it is a bitwise system so that each description heading down the page increases in a binary fashion.
 The first has value 1, the second has value 2, the third has value 4 & so on until you reach the final value of 2048.
 The integer value contained in this file is the unique sum of whichever attributes the mapping has.
