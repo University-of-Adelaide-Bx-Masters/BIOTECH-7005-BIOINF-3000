@@ -30,12 +30,13 @@ To do this, navigate to the directory in your _Files_ pane, then click the **Mor
 
 Now open a terminal, and go to this directory using the `cd` command, and enter the following lines. You can use Cut & Paste if you'd like.
 
+
 ```
-wget "https://universityofadelaide.box.com/s/er5ftlfibxwopw1ooex7zgr0eksg1t5s" -O "Treatment1.out"  
-wget "https://universityofadelaide.box.com/s/7vklpn16anq52b7np8trgv7rydqpkiuq" -O "Treatment2.out"  
-wget "https://universityofadelaide.box.com/s/fvi9h2t05dc9f41k0k7gjz9a7f5gw944" -O "Control2.out"  
-wget "https://universityofadelaide.box.com/s/ojz1djtswpkj8ozbcgscwg2kldf6qz8s" -O "Control1.out"  
+wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005/raw/master/DE_gene_tutorial/DE_gene_tutorial_data.zip
+unzip DE_gene_tutorial_data.zip  
 ```
+
+There should be 4 .out files after you unzip the archive. Treatment1.out, Treatment2.out, Control1.out and Control2.out
 
 First, edgeR requires the the dataset to contain only the counts with the row names as the gene ids and the column names as the sample ids. So we're going to load in the four files using a looping function (similar to ones that you used in bash)
 
