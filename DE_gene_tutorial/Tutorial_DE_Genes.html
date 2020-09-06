@@ -398,10 +398,9 @@ library(RColorBrewer)</code></pre>
 <p>First we need to download the counts, bu before we do, we should get our directory structure clear. We’ll need to decide which directory to place these files in, and we should create a new directory for this dataset. In Bioinformatics, it’s standard practice to have a new folder for each dataset.</p>
 <p>Once you have created this folder, save the script for today in the same folder, and set this to be the working directory. To do this, navigate to the directory in your <em>Files</em> pane, then click the <strong>More</strong> button in your <em>Files</em> pane and choose <em>Set As Working Directory</em>.</p>
 <p>Now open a terminal, and go to this directory using the <code>cd</code> command, and enter the following lines. You can use Cut &amp; Paste if you’d like.</p>
-<pre><code>wget &quot;https://universityofadelaide.box.com/s/er5ftlfibxwopw1ooex7zgr0eksg1t5s&quot; -O &quot;Treatment1.out&quot;  
-wget &quot;https://universityofadelaide.box.com/s/7vklpn16anq52b7np8trgv7rydqpkiuq&quot; -O &quot;Treatment2.out&quot;  
-wget &quot;https://universityofadelaide.box.com/s/fvi9h2t05dc9f41k0k7gjz9a7f5gw944&quot; -O &quot;Control2.out&quot;  
-wget &quot;https://universityofadelaide.box.com/s/ojz1djtswpkj8ozbcgscwg2kldf6qz8s&quot; -O &quot;Control1.out&quot;  </code></pre>
+<pre><code>wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005/raw/master/DE_gene_tutorial/DE_gene_tutorial_data.zip
+unzip DE_gene_tutorial_data.zip  </code></pre>
+<p>There should be 4 .out files after you unzip the archive. Treatment1.out, Treatment2.out, Control1.out and Control2.out</p>
 <p>First, edgeR requires the the dataset to contain only the counts with the row names as the gene ids and the column names as the sample ids. So we’re going to load in the four files using a looping function (similar to ones that you used in bash)</p>
 <pre class="r"><code>countFiles &lt;- list.files(pattern = &quot;.out&quot;)
 counts &lt;- countFiles %&gt;%
