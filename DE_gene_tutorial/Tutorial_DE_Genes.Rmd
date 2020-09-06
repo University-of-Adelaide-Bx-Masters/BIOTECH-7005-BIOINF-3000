@@ -1,7 +1,7 @@
 ---
 title: "DE tutorial"
 author: "Modified by Dave Adelson from Jimmy Breen & Steve Pederson"
-date: "30/08/2020"
+date: "06/09/2020"
 output: html_document
 ---
 
@@ -244,11 +244,7 @@ head(cpm.mat)
 
 ```
 
-Now we'll use the package `pheatmap` to plot these genes. If you try to load this using `library(pheatmap)` and `R` tells you that the package is not installed, enter the following line of code to ensure it is installed.
-
-```{r, eval=FALSE}
-BiocInstaller::biocLite("pheatmap")
-```
+Now we'll use the package `pheatmap` to plot these genes. 
 
 ```{r}
 library(pheatmap)
@@ -278,7 +274,7 @@ library(biomaRt)
 
 de.tgw <- rownames_to_column(de.tgw, var = "ensembl_id") %>%
   mutate(ensembl_gene_id = gsub("\\.\\d{1,2}", "", ensembl_id)) %>%
-  as_data_frame()
+  as_tibble()
 
 mart <- useMart(biomart="ensembl", dataset="mmusculus_gene_ensembl")
 
@@ -287,7 +283,6 @@ Results <- getBM(attributes = c("ensembl_gene_id", "mgi_symbol","gene_biotype"),
       values = de.tgw$ensembl_gene_id, 
       mart = mart) 
 head(Results)
-
 ```
 
 Now lets compare these to our own differentially expressed genes so we can get our gene names
@@ -296,6 +291,7 @@ Now lets compare these to our own differentially expressed genes so we can get o
 genesDE <- inner_join(de.tgw, Results, by = "ensembl_gene_id") %>%
   dplyr::select(ensembl_id, mgi_symbol, gene_biotype, logFC, logCPM, FDR) %>%
    filter(FDR < 0.01)
+
 ```
 
 **Question 5:**

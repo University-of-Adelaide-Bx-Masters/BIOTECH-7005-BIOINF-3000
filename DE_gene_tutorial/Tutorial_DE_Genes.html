@@ -11,6 +11,7 @@
 
 <meta name="author" content="Modified by Dave Adelson from Jimmy Breen &amp; Steve Pederson" />
 
+<meta name="date" content="2020-06-09" />
 
 <title>DE tutorial</title>
 
@@ -377,7 +378,7 @@ summary {
 
 <h1 class="title toc-ignore">DE tutorial</h1>
 <h4 class="author">Modified by Dave Adelson from Jimmy Breen &amp; Steve Pederson</h4>
-<h4 class="date">30/08/2020</h4>
+<h4 class="date">06/09/2020</h4>
 
 </div>
 
@@ -525,8 +526,7 @@ deg &lt;- subset(de.tgw, abs(logFC) &gt; 2) %&gt;%
 cpm.mat &lt;- cpm.mat[deg,]
 
 head(cpm.mat)</code></pre>
-<p>Now we’ll use the package <code>pheatmap</code> to plot these genes. If you try to load this using <code>library(pheatmap)</code> and <code>R</code> tells you that the package is not installed, enter the following line of code to ensure it is installed.</p>
-<pre class="r"><code>BiocInstaller::biocLite(&quot;pheatmap&quot;)</code></pre>
+<p>Now we’ll use the package <code>pheatmap</code> to plot these genes.</p>
 <pre class="r"><code>library(pheatmap)
 seqColor &lt;- colorRampPalette(brewer.pal(9, &quot;RdBu&quot;))(255)[255:1]
 grpData &lt;- data.frame(Group = group, row.names = colnames(cpm.mat))
@@ -549,13 +549,9 @@ pheatmap(
 
 de.tgw &lt;- rownames_to_column(de.tgw, var = &quot;ensembl_id&quot;) %&gt;%
   mutate(ensembl_gene_id = gsub(&quot;\\.\\d{1,2}&quot;, &quot;&quot;, ensembl_id)) %&gt;%
-  as_data_frame()</code></pre>
-<pre><code>## Warning: `as_data_frame()` is deprecated as of tibble 2.0.0.
-## Please use `as_tibble()` instead.
-## The signature and semantics have changed, see `?as_tibble`.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
-<pre class="r"><code>mart &lt;- useMart(biomart=&quot;ensembl&quot;, dataset=&quot;mmusculus_gene_ensembl&quot;)
+  as_tibble()
+
+mart &lt;- useMart(biomart=&quot;ensembl&quot;, dataset=&quot;mmusculus_gene_ensembl&quot;)
 
 Results &lt;- getBM(attributes = c(&quot;ensembl_gene_id&quot;, &quot;mgi_symbol&quot;,&quot;gene_biotype&quot;), 
       filters = &quot;ensembl_gene_id&quot;, 
