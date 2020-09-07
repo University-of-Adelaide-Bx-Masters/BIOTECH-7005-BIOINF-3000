@@ -23,7 +23,7 @@ library(limma)
 library(RColorBrewer)
 ```
 
-First we need to download the counts, bu before we do, we should get our directory structure clear. We'll need to decide which directory to place these files in, and we should create a new directory for this dataset. In Bioinformatics, it's standard practice to have a new folder for each dataset.
+First we need to download the counts, but before we do, we should get our directory structure clear. We'll need to decide which directory to place these files in, and we should create a new directory for this dataset. In Bioinformatics, it's standard practice to have a new folder for each dataset.
 
 Once you have created this folder, save the script for today in the same folder, and set this to be the working directory.
 To do this, navigate to the directory in your _Files_ pane, then click the **More** button in your _Files_ pane and choose _Set As Working Directory_.
