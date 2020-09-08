@@ -63,7 +63,7 @@ ls 2_alignedData
 Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
 
 ```
-cp /home/student/data/data/intro_ngs/*gz 0_rawData/fastq/
+cp /home/student/data/intro_ngs/*gz 0_rawData/fastq/
 ls 0_rawData/fastq/
 ```
 
@@ -204,7 +204,7 @@ Call Dan or Steve over if you can't find it somewhere (use `ls ~/intro_ngs`).
 
 ```
 mkdir -p ~/Practical_7/genome
-cp ~/data/data/intro_ngs/chrI.fa ~/Practical_7/genome/
+cp ~/data/intro_ngs/chrI.fa ~/Practical_7/genome/
 ```
 
 Let's have a look at this file just make sure we know what we have
@@ -321,7 +321,7 @@ Once your alignments have finished, you can find out information about your alig
 
 ```
 samtools stats 2_alignedData/bam/SRR2003569_chI.bam > \
-  2_alignedData/logs/SRR2003569_chI.stats
+  2_alignedData/log/SRR2003569_chI.stats
 ```
 
 This is basically the same as another command `samtools flagstat`, but it gives additional information which may be informative
