@@ -79,7 +79,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Evolutionary processes]: Practicals/evolutionary_prac/evolutionary.md
 [Alignment/NGS (1)]: Practicals/NGS_Practicals/1_NGS_Practical1.md
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
-[Variant Calling practical]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
+[Variant Calling practical]: Practicals/VCF_Analysis/VCF_Analysis.md
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
@@ -94,7 +94,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Tuesday 25th August    |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 1st September  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 6th October |
-| [Assessment 5](/)                                 | Variant Calling                        |  8%             | 6%         | ?????? |
+| [Assessment 5]()                                 | Variant Calling                        |  8%             | 6%         | ?????? |
 | [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          |  8%             | 6%         | Tuesday 27th October   |
 | Tests                                                        |                             |  12%            | 9%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 3rd November   |
