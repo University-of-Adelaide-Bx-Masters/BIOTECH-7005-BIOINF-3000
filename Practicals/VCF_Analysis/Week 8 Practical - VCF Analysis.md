@@ -1,5 +1,5 @@
 # Week 8 Practical - VCF Analysis - Dr Rick Tearle
-{:.no_toc}
+
 
 * TOC
 {:toc}
