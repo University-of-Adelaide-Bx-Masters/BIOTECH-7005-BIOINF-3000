@@ -22,10 +22,19 @@ The files you will need are in your `~/sudent/data/variant_calling` directory. T
 -rw-rw-r-- 1 student student  15M Sep 12 06:28 SRR5882792_Athaliana_TAIR10_picard.vcf
 -rwxr-xr-x 1 student student 9.3K Sep 14 05:47 VCF_Analysis.R
 -rwxr-xr-x 1 student student  234 Sep 14 05:47 VCF_Analysis.Rproj
-
 ```
 
 Move these files to your `~/Practical_8/` directory. You will then be able to open the Rproj and Rscript files to start working. 
+
+One of the first steps in the Rscript is to set up input and output directories for your analysis. This looks like this:
+```{r results='hide', eval=FALSE}
+DirIn <- "/home/student/Practical_8"
+DirOut <- "/home/student/Practical_8/Out"
+if(! dir.exists(DirOut)) {dir.create(DirOut)}
+
+DirPlot <- file.path(DirOut, "Plots")
+if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
+```
 
 The information for reads containing variants is stored in the BAM files and variant information is stored in the VCF files. We will visualise both to see the evidence that supports the variant calls. You will use an R script to summarise the data in the VCF file and to identify interesting variants to interrogate further. 
 
