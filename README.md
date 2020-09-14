@@ -47,7 +47,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | **5**    | 24/8       | [Next-generation sequencing][4]\* (Dave)             | [Evolutionary processes] (Dave)    |   Continue Scripting              |
 | **6**    | 31/8       | [Alignment Process][6]\* (Dave)                |    [Alignment/NGS (1)] (Dave)         |   *NGS sequencing test*                       |
 | **7**    | 7/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS (2)] (Dave)  | *Alignment test*   [DE gene tutorial][]              |
-| **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling] (Rick)        | *Variant Calling test*                  |
+| **8**    | 14/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling][9] (Rick)        | *Variant Calling test*                  |
 | **-**    | 21/9       | Semester Break                                |                                   |                                          |
 | **-**    | 28/9       | Semester Break                                |                                   |                                          |
 | **9**    | 5/10 (PH)  | Systems Biology (Ville)                       |    No practical, time can be used to work on Major Project              | *Public Holiday 5/10*                  |
@@ -63,11 +63,10 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [3]: http://biotech7005.services.adelaide.edu.au/03-evoprocess.slide
 [4]: http://biotech7005.services.adelaide.edu.au/04-sequencing.slide
 [5]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
-[//]: # (the following two links need to be updated)
 [6]: http://biotech7005.services.adelaide.edu.au/06-alignment.slide
-[//]: # (the following two links need to be updated)
 [7]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
+[9]: Practicals/VCF_Analysis/Week_8_Practical_VCF_Analysis.md
 [10]: http://biotech7005.services.adelaide.edu.au/10-graphs.slide
 [11]: http://biotech7005.services.adelaide.edu.au/09-epigenetics.slide
 [//]: # (the following link needs to be updated)
@@ -79,7 +78,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Evolutionary processes]: Practicals/evolutionary_prac/evolutionary.md
 [Alignment/NGS (1)]: Practicals/NGS_Practicals/1_NGS_Practical1.md
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
-[Variant Calling practical]: Practicals/VCF_Analysis/VCF_Analysis.md
+[Variant Calling practical]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
