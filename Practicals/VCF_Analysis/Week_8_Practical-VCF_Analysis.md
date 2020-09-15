@@ -1,9 +1,6 @@
 # Week 8 Practical - VCF Analysis - Dr Rick Tearle
 
 
-* TOC
-{:toc}
-
 # VCF Analysis practical
 
 As with all previous practicals, start by creating a `~/Practical_8/` subdirectory on your VM. You will need to move the data and R script and Rproj files (see below) from your `~/data/variant_calling/` directory to the `~/Practical_8/` directory prior to working on it. 
