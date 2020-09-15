@@ -18,14 +18,15 @@ fsummary <- function(x) {x %>% as.factor() %>% summary()}
 ############
 ## Set Up ##
 ############
-```{r results='hide', eval=FALSE}
+
 DirIn <- "/home/student/Practical_8"
 DirOut <- "/home/student/Practical_8/Out"
 if(! dir.exists(DirOut)) {dir.create(DirOut)}
 
 DirPlot <- file.path(DirOut, "Plots")
 if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
-```
+
+
 #########
 ## IGV ##
 #########
@@ -82,8 +83,6 @@ VCF@gt[,1] %>% unique() # all keys are present in all records, usually not the c
 
 ColNames <- VCF@gt[1,1] %>% strsplit(":") %>% unlist() # get col names
 GenomeData <- VCF@gt %>% as_tibble %>% dplyr::select(-FORMAT) %>% separate(unknown, ColNames, sep = ":") # convert strings to cols
-GenomeData$Pos %<>% as.integer()
-GenomeData$Qual %<>% as.numeric()
 GenomeData$DP %<>% as.integer()
 GenomeData$RO %<>% as.integer()
 GenomeData$QR %<>% as.integer()
@@ -94,6 +93,7 @@ X <- VCF@fix %>% as_tibble() %>% dplyr::select(CHROM, POS, REF, ALT, QUAL) # get
 colnames(X) <- c("Chr", "Pos", "Ref", "Alt", "Qual") # rename
 
 GenomeData <- bind_cols(X, GenomeData) # merge INFO and FORMAT data
+GenomeData$Pos %<>% as.integer()
 GenomeData$Qual %<>% as.numeric()
 
 rm(X)
