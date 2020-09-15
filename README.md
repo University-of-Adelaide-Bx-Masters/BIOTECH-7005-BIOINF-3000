@@ -66,7 +66,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [6]: http://biotech7005.services.adelaide.edu.au/06-alignment.slide
 [7]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/
-[9]: Practicals/VCF_Analysis/Week_8_Practical_VCF_Analysis.md
+[9]: Practicals/VCF_Analysis/Week_8_Practical_VCF_Analysis.html
 [10]: http://biotech7005.services.adelaide.edu.au/10-graphs.slide
 [11]: http://biotech7005.services.adelaide.edu.au/09-epigenetics.slide
 [//]: # (the following link needs to be updated)
@@ -78,7 +78,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 [Evolutionary processes]: Practicals/evolutionary_prac/evolutionary.md
 [Alignment/NGS (1)]: Practicals/NGS_Practicals/1_NGS_Practical1.md
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
-[Variant Calling practical]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
+[Variant Calling practical]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.html
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
