@@ -166,7 +166,7 @@ str_replace_all("Hi Mum", "[a-z]", "o")
 ### Alternative Patterns
 
 Alternative patterns can be specified using the conventional `OR` symbol `|` inside the curved brackets.
-Think vary carefully about the following substitutions to make sure you can see what's happening.
+Think very carefully about the following substitutions to make sure you can see what's happening.
 
 ```{r}
 str_replace_all("Hi Mum", "(Mum|Dad)", "Parent")
