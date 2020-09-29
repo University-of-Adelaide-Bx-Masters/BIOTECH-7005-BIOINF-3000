@@ -31,7 +31,7 @@ All other folders must be created as subdirectories of this. [*1 mark*]
     + How many reads were mapped in total? [*1 marks*]
     + How many reads were mapped as a pair? [*1 marks*]
     + How many reads were mapped as a "proper" pair? [*1 marks*]
-    + Find the _Arabidopsis thaliana_ gene associated with your ID below and identify how many inserts mapped to that region [*5 marks*]
+    + Find the _Arabidopsis thaliana_ gene associated with your ID below and identify how many read pairs mapped to that region/interval [*5 marks*]
 
 
 ## Theoretical questions [*5 marks*]
