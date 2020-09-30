@@ -1,0 +1,120 @@
+---
+title: "Assignment5"
+author: "Dave Adelson"
+date: "30/09/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Getting RStudio set up
+##############
+## Packages ##
+##############
+```{r}
+library(magrittr)
+library(vcfR)
+# library(ape)
+library(tidyverse)
+```
+###############
+## Functions ##
+###############
+```{r}
+'%nin%' <- Negate('%in%')
+
+ulength <- function(x) {x %>% unique() %>% length()}
+fsummary <- function(x) {x %>% as.factor() %>% summary()}
+```
+############
+## Set Up ##
+############
+```{r}
+DirIn <- "/home/a1071750/student/Assignment5/2_alignedData/vcf"
+DirOut <- "/home/a1071750/student/Assignment5/R/Out"
+if(! dir.exists(DirOut)) {dir.create(DirOut)}
+
+DirPlot <- file.path(DirOut, "Plots")
+if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
+```
+###############
+## Load VCF ##
+###############
+# Load file - This loads the vcf file created from the de-duplicated, sorted `.bam` file. 
+```{r}
+FileIn <- "SRR3452285_chrI.vcf" 
+VCF <- read.vcfR(file.path(DirIn, FileIn), verbose = TRUE)
+
+VCF@meta %>% as_tibble() # metadata
+VCF@fix %>% as_tibble() # co-ordinates etc and INFO ie data about this position in the genome
+VCF@gt %>% as_tibble() # FORMAT ie genotypes
+
+INFO2df(VCF[1:20,]) %>% as_tibble() # converts INFO key value pairs to df
+```
+#######################
+## Analyse Genotypes ##
+#######################
+# Genotype info stored in separate columns for each sample - only one sample reported here
+# Keys are stored in FORMAT col
+
+# Convert FORMAT to DF, add co-ords etc
+```{r}
+VCF@gt[,1] %>% unique() # all keys are present in all records, usually not the case
+
+ColNames <- VCF@gt[1,1] %>% strsplit(":") %>% unlist() # get col names
+GenomeData <- VCF@gt %>% as_tibble %>% dplyr::select(-FORMAT) %>% separate(unknown, ColNames, sep = ":") # convert strings to cols
+GenomeData$DP %<>% as.integer()
+GenomeData$RO %<>% as.integer()
+GenomeData$QR %<>% as.integer()
+GenomeData$AO %<>% as.integer()
+GenomeData$QA %<>% as.integer()
+
+X <- VCF@fix %>% as_tibble() %>% dplyr::select(CHROM, POS, REF, ALT, QUAL) # get required INFO & other cols
+colnames(X) <- c("Chr", "Pos", "Ref", "Alt", "Qual") # rename
+
+GenomeData <- bind_cols(X, GenomeData) # merge INFO and FORMAT data
+GenomeData$Pos %<>% as.integer()
+GenomeData$Qual %<>% as.numeric()
+
+rm(X)
+
+# Extract P(Best) vs P(NextBest)
+GenomeData %<>% rowwise() %>%
+    mutate(GLB = GL %>% strsplit(",") %>% unlist()  %>% as.numeric() %>% sort() %>% .[2]) %>%
+    ungroup() # split, sort, take the 2nd value (first always 0)
+
+# View col definitions and data to see what each col means
+VCF@meta %>% as_tibble() %>% filter(grepl("FORMAT", value))
+GenomeData
+
+```
+
+## Plots
+```{r}
+Title <- sprintf("C elegans Reference Score vs Genotype Call Quality Score")
+GenomeData %>% filter(GT %in% c("0/0", "0/1", "1/1")) %>%
+    ggplot(aes(x = GLB, y = Qual, group = GT, colour = GT)) +
+    geom_point(size = 0.3) +
+    labs(title = Title, x = "GLB", y = "Qual") +
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),
+          legend.position = "right")
+FileOut <- sprintf("%s%s", Title, ".jpeg")
+ggsave(filename = FileOut, path = DirPlot, device = "jpeg")
+```
+
+```{r}
+Title <- sprintf("C elegans Reference Score vs Genotype Call Quality Score (Trunc)")
+GenomeData %>% filter(GT %in% c("0/0", "0/1", "1/1")) %>% filter(GLB > -100, Qual < 1000) %>%
+    ggplot(aes(x = GLB, y = Qual, group = GT, colour = GT)) +
+    geom_point(size = 0.3) +
+    labs(title = Title, x = "GLB", y = "Qual") +
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),
+          legend.position = "right", legend.title=element_blank())
+FileOut <- sprintf("%s%s", Title, ".jpeg")
+ggsave(filename = FileOut, path = DirPlot, device = "jpeg")
+```
