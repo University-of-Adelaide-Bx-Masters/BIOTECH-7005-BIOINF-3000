@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment5.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="assignment-5---23-marks-total">Assignment 5 - [<em>23 marks total</em>]</h1>
+<p><strong>Due before Tuesday 20th October</strong></p>
+<h2 id="correct-submission-3-marks">Correct submission [<em>3 Marks</em>]</h2>
+<p>Your answers to all questions should be submitted to myUni as a <code>.zip</code> file containing your two bash scripts and your html <code>knitted</code> R markdown file for part 4 that contains the answers to the additional questions (can be in any readable format, but my order of preference is; html, pdf, Rmd). [<em>1 mark for submitting as a single zip file</em>]</p>
+<p>The <code>.zip</code> filename must start with your student number [<em>1 mark</em>] and your bash script must be able to run without errors.
+Meaningful comments are strongly advised.</p>
+<p>For all scripts, please use the directory <code>~/Assignment5</code> as the parent directory for all downloads and analysis. Use the following directory structure [<em>1 mark</em>]:</p>
+<pre class="hljs"><code><div>.
+├── Assignment5
+   ├── 0_rawData
+   │   ├── fastq
+   │   └── FastQC
+   ├── 1_trimmedData
+   │   ├── fastq
+   │   ├── FastQC
+   │   └── log
+   ├── 2_alignedData
+   │   ├── bam
+   │   ├── FastQC
+   │   ├── log
+   │   ├── sorted_bam
+   │   └── vcf
+   ├── bash
+   ├── R
+   ├── Ref
+
+</div></code></pre>
+<p><strong>It is important you use this directory structure and construct your scripts to use the relative paths as invoked from <code>~/Assignment5</code>.  Scripts are marked based on the fact that they run. The expectation is that they will run within the relative path <code>~/Assignment5</code>. You will be expected to hard code this into your script.</strong></p>
+<h2 id="practical-questions-13-marks">Practical questions [<em>13 marks</em>]</h2>
+<p>This assignment will use <em>C elegans</em> sequence data from <a href="https://www.ncbi.nlm.nih.gov/bioproject/598355">BioProject_598355</a>. These are 100nt paired-end reads.</p>
+<ol start="0">
+<li>
+<p>Install the <code>SRA Toolkit</code> and the latest version of <code>freebayes</code> using conda <code>conda install -c bioconda sra-tools freebayes=1.3.2</code> this will give you the <code>fastq-dump</code> tool that you will use to get the data and an updated <code>freebayes</code> that will generate a VCFv4.2 file. (no marks for this)</p>
+</li>
+<li>
+<p>Write a <strong>script</strong> with informative and useful comments [<em>1 mark</em>] <strong>to download and trim and clean</strong> (This should be easy as you can re-purpose a previous script - <strong>Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free</strong>):</p>
+<ul>
+<li>download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: <code>fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/</code> This will generate two fastq.gz files, one for each end [<em>1 mark</em>]. Note that in your script you may use variables to specify directories for input and output (see below)</li>
+<li>Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. download the genome reference and gff3 files for <em>C elegans</em> chromosome I to ~/Assignment5/Ref/ (see <code>https://universityofadelaide.box.com/shared/static/ct8alnh7a7t0z6x6m6g17t6n23raysbo.gz</code> and <code>https://universityofadelaide.box.com/shared/static/ssvrdjx5imz6ktrw5d0owuumx1ry158h.gz</code> ) [<em>1 mark</em>].</li>
+<li>run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: <code>cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz &gt; ./2_trimmed_Data/log/cutadapt.log</code> [<em>1 mark</em>]</li>
+</ul>
+</li>
+<li>
+<p>Write a <strong>script</strong> with informative and useful comments [<em>1 mark</em>] <strong>to align the cleaned reads to ChrI and call variants</strong>:</p>
+<ul>
+<li>Build the index for <code>bwa</code> for the chr1.fna sequence [<em>1 mark</em>]</li>
+<li>Align the reads <code>bwa mem -t 2 ./Ref/WBcel235_chrI 1_trimmedData/fastq/SRR3452285_1.fastq.gz 1_trimmedData/fastq/SRR3452285_2.fastq.gz | samtools view -bhS -F4 - &gt; 2_alignedData/bam/SRR3452285_chrI.bam</code> [<em>1 mark</em>]</li>
+<li>Sort the <code>bam</code> file <code>samtools sort ./2_alignedData/bam/SRR3452285_chrI.bam -o ./2_alignedData/sorted_bam/SRR3452285_chrI.bam</code> [<em>1 mark</em>]</li>
+<li>Index the <code>bam</code> file <code>samtools index ./2_alignedData/sorted_bam/SRR3452285_chrI.bam </code> [<em>1 mark</em>]</li>
+<li>Deduplicate with picard <code>picard MarkDuplicates I=./2_alignedData/sorted_bam/SRR3452285_chrI.bam O=./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam M=dups.metrics.txt REMOVE_DUPLICATES=true</code> [<em>1 mark</em>]</li>
+<li>Get the samtools stats for the aligned, de-duplicated data <code>samtools stats ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam &gt; ./2_alignedData/log/SRR3452285_chrI_rmdup.stats</code> [<em>1 mark</em>]</li>
+<li>Index the <code>bam</code> file <code>SRR3452285_chrI_rmdup.bam</code> [<em>1 mark</em>]</li>
+<li>Use freebayes to call variants <code>freebayes -f ./Ref/WBcel235_chrI.fa ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam &gt; ./2_alignedData/vcf/SRR3452285_chrI.vcf</code> [<em>1 mark</em>]</li>
+</ul>
+</li>
+<li>
+<p>Use RStudio to analyse your variants. <strong>Create a new R project called <code>Assignment5.Rproj</code></strong> in <code>~/Assignment5/R</code> and <strong>create a new R markdown document called <code>Assignment5.Rmd</code></strong>.  You can then copy the code below</p>
+</li>
+</ol>
+<pre class="hljs"><code><div># Assessment Cover Sheet
+&lt;!--
+
+Replace the comments - this is a comment - in the table with the relevant information.
+Do not alter the first two lines of the table.
+
+--&gt;
+| \  | \  |
+|:--- |:--- |
+| Student Name     | &lt;!-- Your name --&gt; |
+| Student ID       | &lt;!-- Your student ID --&gt;  |
+| Assessment Title | &lt;!-- Assessment title --&gt;  |	 
+| Course/Program   | Bioinformatics and Systems Biology |
+| Lecturer/Tutor   | &lt;!-- Section instructor --&gt; |
+| Date Submitted   | &lt;!-- Date --&gt; |
+
+## KEEP A COPY
+
+Please be sure to make a copy of your work. If you have submitted assessment work electronically make sure you have a backup copy.
+
+## PLAGIARISM AND COLLUSION
+
+Plagiarism: using another person’s ideas, designs, words or works without appropriate acknowledgement.
+
+Collusion: another person assisting in the production of an assessment submission without the express requirement, or consent or knowledge of the assessor.
+
+## CONSEQUENCES OF PLAGIARISM AND COLLUSION
+
+The penalties associated with plagiarism and collusion are designed to impose sanctions on offenders that reflect the seriousness of the University’s commitment to academic integrity. Penalties may include: the requirement to revise and resubmit assessment work, receiving a result of zero for the assessment work, failing the course, expulsion and/or receiving a financial penalty.
+
+I declare that all material in this assessment is my own work except where there is clear acknowledgement and reference to the work of others. I have read the University Policy Statement on Academic Honesty &amp; Assessment Obligations (http://www.adelaide.edu.au/policies/230).
+
+I give permission for my assessment work to be reproduced and submitted to other academic staff for the purposes of assessment and to be copied, submitted to and retained by the University's plagiarism detection software provider for the purposes of electronic checking of plagiarism.
+ 
+ 
+&lt;!-- Replace a1234567 with your student ID and add the date. --&gt;
+| Signed   | Date       |
+| -------- | ---------- |
+| a1234567 | yyyy/mm/dd |
+
+</div></code></pre>
+<p>into your <code>Assignment5.Rmd</code> source window just below:</p>
+<pre class="hljs"><code><div>---
+title: &quot;Assignment5&quot;
+author: &quot;Your Name&quot;
+date: &quot;The date&quot;
+output: html_document
+---
+
+</div></code></pre>
+<h2 id="so-that-it-looks-like-this">So that it looks like this:</h2>
+<pre class="hljs"><code><div>---
+title: &quot;Assignment5&quot;
+author: &quot;Dave Adelson&quot;
+date: &quot;30/09/2020&quot;
+output: html_document
+---
+
+# Assessment Cover Sheet
+&lt;!--
+
+Replace the comments - this is a comment - in the table with the relevant information.
+Do not alter the first two lines of the table.
+
+--&gt;
+| \  | \  |
+|:--- |:--- |
+| Student Name     | &lt;!-- Your name --&gt; |
+| Student ID       | &lt;!-- Your student ID --&gt;  |
+| Assessment Title | &lt;!-- Assessment title --&gt;  |	 
+| Course/Program   | Bioinformatics and Systems Biology |
+| Lecturer/Tutor   | &lt;!-- Section instructor --&gt; |
+| Date Submitted   | &lt;!-- Date --&gt; |
+
+## KEEP A COPY
+
+Please be sure to make a copy of your work. If you have submitted assessment work electronically make sure you have a backup copy.
+
+## PLAGIARISM AND COLLUSION
+
+Plagiarism: using another person’s ideas, designs, words or works without appropriate acknowledgement.
+
+Collusion: another person assisting in the production of an assessment submission without the express requirement, or consent or knowledge of the assessor.
+
+## CONSEQUENCES OF PLAGIARISM AND COLLUSION
+
+The penalties associated with plagiarism and collusion are designed to impose sanctions on offenders that reflect the seriousness of the University’s commitment to academic integrity. Penalties may include: the requirement to revise and resubmit assessment work, receiving a result of zero for the assessment work, failing the course, expulsion and/or receiving a financial penalty.
+
+I declare that all material in this assessment is my own work except where there is clear acknowledgement and reference to the work of others. I have read the University Policy Statement on Academic Honesty &amp; Assessment Obligations (http://www.adelaide.edu.au/policies/230).
+
+I give permission for my assessment work to be reproduced and submitted to other academic staff for the purposes of assessment and to be copied, submitted to and retained by the University's plagiarism detection software provider for the purposes of electronic checking of plagiarism.
+ 
+ 
+&lt;!-- Replace a1234567 with your student ID and add the date. --&gt;
+| Signed   | Date       |
+| -------- | ---------- |
+| a1234567 | yyyy/mm/dd |
+
+---
+</div></code></pre>
+<h2 id="paste-this-text-just-below-the-setup-code-chunk">Paste this text just below the setup code chunk.</h2>
+<pre class="hljs"><code><div>
+# Assignment 5 - [*23 marks*]
+
+**Due before Tuesday 20th October**
+## Correct submission [*3 Marks*]
+Your answers to all questions should be submitted to myUni as a `.zip` file containing your two bash scripts, this html `knitted` R markdown file that contains the answers to the theoretical questions (can be in any readable format, but my order of preference is; html, pdf, plain text). [*1 mark for submitting as a single zip file*]
+
+The `.zip` filename must start with your student number [*1 mark*] and your bash script must be able to run without errors.
+Meaningful comments are strongly advised.
+
+For all scripts, please use the directory `~/Assignment5` as the parent directory for all downloads and analysis. Use the following directory structure [*1 mark*]: 
+```
+.
+├── Assignment5
+   ├── 0_rawData
+   │   ├── fastq
+   │   └── FastQC
+   ├── 1_trimmedData
+   │   ├── fastq
+   │   ├── FastQC
+   │   └── log
+   ├── 2_alignedData
+   │   ├── bam
+   │   ├── FastQC
+   │   ├── log
+   │   ├── sorted_bam
+   │   └── vcf
+   ├── bash
+   ├── R
+   ├── Ref
+
+```
+**It is important you use this directory structure and construct your scripts to use the relative paths as invoked from `~/Assignment5`.  Scripts are marked based on the fact that they run. The expectation is that they will run within the relative path `~/Assignment5`. You will be expected to hard code this into your script.**
+
+
+## Practical questions [*13 marks*]
+
+This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads. 
+
+0. Install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
+    
+1. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
+    + download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: `fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/` This will generate two fastq.gz files, one for each end [*1 mark*]. Note that in your script you may use variables to specify directories for input and output (see below)
+    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. download the genome reference and gff3 files for _C elegans_ chromosome I to ~/Assignment5/Ref/ (see `https://universityofadelaide.box.com/shared/static/ct8alnh7a7t0z6x6m6g17t6n23raysbo.gz` and `https://universityofadelaide.box.com/shared/static/ssvrdjx5imz6ktrw5d0owuumx1ry158h.gz` ) [*1 mark*]. 
+    + run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: `cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz &gt; ./2_trimmed_Data/log/cutadapt.log` [*1 mark*]
+2. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
+    + Build the index for `bwa` for the chr1.fna sequence [*1 mark*]
+    + Align the reads `bwa mem -t 2 ./Ref/WBcel235_chrI 1_trimmedData/fastq/SRR3452285_1.fastq.gz 1_trimmedData/fastq/SRR3452285_2.fastq.gz | samtools view -bhS -F4 - &gt; 2_alignedData/bam/SRR3452285_chrI.bam` [*1 mark*]
+    + Sort the `bam` file `samtools sort ./2_alignedData/bam/SRR3452285_chrI.bam -o ./2_alignedData/sorted_bam/SRR3452285_chrI.bam` [*1 mark*]
+    + Index the `bam` file `samtools index ./2_alignedData/sorted_bam/SRR3452285_chrI.bam ` [*1 mark*]
+    + Deduplicate with picard `picard MarkDuplicates I=./2_alignedData/sorted_bam/SRR3452285_chrI.bam O=./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam M=dups.metrics.txt REMOVE_DUPLICATES=true` [*1 mark*]
+    + Get the samtools stats for the aligned, de-duplicated data `samtools stats ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam &gt; ./2_alignedData/log/SRR3452285_chrI_rmdup.stats` [*1 mark*]
+    + Index the `bam` file `SRR3452285_chrI_rmdup.bam` [*1 mark*]
+    + Use freebayes to call variants `freebayes -f ./Ref/WBcel235_chrI.fa ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam &gt; ./2_alignedData/vcf/SRR3452285_chrI.vcf` [*1 mark*]
+3. Use RStudio to analyse your variants.
+
+[BioProject_598355]:https://www.ncbi.nlm.nih.gov/bioproject/598355
+[here]:https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/COVERSHEET.html
+
+
+## Getting RStudio set up
+##############
+# Packages   #
+##############
+```{r}
+library(magrittr)
+library(vcfR)
+# library(ape)
+library(tidyverse)
+```
+###############
+# Functions   #
+###############
+```{r}
+'%nin%' &lt;- Negate('%in%')
+
+ulength &lt;- function(x) {x %&gt;% unique() %&gt;% length()}
+fsummary &lt;- function(x) {x %&gt;% as.factor() %&gt;% summary()}
+```
+############
+# Set Up   #
+############
+```{r}
+DirIn &lt;- &quot;/home/student/Assignment5/2_alignedData/vcf&quot;
+DirOut &lt;- &quot;/home/student/Assignment5/R/Out&quot;
+if(! dir.exists(DirOut)) {dir.create(DirOut)}
+
+DirPlot &lt;- file.path(DirOut, &quot;Plots&quot;)
+if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
+```
+###############
+# Load VCF    #
+###############
+## Load file - This loads the vcf file created from the de-duplicated, sorted `.bam` file. 
+```{r}
+FileIn &lt;- &quot;SRR3452285_chrI.vcf&quot; 
+VCF &lt;- read.vcfR(file.path(DirIn, FileIn), verbose = TRUE)
+
+VCF@meta %&gt;% as_tibble() # metadata
+VCF@fix %&gt;% as_tibble() # co-ordinates etc and INFO ie data about this position in the genome
+VCF@gt %&gt;% as_tibble() # FORMAT ie genotypes
+
+INFO2df(VCF[1:20,]) %&gt;% as_tibble() # converts INFO key value pairs to df
+```
+#######################
+# Analyse Genotypes   #
+#######################
+## Genotype info stored in separate columns for each sample - only one sample reported here
+## Keys are stored in FORMAT col
+
+## Convert FORMAT to DF, add co-ords etc
+```{r}
+VCF@gt[,1] %&gt;% unique() # all keys are present in all records, usually not the case
+
+ColNames &lt;- VCF@gt[1,1] %&gt;% strsplit(&quot;:&quot;) %&gt;% unlist() # get col names
+GenomeData &lt;- VCF@gt %&gt;% as_tibble %&gt;% dplyr::select(-FORMAT) %&gt;% separate(unknown, ColNames, sep = &quot;:&quot;) # convert strings to cols
+GenomeData$DP %&lt;&gt;% as.integer()
+GenomeData$RO %&lt;&gt;% as.integer()
+GenomeData$QR %&lt;&gt;% as.integer()
+GenomeData$AO %&lt;&gt;% as.integer()
+GenomeData$QA %&lt;&gt;% as.integer()
+GenomeData %&lt;&gt;% select(GT, DP, AD, RO, AO, QR, QA, GL)
+
+X &lt;- VCF@fix %&gt;% as_tibble() %&gt;% dplyr::select(CHROM, POS, REF, ALT, QUAL) # get required INFO &amp; other cols
+colnames(X) &lt;- c(&quot;Chr&quot;, &quot;Pos&quot;, &quot;Ref&quot;, &quot;Alt&quot;, &quot;Qual&quot;) # rename
+
+GenomeData &lt;- bind_cols(X, GenomeData) # merge INFO and FORMAT data
+GenomeData$Pos %&lt;&gt;% as.integer()
+GenomeData$Qual %&lt;&gt;% as.numeric()
+
+rm(X)
+
+## Extract P(Best) vs P(NextBest)
+GenomeData %&lt;&gt;% rowwise() %&gt;%
+    mutate(GLB = GL %&gt;% strsplit(&quot;,&quot;) %&gt;% unlist()  %&gt;% as.numeric() %&gt;% sort() %&gt;% .[2]) %&gt;%
+    ungroup() # split, sort, take the 2nd value (first always 0)
+
+## View col definitions and data to see what each col means
+VCF@meta %&gt;% as_tibble() %&gt;% filter(grepl(&quot;FORMAT&quot;, value))
+GenomeData
+
+```
+
+## Plots
+
+```{r}
+# Positions with an alt allele, only 2 alleles, qual &lt; 500 (so plot is not squashed)
+Title &lt;- sprintf(&quot;C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele&quot;)
+GenomeData %&gt;% filter(GT %in% c(&quot;0/1&quot;, &quot;1/1&quot;), str_count(AD, &quot;,&quot;) == 1, Qual &lt; 500) %&gt;% mutate(AF = AO/(RO+AO)) %&gt;%
+    ggplot(aes(x = AF, y = Qual, group = GT, colour = GT)) +
+    geom_point(size = 0.3) +
+    scale_colour_manual(values = c(&quot;pink&quot;,&quot;dark red&quot;)) +
+    labs(title = Title, x = &quot;Alt Allele Read Fraction&quot;, y = &quot;Likelihood of Alt Allele&quot;) +
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),
+          legend.position = &quot;right&quot;, legend.title=element_blank())
+FileOut &lt;- sprintf(&quot;%s%s&quot;, Title, &quot;.jpeg&quot;)
+ggsave(filename = FileOut, path = DirPlot, device = &quot;jpeg&quot;)
+```
+
+```{r}
+Title &lt;- sprintf(&quot;C elegans Reference Score vs Genotype Call Quality Score&quot;)
+GenomeData %&gt;% filter(GT %in% c(&quot;0/0&quot;, &quot;0/1&quot;, &quot;1/1&quot;)) %&gt;%
+    ggplot(aes(x = GLB, y = Qual, group = GT, colour = GT)) +
+    geom_point(size = 0.3) +
+    scale_colour_manual(values = c(&quot;blue&quot;,&quot;pink&quot;,&quot;dark red&quot;)) +
+    labs(title = Title, x = &quot;GLB&quot;, y = &quot;Qual&quot;) +
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),
+          legend.position = &quot;right&quot;)
+FileOut &lt;- sprintf(&quot;%s%s&quot;, Title, &quot;.jpeg&quot;)
+ggsave(filename = FileOut, path = DirPlot, device = &quot;jpeg&quot;)
+```
+
+```{r}
+Title &lt;- sprintf(&quot;C elegans Reference Score vs Genotype Call Quality Score (Trunc)&quot;)
+GenomeData %&gt;% filter(GT %in% c(&quot;0/0&quot;, &quot;0/1&quot;, &quot;1/1&quot;)) %&gt;% filter(GLB &gt; -100, Qual &lt; 1000) %&gt;%
+    ggplot(aes(x = GLB, y = Qual, group = GT, colour = GT)) +
+    geom_point(size = 0.3) +
+    scale_colour_manual(values = c(&quot;blue&quot;,&quot;pink&quot;,&quot;dark red&quot;)) +
+    labs(title = Title, x = &quot;GLB&quot;, y = &quot;Qual&quot;) +
+    theme(axis.text.x = element_text(angle = 0, hjust = 0.5),
+          plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5),
+          legend.position = &quot;right&quot;, legend.title=element_blank())
+FileOut &lt;- sprintf(&quot;%s%s&quot;, Title, &quot;.jpeg&quot;)
+ggsave(filename = FileOut, path = DirPlot, device = &quot;jpeg&quot;)
+```
+## Additional questions [*7 marks*] 
+
+4. For this line in the R code `GenomeData %&lt;&gt;% select(GT, DP, AD, RO, AO, QR, QA, GL)`, what are the VCF descriptions found in the `vcf` file header for these fields? [*3 Marks*]
+
+5. For the plot titled `C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele` is the distribution what you expect?  Why? [*3 Marks*]
+
+6. How many properly paired reads were there in the sorted, deduplicated `.bam` file used to generate the `.vcf`? [*1 Mark*]
+</div></code></pre>
+<h2 id="this-will-give-you-a-rmd-file-that-will-allow-you-to-generate-the-relevant-output-by-running-the-code-and-it-includes-the-all-of-the-questions-you-need-to-answer">This will give you a .Rmd file that will allow you to generate the relevant output by running the code and it includes the all of the questions you need to answer.</h2>
+<h2 id="these-additional-questions-worth-7-marks-are-reproduced-below-for-clarity">These additional questions worth 7 marks are reproduced below for clarity.</h2>
+<ol start="4">
+<li>
+<p>For this line in the R code <code>GenomeData %&lt;&gt;% select(GT, DP, AD, RO, AO, QR, QA, GL)</code>, what are the VCF descriptions found in the <code>vcf</code> file header for these fields?</p>
+</li>
+<li>
+<p>For the plot titled <code>C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele</code> is the distribution what you expect?  Why?</p>
+</li>
+<li>
+<p>How many properly paired reads were there in the sorted, deduplicated <code>.bam</code> file used to generate the <code>.vcf</code>?</p>
+</li>
+</ol>
+
+</body>
+</html>
