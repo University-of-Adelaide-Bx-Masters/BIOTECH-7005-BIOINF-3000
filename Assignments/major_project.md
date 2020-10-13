@@ -66,12 +66,13 @@ Note that these datasets are all single read as opposed to paired end read. For 
 After you carry out adapter trimming, you will need to map the reads as you have done in Assignments 4 and 5. Hint: you will use BWA. 
 
 Once you have mapped the reads, you will need to summarise or quantify the reads and create count files from the `.bam` files. For this you will need the `Rsubread` package for `R`. 
-
+~~~
 ```{r}
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("Rsubread")
 ```
+~~~
 Your R packages should include:
 ```
 library(readr)
