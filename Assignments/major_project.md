@@ -55,6 +55,21 @@ If you cannot find a suitable dataset, we have provided datasets from two plant 
 |a1811380|PDAT vs fae1 at 11-12 (fatty acid synthesis dataset)|
 
 
-For this particular dataset, we expect you to run a differential expression analysis between the replicates of your sample group against the Col wildtype control sample. You will report differentially expressed genes in your results section and discuss how this relates to the study's experimental hypothesis
+For this particular dataset, we expect you to run a differential expression analysis between the replicates of your sample group against the Col wildtype control sample. You will report differentially expressed genes in your results section and discuss how this relates to the study's experimental hypothesis.
+
+# Updated instructions
+
+You will have seen how to proceed from the point where you have count files in the [DE tutorial](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/DE_gene_tutorial/Tutorial_DE_Genes.html). However you will first have to run QC on the reads (including adapter trimming).
+
+Note that these datasets are all single read as opposed to paired end read. For adapter trimming please see  [Cutadapt documentation](https://cutadapt.readthedocs.io/en/stable/guide).html#basic-usage .  For the adapter sequence that you will need, please see [Illumina adapter documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences-1000000002694-14.pdf).
+
+After you carry out adapter trimming, you will need to map the reads as you have done in Assignments 4 and 5. Hint you will use BWA. 
+
+Once you have mapped the reads, you will need to summarise or quantify the reads and create count files from the `.bam` files. For this you will need the `Rsubread` package for `R`. 
+
+You should read the [Rsubread user guide](https://bioconductor.org/packages/release/bioc/vignettes/Rsubread/inst/doc/SubreadUsersGuide.pdf) to determine the syntax and arguments needed to create a counts file. Hint, see Chapter 10 of the user guide for installation instructions and use case examples. 
+
+Once you have `count` files, you can proceed as shown in the `DE tutorial`. 
+
 
 Raw FASTQ files will be provided via a data link provided in a myuni announcement/email and in the MyUni Major Project assignment page.
