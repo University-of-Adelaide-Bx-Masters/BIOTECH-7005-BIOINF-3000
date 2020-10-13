@@ -61,15 +61,31 @@ For this particular dataset, we expect you to run a differential expression anal
 
 You will have seen how to proceed from the point where you have count files in the [DE tutorial](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/DE_gene_tutorial/Tutorial_DE_Genes.html). However you will first have to run QC on the reads (including adapter trimming).
 
-Note that these datasets are all single read as opposed to paired end read. For adapter trimming please see  [Cutadapt documentation](https://cutadapt.readthedocs.io/en/stable/guide).html#basic-usage .  For the adapter sequence that you will need, please see [Illumina adapter documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences-1000000002694-14.pdf).
+Note that these datasets are all single read as opposed to paired end read. For adapter trimming please see  [Cutadapt documentation](https://cutadapt.readthedocs.io/en/stable/guide.html#basic-usage).  For the adapter sequence that you will need, please see [Illumina adapter documentation](https://support.illumina.com/content/dam/illumina-support/documents/documentation/chemistry_documentation/experiment-design/illumina-adapter-sequences-1000000002694-14.pdf).
 
-After you carry out adapter trimming, you will need to map the reads as you have done in Assignments 4 and 5. Hint you will use BWA. 
+After you carry out adapter trimming, you will need to map the reads as you have done in Assignments 4 and 5. Hint: you will use BWA. 
 
 Once you have mapped the reads, you will need to summarise or quantify the reads and create count files from the `.bam` files. For this you will need the `Rsubread` package for `R`. 
 
-You should read the [Rsubread user guide](https://bioconductor.org/packages/release/bioc/vignettes/Rsubread/inst/doc/SubreadUsersGuide.pdf) to determine the syntax and arguments needed to create a counts file. Hint, see Chapter 10 of the user guide for installation instructions and use case examples. 
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Rsubread")
+```
+Your R packages should include:
+```
+library(readr)
+library(magrittr)
+library(dplyr)
+library(tibble)
+library(edgeR)
+library(limma)
+library(RColorBrewer)
+library(Rsubread)
+```
+
+You should read the [Rsubread user guide](https://bioconductor.org/packages/release/bioc/vignettes/Rsubread/inst/doc/SubreadUsersGuide.pdf) to determine the syntax and arguments needed to create a counts file. Hint: see Chapter 10 of the user guide for installation instructions and use case examples. 
 
 Once you have `count` files, you can proceed as shown in the `DE tutorial`. 
-
 
 Raw FASTQ files will be provided via a data link provided in a myuni announcement/email and in the MyUni Major Project assignment page.
