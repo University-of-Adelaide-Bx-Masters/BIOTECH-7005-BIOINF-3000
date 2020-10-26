@@ -96,7 +96,7 @@ Practicals: Tuesday 11am-1pm, The Braggs, Rm 350
 | [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 20th October |
 | [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          |  8%             | 6%         | Tuesday 27th October   |
 | Tests                                                        |                             |  12%            | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 3rd November   |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 10th November   |
 | Exam                                                         |                             |  40%            | 40%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
