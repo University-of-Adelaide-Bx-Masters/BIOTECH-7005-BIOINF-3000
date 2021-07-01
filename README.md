@@ -4,7 +4,7 @@
 ## Biotech 7005: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2020
+Semester 2 2021
 
 Coordinator:
 - Dave Adelson
