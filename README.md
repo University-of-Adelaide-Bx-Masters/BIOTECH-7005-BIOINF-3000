@@ -46,7 +46,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | **5**    | 23/8       | Continue Scripting  | [Evolutionary processes] (Dave)              | [Alignment Process][6]\* (Dave)            |   
 | **6**    | 30/8       | *NGS sequencing test*  |    [Alignment/NGS (1)] (Dave)             | [Genome assembly][8] (Lloyd)               |   
 | **7**    | 6/9        |*Alignment test*     | [Alignment/NGS (2)] (Dave)                   |       [Variant Calling][7] (Rick)         |
-| **8**    | 13/9       |*Genome assembly test*  |    [Variant Calling Practical][9] (Rick)  | [Systems Biology] (Ville?)                | 
+| **8**    | 13/9       |*Genome assembly test*  |    [Variant Calling Practical][9] (Rick)  | [Systems Biology] (Ville)                | 
 | **-**    | 20/9       | Semester Break      |                                              |                                          |
 | **-**    | 27/9       | Semester Break      |                                              |                                          |
 | **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project    | [Differential Gene Expression] (Zhipeng))    | 
@@ -81,7 +81,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
-[Differential Gene Expression]: Practicals/Transcriptome_Practical/Transcriptome_Practical.html
+[Differential Gene Expression]: Practicals/Transcriptome_Practical/Transcriptomic_Practical.html
 
 ## Assessment
 
