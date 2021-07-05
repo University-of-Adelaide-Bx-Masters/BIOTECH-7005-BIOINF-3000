@@ -49,8 +49,8 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | **8**    | 13/9       |*Genome assembly test*  |    [Variant Calling Practical][9] (Rick)  | [Systems Biology] (Ville)                | 
 | **-**    | 20/9       | Semester Break      |                                              |                                          |
 | **-**    | 27/9       | Semester Break      |                                              |                                          |
-| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project    | [Differential Gene Expression] (Zhipeng))    | 
-| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] |   [ [Differential Gene Expression] [] (Zhipeng)]  |[Epigenetics][11]\* (Jimmy) |     
+| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project    | [Quantifying Gene Expression] (Zhipeng))    | 
+| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] |   [ [Differential Gene Expression] (Zhipeng)]  |[Epigenetics][11]\* (Jimmy) |     
 | **11**   | 18/10      | *Systems biology test* | No practical, can work on Major Project   | [Ancient DNA][12]\* (Bastien)              | 
 | **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project   | No lecture                                 |
 
