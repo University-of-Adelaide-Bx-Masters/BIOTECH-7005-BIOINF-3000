@@ -11,10 +11,10 @@ Coordinator:
 
 Instructors:
 - Dave Adelson
-- Steven Delean
-- Lloyd Low
-- Rick Tearle
-- Bastien Llamas
+- Steven Delean 
+- Lloyd Low 
+- Rick Tearle 
+- Bastien Llamas 
 - Zhipeng Qu
 
 __*Course Contact*__
@@ -37,22 +37,22 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 
 ### Timetable (Provisional)
 
-| **Week** | **Monday** | **Lecture**                                   | **Practical**                     | **Tutorial**                             |
-|----------|------------|-----------------------------------------------|-----------------------------------|------------------------------------------|
-| **1**    | 26/7       | [Introduction to Bioinformatics][1]\* (Dave)   | [Introduction to R] (1) (Steven)   | *Discussion*                             |
-| **2**    | 2/8        | [Statistics][2] (Steven)          | [Introduction to R] (2) (Steven)   | Continue practical                       |
-| **3**    | 9/8       | [Evolutionary Processes][3]\* (Dave)            | [Introduction To Bash] (Dave)    | *Stats Test* <br> [Statistics worksheet]  |
-| **4**    | 16/8       | [Alignment Process][5]\*  (Dave)       | [Scripting In Bash] (Dave)       | *Evolution test* |
-| **5**    | 23/8       | [Next-generation sequencing][4]\* (Dave)             | [Evolutionary processes] (Dave)    |   Continue Scripting              |
-| **6**    | 30/8       | [Alignment Process][6]\* (Dave)                |    [Alignment/NGS (1)] (Dave)         |   *NGS sequencing test*                       |
-| **7**    | 6/9        | [Variant Calling][7] (Rick)                     | [Alignment/NGS (2)] (Dave)  | *Alignment test*   [DE gene tutorial][]              |
-| **8**    | 13/9       | [Genome assembly][8] (Lloyd)                 | [Variant Calling Practical][9] (Rick)        | *Variant Calling test*                  |
-| **-**    | 20/9       | Semester Break                                |                                   |                                          |
-| **-**    | 27/9       | Semester Break                                |                                   |                                          |
-| **9**    | 4/10 (PH)  | Systems Biology (Ville)                       |    No practical, time can be used to work on Major Project              | *Public Holiday 4/10*                  |
-| **10**   | 11/10      | [Introduction to Systems Biology][10]\* (Dan) |    [Graphical analyses] (Dan)       |                *Genome assembly test*     |
-| **11**   | 18/10      | [Epigenetics][11]\* (Jimmy)                   |       No practical, time can be used to work on Major Project                          | *Systems biology test*                   |
-| **12**   | 25/10      | [Ancient DNA][12]\* (Bastien)           |     No practical, time can be used to work on Major Project                              | Wrap-up (Dave) *Q&A*          |
+| **Week** | **Monday** |**Tutorial**         |**Practical**                                 | **Lecture**                              |
+|----------|------------|---------------------|----------------------------------------------|------------------------------------------|
+| **1**    | 26/7 [Intro to Bioinformatics][1]\* (Dave)<br>pre-recorded lecture.  | *Discussion* | [Introduction to R] (1) (Steven) |  [Statistics][2] (Steven)  |
+| **2**    | 2/8        | Continue practical  | [Introduction to R] (2) (Steven)             | [Evolutionary Processes][3]\* (Dave)     |
+| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet]                          | [Introduction To Bash] (Dave)     | [Alignment Process][5]\*  (Dave)  |
+| **4**    | 16/8       | *Evolution test*    | [Scripting In Bash] (Dave)                   | [Next-generation sequencing][4]\* (Dave)      | 
+| **5**    | 23/8       | Continue Scripting  | [Evolutionary processes] (Dave)              | [Alignment Process][6]\* (Dave)            |   
+| **6**    | 30/8       | *NGS sequencing test*  |    [Alignment/NGS (1)] (Dave)             | [Genome assembly][8] (Lloyd)               |   
+| **7**    | 6/9        |*Alignment test*     | [Alignment/NGS (2)] (Dave)                   |       [Variant Calling][7] (Rick)         |
+| **8**    | 13/9       |*Genome assembly test*  |    [Variant Calling Practical][9] (Rick)  | [Systems Biology] (Ville?)                | 
+| **-**    | 20/9       | Semester Break      |                                              |                                          |
+| **-**    | 27/9       | Semester Break      |                                              |                                          |
+| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project    | [Differential Gene Expression] (Zhipeng))    | 
+| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] |   [ [Differential Gene Expression] [] (Zhipeng)]  |[Epigenetics][11]\* (Jimmy) |     
+| **11**   | 18/10      | *Systems biology test* | No practical, can work on Major Project   | [Ancient DNA][12]\* (Bastien)              | 
+| **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project   | No lecture                                 |
 
 
 \* Slides not visible outside UofA network unless you connect via Uni VPN.
@@ -81,6 +81,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
+[Differential Gene Expression]: Practicals/Transcriptome_Practical/Transcriptome_Practical.html
 
 ## Assessment
 
@@ -91,9 +92,9 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  8%             | 6%         | Tuesday 10th August    |
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Tuesday 24th August    |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 31 August  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 6th October |
-| [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 19th October |
-| [Assessment 6](https://github.com/kortschak/graphprac/)      | Graphical analyses          |  8%             | 6%         | Tuesday 26th October   |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 5th October |
+| [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 12th October |
+| [Assessment 6](https://github.com/kortschak/graphprac/)      | Differential Gene Expression|  8%             | 6%         | Tuesday 19th October   |
 | Tests                                                        |                             |  12%            | 9%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 9th November   |
 | Exam                                                         |                             |  40%            | 40%        |                       |
@@ -126,7 +127,7 @@ In this course, the following next-generation sequencing (NGS) datasets/protocol
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
-You have the freedom to choose any dataset you would like before we start week 6's practical (Alignment/NGS practical), or choose from four datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
+You have the freedom to choose any dataset you would like before we start week 6's practical (Alignment/NGS practical), or choose from datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
 
 ## Useful Links
 
