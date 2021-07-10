@@ -23,7 +23,16 @@ For much of today we will work interactively, however a complete analysis should
 This is often referred to as *Reproducible Research*, and in reality, our scripts are like an electronic lab book and can be used to protect our discoveries when we all patent our cures for cancer.
 Likewise, when you're writing your thesis, referring back to your scripts will be very useful for writing your methods section.
 
-## Setup the directory for today
+## Running `bash` on your VM
+
+All computers running MacOS and Linux have a terminal built-in as part of the standard setup, whilst for Windows there are several options, including `git bash` which also enables use of version control for your scripts.
+To keep everything consistent for this practical, we'll use the terminal which is available inside `RStudio`.
+Note that even though we're using `RStudio`, we won't be interacting with `R` today as `R` runs interactively in the `Console`.
+Instead we'll be using one of the other features provided by `RStudio` to access `bash`
+
+To access this, open `RStudio` as you have for the previous practicals 
+
+### Setup the directory for today
 
 Just as we've created a new `R Project` for practicals 1 and 2, let's create a new one for today to make sure we're all in the same place.
 
@@ -35,17 +44,7 @@ Just as we've created a new `R Project` for practicals 1 and 2, let's create a n
 
 This again helps us keep our code organised and is good practice.
 
-## Running `bash` on your VM
-
-All computers running MacOS and Linux have a terminal built-in as part of the standard setup, whilst for Windows there are several options, including `git bash` which also enables use of version control for your scripts.
-To keep everything consistent for this practical, we'll use the terminal which is available inside `RStudio`.
-Note that even though we're using `RStudio`, we won't be interacting with `R` today as `R` runs interactively in the `Console`.
-Instead we'll be using one of the other features provided by `RStudio` to access `bash`
-
-To access this, open `RStudio` as you have for the previous practicals and make sure the `Console` window is visible.
-Inside this pane, you will see a **Terminal** Tab so click on this and you will be at an interactive terminal running `bash`.
-
-Historically, `bash` is a replacement for the earlier Bourne Shell, written by Stephen Bourne, so the name is actually a hilarious joke.
+In Rstudio make sure the `Console` window is visible, inside this pane, you will see a **Terminal** Tab so click on this and you will be at an interactive terminal running `bash`. Historically, `bash` is a replacement for the earlier Bourne Shell, written by Stephen Bourne, so the name is actually a hilarious joke.
 We'll explore a few important commands below, and the words *shell* and *bash* will often be used interchangeably with the terminal window.
 Our apologies to any purists.
 
@@ -62,7 +61,7 @@ Most of the data analysis performed by the Bioinformatics Hub relies on the Univ
 Now we have setup our VM, the basic aims of the following sessions are:
 
 1. Gain familiarity and confidence within the Linux command-line environment
-2. Learn how to navigate directories, as well as to copy, move & delete the files within them
+2. Learn how to navigate directories (`folders`), as well as to copy, move and delete the files within them
 3. Look up the name of a command needed to perform a specified task
 
 ---
@@ -78,7 +77,7 @@ student@bioinf2020s2-student-xx:~/Practical_3$
 The first section of this describes your username (`student`) and the machine `@bioinf2020s2-student-xx`.
 The end of the machine identifier is marked with a colon (`:`).
 
-After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path & the beginning of where you will type commands.
+After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path and the beginning of where you will type commands.
 This is the standard interface for the Bourne-again Shell, or `bash`.
 
 ### Where are we?
@@ -93,7 +92,7 @@ pwd
 ```
 
 The command `pwd` is what we use to __p__rint the current (i.e. __w__orking) __d__irectory.
-Even though we are not using `R`, if you have setup the R project like we instructed above this command will probably return the directory. 
+If you have setup the R project like we instructed above this command should return the RStudio project directory. 
 
 ```
 /home/student/Practical_3
@@ -114,9 +113,9 @@ Notice that they will all live in the directory `/home` which is actually the pa
 This can be confusing for many people, so hopefully we'll clear this up in the next section or two.
 
 In the above, the `/home` directory itself began with a slash, i.e. `/`.
-On a unix-based system (i.e. MacOS & Linux), the `/` directory is defined to be the root directory of the file system.
+On a unix-based system (i.e. MacOS and Linux), the `/` directory is defined to be the root directory of the file system.
 Windows users would be more familiar with seeing `C:\` as the root of the computer, and this is an important difference in the two directory structures.
-Note also that whilst Windows uses the **backslash** (`\`) to indicate a new directory, a Linux-based system uses the **forward slash** (`/`), or more commonly just referred to simply as "slash", marking another but very important difference between the two.
+Note also that whilst Windows uses the **backslash** (`\`) to indicate a directory, a Linux-based system uses the **forward slash** (`/`), or more commonly just referred to simply as "slash", marking another but very important difference between the two.
 
 #### cd
 {:.no_toc}
@@ -176,7 +175,7 @@ cd ../../
 **Return to your home directory using** `cd`.
 
 In the above steps, this has been exactly the same as clicking through directories in our familiar folder interface that we're all familiar with.
-Now we know how to navigate folders using `bash` instead of the GUI.
+Now we know how to navigate folders using `bash` instead of the GUI point and click file manager.
 This is an essential skill when logged into a High Performance Computer (HPC) or a Virtual Machine (VM) as the vast majority of these run using Linux.
 
 ### Important
@@ -246,9 +245,9 @@ It's a good check for mistakes.
 
 ### Looking at the Contents of a Directory
 
-There is another built-in command (`ls`) that we can use to **list** the contents of a directory.
+There is another built-in command (`ls`) that we can use to **list** the contents (files and folders) of a directory.
 This is a way to get our familiar folder view in the terminal.
-Making sure you are in your home directory (`cd ~`), enter the `ls` command as it is and it will print the contents of the current directory.
+Making sure you are in your home directory (`cd ~`), enter the `ls` command as it is and it will output and display the contents of the current directory.
 
 ```bash
 ls
@@ -256,7 +255,7 @@ ls
 
 This is the list of files that we normally see in our traditional folder view that Windows and MacOS show us by default.
 We can actually check this output using `RStudio` too, so head to the **Files** tab in the `Files` window.
-Click on the Home icon (![home](../R_Practicals/images/home.png)) and look at the folders & files you can see there.
+Click on the Home icon (![home](../R_Practicals/images/home.png)) and look at the folders and files you can see there.
 **Do they match the output from `ls`?**
 Ask for help if not.
 
@@ -313,13 +312,13 @@ If automating this process via a script it is very important to understand the d
 
 ### Adding Options To Commands
 
-So far, the commands we have used were given either without the use of any subsequent arguments, e.g. `pwd` & `ls`, or with a specific directory as the second argument, e.g. `cd ../` & `ls /`.
+So far, the commands we have used were given either without the use of any subsequent arguments, e.g. `pwd` and `ls`, or with a specific directory as the second argument, e.g. `cd ../` and `ls /`.
 Many commands have the additional capacity to specify different options as to how they perform, and these options are often specified *between* the command name, and the file (or path) being operated on.
 Options are commonly a single letter prefaced with a single dash (`-`), or a word prefaced with two dashes (`--`).
-The `ls` command can be given with the option `-l` specified between the command & the directory and gives the output in what is known as *long listing* format.
+The `ls` command can be given with the option `-l` specified between the command and the directory and gives the output in what is known as *long listing* format.
 
 *Inspect the contents of your current directory using the long listing format.
-Please make sure you can tell the difference between the characters `l` & `1`.*
+Please make sure you can tell the difference between the characters `l` and `1`. The letter l and number one. *
 
 ```bash
 ls -l
@@ -336,12 +335,12 @@ These letters are known as flags which identify key attributes about each file o
 The first entry shows the file type and for most common files this entry will be `-`, whereas for a directory we will commonly see `d`.
 
 Beyond this first position, the triplet of values `rwx` simply refer to who is able to read, write or execute the contents of the file or directory.
-These three triplets refer to 1) the file's owner, 2) the group of users that the owner belongs to & 3) all users, and will only contain the values "r" (read), "w" (write), "x" (execute) or "-" (not enabled).
+These three triplets refer to 1) the file's owner, 2) the group of users that the owner belongs to and 3) all users, and will only contain the values "r" (read), "w" (write), "x" (execute) or "-" (not enabled).
 These are very helpful attributes for data security, protection against malicious software, and accidental file deletions.
 
-The entries `student student` respectively refer to who is the owner of the directory (or file) & to which group of users the owner belongs.
+The entries `student student` respectively refer to who is the owner of the directory (or file) and to which group of users the owner belongs.
 Again, this information won't be particularly relevant to us today, but this type of information is used to control who can read and write to a file or directory.
-Finally, the value `4096` is the size of the directory structure in bytes, whilst the date & time refer to when the directory was created.
+Finally, the value `4096` is the size of the directory structure in bytes, whilst the date and time refer to when the directory was created.
 
 Let's look in your home directory (`~`).
 
@@ -363,7 +362,7 @@ ls -l -h ~
 ```
 
 The `-h` option will change the file size to `human-readable` format, whilst leaving the remainder of the output unchanged.
-Try it & you will notice that where we initially saw `4096` bytes, the size is now given as `4.0K`, and other file sizes will also be given in Mb etc.
+Try it and you will notice that where we initially saw `4096` bytes, the size is now given as `4.0K`, and other file sizes will also be given in Mb etc.
 This can be particularly helpful for larger files, as most files in bioinformatics are very large indeed.
 
 An additional option `-R` tells the `ls` command to look through each directory recursively.
@@ -375,8 +374,8 @@ ls -l -R ~
 
 the output will be given in multiple sections.
 The first is what we have seen previously, but following that will be the contents of each sub-directory.
-It should become immediately clear that the output from setting this option can get very large & long depending on which directory you start from.
-It's probably not a good idea to enter `ls -l -R /` as this will print out the entire contents of your file system.
+It should become immediately clear that the output from setting this option can get very large and long depending on which directory you start from.
+It's probably not a good idea to enter `ls -l -R /` as this will display out the entire contents of your file system.
 
 In the case of the `ls` command we can also *glob* all the above options together in the command
 
@@ -396,7 +395,7 @@ It's easy for things to go wrong when working in the command-line, but if you've
 - if you can't see the command prompt, or
 - if the terminal is not responsive
 
-there are some simple options for stopping a process & getting you back on track.
+there are some simple options for stopping a process and getting you back on track.
 Some options to try are:
 
 | Command  | Result |
@@ -421,10 +420,10 @@ To display the help page for `ls` enter the command
 man ls
 ```
 
-As beforehand, the space between the arguments is important & in the first argument we are invoking the command `man` which then looks for the *manual* associated with the command `ls`.
+As beforehand, the space between the arguments is important and in the first argument we are invoking the command `man` which then looks for the *manual* associated with the command `ls`.
 To navigate through the manual page, we need to know a few shortcuts which are part of the `less` pager.
 
-Although we can navigate through the `less` pager using up & down arrows on our keyboards, some helpful shortcuts are:
+Although we can navigate through the `less` pager using up and down arrows on our keyboards, some helpful shortcuts are:
 
 | Key    | Action |
 |:---------- |:------ |
@@ -476,13 +475,13 @@ Try accessing the manual for the command `man` all the ways you can think of.
 *Could we access the help page for the command `ls` all three ways?*
 
 
-## Some More Useful Tricks & Commands
+## Some More Useful Tricks and Commands
 
 ### A series of commands to look up
 
-So far we have explored the commands `pwd`, `cd`, `ls` & `man` as well as the pager `less`.
-Inspect the `man` pages for the commands in the following table  & fill in the appropriate fields.
-Have a look at the useful options & try to understand what they will do if specified when invoking the command.
+So far we have explored the commands `pwd`, `cd`, `ls` and `man` as well as the pager `less`.
+Inspect the `man` pages for the commands in the following table and fill in the appropriate fields.
+Have a look at the useful options and try to understand what they will do if specified when invoking the command.
 Write your answers on a piece of paper, or in a plain text file.
 
 | **Command** | **Description of function**   | **Useful options** |
@@ -530,7 +529,7 @@ We'll download a file from the internet, then look through the file.
 # Regular Expressions
 
 ## Introduction
-Regular expressions are a powerful & flexible way of searching for text strings amongst a large document or file.
+Regular expressions are a powerful and flexible way of searching for text strings amongst a large document or file.
 Most of us are familiar with searching for a word within a file, but regular expressions allow us to search for these with more flexibility, particularly in the context of genomics.
 We briefly saw this idea in the `R` practical using the functions `str_extract()` and `str_replace()`.
 Instead of searching strictly for a word or text string, we can search using less strict matching criteria.
@@ -555,7 +554,7 @@ As well as the series of conventional numbers and characters that we are familia
 | Special Character | Meaning |
 |:----------------- |:------- |
 | \w                | match any letter or digit, i.e. a word character |
-| \s                | match any white space character, includes spaces, tabs & end-of-line marks |
+| \s                | match any white space character, includes spaces, tabs and end-of-line marks |
 | \d                | match any digit from 0 to 9 |
 | .                 | matches any single character |
 | +                 | matches one or more of the preceding character (or pattern) |
@@ -572,7 +571,7 @@ As well as the series of conventional numbers and characters that we are familia
 
 
 ## Pattern Searching
-In this section we'll learn the basics of using the `grep` command & what forms the output can take.
+In this section we'll learn the basics of using the `grep` command and what forms the output can take.
 Firstly, we'll need to get the file that we'll search in this section.
 First **change into your `test` directory** using the `cd` command, then enter the following, depending on your operating system:
 
