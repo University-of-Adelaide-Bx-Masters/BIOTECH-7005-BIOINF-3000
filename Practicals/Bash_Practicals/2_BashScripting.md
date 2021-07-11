@@ -153,12 +153,12 @@ Now we can add the sequence identifiers
 egrep '^>' Drosophila_melanogaster.BDGP6.ncrna.fa >> SeqIDs.txt
 ```
 
-Inspect this once again using `less`, `head` or `cat`
+Inspect this once again using `less` or `head` (Hint: Do not use `cat` for large files)
 
 ## Redirection Using The Pipe Symbol
 
 Sometimes we need to build up our series of commands & send the results of one to another.
-The *pipe* symbol (`|`) is the way we do this & it can literally be taken as placing the output from one command into a pipe & redirecting it somewhere new.
+The *pipe* symbol (`|`) is the way we do this & it can literally be taken as placing the output from one command into the input of the next (analogous to using a pipe and redirecting output somewhere new).
 This is where thinking about the output of a command as a *data stream* can be very helpful.
 This is a very conventional approach when working in `bash` and was the motivation behind the creation of the `magrittr` package in `R`.
 
@@ -178,12 +178,13 @@ This process can also be visualised using the following diagram from Unix Bootca
 
 As you may have realised, these file types don't play well with MS Word, Excel and the like.
 We need different ways to look through these and as we go, hopefully you'll get the hang of this.
-First we'll download the file GCF_000182855.2_ASM18285v1_genomic.gff for *Lactobacillus amylovorus* from the NCBI database. (Use `curl` if you don't have `wget`)
+First we'll download the file GCF_000182855.2_ASM18285v1_genomic.gff for *Lactobacillus amylovorus* from the NCBI database. (`wget` is similar to `curl` for retreiving files, however does not require redirection. Alternately you can use `curl` as we did before.)
 
 ```
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz
 gunzip GCF_000182855.2_ASM18285v1_genomic.gff.gz
 ```
+`This file link may require updating`
 
 This file is in `gff` format, which is very commonly used.
 The first 5 lines of this file is what we refer to as a *header*, which contains important information about how the file was generated in a standardised format.
@@ -614,7 +615,7 @@ ls -lh *sh
 ### Modifying our script
 
 In the initial script we used two variables `${ME}` and `${MESSAGE}`.
-Now let's change the variable `${ME}` in the firs line  of the script to read as `ME=$1`.
+Now let's change the variable `${ME}` in the first line  of the script to read as `ME=$1`.
 First we'll create a copy of the script to edit, and then we'll edit using `nano`
 
 ```
@@ -629,7 +630,7 @@ chmod +x wellDone2.sh
 ls -lh *sh
 ```
 
-This time we have set the script to *receive input from stdin* (i.e. the terminal), and we will need to supply a value, which will then be placed in the variable `${ME}`.
+This time we have set the script to *receive input from stdin* (i.e. the terminal), and we will need to supply a value, (as we have done when passing an argument to a command) which will then be placed in the variable `${ME}`.
 Choose whichever random name you want (or just use "Boris" as in the example) and enter the following
 ```
 ./wellDone2.sh Boris
