@@ -5,13 +5,13 @@ You may need to work on these outside of the allocated two-hour session.
 
 Assessment 1 requires these sessions to be completed.
 
-## Practical 1: 28th July, 2020
+## Practical 1: 27th July, 2021
 
 [1.1 Introduction](1_Introduction_To_R.html)<br>
 [1.2 Importing Data](2_ImportingData.html)<br>
 [1.3 Reshaping Data](3_ReshapingData.html)
 
-## Practical 2: 4th August, 2020
+## Practical 2: 3rd August, 2021
 
 [2.1 Working With Text](4_TextManipulation)<br>
 [2.2 Plotting Data](5_PlottingData.html)<br>
