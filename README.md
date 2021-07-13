@@ -16,6 +16,9 @@ Instructors:
 - Rick Tearle 
 - Bastien Llamas 
 - Zhipeng Qu
+- Jimmy Breen
+- Ville Petteri-Makinen
+- Joe McConnell
 
 __*Course Contact*__
 Dave Adelson
@@ -39,20 +42,20 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 
 | **Week** | **Monday** |**Tutorial**         |**Practical**                                 | **Lecture**                              |
 |----------|------------|---------------------|----------------------------------------------|------------------------------------------|
-| **1**    | 26/7 [Intro to Bioinformatics][1]\* (Dave)<br>pre-recorded lecture.  | *Discussion* | [Introduction to R] (1) (Steven) |  [Statistics][2] (Steven)  |
-| **2**    | 2/8        | Continue practical  | [Introduction to R] (2) (Steven)             | [Evolutionary Processes][3]\* (Dave)     |
-| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet]                          | [Introduction To Bash] (Dave)     | [Alignment Process][5]\*  (Dave)  |
-| **4**    | 16/8       | *Evolution test*    | [Scripting In Bash] (Dave)                   | [Next-generation sequencing][4]\* (Dave)      | 
-| **5**    | 23/8       | Continue Scripting  | [Evolutionary processes] (Dave)              | [Alignment Process][6]\* (Dave)            |   
-| **6**    | 30/8       | *NGS sequencing test*  |    [Alignment/NGS (1)] (Dave)             | [Genome assembly][8] (Lloyd)               |   
-| **7**    | 6/9        |*Alignment test*     | [Alignment/NGS (2)] (Dave)                   |       [Variant Calling][7] (Rick)         |
-| **8**    | 13/9       |*Genome assembly test*  |    [Variant Calling Practical][9] (Rick)  | [Systems Biology] (Ville)                | 
+| **1**    | 26/7 [Intro to Bioinformatics][1]\* (Dave)<br>pre-recorded lecture.  | *Discussion* | [Introduction to R] (1) (Steven/Dave) |  [Statistics][2] (Steven)  |
+| **2**    | 2/8        | Continue practical  | [Introduction to R] (2) (Steven/Dave)             | [Evolutionary Processes][3]\* (Dave)     |
+| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet] (Steven/Dave)                         | [Introduction To Bash] (Dave/Joe)     | [Alignment Process][5]\*  (Dave)  |
+| **4**    | 16/8       | *Evolution test* (Dave/Joe)   | [Scripting In Bash] (Dave/Joe)                   | [Next-generation sequencing][4]\* (Dave)      | 
+| **5**    | 23/8       | Continue Scripting (Dave/Joe) | [Evolutionary processes] (Dave/Joe)              | [Alignment Process][6]\* (Dave)            |   
+| **6**    | 30/8       | *NGS sequencing test* (Dave/Joe)  |    [Alignment/NGS (1)] (Dave/Joe)             | [Genome assembly][8] (Lloyd)               |   
+| **7**    | 6/9        |*Alignment test* (Dave/Joe)    | [Alignment/NGS (2)] (Dave/Joe)                   |       [Variant Calling][7] (Rick)         |
+| **8**    | 13/9       |*Genome assembly test* (Dave/Joe)  |    [Variant Calling Practical][9] (Rick/Dave)  | [Systems Biology] (Ville)                | 
 | **-**    | 20/9       | Semester Break      |                                              |                                          |
 | **-**    | 27/9       | Semester Break      |                                              |                                          |
-| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project    | [Quantifying Gene Expression] (Zhipeng))    | 
-| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] |   [ [Differential Gene Expression] (Zhipeng)]  |[Epigenetics][11]\* (Jimmy) |     
-| **11**   | 18/10      | *Systems biology test* | No practical, can work on Major Project   | [Ancient DNA][12]\* (Bastien)              | 
-| **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project   | No lecture                                 |
+| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project (Dave)   | [Quantifying Gene Expression] (Zhipeng))    | 
+| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [ [Differential Gene Expression] (Zhipeng/Dave)]  |[Epigenetics][11]\* (Jimmy) |     
+| **11**   | 18/10      | *Systems biology test* (Dave/Zhipeng) | No practical, can work on Major Project (Dave)  | [Ancient DNA][12]\* (Bastien)              | 
+| **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project (Dave)  | No lecture                                 |
 
 
 \* Slides not visible outside UofA network unless you connect via Uni VPN.
