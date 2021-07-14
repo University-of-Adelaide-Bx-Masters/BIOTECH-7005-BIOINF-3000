@@ -184,7 +184,6 @@ First we'll download the file GCF_000182855.2_ASM18285v1_genomic.gff for *Lactob
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz
 gunzip GCF_000182855.2_ASM18285v1_genomic.gff.gz
 ```
-`This file link may require updating`
 
 This file is in `gff` format, which is very commonly used.
 The first 5 lines of this file is what we refer to as a *header*, which contains important information about how the file was generated in a standardised format.

@@ -326,7 +326,7 @@ ls -l
 
 The above will give one or more lines of output, and one of the first lines should be something similar to:
 
-`drwxrwxr-x 2 student student 4096 Aug 11 hh:mm test`
+`drwxr-xr-x  3 student student 4096 Jul  7 00:53 R`
 
 where `hh:mm` is the time of file/directory creation.
 
