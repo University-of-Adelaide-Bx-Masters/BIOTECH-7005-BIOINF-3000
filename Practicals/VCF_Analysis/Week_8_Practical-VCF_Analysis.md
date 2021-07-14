@@ -39,6 +39,7 @@ library(magrittr)
 library(vcfR)
 library(tidyverse)
 ```
+
 Then load the functions we need.
 
 ```{r, results='hide', eval = FALSE}
