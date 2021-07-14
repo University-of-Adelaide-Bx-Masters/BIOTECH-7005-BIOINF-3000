@@ -1,7 +1,7 @@
 ---
 title: 'Practical 1.2: Importing Data Into R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "28 July 2020"
+date: "27 July 2021"
 output:
   html_document:
     fig_caption: yes
