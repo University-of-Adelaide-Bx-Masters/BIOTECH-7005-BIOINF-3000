@@ -9,7 +9,7 @@ As with all previous practicals, start by creating a `~/Practical_8/` subdirecto
 
 This practical is designed to give you experience with VCF files and their analysis and will use the genome and NGS data from Assignment 4. It includes an Rscript and BAM and VCF files based on that data.  
 
-The files you will need are in your `~/sudent/data/variant_calling` directory. These are the files you should have:
+The files you will need are in your `~/student/data/variant_calling` directory. These are the files you should have:
 
 ```
 -rw-r--r-- 1 student student 9.1M Sep 12 06:07 Arabidopsis_thaliana.TAIR10.48.gff3.gz
@@ -63,9 +63,34 @@ if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
 ## Some notes
 The R package vcfR contains code to load and manipulate VCF files. We will only use a small proportion of its functionality but if you find yourself interrogating VCF files regularly, it will be worth your while reading up on the functions in this package.
 
-I have provided code to load reference sequences and annotation (gff) files in R as well, see sections **Load GFF File** and ##Load Reference File##. We will not use them here: they are provided for the sake of completeness.
+I have provided code to load reference sequences and annotation (gff) files in R as well, see sections **Load GFF File** and **Load Reference File**. We will not use them here: they are provided for the sake of completeness.
 
 After loading packages, we will start with the section **IGV**. This just contains a lists of co-ordinates for you to look at in IGV. We will inspect through these locations and I will have some comments on each.
+
+Because IGV cannot deal with `*.gz` files, you will have to decompress your genomic data file
+
+```bash
+pigz -d ~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz
+```
+You will also need to create an index for that file
+
+```bash
+samtools faidx ~/Project_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
+```
+
+Download the following files to your local computer using RStudio's File browser.
+Simply select 1 file at a time by checking the checkbox and click "More" >> "Export...".
+Click the "Download" button and save it somewhere obvious.
+
+* `~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa`
+* `~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai`
+* `~/student/Practical_8/SRR5882792_Athaliana_TAIR10.bam`
+* `~/student/Practical_8/SRR5882792_Athaliana_TAIR10.bam.bai`
+
+Visit, [IGV-web](https://igv.org/app/) and load the genome from a `Local File ...` by selecting both the `Arabidopsis_thaliana.TAIR10.dna.toplevel.fa` and `Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai` files.
+Once the reference genome is loaded, load a "Track" from a `Local File ...` by selecting both the `SRR5882792_Athaliana_TAIR10.bam` and `SRR5882792_Athaliana_TAIR10.bam.bai` files.
+
+![IGV-web SRR11140748 Illumina](images/SRR11140748-illumina.png)
 
 Next, go to **Load VCF**. After loading the VCF file we will look at how to access some of the data.
 
