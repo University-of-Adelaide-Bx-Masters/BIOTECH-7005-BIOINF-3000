@@ -50,7 +50,7 @@ fsummary <- function(x) {x %>% as.factor() %>% summary()}
 
 Now set up the paths and environment for input and output. 
 
-```{r results='hide', eval=FALSE} 
+```{r, results='hide', eval=FALSE} 
 DirIn <- "/home/student/Practical_8" 
 DirOut <- "/home/student/Practical_8/Out" 
 if(! dir.exists(DirOut)) {dir.create(DirOut)} 
