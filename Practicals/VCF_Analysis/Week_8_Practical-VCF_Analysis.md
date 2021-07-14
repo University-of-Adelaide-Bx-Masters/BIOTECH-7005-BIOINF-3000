@@ -70,30 +70,18 @@ I have provided code to load reference sequences and annotation (gff) files in R
 
 After loading packages, we will start with the section **IGV**. This just contains a lists of co-ordinates for you to look at in IGV. We will inspect through these locations and I will have some comments on each.
 
-Because IGV cannot deal with `*.gz` files, you will have to decompress your genomic data file
-
-```bash
-pigz -d ~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz
-```
-You will also need to create an index for that file
-
-```bash
-samtools faidx ~/Project_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
-```
-
 Download the following files to your local computer using RStudio's File browser.
 Simply select 1 file at a time by checking the checkbox and click "More" >> "Export...".
 Click the "Download" button and save it somewhere obvious.
 
-* `~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa`
-* `~/student/Practical_8/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai`
 * `~/student/Practical_8/SRR5882792_Athaliana_TAIR10.bam`
 * `~/student/Practical_8/SRR5882792_Athaliana_TAIR10.bam.bai`
 
-Visit, [IGV-web](https://igv.org/app/) and load the genome from a `Local File ...` by selecting both the `Arabidopsis_thaliana.TAIR10.dna.toplevel.fa` and `Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.fai` files.
+Visit, [IGV-web](https://igv.org/app/) and load the genome from the TAIR10 assembly as a pre-defined genome. Select it from the `Genome` tab in the IGV browser window.
+
 Once the reference genome is loaded, load a "Track" from a `Local File ...` by selecting both the `SRR5882792_Athaliana_TAIR10.bam` and `SRR5882792_Athaliana_TAIR10.bam.bai` files.
 
-![IGV-web SRR11140748 Illumina](images/SRR11140748-illumina.png)
+![IGV-web SRR11140748 Illumina](images/SRR11140748_Illumina_bam.png)
 
 Next, go to **Load VCF**. After loading the VCF file we will look at how to access some of the data.
 
