@@ -14,12 +14,13 @@ mkdir Practical_6
 **Once you have this setup, create a new R Project which can live in this directory.**
 If you can't remember how to do this, call a tutor over.
 
-You will need to install some software before you can proceed.
+You will need to activate the relevant `conda` environment before you can proceed.
 Please execute the following code.
 
 
 ```
-conda install -c bioconda -c conda-forge samtools bowtie2 picard jalview freebayes cutadapt sabre star fastqc bwa sambamba hisat2 bedtools subread bcftools
+conda activate 3000
+
 ```
 
 

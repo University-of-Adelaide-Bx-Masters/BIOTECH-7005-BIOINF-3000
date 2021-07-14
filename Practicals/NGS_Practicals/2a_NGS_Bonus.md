@@ -4,6 +4,15 @@
 # Biotech 7005: Practical 7 Bonus material
 Dave Adelson, Modified from Jimmy Breen & Steve Pederson
 
+
+Remember to activate the class `conda` environment before you can proceed.
+Please execute the following code.
+
+
+```
+conda activate 3000
+
+```
 ## Filtering the VCF
 
 While we seem to have called a lot of variants on chrI, have a look at the sequence that the chromosome starts off with:

@@ -22,6 +22,7 @@ Going by last week, this should be unnecessary but may be wise.
 Feel free to just copy & paste this line.
 
 ```
+conda activate 3000
 whereis fastqc cutadapt bwa STAR freebayes bcftools
 ```
 
