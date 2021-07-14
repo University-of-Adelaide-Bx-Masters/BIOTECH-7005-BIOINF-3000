@@ -31,26 +31,29 @@ Specific instructions will be provided during the practical to allow you to carr
 
 ## Set up
 
-First load the packages we need.
+First load the R packages we need.
 
-```{r, results='hide', eval = FALSE}
+```bash
+  {r, results='hide', eval = FALSE}
 library(magrittr)
 library(vcfR)
 library(tidyverse)
 ```
 
-Then load the functions we need.
+Then load the R functions we need.
 
-```{r, results='hide', eval = FALSE}
+```bash
+  {r, results='hide', eval = FALSE}
 '%nin%' <- Negate('%in%')
 
 ulength <- function(x) {x %>% unique() %>% length()}
 fsummary <- function(x) {x %>% as.factor() %>% summary()}
 ```
 
-Now set up the paths and environment for input and output. 
+Now set up the paths and environment for input and output in R. 
 
-```{r, results='hide', eval=FALSE} 
+```bash
+  {r, results='hide', eval=FALSE} 
 DirIn <- "/home/student/Practical_8" 
 DirOut <- "/home/student/Practical_8/Out" 
 if(! dir.exists(DirOut)) {dir.create(DirOut)} 
