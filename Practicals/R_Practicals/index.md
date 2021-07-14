@@ -19,4 +19,4 @@ Assessment 1 requires these sessions to be completed.
 
 ## Assessment 1
 
-[Now available here.](../../Assignments/Assignment1.md) Due 5pm, Tuesday 11th August, 2020
+[Now available here.](../../Assignments/Assignment1.md) Due 5pm, Tuesday 10th August, 2021
