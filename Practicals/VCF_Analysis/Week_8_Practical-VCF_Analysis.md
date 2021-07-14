@@ -50,12 +50,13 @@ fsummary <- function(x) {x %>% as.factor() %>% summary()}
 
 Now set up th paths and environment for input and output.
 
-```{r results='hide', eval=FALSE}
-DirIn <- "/home/student/Practical_8"
-DirOut <- "/home/student/Practical_8/Out"
-if(! dir.exists(DirOut)) {dir.create(DirOut)}
-DirPlot <- file.path(DirOut, "Plots")
-if(! dir.exists(DirPlot)) {dir.create(DirPlot)}
+```{r results='hide', eval=FALSE} 
+DirIn <- "/home/student/Practical_8" 
+DirOut <- "/home/student/Practical_8/Out" 
+if(! dir.exists(DirOut)) {dir.create(DirOut)} 
+
+DirPlot <- file.path(DirOut, "Plots") 
+if(! dir.exists(DirPlot)) {dir.create(DirPlot)} 
 ```
 
 
