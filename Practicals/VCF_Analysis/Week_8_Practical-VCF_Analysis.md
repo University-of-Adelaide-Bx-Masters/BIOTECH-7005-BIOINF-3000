@@ -19,7 +19,6 @@ The files you will need are in your `~/student/data/variant_calling` directory. 
 -rw-rw-r-- 1 student student  15M Sep 12 06:28 SRR5882792_Athaliana_TAIR10_picard.vcf
 -rwxr-xr-x 1 student student 9.3K Sep 14 05:47 VCF_Analysis.R
 -rwxr-xr-x 1 student student  234 Sep 14 05:47 VCF_Analysis.Rproj
-
 ```
 
 Move these files to your `~/Practical_8/` directory. You will then be able to open the Rproj and Rscript files to start working. 
