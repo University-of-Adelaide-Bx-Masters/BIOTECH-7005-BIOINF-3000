@@ -48,7 +48,7 @@ ulength <- function(x) {x %>% unique() %>% length()}
 fsummary <- function(x) {x %>% as.factor() %>% summary()}
 ```
 
-Now set up th paths and environment for input and output.
+Now set up the paths and environment for input and output. 
 
 ```{r results='hide', eval=FALSE} 
 DirIn <- "/home/student/Practical_8" 
