@@ -1,6 +1,6 @@
 # Assignment 5 - [*23 marks total*]
 
-**Due before Tuesday 20th October**
+**Due before Tuesday 12th October**
 ## Correct submission [*3 Marks*]
 Your answers to all questions should be submitted to myUni as a `.zip` file containing your two bash scripts and your html `knitted` R markdown file for part 4 that contains the answers to the additional questions (can be in any readable format, but my order of preference is; html, pdf, Rmd). [*1 mark for submitting as a single zip file*]
 

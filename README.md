@@ -53,7 +53,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | **-**    | 20/9       | Semester Break      |                                              |                                          |
 | **-**    | 27/9       | Semester Break      |                                              |                                          |
 | **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project (Dave)   | [Quantifying Gene Expression] (Zhipeng))    | 
-| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [ [Differential Gene Expression] (Zhipeng/Dave)]  |[Epigenetics][11]\* (Jimmy) |     
+| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [Transcriptomic Practical] (Zhipeng/Dave)]  |[Epigenetics][11]\* (Jimmy) |     
 | **11**   | 18/10      | *Systems biology test* (Dave/Zhipeng) | No practical, can work on Major Project (Dave)  | [Ancient DNA][12]\* (Bastien)              | 
 | **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project (Dave)  | No lecture                                 |
 
@@ -84,7 +84,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
-[Differential Gene Expression]: Practicals/Transcriptome_Practical/Transcriptomic_Practical.html
+[Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptomic_Practical.html
 
 ## Assessment
 
@@ -97,9 +97,9 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 31 August  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 5th October |
 | [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 12th October |
-| [Assessment 6](https://github.com/kortschak/graphprac/)      | Differential Gene Expression|  8%             | 6%         | Tuesday 19th October   |
+| [Assessment 6](/Practicals/Transcriptomic_Practical.html)      | Differential Gene Expression|  8%             | 6%         | Tuesday 19th October   |
 | Tests                                                        |                             |  12%            | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 9th November   |
+| [Project](Assignments/major_project_bogus.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 9th November   |
 | Exam                                                         |                             |  40%            | 40%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 

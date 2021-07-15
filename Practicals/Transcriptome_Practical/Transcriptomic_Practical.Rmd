@@ -1,7 +1,7 @@
 ---
 title: "Transcriptomics Practical"
-author: "Steve Pederson/Jimmy Breen"
-date: '16th September, 2019'
+author: "Zhipeng Qu/Steve Pederson/Jimmy Breen"
+date: '12th October, 2021'
 output: 
   html_document: 
     toc: yes
@@ -27,6 +27,7 @@ library(edgeR)
 library(DiagrammeR)
 theme_set(theme_bw())
 ```
+## This practical corresponds to Assignment 6 and the write up is due Tuesday 19th October
 
 ## Introduction
 
