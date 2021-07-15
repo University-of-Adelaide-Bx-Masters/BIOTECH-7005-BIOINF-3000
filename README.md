@@ -1,7 +1,7 @@
 * TOC
 {:toc}
 
-## Biotech 7005: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
+## Biotech 7005/Bioinf 3000: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
 Semester 2 2021
