@@ -53,7 +53,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | **-**    | 20/9       | Semester Break      |                                              |                                          |
 | **-**    | 27/9       | Semester Break      |                                              |                                          |
 | **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project (Dave)   | [Quantifying Gene Expression] (Zhipeng))    | 
-| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [Transcriptomic Practical] (Zhipeng/Dave)]  |[Epigenetics][11]\* (Jimmy) |     
+| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [Transcriptomic Practical] (Zhipeng/Dave)  |[Epigenetics][11]\* (Jimmy) |     
 | **11**   | 18/10      | *Systems biology test* (Dave/Zhipeng) | No practical, can work on Major Project (Dave)  | [Ancient DNA][12]\* (Bastien)              | 
 | **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project (Dave)  | No lecture                                 |
 
