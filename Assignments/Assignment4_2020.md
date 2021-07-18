@@ -31,6 +31,7 @@ All other folders must be created as subdirectories of this. [*1 mark*]
     + How many reads were mapped in total? [*1 marks*]
     + How many reads were mapped as a pair? [*1 marks*]
     + How many reads were mapped as a "proper" pair? [*1 marks*]
+    + Find the _Arabidopsis thaliana_ gene associated with your ID below and identify how many read pairs mapped to that region/interval [*5 marks*]
 
 
 ## Theoretical questions [*5 marks*]
@@ -39,6 +40,57 @@ All other folders must be created as subdirectories of this. [*1 mark*]
 5. What is the difference between a SAM file and a BAM file? [*1 marks*]
 6. What does the CIGAR string "26M2I78M" mean? [*2 marks*]
 
+
+### Genes For Question 3
+
+*If your student number is not listed, please contact Dave to ensure you are added to the list*
+
+| ID       | Gene      |
+|:---------|:----------|
+| a1723812 | AT5G39980 |
+| a1740160 | AT3G19540 |
+| a1767858 | AT3G27570 |
+| a1717593 | AT4G05470 |
+| a1675025 | AT5G42410 |
+| a1756655 | AT1G63340 |
+| a1686550 | AT4G14350 |
+| a1747903 | AT5G55530 |
+| a1748603 | AT1G78670 |
+| a1765286 | AT5G66320 |
+| a1749756 | AT4G13130 |
+| a1725889 | AT1G62450 |
+| a1754274 | AT1G20720 |
+| a1792295 | AT5G45000 |
+| a1731521 | AT2G36210 |
+| a1794835 | AT4G18590 |
+| a1627307 | AT1G72390 |
+| a1704339 | AT4G35987 |
+| a1776797 | AT1G49700 |
+| a1819113 | AT3G12990 |
+| a1812900 | AT1G47640 |
+| a1724529 | AT3G23175 |
+| a1805535 | AT5G61580 |
+| a1811637 | AT3G28674 |
+| a1820124 | AT1G48770 |
+| a1783527 | AT1G03390 |
+| a1778718 | AT3G12210 |
+| a1795646 | AT1G49100 |
+| a1681781 | AT2G23540 |
+| a1686683 | AT3G29180 |
+| a1787867 | AT1G55270 |
+| a1789951 | AT4G38405 |
+| a1754994 | AT3G01470 |
+| a1720273 | AT5G38100 |
+| a1786706 | AT1G35730 |
+| a1792442 | AT4G31980 |
+| a1758223 | AT5G16410 |
+| a1791929 | AT4G29120 |
+| a1786514 | AT2G18290 |
+| a1786921 | AT5G44720 |
+| a1680671 | AT4G38530 |
+| a1817954 | AT3G25240 |
+| a1805954 | AT4G39955 |
+| a1811380 | AT3G02700 |
 
 
 

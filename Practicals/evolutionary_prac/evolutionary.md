@@ -14,7 +14,7 @@ This again helps us keep our code organised and is good practice.
 
 ## Prepare the sequence data
 
-Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
+Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
 
 ### Reduced the size of the dataset
 
