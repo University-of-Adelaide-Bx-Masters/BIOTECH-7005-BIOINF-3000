@@ -62,7 +62,7 @@ Run the following command to change the sequence IDs:
 sed -e 's/^>[^ ]\+ \([^ ]\+\) \([^ ]\+\).*$/>\1_\2/g' bovidea_50_mtDNA-mafft.fa > bovidea_50_mtDNA-named.fa
 ```
 
-**What does this command do?**
+**Q1. What does this command do?**
 
 In order to be able to examine the alignments more effectively we will convert the format from FASTA to NEXUS format. This will make it easier to see the alignment.
 
@@ -72,7 +72,7 @@ seqmagick convert --output-format nexus --alphabet dna bovidea_50_mtDNA-named.fa
 
 Look at the NEXUS alignment file. At the beginning of the alignment and near the end there are regions that have large gaps and very poor conservation.
 
-**What is the reason for this? (*Hint: use the accession numbers in the name to search [Entrez](https://www.ncbi.nlm.nih.gov/genome/) for the annotation.*)**
+**Q2. What is the reason for this? (*Hint: use the accession numbers in the name to search [Entrez](https://www.ncbi.nlm.nih.gov/genome/) for the annotation.*)**
 
 The phylogenetic reconstruction methods we will be using cannot handle missing bases, so these must be removed. 
 We can use Gblocks to remove the non-conserved regions of the alignment.
@@ -99,7 +99,7 @@ q. Quit
 Use the menu options in the program to remove the non-conserved regions from the `fa` file (not the `nex` file).
 This will give you a file `bovidea_50_mtDNA-named.fa-gb`.
 
-**Why do we need to do this? (*Hint:read the [Gblocks documentation](http://molevol.cmima.csic.es/castresana/Gblocks.html)*)**
+**Q3. Why do we need to do this? (*Hint:read the [Gblocks documentation](http://molevol.cmima.csic.es/castresana/Gblocks.html)*)**
 
 ### Convert to NEXUS format
 
@@ -156,7 +156,8 @@ First you will need to load the data set that you prepared.
 
 Use the `execute` command to load the NEXUS sequence file you created with seqmagick.
 
-**How many taxa were read into memory? How many characters are being used?**
+**Q4. How many taxa were read into memory?** 
+**Q5. How many characters are being used?** 
 
 ### Set options
 
@@ -172,7 +173,7 @@ help lset
 
 You can see that the default rate matrix is 4 by 4 which corresponds to nucleotide.
 
-**What substitution models does the default number of substitution types correspond to?**
+**Q6. What substitution models does the default number of substitution types correspond to?**
 
 Set the number of substitution types to the number you have chosen (written below as `<num>`).
 
@@ -219,11 +220,11 @@ To look at the convergence, execute the following command.
 sump
 ```
 
-**Describe what the output graph shows.**
+**Q7. Describe what the output graph shows.**
 
 Find where the plateau starts by choosing different burnin lengths (note that the burnin describes the number of leading sample to discard, not the number of MCMC iterations).
 
-**Approximately when does the plateau start in terms of number of samples?**
+**Q8. Approximately when does the plateau start in terms of number of samples?**
 
 ### Examine trees
 
@@ -238,7 +239,9 @@ It will also output a consensus tree file called "model-\<num\>.con.tre".
 
 Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). `FigTree` is a tree visualising tool that you will need to run on your computer. Select the best download type for your computer/operating system and install it. 
 
-**Do the trees from the two models differ? How does the branch support differ between the two trees? Do the trees agree with the known taxonomic groupings?**
+**Q9. Do the trees from the two models differ?** 
+**Q10. How does the branch support differ between the two trees?** 
+**Q11. Do the trees agree with the known taxonomic groupings?** 
 
 #### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106)
 
@@ -252,9 +255,13 @@ Answer the questions in **bold** above.
 
 ### Bayesean Trees with whole mitochondrial genomes
 
+You will have produced two trees for Bovidea (two different models), submit them as part of your practical as **Figure 1**.
+
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
-You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
+Submit the Marsupial tree as **Figure 2**.
+
+You can get the Marsupial mitochondrial genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
 ```
 ./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
 ```
@@ -268,9 +275,10 @@ Alternatively, these genomes can be obtained the way a biologist would from [her
 
 
 
-1. **What two species are the best to use as an outgroup?**
-2. **Which two leaves are the closest related/have the shortest branch? What is the evolutionary distance between these two leaves?**
-3. **Which of the following two species are more closely related?**
+**Q12. What two species are the best to use as an outgroup?**
+**Q13. Which two leaves are the closest related/have the shortest branch?**
+**Q14. What is the evolutionary distance between these two leaves?**
+**Q15. Which of the following two species are more closely related?**
     1. **silky-shrew oppossum**
     2. **Tasmanian wolf**
     3. **koala**
