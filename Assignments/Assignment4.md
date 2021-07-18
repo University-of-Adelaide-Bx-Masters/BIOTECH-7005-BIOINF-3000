@@ -1,6 +1,6 @@
 
 
-# Assignment 4 [*34 marks*]
+# Assignment 4 [*29 marks*]
 
 **Due before 5pm, Tuesday 5th October - extended deadline**
 

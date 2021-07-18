@@ -84,7 +84,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
-[Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptomic_Practical.Rmd
+[Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptomic_Practical.html
 
 ## Assessment
 

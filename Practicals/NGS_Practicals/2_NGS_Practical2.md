@@ -37,7 +37,7 @@ An example data structure to use for today has already been made for you & can b
 
 ```
 cd ~
-wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005/raw/master/Practicals/NGS_Practicals/ngsSkeleton-master.zip
+wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Practicals/NGS_Practicals/ngsSkeleton-master.zip
 unzip master.zip
 mv ./ngsSkeleton-master/* ./Practical_7/
 rm master.zip
@@ -200,7 +200,7 @@ If `wget` doesn't work for you, you can always you can always re-download the ge
 
 For today's session, we've already given you just the sequence of chrI so let's move this into a useful folder for today.
 It will be in the folder `~/intro_ngs` (where we obtained our reads from).
-Call Dan or Steve over if you can't find it somewhere (use `ls ~/intro_ngs`).
+Call Dave or Joe over if you can't find it somewhere (use `ls ~/intro_ngs`).
 
 
 ```
