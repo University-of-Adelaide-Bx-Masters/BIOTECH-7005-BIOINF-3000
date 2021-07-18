@@ -254,7 +254,7 @@ Answer the questions in **bold** above.
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
-You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
+You can get these genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
 ```
 ./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
 ```
