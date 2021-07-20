@@ -1,5 +1,5 @@
 ---
-title: "Transcriptomics Practical"
+title: "BIOTECH-7005/BIOINF-3000 Transcriptomics Practical"
 author: "Zhipeng Qu/Steve Pederson/Jimmy Breen"
 date: '12th October, 2021'
 output: 
