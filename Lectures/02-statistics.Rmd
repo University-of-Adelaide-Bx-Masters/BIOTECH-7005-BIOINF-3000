@@ -1,14 +1,16 @@
 ---
 title: "02 Statistics"
-subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
 author: "Steven Delean (based on original notes by Steve Pederson)"
-date: "6 August 2020"
-output: 
-  ioslides_presentation: 
+date: "29 July 2021"
+output:
+  ioslides_presentation:
     widescreen: yes
     css: custom.css
     fig_caption: yes
     logo: ../images/UoA_logo_col_vert.png
+  slidy_presentation: default
+  beamer_presentation: default
+subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
 ```{r setup, include=FALSE}
@@ -264,7 +266,7 @@ $$
 ## The Null Hypothesis
 
 ```{r}
-df <- data_frame(x = seq(-5, 5, length.out = 1000),
+df <- tibble(x = seq(-5, 5, length.out = 1000),
            y = dnorm(x)) 
 ```
 
