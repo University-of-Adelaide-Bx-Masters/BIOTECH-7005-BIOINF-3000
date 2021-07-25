@@ -1,7 +1,7 @@
 ---
 title: 'Practical 2.1: Working With Text In R'
-author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "4 August 2020"
+author: "Steven Delean (material from Bioinformatics Hub, University of Adelaide)"
+date: "3 August 2021"
 output:
   html_document:
     fig_caption: yes
@@ -15,7 +15,7 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 library(knitr)
 opts_chunk$set(
   echo = TRUE,
-  eval = TRUE,
+  eval = FALSE,
   results = 'hide',
   message = FALSE, 
   warnings =  FALSE

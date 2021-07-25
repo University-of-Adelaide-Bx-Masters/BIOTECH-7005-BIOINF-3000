@@ -1,6 +1,6 @@
 # Assignment 1 - 27 Marks
 
-**Due before 5pm, Tuesday 11th August, 2020**
+**Due before 5pm, Tuesday 10th August, 2021**
 
 Your answers to all questions should be submitted to myUni as a single R markdown file with the file suffix `.Rmd`. [*1 mark*]
 

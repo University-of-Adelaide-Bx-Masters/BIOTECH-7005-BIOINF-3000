@@ -1,8 +1,8 @@
 ---
 title: "Practical 1.1: Introduction to R and R Studio"
 subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
-author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "28 July 2020"
+author: "Steven Delean (material from Bioinformatics Hub, University of Adelaide)"
+date: "27 July 2021"
 output: 
   html_document: 
     fig_caption: yes
@@ -63,7 +63,7 @@ RStudio is how we will primarily interact with our VMs
 Let's have a quick look at R in it's simplest form.
 To make a calculation or run a command directly, we can us the `Console`.
 In the top left corner, directly below the blue 'R' logo, you can see the word `Console`.
-Click this and you should see the following text:
+Click this and you should see the following text (or similar depending on your version):
 
 ```
 R version 4.0.2 (2020-06-22) -- "Taking Off Again"

@@ -1,8 +1,8 @@
 ---
 title: "02 Statistics"
 subtitle: "Biotech 7005: Bioinformatics and Systems Modelling"
-author: "Steven Delean (based on original notes by Steve Pederson)"
-date: "6 August 2020"
+author: "Steven Delean (based on notes by Steve Pederson)"
+date: "29 July 2021"
 output: 
   ioslides_presentation: 
     widescreen: yes
