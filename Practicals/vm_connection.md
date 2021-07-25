@@ -21,7 +21,7 @@ To do this we're going to briefly use another language known as `bash` which we'
 
 **Follow all instructions here very, very carefully**
 
-1. Inside RStudio *click the Terminal* tab at the top left. You will see something like `student@bioinf-2021s2:~$` with a cursor flashing and indicating you can type here.
+1. Inside RStudio *click the Terminal* tab at the top left. You will see something like `student@bioinf-2021-s2-student-01:~$` with a cursor flashing and indicating you can type here.
 This is also known as the prompt.
 2. Type the command `passwd` followed by <kbd>Enter</kbd>
     - You will now be asked to enter your existing password. NOTE THAT WHEN ENTERING YOUR PASSWORD **NO TEXT WILL APPEAR AT THE PROMPT**. This is a security feature.
@@ -36,5 +36,6 @@ Importantly, you will be the only person to be able to access your VM:
 
 - When connected directly to the University WiFi Network
 - When connected from another network using the [University of Adelaide VPN](https://www.adelaide.edu.au/technology/your-services/network-services/remote-access-via-virtual-private-network-vpn)
+- For help with installation of VPN software contact the ITDS Service Desk on +61 8 8313 3000 or by [email] (servicedesk@adelaide.edu.au)  
 
 [Back](Practicals/R_Practicals/1_Introduction_To_R)
