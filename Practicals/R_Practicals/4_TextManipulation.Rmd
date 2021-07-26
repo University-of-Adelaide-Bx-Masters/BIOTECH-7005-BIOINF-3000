@@ -15,7 +15,7 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 library(knitr)
 opts_chunk$set(
   echo = TRUE,
-  eval = TRUE,
+  eval = FALSE,
   results = 'hide',
   message = FALSE, 
   warnings =  FALSE

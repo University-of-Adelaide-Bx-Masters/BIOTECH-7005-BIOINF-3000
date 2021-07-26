@@ -1,7 +1,7 @@
 ---
 title: "R Setup"
 author: "Steven Delean (based on notes by Steve Pederson)"
-date: "28 July 2020"
+date: "27th July 2021"
 output: html_document
 ---
 
@@ -18,7 +18,7 @@ You will need to be connected to the internet during installation.
 ### OSX
 
 1. **The [R Software](https://cran.r-project.org/bin/macosx/) itself.**
-    + The latest release is 4.0.2, however any version >4.0 will be suitable. 
+    + The latest release is 4.1.0, however any version >4.0 will be suitable. 
     + If you have El Capitan or lower (OSX $\leq$ 10.11) you will be restricted to R 3.6.3. Whilst this will be mostly compatabile with today's material, you may like to consider upgrading your OS relatively soon. Bioinformatics tools are often developed quickly and may render this OS as more and more of a problem as time moves on.
 2. **The IDE [R Studio](https://www.rstudio.com/products/rstudio/download/#download)** which is the software we use to interact with R
 3. R is also dependent on [XQuartz](https://www.xquartz.org/) so please ensure you have the latest version
@@ -28,7 +28,7 @@ You will need to be connected to the internet during installation.
 If you are running your own laptop where *you are the administrator*, installation is relatively easy.
 Please install the following software in order:
 
-1. **The [R Software](https://cran.r-project.org/bin/windows/base/) itself.** The latest release is 4.0.2, however any version >3.6 will be suitable
+1. **The [R Software](https://cran.r-project.org/bin/windows/base/) itself.** The latest release is 4.1.0, however any version >3.6 will be suitable
 2. The IDE [R Studio](https://www.rstudio.com/products/rstudio/download/#download) which is the software we use to interact with R
 
 ### Ubuntu
