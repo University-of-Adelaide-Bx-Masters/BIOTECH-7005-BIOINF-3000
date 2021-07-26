@@ -13,7 +13,7 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 
 ```{r, loadPackages, echo = FALSE, include = FALSE}
 library(knitr)
-opts_chunk$set(echo = TRUE, include = TRUE, 
+opts_chunk$set(echo = TRUE, include = TRUE, eval = FALSE, 
                warning = FALSE, message = FALSE, fig.align = "center",
                results = 'hide', fig.show = 'hide')
 ```
