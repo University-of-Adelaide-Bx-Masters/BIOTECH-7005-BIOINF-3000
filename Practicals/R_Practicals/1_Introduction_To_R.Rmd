@@ -63,7 +63,7 @@ RStudio is how we will primarily interact with our VMs
 Let's have a quick look at R in it's simplest form.
 To make a calculation or run a command directly, we can us the `Console`.
 In the top left corner, directly below the blue 'R' logo, you can see the word `Console`.
-Click this and you should see the following text:
+Click this and you should see the following text (or similar depending on your version):
 
 ```
 R version 4.0.2 (2020-06-22) -- "Taking Off Again"

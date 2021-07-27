@@ -1,7 +1,7 @@
 ---
 title: 'Biotech 7005: Statistics Tutorial'
-author: "Steven Delean (based on tutorial material by Steve Pederson)"
-date: "10 August 2020"
+author: "Steven Delean (based on notes by Steve Pederson)"
+date: "9th August 2021"
 output: 
   html_document: 
     fig_caption: yes
