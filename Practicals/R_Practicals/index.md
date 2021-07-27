@@ -1,4 +1,4 @@
-# Introductory R Practicals
+# Biotech 7005/Bionf 3000: Bioinformatics and Systems Modelling: Introductory R Practicals
 
 These sessions are to be completed with in the first two weeks, along with the accompanying assignment.
 You may need to work on these outside of the allocated two-hour session.
