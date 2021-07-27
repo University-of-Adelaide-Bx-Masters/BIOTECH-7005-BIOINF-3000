@@ -51,7 +51,7 @@ For Excel files, some things we do to make it "look nice" in the Excel program c
 We first need to create a new script for this section.
 Save and close the first script we used, then create a new one
 
-1. `File` > `New File` > `R Script` (Or `Ctrl+Shift+N`)
+1. `File` > `New File` > `R Script` (Or `Ctrl++Alt+Shift+N`)
 2. Save as `DataImport.R`
 3. Enter this line at the top of the script
 

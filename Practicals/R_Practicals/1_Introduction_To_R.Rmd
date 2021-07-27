@@ -192,14 +192,14 @@ To create an `R` object:
     - The `<-` symbol is like an arrow, and is the assignment operator
     - Tells `R` to put the `data` in the object
 
-In the Console type:
+In the Script  Window type:
 
 ```{r}
 x <- 5
 ```
 
 - We have just defined an object called `x`
-- View the contents of the object `x` by entering it's name directly in the `Console`, or by calling `print()`
+- View the contents of the object `x` by entering it's name directly in the `Console`, or by calling `print()` and running it in the script. It is good practice to use the script window rather than interact directly with the Console as it can be directly saved for future use and easily edited. 
 
 ```{r, echo=TRUE, include=TRUE, results='hide'}
 x
