@@ -29,7 +29,7 @@ Dave Adelson
 ### Contact Hours
 In view of the uncertain times we live in with respect to COVID-19 restrictions, we have all lectures delivered online. Tutorials and practicals will be delivered face to face (subject to change depending on COVID-19). Social distancing and or mask wearing may be required. 
 
-Lectures: Thursday 1pm, Online - details on MyUni
+Lectures: Thursday 9AM, Online - details on MyUni
 - 30 July — 29 Oct *Note: because lectures are on Fridays, the first lecture will be pre-recorded for access prior the first tutorial, see MyUni for link*
 
 Tutorials: Monday 11am-1pm, Barr Smith South, 1063
