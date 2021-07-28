@@ -13,6 +13,8 @@ output:
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE, warning = FALSE)
@@ -46,16 +48,25 @@ In biological research we often ask:
 
 <center>**“Is something happening?”** or **“Is nothing happening?”**</center><br>
 
-We might be comparing:
+Perhaps more correctly, we are asking: 
+
+<center>**“Would it be reasonable to conclude that there is nothing clearly happening, given the results we are seeing?”**</center><br>
+
+## Hypothesis Testing
+
+We might be comparing outcomes among treatment groups:
 
 - Cell proliferation in response to antibiotics in media
 - mRNA abundance in two related cell types
 - Allele frequencies in two populations
 - Methylation levels across genomic regions
 
-## Hypothesis Testing {.build}
+## Hypothesis Testing 
+<!-- {.build} -->
 
-How do we decide if our experimental results are "significant"?
+How do we decide if our experimental results are "important"?
+
+Asking if the outcomes could occur by chance alone if there really were no differences in outcomes.
 
 - Is it normal variability?
 - What would the data look like if our experiment had no effect?
@@ -74,7 +85,7 @@ Every experiment is considered as a **random sample** from all possible repeated
     
 ## Sampling | Examples 
 
-Many data collections can also be considered as experimental datasets
+Many data collections can also be considered as experimental data sets
 
 In the 100,000 Genomes Project a risk allele for T1D has a frequency of $\pi = 0.07$ in European Populations.  
 
@@ -87,7 +98,7 @@ In our *in vitro* experiment, we found that 90% of HeLa cells were lysed by expo
 - **Does this mean that exactly 90% of HeLa cells will always be destroyed?**
 <!-- - **What does this say about *in vivo* responses to the drug?** -->
 
-## Population Parameters {.build}
+## Population Parameters
 
 - Experimentally-obtained values represent an **estimate** of the **true effect**
 - More formally referred to as **population-level** parameters
@@ -357,7 +368,7 @@ $$p(|Z| > 2) = p(Z > 2) + P(Z < -2)$$
 
 - Known as a *two-sided* test    
 
-**This is the most common way of deciding if $H_0$ is true!**
+**This is the most common way of determining how much evidence we have against $H_0$**
 
 ## $p$ Values
 
@@ -615,6 +626,8 @@ $H_0: \mu_A = \mu_B$ Vs $H_A: \mu_A \neq \mu_B$
 ## Fisher's Exact Test
 
 - Used for $2 \times 2$ tables (or $m \times n$) with counts and categories
+  - Are relative proportions of one variable different depending on the value of the other variable?
+
 - Analogous to a Chi-squared ($\chi^2$) test but more robust to small values
 - Commonly used to test for enrichment of an event within one group above another group (GO terms; TF motifs; SNP Frequencies)
 
@@ -635,12 +648,27 @@ $H_A:$ There **is an association** between between allele frequencies and locati
 ## Fisher's Exact Test
 
 - We find the probability of obtaining tables with more extreme distributions, holding row and column totals fixed
-- Can also be defined using the hypergeometric distribution
+  - Sum the probabilities of each table more extreme than the observed pattern (in both directions)
+
+
+```{r, }
+allele <- data.frame(
+  "A" = c(12, 20),
+  "B" = c(12, 4),
+  row.names = c("Upper lakes", "Lower plains"),
+  stringsAsFactors = FALSE
+)
+colnames(allele) <- c("A", "B")
+cat("Reject null hypothesis of no association between \nallele frequencies and loctaion \n")
+cat("P-value = ", round(fisher.test(allele)$p.value, 4))
+```
+
+<!-- - Can also be defined using the hypergeometric distribution -->
 
 
 # Error Types and Multiple Hypothesis Testing 
 
-## Rejection of $H_0$
+## Evidence to Reject $H_0$
 
 > A $p$ value is the probability of observing data as (or more) extreme if $H_0$ is true.
 
@@ -648,7 +676,7 @@ We commonly reject $H_0$ if $p < 0.05$
 
 **How often would we incorrectly reject $H_0$?**
 
-## Rejection of $H_0$
+## Evidence to Reject $H_0$
 
 > A $p$ value is the probability of observing data as (or more) extreme if $H_0$ is true.
 
@@ -770,7 +798,8 @@ For those interested, the BH procedure for $m$ tests is (not-examinable)
 Controlling the FDR at $\alpha = 0.05$
 
 ```{r, results = "asis"}
-fdr_eg <- data.frame(Rank = 1:10, Pvalue = c(0.0008, 0.009, 0.165, 0.205, 0.396, 0.450, 0.641, 0.781, 0.900, 0.993))
+#fdr_eg <- data.frame(Rank = 1:10, Pvalue = c(0.0008, 0.009, 0.165, 0.205, 0.396, 0.450, 0.641, 0.781, 0.900, 0.993))
+fdr_eg <- data.frame(Rank = 1:10, Pvalue = c(0.0001, 0.0008, 0.0021, 0.0234, 0.0293, 0.05, 0.3354, 0.5211, 0.9123, 1))
 fdr_eg$BH_Pvalue <- with(fdr_eg, Rank/10*0.05)
 fdr_eg$Reject_null <- with(fdr_eg, 1*(Pvalue <= BH_Pvalue))
 # pander(fdr_eg, style = 'rmarkdown')
