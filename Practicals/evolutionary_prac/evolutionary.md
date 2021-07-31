@@ -22,7 +22,7 @@ Run the following command using your student number for id:
 ```
 ./subset -id aXXXXXXX -n 50 -in bovidea_118_mtDNA.fa > bovidea_50_mtDNA.fa
 ```
-(The subset command can be obtained from [here](subset) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/Practicals/evolutionary_prac/subset>)
+(The subset command can be obtained from [here](subset) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/subset>)
  using `wget`.)
 Remember to make `subset` executable (see the `bash` practical for a reminder on how to do this)
 
