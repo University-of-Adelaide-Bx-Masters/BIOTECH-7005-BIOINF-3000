@@ -76,7 +76,7 @@ Once you're in the `Terminal` section of `RStudio`, you will notice some text in
 
 The word `(base)` before the prompt text means that `Anaconda` is active and is using the `base` environment. Don't worry about this for now.
 
-The first section of this describes your username (`student`) and the machine `@bioinf-2021-s2-student-xx`.
+The first section of the prompt text describes your username (`student`) and the machine `@bioinf-2021-s2-student-xx`.
 The end of the machine identifier is marked with a colon (`:`). 
 
 After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path and the beginning of where you will type commands.
