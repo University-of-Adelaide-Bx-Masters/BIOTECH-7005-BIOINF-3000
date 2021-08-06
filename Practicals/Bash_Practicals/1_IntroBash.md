@@ -213,7 +213,8 @@ This will help you avoid a ridiculous number of typos.
 If you start typing something bash will complete as far as it can, then will wait for you to complete the path, command or file name.
 If it can complete all the way, it will.
 
-Let's see this in action and start becoming keyboard heroes.![keyboard heroes](keyboardHero.jpg)
+Let's see this in action and start becoming keyboard heroes.
+![keyboard heroes](./images/keyboardHero.jpg)
 
 Change into your home folder.
 
@@ -268,7 +269,7 @@ Click on the Home icon (![home](../R_Practicals/images/home.png)) and look at th
 Ask for help if not.
 
 Alternatively, we can specify which directory we wish to view the contents of, **without having to change into that directory**.
-Notice **you can't do actually this using your classic GUI folder view**.
+Notice **you can't do this using your classic GUI folder view**.
 We simply type the `ls` command, followed by a space, then the directory we wish to view the contents of.
 To look at the contents of the root directory of the file system, we simply add that directory after the command `ls`.
 
