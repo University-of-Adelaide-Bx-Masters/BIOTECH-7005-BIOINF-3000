@@ -213,7 +213,8 @@ This will help you avoid a ridiculous number of typos.
 If you start typing something bash will complete as far as it can, then will wait for you to complete the path, command or file name.
 If it can complete all the way, it will.
 
-Let's see this in action and start becoming keyboard heroes.
+Let's see this in action and start becoming keyboard heroes.![keyboard heroes](keyboardHero.jpg)
+
 Change into your home folder.
 
 ```
