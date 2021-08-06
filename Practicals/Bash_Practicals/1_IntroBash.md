@@ -1,4 +1,5 @@
 # Week 3 Practicals
+
 {:.no_toc}
 
 * TOC
@@ -30,17 +31,17 @@ To keep everything consistent for this practical, we'll use the terminal which i
 Note that even though we're using `RStudio`, we won't be interacting with `R` today as `R` runs interactively in the `Console`.
 Instead we'll be using one of the other features provided by `RStudio` to access `bash`
 
-To access this, open `RStudio` as you have for the previous practicals 
+To access this, open `RStudio` as you have for the previous practicals
 
 ### Setup the directory for today
 
 Just as we've created a new `R Project` for practicals 1 and 2, let's create a new one for today to make sure we're all in the same place.
 
-- Using the `File` menu at the top left, select `New Project`
-- Select `New Directory`
-- Select `New Project`
-- If you're not already asked to create this project as a subdirectory of `~`, navigate to your home directory using the <kbd>Browse</kbd> button 
-- In the `Directory Name` space, enter `Practical_3`, then hit the <kbd>Create Project</kbd> button.
+* Using the `File` menu at the top left, select `New Project`
+* Select `New Directory`
+* Select `New Project`
+* If you're not already asked to create this project as a subdirectory of `~`, navigate to your home directory using the <kbd>Browse</kbd> button
+* In the `Directory Name` space, enter `Practical_3`, then hit the <kbd>Create Project</kbd> button.
 
 This again helps us keep our code organised and is good practice.
 
@@ -55,7 +56,6 @@ Although we haven't specifically mentioned this up until now, your virtual machi
 Most High-Performance Computing (HPC) systems you use will require a knowledge of Linux so these practicals will give you the basics skills for working in this environment.
 Most of the data analysis performed by the Bioinformatics Hub relies on the University of Adelaide HPC for data storage and data processing.
 
-
 ## Initial Goals
 
 Now we have setup our VM, the basic aims of the following sessions are:
@@ -68,14 +68,16 @@ Now we have setup our VM, the basic aims of the following sessions are:
 
 ## Finding your way around
 
-Once you're in the `Terminal` section of `RStudio`, you will notice some text describing your computer of the form
+Once you're in the `Terminal` section of `RStudio`, you will notice some text in the prompt, describing your computer of the form
 
 ```
-student@bioinf2020s2-student-xx:~/Practical_3$
+(base) student@bioinf-2021-s2-student-29:~/Practical_3$
 ```
 
-The first section of this describes your username (`student`) and the machine `@bioinf2020s2-student-xx`.
-The end of the machine identifier is marked with a colon (`:`).
+The first section of this describes your username (`student`) and the machine `@bioinf-2021-s2-student-xx`.
+The end of the machine identifier is marked with a colon (`:`). 
+
+The word `(base)` before the prompt text means that `Anaconda` is active and is using the `base` environment. Don't worry about this for now.
 
 After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path and the beginning of where you will type commands.
 This is the standard interface for the Bourne-again Shell, or `bash`.
@@ -83,6 +85,7 @@ This is the standard interface for the Bourne-again Shell, or `bash`.
 ### Where are we?
 
 #### pwd
+
 {:.no_toc}
 
 Type the command `pwd` in the terminal then press the <kbd>Enter</kbd> key and you will see the output which describes the current directory you are in.
@@ -92,7 +95,7 @@ pwd
 ```
 
 The command `pwd` is what we use to __p__rint the current (i.e. __w__orking) __d__irectory.
-If you have setup the R project like we instructed above this command should return the RStudio project directory. 
+If you have setup the R project like we instructed above this command should return the RStudio project directory.
 
 ```
 /home/student/Practical_3
@@ -118,6 +121,7 @@ Windows users would be more familiar with seeing `C:\` as the root of the comput
 Note also that whilst Windows uses the **backslash** (`\`) to indicate a directory, a Linux-based system uses the **forward slash** (`/`), or more commonly just referred to simply as "slash", marking another but very important difference between the two.
 
 #### cd
+
 {:.no_toc}
 
 Now we know all about where we are, the next thing we need to do is go somewhere else.
@@ -130,14 +134,15 @@ cd ..
 
 The string `..` is the convention for *one directory above*, whilst a single dot represents the current directory.
 
-
 Enter the above command and notice that the location immediately to the left of the \$ has now changed.
 Enter `pwd` again to check this makes sense to you.
 
 If we now enter
+
 ```bash
 cd ..
 ```
+
 a couple more times we should be in the root directory of the file system and we will see `/$` at the end of our prompt.
 Try this and print the working directory again (`pwd`).
 The output should be the root directory given as `/`.
@@ -147,15 +152,15 @@ We can change back to our home folder by entering one of either:
 ```bash
 cd ~
 ```
+
 or
 
 ```bash
 cd
 ```
 
-
 The initial approach taken above to move through the directories used what we refer to as a **relative path**, where each move was made *relative to the current directory*.
-Going up one directory will clearly depend on where we are when we execute the command. 
+Going up one directory will clearly depend on where we are when we execute the command.
 
 An alternative is to use an **absolute path**.
 An **absolute path** on Linux/Mac will always begin with the root directory symbol `/`.
@@ -168,6 +173,7 @@ Another common absolute path is the one mentioned right at the start of the sess
 
 We can also move through multiple directories in one command by separating them with the slash `/`.
 For example, we could also get to the root directory from our home directory by typing
+
 ```bash
 cd ../../
 ```
@@ -179,6 +185,7 @@ Now we know how to navigate folders using `bash` instead of the GUI point and cl
 This is an essential skill when logged into a High Performance Computer (HPC) or a Virtual Machine (VM) as the vast majority of these run using Linux.
 
 ### Important
+
 {:.no_toc}
 
 *Although we haven't directly discovered it yet, most file systems used on Unix-based systems such as Ubuntu are* **case-sensitive**, whilst **Windows file systems are usually not**.
@@ -189,6 +196,7 @@ Most `bash` tools are named using all lower-case, but there are a handful of exc
 
 We can also change into a specific directory by giving the path to the `cd` command using text instead of dots and symbols.
 Making sure you're in your home directory we can change back into the Practical_3 directory
+
 ```bash
 cd
 cd Practical_3
@@ -242,7 +250,6 @@ This also makes navigating your computer system very fast once you get the hang 
 Importantly, if tab auto-completion doesn't appear to be working, you've probably made a typo somewhere, or are not where you think you are.
 It's a good check for mistakes.
 
-
 ### Looking at the Contents of a Directory
 
 There is another built-in command (`ls`) that we can use to **list** the contents (files and folders) of a directory.
@@ -271,7 +278,7 @@ ls /
 Here you can see a whole raft of directories which contain the vital information for the computer's operating system.
 Among them should be the `/home` directory which is one level above your own home directory, and where the home directories for all users are located on a Linux system.
 
-Have a look inside your Practical_1 directory. 
+Have a look inside your Practical_1 directory.
 This is where you needed to have followed our instructions exactly in Week 1.
 If you didn't create your directory exactly as we asked, you'll have to figure this command out for yourself.
 Tab auto-completion may help you a little.
@@ -284,10 +291,10 @@ ls Practical_1
 Navigate into this folder using you GUI view in `RStudio` and check that everything matches.
 
 #### Question
+
 {:.no_toc}
 
 Try to think of two ways we could inspect the contents of the `/` directory from your own home directory.
-
 
 ### Creating a New Directory
 
@@ -318,7 +325,7 @@ Options are commonly a single letter prefaced with a single dash (`-`), or a wor
 The `ls` command can be given with the option `-l` specified between the command and the directory and gives the output in what is known as *long listing* format.
 
 *Inspect the contents of your current directory using the long listing format.
-Please make sure you can tell the difference between the characters `l` and `1`. The letter l and number one. *
+Please make sure you can tell the difference between the characters `l` and `1`. The letter l and number one.*
 
 ```bash
 ls -l
@@ -387,13 +394,14 @@ This can often save some time, but it is worth noting that not all programmers w
 The built-in shell commands are usually fine with this, but many NGS data processing functions do not accept this convention.
 
 #### How To Not Panic
+
 {:.no_toc}
 
 It's easy for things to go wrong when working in the command-line, but if you've accidentally:
 
-- set something running which you need to exit or
-- if you can't see the command prompt, or
-- if the terminal is not responsive
+* set something running which you need to exit or
+* if you can't see the command prompt, or
+* if the terminal is not responsive
 
 there are some simple options for stopping a process and getting you back on track.
 Some options to try are:
@@ -434,10 +442,10 @@ Although we can navigate through the `less` pager using up and down arrows on ou
 | <kbd>></kbd>        | go to the end of the document |
 | <kbd>Q</kbd>        | quit |
 
-
 Look through the manual page for the `ls` command.
 
 #### Question
+
 {:.no_toc}
 
 *If we wanted to hide the group names in the long listing format, which extra options would we need set when searching our home directory?*
@@ -448,6 +456,7 @@ Type the command:
 ```bash
 man less
 ```
+
 and the complete page will appear.
 This can look a little overwhelming, so try pressing `h` which will take you to a summary of the shortcut keys within `less`.
 There are a lot of them, so try out a few to jump through the file.
@@ -465,15 +474,14 @@ Sometimes it can take a little bit of looking to find something and it's importa
 It's very much like picking up a piece of paper to see what's under it.
 If you don't find something  at first, just keep looking and you'll find it eventually.
 
-
 #### Questions
+
 {:.no_toc}
 
 Try accessing the manual for the command `man` all the ways you can think of.
 *Was there a difference in the output depending on how we asked to view the manual?*
 
 *Could we access the help page for the command `ls` all three ways?*
-
 
 ## Some More Useful Tricks and Commands
 
@@ -529,6 +537,7 @@ We'll download a file from the internet, then look through the file.
 # Regular Expressions
 
 ## Introduction
+
 Regular expressions are a powerful and flexible way of searching for text strings amongst a large document or file.
 Most of us are familiar with searching for a word within a file, but regular expressions allow us to search for these with more flexibility, particularly in the context of genomics.
 We briefly saw this idea in the `R` practical using the functions `str_extract()` and `str_replace()`.
@@ -541,6 +550,7 @@ We'll discuss that syntax below, so don't worry if those patterns didn't make mu
 Whilst the bash shell has a great capacity for searching a file to matches to regular expressions, this is where languages like *perl* and *python* offer a great degree more power.
 
 ## The command `grep`
+
 The built-in command which searches using regular expressions in the terminal is `grep`, which stands for `g`lobal `r`egular `e`xpression `p`rint.
 This function searches a file or input on a line-by-line basis, so patterns contained within a line can be found, but patterns split across lines are more difficult to find.
 This can be overcome by using regular expressions in a programming language like Python or Perl.  
@@ -569,8 +579,8 @@ As well as the series of conventional numbers and characters that we are familia
 | &#124;            | either the string before or the string after the "pipe" (use parentheses) |
 | \\                | don't treat the following character in the way you normally would.<br> This is why the first three entries in this table started with a backslash, as this gives them their "special" properties.<br> In contrast, placing a backslash before a `.` symbol will enable it to function as an actual dot/full-stop. |
 
-
 ## Pattern Searching
+
 In this section we'll learn the basics of using the `grep` command and what forms the output can take.
 Firstly, we'll need to get the file that we'll search in this section.
 First **change into your `test` directory** using the `cd` command, then enter the following, depending on your operating system:
@@ -587,21 +597,27 @@ Do the results correspond with what you expected to see?
 ```bash
 grep -E 'fr..ol' words
 ```
+
 ```bash
 grep -E 'fr.[jsm]ol' words
 ```
+
 ```bash
 grep -E 'fr.[^jsm]ol' words
 ```
+
 ```bash
 grep -E 'fr..ol$' words
 ```
+
 ```bash
 grep -E 'fr.+ol$' words
 ```
+
 ```bash
 grep -E 'cat|dog' words
 ```
+
 ```bash
 grep -E '^w.+(cat|dog)' words
 ```
@@ -613,19 +629,22 @@ If you're unsure about some of the options, don't forget to consult the `man` pa
 ```bash
 grep -E 'louse' words
 ```
+
 ```bash
 grep -Ew 'louse' words
 ```
+
 ```bash
 grep -Ewn 'louse' words
 ```
+
 ```bash
 grep -EwC2 'louse' words
 ```
+
 ```bash
 grep -c 'louse' words
 ```
-
 
 In most of the above commands we used the option `-E` to specify the extended version of `grep`.
 An alternative to this is to use the command `egrep`, which is the same as `grep -E`.
@@ -633,4 +652,4 @@ Repeat a few of the above commands using `egrep` instead of `grep -E`.
 
 We briefly covered the idea of capturing text in the R practical, however these operations in `bash` are beyond the scope of this course.
 To perform this we usually use the Stream EDitor `sed`.
-For those who are interested, there is a tutorial available at http://www.grymoire.com/Unix/Sed.html.
+For those who are interested, there is a tutorial available at <http://www.grymoire.com/Unix/Sed.html>.
