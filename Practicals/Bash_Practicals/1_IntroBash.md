@@ -391,6 +391,11 @@ In the case of the `ls` command we can also *glob* all the above options togethe
 ```bash
 ls -lhR ~
 ```
+As we have anaconda and R in our home, we would like to view our contents without seeing them. We can do this using the --ignore option.
+
+```bash
+ls -l -R --ignore=R --ignore=anaconda ~
+```
 
 This can often save some time, but it is worth noting that not all programmers write their commands in such a way that this convention can be followed.
 The built-in shell commands are usually fine with this, but many NGS data processing functions do not accept this convention.
