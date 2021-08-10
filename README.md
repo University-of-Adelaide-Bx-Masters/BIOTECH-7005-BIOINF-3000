@@ -44,8 +44,8 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 |----------|------------|---------------------|----------------------------------------------|------------------------------------------|
 | **1**    | 26/7 [Intro to Bioinformatics][1]\* (Dave)<br>pre-recorded lecture.  | *Discussion* | [Introduction to R] (1) (Steven/Dave) |  [Statistics][2] (Steven)  |
 | **2**    | 2/8        | Continue practical  | [Introduction to R] (2) (Steven/Dave)             | [Evolutionary Processes][3]\* (Dave)     |
-| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet] (Steven/Dave)                         | [Introduction To Bash] (Dave/Joe)     | [Alignment Process][5]\*  (Dave)  |
-| **4**    | 16/8       | *Evolution test* (Dave/Joe)   | [Scripting In Bash] (Dave/Joe)                   | [Next-generation sequencing][4]\* (Dave)      | 
+| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet] (Steven/Dave)                         | [Introduction To Bash] (Dave/Joe)     | [Newxt-generation sequencing][4]\*  (Dave)  |
+| **4**    | 16/8       | *Evolution test* (Dave/Joe)   | [Scripting In Bash] (Dave/Joe)                   | [Alignment Process][5]\* (Dave)      | 
 | **5**    | 23/8       | Continue Scripting (Dave/Joe) | [Evolutionary processes] (Dave/Joe)              | [Alignment Process][6]\* (Dave)            |   
 | **6**    | 30/8       | *NGS sequencing test* (Dave/Joe)  |    [Alignment/NGS (1)] (Dave/Joe)             | [Genome assembly][8] (Lloyd)               |   
 | **7**    | 6/9        |*Alignment test* (Dave/Joe)    | [Alignment/NGS (2)] (Dave/Joe)                   |       [Variant Calling][7] (Rick)         |
@@ -65,7 +65,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [3]: http://biotech7005.services.adelaide.edu.au/03-evoprocess.slide
 [4]: http://biotech7005.services.adelaide.edu.au/04-sequencing.slide
 [5]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
-[6]: http://biotech7005.services.adelaide.edu.au/06-alignment.slide
+[6]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
 [7]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
