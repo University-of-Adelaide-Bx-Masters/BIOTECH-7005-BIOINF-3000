@@ -581,7 +581,7 @@ ls -lh *.sh
 This can be a very useful trick for *write-protecting* files!
 
 These flags actually represent *binary bits* that are either on or off.
-Reading from right to left:
+__Reading the permission triplets from right to left__:
 1. the first bit is the execute flag, which has value 1
 2. the second bit is the write flag, which has the value 2
 3. the third bit is the read flag, which has the value 4
