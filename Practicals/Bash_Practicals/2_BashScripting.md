@@ -437,7 +437,7 @@ We will commonly use this technique to list files in a directory, then to loop t
 
 ### `If` Statements
 
-If statements are those which only have a binary `yes' or `no' response.
+If statements are those which only have a binary `yes` or `no` response.
 For example, we could specify things like:
 
 - **if** (`i>1`) then `do` something, or
