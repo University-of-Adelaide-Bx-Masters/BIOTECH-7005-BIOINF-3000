@@ -61,16 +61,6 @@ Show all working & code.
 
 You can download your assigned species here: 'http://ftp.ensembl.org/pub/release-100/gff3/' of course you will have to add the relevant additional information to specify your species and the '.100.gff3.gz' file. 
 
-
-
-
-## Values For Question 4
-
-*If your student number is not listed, please contact Dave to ensure you are added to the list*
-
-The results you are analysing for Q4 are as follows.
-You can simply paste these values into your RMarkdown document as the object `x` and perform all of your analysis on these values.
-
 | ID       | Species                      | Taxonomy ID | Common Name            |
 |:---------|:-----------------------------|------------:|:-----------------------|
 | a1705481 | Larimichthys crocea          |      215358 | Large Yellow Croaker   |
@@ -94,6 +84,13 @@ You can simply paste these values into your RMarkdown document as the object `x`
 | a1843320 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle  |
 
 
+
+## Values For Question 4
+
+*If your student number is not listed, please contact Dave to ensure you are added to the list*
+
+The results you are analysing for Q4 are as follows.
+You can simply paste these values into your RMarkdown document as the object `x` and perform all of your analysis on these values.
 
 | ID       | Values                                                                                   |
 |:---------|:-----------------------------------------------------------------------------------------|
