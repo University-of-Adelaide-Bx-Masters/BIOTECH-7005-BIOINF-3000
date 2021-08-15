@@ -421,7 +421,7 @@ for i in 1 2 3; do (echo "$i^2 = $(($i*$i))"); done
 In the above code the fragment before the semi-colon asked the program to cycle through the values 1, 2 & 3, letting the variable `i` take each value in order of appearance.
 
 - Firstly: i = 1, then i = 2 & finally i = 3.
-- After that was the instruction on what to do for each value where we multiplied it by itself `$(($i*$i)) to give $i^2$.
+- After that was the instruction on what to do for each value where we multiplied it by itself `$(($i*$i))` to give $i^2$.
 We placed this as the text string (`"$i^2 = $(($i*$i))"`) for an `echo` command to return.
 
 Note that the value of the variable `i` was *prefaced by the dollar sign ($).*
