@@ -8,7 +8,7 @@ library(tidyverse)
 
 # Q1
 
-# Get the species with a gtf in release 96
+# Get the species with a gtf in release 100
 ah <- AnnotationHub()
 sp <- ah %>%
 	subset(dataprovider == "Ensembl") %>%
@@ -16,7 +16,7 @@ sp <- ah %>%
 	query(".gtf") %>%
 	mcols() %>%
 	as.data.frame() %>%
-	filter(grepl("release-96", rdatapath)) %>%
+	filter(grepl("release-100", rdatapath)) %>%
 	distinct(species, taxonomyid) %>%
 	as_tibble()
 
@@ -78,3 +78,4 @@ ids$Emplid %>%
         style = "rmarkdown",
         justify = "ll"
     )
+

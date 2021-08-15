@@ -57,37 +57,41 @@ Show all working & code.
 
 ## Species For Question 1
 
-*If your student number is not listed, please contact Dan to ensure you are added to the list*
+*If your student number is not listed, please contact Dave to ensure you are added to the list*
 
-| ID       | Species                  | Taxonomy ID | Common Name               |
-|:---------|:-------------------------|------------:|:--------------------------|
-| a1705481 | mus musculus pwkphj      |       10090 |                           |
-| a1707609 | Sus scrofa               |        9823 | Pig                       |
-| a1727718 | Mus spretus              |       10096 | Western Wild Mouse        |
-| a1734633 | Paramormyrops kingsleyae |     1676925 |                           |
-| a1743091 | Anser brachyrhynchus     |      132585 | Pink-Footed Goose         |
-| a1747876 | Monodelphis domestica    |       13616 | Gray Short-Tailed Opossum |
-| a1767956 | Ursus americanus         |        9643 | American Black Bear       |
-| a1770858 | Ovis aries               |        9940 | Sheep                     |
-| a1773581 | marmota marmota marmota  |        9993 | Alpine Marmot             |
-| a1773594 | Felis catus              |        9685 | Domestic Cat              |
-| a1777472 | mus musculus lpj         |       10090 |                           |
-| a1778718 | Mus musculus             |       10090 | House Mouse               |
-| a1780328 | Oryzias melastigma       |       30732 | Indian Medaka             |
-| a1828691 | equus asinus asinus      |        9793 |                           |
-| a1828993 | Apteryx rowi             |      308060 | Okarito Brown Kiwi        |
-| a1835622 | Meriones unguiculatus    |       10047 | Mongolian Gerbil          |
-| a1837876 | Melopsittacus undulatus  |       13146 | Budgerigar                |
-| a1841011 | Manacus vitellinus       |      328815 | Golden-Collared Manakin   |
-| a1843320 | Neovison vison           |      452646 | American Mink             |
+You can download your assigned species here: 'http://ftp.ensembl.org/pub/release-100/gff3/' of course you will have to add the relevant additional information to specify your species and the '.100.gff3.gz' file. 
+
+
 
 
 ## Values For Question 4
 
-*If your student number is not listed, please contact Dan to ensure you are added to the list*
+*If your student number is not listed, please contact Dave to ensure you are added to the list*
 
 The results you are analysing for Q4 are as follows.
 You can simply paste these values into your RMarkdown document as the object `x` and perform all of your analysis on these values.
+
+| ID       | Species                      | Taxonomy ID | Common Name            |
+|:---------|:-----------------------------|------------:|:-----------------------|
+| a1705481 | Larimichthys crocea          |      215358 | Large Yellow Croaker   |
+| a1707609 | Fukomys damarensis           |      885580 | Damara Mole-Rat        |
+| a1727718 | Lepidothrix coronata         |      321398 | Blue-Crowned Manakin   |
+| a1734633 | mus musculus akrj            |       10090 |                        |
+| a1743091 | panthera tigris altaica      |        9694 | Amur Tiger             |
+| a1747876 | Geospiza fortis              |       48883 | Medium Ground-Finch    |
+| a1767956 | Pan paniscus                 |        9597 | Pygmy Chimpanzee       |
+| a1770858 | Pogona vitticeps             |      103695 | Central Bearded Dragon |
+| a1773581 | Clupea harengus              |        7950 | Atlantic Herring       |
+| a1773594 | Mola mola                    |       94237 | Ocean Sunfish          |
+| a1777472 | Oryzias javanicus            |      123683 | Javanese Ricefish      |
+| a1778718 | Otolemur garnettii           |       30611 | Small-Eared Galago     |
+| a1780328 | sus scrofa usmarc            |        9823 |                        |
+| a1828691 | Fundulus heteroclitus        |        8078 | Mummichog              |
+| a1828993 | Serinus canaria              |        9135 | Common Canary          |
+| a1835622 | Poecilia mexicana            |       48701 |                        |
+| a1837876 | chrysemys picta bellii       |        8479 | Western Painted Turtle |
+| a1841011 | Macaca fascicularis          |        9541 | Crab-Eating Macaque    |
+| a1843320 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle  |
 
 
 
@@ -111,4 +115,4 @@ You can simply paste these values into your RMarkdown document as the object `x`
 | a1835622 | x <- c(1.9688, -1.0354, -0.6331, 1.1205, 1.3101, 0.7891, 0.401, 1.3373, -1.4588)         |
 | a1837876 | x <- c(-0.4005, -1.0709, 0.9511, 1.0804)                                                 |
 | a1841011 | x <- c(-0.2152, 1.4955, -1.1043, 1.1306, -1.8557, 0.6466, 1.1056, 1.0517)                |
-| a1843320 | x <- c(2.0329, 0.8256, 0.8852, -1.3689, -1.9406)                                         |
+| a1843320 | x <- c(2.0329, 0.8256, 0.8852, -1.3689, -1.9406) 
