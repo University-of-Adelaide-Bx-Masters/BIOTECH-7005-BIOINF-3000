@@ -704,7 +704,7 @@ echo Output will be written to $OUTFILE
 # Get the header lines which correspond to chromosomes, then collect the
 # gene id, chromosome, start and end and write to the output file
 egrep '^>.+chromosome' ${INFILE} | \
-  sed -r 's/.+BDGP6:([^:]*):([0-9]+):([0-9]+).+gene:([^ ]+).+/\4\t\1\t\2\t\3/g' \
+  sed -r 's/.+BDGP6:(.*):([0-9]+):([0-9]+):.+gene:([^ ]+).+/\4\t\1\t\2\t\3/g' \
   > ${OUTFILE}
 
 echo Done
