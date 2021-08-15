@@ -667,6 +667,8 @@ for f in ${FILES};
 Save this as a script in the `Practical_4` folder called `lineCount.sh`.
 **Add comments** where you think you need them to make sure you understand what's happening.
 
+#### Question
+For this particular task, do you really need the `/g` in the `sed` command?
 
 ## A More Advanced Script
 
