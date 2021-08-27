@@ -97,7 +97,7 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 31 August  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 5th October |
 | [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 12th October |
-| [Assessment 6](/Practicals/Transcriptomic_Practical.html)      | Differential Gene Expression|  8%             | 6%         | Tuesday 19th October   |
+| [Assessment 6](/Practicals/Transcriptomic_Practical.html)      | Transcriptomics|  8%             | 6%         | Tuesday 19th October   |
 | Tests                                                        |                             |  12%            | 9%         |                       |
 | [Project](Assignments/major_project_bogus.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 9th November   |
 | Exam                                                         |                             |  40%            | 40%        |                       |
