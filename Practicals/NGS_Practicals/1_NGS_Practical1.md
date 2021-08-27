@@ -353,7 +353,7 @@ the list, just shifted one or two base pairs. A possible source of this may have
 Interpreting the various sections of the report can take time and experience.
 A description of each of the sections [is available from the fastqc authors](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/) which can be very helpful as you're finding your way.
 
-Another interesting report is available at http://www.bioinformatics.babraham.ac.uk/projects/fastqc/RNA-Seq_fastqc.html.
+Another interesting report is available [here](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/RNA-Seq_fastqc.html).
 Whilst the quality scores generally look pretty good for this one, see if you can find a point of interest in this data.
 This is a good example, of why just skimming the first plot may not be such a good idea.
 
@@ -365,7 +365,7 @@ In our dataset of two samples it is quite easy to think about the whole experime
 
 Each .zip archive contains text files with the information which can easily be parsed into an overall summary.
 We could write a script to extract this information if we had the time.
-However, some members of the now defunct Bioinformatics Hub have published an `R` package to help with this, which is available [here] (https://bioconductor.org/packages/release/bioc/html/ngsReports.html) and is installed on your VM already.
+However, some members of the now defunct Bioinformatics Hub have published an `R` package to help with this, which is available [here](https://bioconductor.org/packages/release/bioc/html/ngsReports.html) and is installed on your VM already.
 It won't be too useful today, but may be useful in the future.
 
 # Trimming and Quality Filtering of NGS data
