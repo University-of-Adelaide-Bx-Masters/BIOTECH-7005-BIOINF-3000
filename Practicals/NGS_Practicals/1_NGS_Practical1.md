@@ -365,7 +365,7 @@ In our dataset of two samples it is quite easy to think about the whole experime
 
 Each .zip archive contains text files with the information which can easily be parsed into an overall summary.
 We could write a script to extract this information if we had the time.
-However, some members of the now defunct Bioinformatics Hub have published an `R` package to help with this, which is available from https://bioconductor.org/packages/release/bioc/html/ngsReports.html and is installed on your VM already.
+However, some members of the now defunct Bioinformatics Hub have published an `R` package to help with this, which is available [here] (https://bioconductor.org/packages/release/bioc/html/ngsReports.html) and is installed on your VM already.
 It won't be too useful today, but may be useful in the future.
 
 # Trimming and Quality Filtering of NGS data
