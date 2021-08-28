@@ -37,7 +37,7 @@ To do this run the following command from within `~/Practical_5`:
 ```
 conda install -c bioconda -c conda-forge mafft mrbayes seqmagick gblocks
 ```
-When prompted to install type <kbd>y</kbd>.
+When prompted to install (this may take a few minutes) type <kbd>y</kbd>.
 
 ### Multiple alignment
 
@@ -247,7 +247,7 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear-tree.jpg)
 
-## Tasks (due 1/9/2020)
+## Tasks (due 31/8/2021)
 
 ### Practical questions
 
