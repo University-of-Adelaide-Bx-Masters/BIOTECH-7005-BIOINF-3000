@@ -74,9 +74,7 @@ We haven't installed this on your VM as it really needs to run a local machine (
 This can be installed by following the instructions [here](https://software.broadinstitute.org/software/igv/download).
 
 Additionally, we'll need to copy our bam files from the VM to our local machine.
-To do this we'll need [FileZilla](https://filezilla-project.org/).
-Once you have this installed, connect to your VM using your IP address (without the :8787), and use your `student` login.
-Then you'll be able to copy files easily between your local machine and the VM.
+
 You'll need to download 1) your sorted bam file; 2) the index for the sorted bam file and 3) your reference `chrI.fa`.
 Place these in all in the same folder & open IGV.
 
