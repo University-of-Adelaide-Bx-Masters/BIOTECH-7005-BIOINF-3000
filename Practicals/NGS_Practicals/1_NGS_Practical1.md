@@ -417,9 +417,9 @@ cutadapt \
 	-q 20 \
 	-a AGATCGGAAGAGCACACGTCTGAAC \
 	-A AGATCGGAAGAGCGTCGTGTAGGGA \
-	-o 1_trimmedData/fastq/Run1_R1.1.fastq.gz \
-	-p 1_trimmedData/fastq/Run1_R2.2.fastq.gz \
-	0_rawData/fastq/Run1_R1.1.fastq.gz 0_rawData/fastq/Run1_R2.2.fastq.gz > \
+	-o 1_trimmedData/fastq/Run1_R1.fastq.gz \
+	-p 1_trimmedData/fastq/Run1_R2.fastq.gz \
+	0_rawData/fastq/Run1_R1.fastq.gz 0_rawData/fastq/Run1_R2.fastq.gz > \
 	1_trimmedData/log/cutadapt.log
 ```
 
@@ -446,7 +446,7 @@ In the above we would write this output to a log file using the `>` symbol to re
 Let's have a look in the file to check the output.
 
 ```
-less cutadapt.log
+less 1_trimmedData/log/cutadapt.log 
 ```
 
 As these were a good initial sample, it's not surprising that we didn't lose many sequences.
