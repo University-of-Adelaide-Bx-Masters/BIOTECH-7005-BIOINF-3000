@@ -204,13 +204,18 @@ formula
 where *P* is the probability of calling the incorrect base.
 This is more easily seen in the following table:
 
-| PHRED Score | Probability of Incorrect Base Call | Accuracy of Base Call |
-|:----------- |:---------------------------------- |:----------------------|
-| 0           | 1 in 1          | 0%          |
-| 10          | 1 in 10         | 90%         |
-| 20          | 1 in 100        | 99%         |
-| 30          | 1 in 1000       | 99.9%       |
-| 40          | 1 in 10000      | 99.99%      |
+| PHRED Score | Probability of Incorrect Base Call | Accuracy of Base Call | PHRED Characters within range |
+|:----------- |:---------------------------------- |:----------------------|:------------------------------| 
+| 0           | 1 in 1            | 0%          |             |
+|             |                   |             | !"#$%&’()*  | 
+| 10          | 1 in 10           | 90%         |   | 
+|             |                   |             | +,-./01234 |
+| 20          | 1 in 100          | 99%         |   |
+|             |                   |             | 56789:;<=>  |
+| 30          | 1 in 1,000        | 99.9%       |   |
+|             |                   |             | ?@ABCDEFGH  |
+| 40          | 1 in 10,000       | 99.99%      |   |
+|             |                   |             | IJKLMNOPQRSTUVWXYZ.\[\]ˆ_‘abcdefghijklmnopqrstuvwxyz{\|}~ |
 
 #### Questions
 {:.no_toc}
