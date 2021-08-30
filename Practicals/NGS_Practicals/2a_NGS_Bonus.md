@@ -25,9 +25,9 @@ What can you say about the sequence?
 
 Just because a variant is called, does not mean that it is a true positive! Each variant called within the file holds a variant quality score (found in the *QUAL* field). [From the VCF format specifications](http://www.internationalgenome.org/wiki/Analysis/vcf4.0):
 
-```
-QUAL phred-scaled quality score for the assertion made in ALT. i.e. give -10log_10 prob(call in ALT is wrong). If ALT is ”.” (no variant) then this is -10log_10 p(variant), and if ALT is not ”.” this is -10log_10 p(no variant). High QUAL scores indicate high confidence calls. Although traditionally people use integer phred scores, this field is permitted to be a floating point to enable higher resolution for low confidence calls if desired. (Numeric)
-```
+
+QUAL is a phred-scaled quality score for the assertion made in ALT. i.e. give -10log_10 prob(call in ALT is wrong). If ALT is ”.” (no variant) then this is -10log_10 p(variant), and if ALT is not ”.” this is -10log_10 p(no variant). High QUAL scores indicate high confidence calls. Although traditionally people use integer phred scores, this field is permitted to be a floating point to enable higher resolution for low confidence calls if desired. (Numeric)
+
 
 To weed out the low confidence calls in our VCF file we need to filter by QUAL. This can be done using the `bcftools` program that's included within the `samtools` suite of tools. 
 All these tools can run on gzip-compressed files which saves a lot of space on your computer.
@@ -74,9 +74,7 @@ We haven't installed this on your VM as it really needs to run a local machine (
 This can be installed by following the instructions [here](https://software.broadinstitute.org/software/igv/download).
 
 Additionally, we'll need to copy our bam files from the VM to our local machine.
-To do this we'll need [FileZilla](https://filezilla-project.org/).
-Once you have this installed, connect to your VM using your IP address (without the :8787), and use your `student` login.
-Then you'll be able to copy files easily between your local machine and the VM.
+
 You'll need to download 1) your sorted bam file; 2) the index for the sorted bam file and 3) your reference `chrI.fa`.
 Place these in all in the same folder & open IGV.
 

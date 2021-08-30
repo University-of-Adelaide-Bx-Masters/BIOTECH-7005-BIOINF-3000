@@ -330,7 +330,7 @@ There’s not much of note for us to see here.
 There are few to no duplicated sequences (rRNA, highly expressed genes etc.) and lots of unique sequences represented the diverse transcriptome.
 This is only calculated on a small sample of the library for computational efficiency and is just to give a rough guide if anything unusual stands out.
 
-**Overrepresented Sequences** Here we can see any sequence which are more abundant than would be expected. Sometimes you'll see sequences here that match the adapters used, or you may see highly expressed genes here.
+**Overrepresented Sequences** Here we can see any sequence which are more abundant than would be expected. Sometimes you'll see sequences here that match the adapters used, or you may see repeated sequences in genomic data or highly expressed genes in transcriptomic data.
 
 **Adapter Content** This can give a good guide as to our true fragment lengths. If we have read lengths which are longer than our original DNA/RNA fragments (i.e. inserts) then the sequencing will run into the adapters.
 If you have used custom adapters, you may need to supply them to `FastQC` as this only searches for common adapter sequences.
