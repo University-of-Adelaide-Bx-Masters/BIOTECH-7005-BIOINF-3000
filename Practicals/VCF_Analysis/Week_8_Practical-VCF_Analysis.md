@@ -13,7 +13,7 @@ The files you will need are in your `~/student/data/variant_calling` directory. 
 
 ```
 -rw-r--r-- 1 student student 9.1M Sep 12 06:07 Arabidopsis_thaliana.TAIR10.48.gff3.gz
--rw-r--r-- 1 student student  35M Sep 12 06:07 Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz
+-rw-r--r-- 1 student student  35M Sep 12 06:07 Arabidopsis_thaliana.TAIR10.dna.toplevel.fa
 -rw-rw-r-- 1 student student 1.1G Sep 12 06:27 SRR5882792_Athaliana_TAIR10.bam
 -rw-rw-r-- 1 student student 351K Sep 14 01:17 SRR5882792_Athaliana_TAIR10.bam.bai
 -rw-rw-r-- 1 student student  15M Sep 12 06:28 SRR5882792_Athaliana_TAIR10_picard.vcf
@@ -45,7 +45,6 @@ Then load the R functions we need.
 ```bash
   {r, results='hide', eval = FALSE}
 '%nin%' <- Negate('%in%')
-
 ulength <- function(x) {x %>% unique() %>% length()}
 fsummary <- function(x) {x %>% as.factor() %>% summary()}
 ```
@@ -79,7 +78,7 @@ Click the "Download" button and save it somewhere obvious.
 
 Visit, [IGV-web](https://igv.org/app/) and load the genome from the TAIR10 assembly as a pre-defined genome. Select it from the `Genome` tab in the IGV browser window.
 
-Once the reference genome is loaded, load a "Track" from a `Local File ...` by selecting both the `SRR5882792_Athaliana_TAIR10.bam` and `SRR5882792_Athaliana_TAIR10.bam.bai` files.
+Once the reference genome is loaded, load a "Track" from a `Local File ...` by selecting the `SRR5882792_Athaliana_TAIR10.bam` file.
 
 ![IGV-web SRR11140748 Illumina](images/SRR11140748_Illumina_bam.png)
 
@@ -88,7 +87,5 @@ Next, go to **Load VCF**. After loading the VCF file we will look at how to acce
 The next section is **Analyse Genotypes**. We will extract a subset of the columns from the VCF file as a data frame and reformat some of them. Data frames are a convenient way to store and interrogate this information.
 
 We will dig in to the data to see what evidence is being used to call variants, in **Plots**. We will look at the relationship between the genotypes called, the number of reads and the strength of evidence. When we find an interesting relationship we will take examples and look at them in IGV, where we can get a sense of the reads that support a call.
-
-Finally, I would like you to take the data and the code, and generate your own plots etc, to see if you can find a threshold to balance True and False Positives. The columns Qual and GLB will be useful here.
 
 [1]: https://software.broadinstitute.org/software/igv/
