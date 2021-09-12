@@ -7,7 +7,7 @@ As with all previous practicals, start by creating a `~/Practical_8/` subdirecto
 
 ## About this practical
 
-This practical is designed to give you experience with VCF files and their analysis and will use the genome and NGS data from Assignment 4. It includes an Rscript and BAM and VCF files based on that data.  
+This practical is designed to give you experience with VCF files and their analysis and will use *Arabidopsis* genome and NGS data. It includes an Rscript and BAM and VCF files based on that data.  
 
 The files you will need are in your `~/student/data/variant_calling` directory. These are the files you should have:
 
@@ -25,7 +25,7 @@ Move these files to your `~/Practical_8/` directory. You will then be able to op
 
 The information for reads containing variants is stored in the BAM files and variant information is stored in the VCF files. We will visualise both to see the evidence that supports the variant calls. You will use an R script to summarise the data in the VCF file and to identify interesting variants to interrogate further. 
 
-For the visualisation of variant data you will use IGV [Integrated Genome Viewer][1] and you will need to install this on your own computer as it will not run on a browser from your VM. There are versions of IGV available for download for any operating system you might be using: Windowns, MacOS or Linux. Visualisation of your results will require you to download the R output of the analysis to your computer. 
+For the visualisation of variant data you will use IGV [Integrated Genome Viewer][1] and you will need to run this from a browser from your computer. If you want to install IGV on   your own compurter, there are versions of IGV available for download for any operating system you might be using: Windows, MacOS or Linux. If you want to use IGV on your own computer, visualisation of your results will require you to download the R output of the analysis to your computer. 
 
 Specific instructions will be provided during the practical to allow you to carry out the steps required. In previous practicals you have been able to access background material, along with a detailed description of practical steps and the reasons behind them. For this practical, all of that information will be provided verbally during the scheduled practical session, and if time permits it will be incorporated into a revised version of this document. In contrast to previous practical sessions, we will record this practical and upload it to MyUni to provide an accessible record of the instructions and procedures. 
 
