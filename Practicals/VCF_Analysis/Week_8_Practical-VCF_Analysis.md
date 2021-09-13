@@ -35,6 +35,7 @@ First load the R packages we need.
 
 ```bash
   {r, results='hide', eval = FALSE}
+install.packages("vcfR")
 library(magrittr)
 library(vcfR)
 library(tidyverse)
