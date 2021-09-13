@@ -1,6 +1,7 @@
 ##############
 ## Packages ##
 ##############
+install.packages("vcfR")
 library(magrittr)
 library(vcfR)
 library(tidyverse)
