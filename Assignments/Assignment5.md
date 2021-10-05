@@ -39,7 +39,7 @@ For all scripts, please use the directory `~/Assignment5` as the parent director
 
 This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads.
 
-1. Make sure you are the `conda 3000` environment by running `conda activate 3000`.
+1. Make sure you are in the `conda 3000` environment by running `conda activate 3000`.
 
 ```bash
 (base) student@bioinf-2021-s2-student-29:~$ conda activate 3000
