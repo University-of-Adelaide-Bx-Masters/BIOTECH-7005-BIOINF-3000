@@ -1,13 +1,16 @@
 # Assignment 5 - [*23 marks total*]
 
 **Due before Tuesday 12th October**
+
 ## Correct submission [*3 Marks*]
+
 Your answers to all questions should be submitted to myUni as a `.zip` file containing your two bash scripts and your html `knitted` R markdown file for part 4 that contains the answers to the additional questions (can be in any readable format, but my order of preference is; html, pdf, Rmd). [*1 mark for submitting as a single zip file*]
 
 The `.zip` filename must start with your student number [*1 mark*] and your bash script must be able to run without errors.
 Meaningful comments are strongly advised.
 
-For all scripts, please use the directory `~/Assignment5` as the parent directory for all downloads and analysis. Use the following directory structure [*1 mark*]: 
+For all scripts, please use the directory `~/Assignment5` as the parent directory for all downloads and analysis. Use the following directory structure [*1 mark*]:
+
 ```
 .
 ├── Assignment5
@@ -29,15 +32,14 @@ For all scripts, please use the directory `~/Assignment5` as the parent director
    ├── Ref
 
 ```
-**It is important you use this directory structure and construct your scripts to use the relative paths as invoked from `~/Assignment5`.  Scripts are marked based on the fact that they run. The expectation is that they will run within the relative path `~/Assignment5`. You will be expected to hard code this into your script.**
 
+**It is important you use this directory structure and construct your scripts to use the relative paths as invoked from `~/Assignment5`.  Scripts are marked based on the fact that they run. The expectation is that they will run within the relative path `~/Assignment5`. You will be expected to hard code this into your script.**
 
 ## Practical questions [*13 marks*]
 
+This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads.
 
-This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads. 
-
-0. Make sure you are the `conda 3000` environment by running `conda activate 3000`. 
+1. Make sure you are the `conda 3000` environment by running `conda activate 3000`.
 
 ```bash
 (base) student@bioinf-2021-s2-student-29:~$ conda activate 3000
@@ -45,21 +47,21 @@ This assignment will use _C elegans_ sequence data from [BioProject_598355]. The
 ```
 
 Once you have done this, install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
-    
-1. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
+
+2. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__):
     + download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: `fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/` This will generate two fastq.gz files, one for each end [*1 mark*]. Note that in your script you may use variables to specify directories for input and output (see below)
-    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 free mark*]. 
+    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 free mark*].
     + run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: `cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz > ./2_trimmed_Data/log/cutadapt.log` [*1 mark*]
-2. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
+3. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
     + Build the index for `bwa` for the chr1.fna sequence [*1 mark*]
     + Align the reads `bwa mem -t 2 ./Ref/WBcel235_chrI 1_trimmedData/fastq/SRR3452285_1.fastq.gz 1_trimmedData/fastq/SRR3452285_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR3452285_chrI.bam` [*1 mark*]
     + Sort the `bam` file `samtools sort ./2_alignedData/bam/SRR3452285_chrI.bam -o ./2_alignedData/sorted_bam/SRR3452285_chrI.bam` [*1 mark*]
-    + Index the `bam` file `samtools index ./2_alignedData/sorted_bam/SRR3452285_chrI.bam ` [*1 mark*]
+    + Index the `bam` file `samtools index ./2_alignedData/sorted_bam/SRR3452285_chrI.bam` [*1 mark*]
     + Deduplicate with picard `picard MarkDuplicates I=./2_alignedData/sorted_bam/SRR3452285_chrI.bam O=./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam M=dups.metrics.txt REMOVE_DUPLICATES=true` [*1 mark*]
     + Get the samtools stats for the aligned, de-duplicated data `samtools stats ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam > ./2_alignedData/log/SRR3452285_chrI_rmdup.stats` [*1 mark*]
     + Index the `bam` file `SRR3452285_chrI_rmdup.bam` [*1 mark*]
     + Use freebayes to call variants `freebayes -f ./Ref/WBcel235_chrI.fa ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam > ./2_alignedData/vcf/SRR3452285_chrI.vcf` [*1 mark*]
-3. Use RStudio to analyse your variants. __Create a new R project called `Assignment5.Rproj`__ in `~/Assignment5/R` and __create a new R markdown document called `Assignment5.Rmd`__.  You can then copy the code below 
+4. Use RStudio to analyse your variants. __Create a new R project called `Assignment5.Rproj`__ in `~/Assignment5/R` and __create a new R markdown document called `Assignment5.Rmd`__.  You can then copy the code below
 
 ~~~text
 # Assessment Cover Sheet
@@ -73,7 +75,7 @@ Do not alter the first two lines of the table.
 |:--- |:--- |
 | Student Name     | <!-- Your name --> |
 | Student ID       | <!-- Your student ID -->  |
-| Assessment Title | <!-- Assessment title -->  |	 
+| Assessment Title | <!-- Assessment title -->  |  
 | Course/Program   | Bioinformatics and Systems Biology |
 | Lecturer/Tutor   | <!-- Section instructor --> |
 | Date Submitted   | <!-- Date --> |
@@ -104,8 +106,8 @@ I give permission for my assessment work to be reproduced and submitted to other
 
 ~~~
 
-
 into your `Assignment5.Rmd` source window just below:
+
 ```
 ---
 title: "Assignment5"
@@ -115,7 +117,9 @@ output: html_document
 ---
 
 ```
-## So that it looks like this:
+
+## So that it looks like this
+
 ~~~text
 ---
 title: "Assignment5"
@@ -135,7 +139,7 @@ Do not alter the first two lines of the table.
 |:--- |:--- |
 | Student Name     | <!-- Your name --> |
 | Student ID       | <!-- Your student ID -->  |
-| Assessment Title | <!-- Assessment title -->  |	 
+| Assessment Title | <!-- Assessment title -->  |  
 | Course/Program   | Bioinformatics and Systems Biology |
 | Lecturer/Tutor   | <!-- Section instructor --> |
 | Date Submitted   | <!-- Date --> |
@@ -167,7 +171,7 @@ I give permission for my assessment work to be reproduced and submitted to other
 ---
 ~~~
 
-## Paste this text just below the setup code chunk.
+## Paste this text just below the setup code chunk
 
 ~~~text
 
@@ -209,13 +213,13 @@ For all scripts, please use the directory `~/Assignment5` as the parent director
 
 This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads. 
 
-0. Install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
+1. Install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
     
-1. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
+2. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
     + download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: `fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/` This will generate two fastq.gz files, one for each end [*1 mark*]. Note that in your script you may use variables to specify directories for input and output (see below)
     + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome.  Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 free mark*].  
     + run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: `cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz > ./2_trimmed_Data/log/cutadapt.log` [*1 mark*]
-2. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
+3. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
     + Build the index for `bwa` for the chr1.fna sequence [*1 mark*]
     + Align the reads `bwa mem -t 2 ./Ref/WBcel235_chrI 1_trimmedData/fastq/SRR3452285_1.fastq.gz 1_trimmedData/fastq/SRR3452285_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR3452285_chrI.bam` [*1 mark*]
     + Sort the `bam` file `samtools sort ./2_alignedData/bam/SRR3452285_chrI.bam -o ./2_alignedData/sorted_bam/SRR3452285_chrI.bam` [*1 mark*]
@@ -224,7 +228,7 @@ This assignment will use _C elegans_ sequence data from [BioProject_598355]. The
     + Get the samtools stats for the aligned, de-duplicated data `samtools stats ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam > ./2_alignedData/log/SRR3452285_chrI_rmdup.stats` [*1 mark*]
     + Index the `bam` file `SRR3452285_chrI_rmdup.bam` [*1 mark*]
     + Use freebayes to call variants `freebayes -f ./Ref/WBcel235_chrI.fa ./2_alignedData/sorted_bam/SRR3452285_chrI_rmdup.bam > ./2_alignedData/vcf/SRR3452285_chrI.vcf` [*1 mark*]
-3. Use RStudio to analyse your variants.
+4. Use RStudio to analyse your variants.
 
 [BioProject_598355]:https://www.ncbi.nlm.nih.gov/bioproject/598355
 [here]:https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/COVERSHEET.html
@@ -359,21 +363,22 @@ ggsave(filename = FileOut, path = DirPlot, device = "jpeg")
 ```
 ## Additional questions [*7 marks*] 
 
-4. For this line in the R code `GenomeData %<>% select(GT, DP, AD, RO, AO, QR, QA, GL)`, what are the VCF descriptions found in the `vcf` file header for these fields? [*3 Marks*]
+5. For this line in the R code `GenomeData %<>% select(GT, DP, AD, RO, AO, QR, QA, GL)`, what are the VCF descriptions found in the `vcf` file header for these fields? [*3 Marks*]
 
-5. For the plot titled `C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele` is the distribution what you expect?  Why? [*3 Marks*]
+6. For the plot titled `C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele` is the distribution what you expect?  Why? [*3 Marks*]
 
-6. How many properly paired reads were there in the sorted, deduplicated `.bam` file used to generate the `.vcf`? [*1 Mark*]
+7. How many properly paired reads were there in the sorted, deduplicated `.bam` file used to generate the `.vcf`? [*1 Mark*]
 ~~~
-## This will give you a .Rmd file that will allow you to generate the relevant output by running the code and it includes the all of the questions you need to answer. 
-## These additional questions worth 7 marks are reproduced below for clarity.
 
-4. For this line in the R code `GenomeData %<>% select(GT, DP, AD, RO, AO, QR, QA, GL)`, what are the VCF descriptions found in the `vcf` file header for these fields? 
+## This will give you a .Rmd file that will allow you to generate the relevant output by running the code and it includes the all of the questions you need to answer
 
-5. For the plot titled `C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele` is the distribution what you expect?  Why? 
+## These additional questions worth 7 marks are reproduced below for clarity
 
-6. How many properly paired reads were there in the sorted, deduplicated `.bam` file used to generate the `.vcf`? 
+5. For this line in the R code `GenomeData %<>% select(GT, DP, AD, RO, AO, QR, QA, GL)`, what are the VCF descriptions found in the `vcf` file header for these fields?
 
+6. For the plot titled `C elegans Subset Alt Read Fraction vs Likelihood of Alt Allele` is the distribution what you expect?  Why?
+
+7. How many properly paired reads were there in the sorted, deduplicated `.bam` file used to generate the `.vcf`?
 
 [BioProject_598355]:https://www.ncbi.nlm.nih.gov/bioproject/598355
 [here]:https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005/COVERSHEET.html
