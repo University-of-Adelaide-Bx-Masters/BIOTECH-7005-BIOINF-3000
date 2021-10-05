@@ -37,11 +37,18 @@ For all scripts, please use the directory `~/Assignment5` as the parent director
 
 This assignment will use _C elegans_ sequence data from [BioProject_598355]. These are 100nt paired-end reads. 
 
-0. Install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
+0. Make sure you are the `conda 3000` environment by running `conda activate 3000`. 
+
+```bash
+(base) student@bioinf-2021-s2-student-29:~$ conda activate 3000
+(3000) student@bioinf-2021-s2-student-29:~$ 
+```
+
+Once you have done this, install the `SRA Toolkit` and the latest version of `freebayes` using conda `conda install -c bioconda sra-tools freebayes=1.3.2` this will give you the `fastq-dump` tool that you will use to get the data and an updated `freebayes` that will generate a VCFv4.2 file. (no marks for this)
     
 1. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
     + download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: `fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/` This will generate two fastq.gz files, one for each end [*1 mark*]. Note that in your script you may use variables to specify directories for input and output (see below)
-    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 mark*]. 
+    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 free mark*]. 
     + run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: `cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz > ./2_trimmed_Data/log/cutadapt.log` [*1 mark*]
 2. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
     + Build the index for `bwa` for the chr1.fna sequence [*1 mark*]
@@ -206,7 +213,7 @@ This assignment will use _C elegans_ sequence data from [BioProject_598355]. The
     
 1. Write a __script__ with informative and useful comments [*1 mark*] __to download and trim and clean__ (This should be easy as you can re-purpose a previous script - __Note that I give you examples of commands with paths, but you should always ensure that your script uses the correct path - I do not guarantee that my commands as listed will all have the correct path or be typo free__): 
     + download the fastq read data using sra-tools. To download the dataset from the Short Read Archive (SRA) at NCBI use the following command: `fastq-dump --gzip --split-files SRR3452285 -O ~/Assignment5/0_rawData/fastq/` This will generate two fastq.gz files, one for each end [*1 mark*]. Note that in your script you may use variables to specify directories for input and output (see below)
-    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome. download the genome reference and gff3 files for _C elegans_ chromosome I to ~/Assignment5/Ref/ (see `https://universityofadelaide.box.com/shared/static/ct8alnh7a7t0z6x6m6g17t6n23raysbo.gz` and `https://universityofadelaide.box.com/shared/static/ssvrdjx5imz6ktrw5d0owuumx1ry158h.gz` ) [*1 mark*]. 
+    + Because of the constraints imposed by your VMs, we will only download the reference sequence for ChrI and limit our analysis to to this chromosome.  Because of limitations with downloading from Box with `wget/curl` we have put these files into `/home/student/data/Assignment_5` on your VMs.  [*1 free mark*].  
     + run fastqc and trim the reads as for previous practicals/assignment. The command for trimming will be: `cutadapt -m 35 -q 30 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o ./2_trimmedData/fastq/SRR3452285_1.fastq.gz -p ./2_trimmedData/fastq/SRR3452285_2.fastq.gz ./0_rawData/fastq//SRR3452285_1.fastq.gz ./0_rawData/fastq/SRR3452285_2.fastq.gz > ./2_trimmed_Data/log/cutadapt.log` [*1 mark*]
 2. Write a __script__ with informative and useful comments [*1 mark*] __to align the cleaned reads to ChrI and call variants__:
     + Build the index for `bwa` for the chr1.fna sequence [*1 mark*]
