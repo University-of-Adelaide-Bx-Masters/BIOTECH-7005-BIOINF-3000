@@ -1,5 +1,5 @@
 
-# Week 10 Practicals
+# Week 10 Practical - Transcriptome Assembly
 
 # Introduction
 
