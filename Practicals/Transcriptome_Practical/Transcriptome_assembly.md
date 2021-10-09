@@ -1,6 +1,11 @@
 
 # Week 10 Practical - Transcriptome Assembly
 
+{:.no_toc}
+
+* TOC
+{:toc}
+
 # Introduction
 
 In this practical, we will use a RNA-Seq dataset from a model plant *Arabidopsis thaliana* (Wang et al, 2017, <https://onlinelibrary.wiley.com/doi/10.1111/tpj.13481>). This dataset was initially used for identification of long non-coding RNAs by transcriptome assembly of RNA-Seq.
