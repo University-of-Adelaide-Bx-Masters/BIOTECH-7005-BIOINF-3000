@@ -23,9 +23,11 @@ Due to the the limitation of computing resources in our VM, we will use a subset
 
 ## Tools and pipeline
 
-The pipeline of today's Prac is shown in the following flowchart
+The pipeline of today's Prac is shown in the following flowchart:
 
-Tools usded in this Prac:
+![Transcriptome assembly flowchart](./images/Prac_transcriptome_assembly_pipeline.png)
+
+Tools used in this Prac:
 
 | Tool/Package| Version     | URL |
 | ----------- | ----------- | ----------- |
@@ -51,7 +53,8 @@ The following table shows the estimated run time in VM for the major steps:
 | Genome mapping for short reads| STAR        | 10 mins |
 | Genome-guided assembly        | StringTie   | 1 mins  |
 | BUSCO for Trinity             | BUSCO       | 3 mins  |
-| BUSCO for StringTie           | IGV         | N/A     |
+| BUSCO for StringTie           | BUSCO       | 3 mins  |
+| Viewing assembly in IGV       | IGV         | N/A     |
 
 ## What you will learn in this Practical
 
@@ -150,6 +153,7 @@ The databases, including Arabidopsis reference genome (TAIR10_chrALL.fa), annota
 ```bash
 cp ~/data/Transcriptomics_data_2021/Practicals/TAIR10_* ~/Practical_9/DB/ 
 cp ~/data/Transcriptomics_data_2021/Practicals/viridiplantae_odb10.2020-09-10.tar.gz ~/Practical_9/DB/
+cd ~/Practical_9/DB
 tar -zxvf viridiplantae_odb10.2020-09-10.tar.gz
 ```
 
@@ -213,7 +217,7 @@ This step will take more than 2 hours, so we will finish here today and let the 
 
 All results from Trinity will be stored in the folder of `Col_leaf_chr2_trinity` in the directory `~/Practical_9/results/3_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and is named `Trinity.fasta`.  
 
-The Trinity package provide a useful utility to summarise the basic assembly statistics.
+The Trinity package provides a useful utility to summarise the basic assembly statistics.
 
 ```bash
 cd ~/Practical_9/results/3_denovo_assembly
@@ -319,7 +323,7 @@ For genome mapping using STAR, we first need to build the genome index.
 
 ```bash
 cd ~/Practical_9/DB
-STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/Practical_9/DB/TAIR10_STAR125 --genomeFastaFiles TAIR10_chrALL.fa --sjdbGTFfile TAIR10_GFF3_genes.gtf --sjdbOverhang 125
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/Practical_9/DB/TAIR10_STAR125 --genomeFastaFiles TAIR10_chrALL.fa --sjdbGTFfile TAIR10_GFF3_genes.gtf --sjdbOverhang 124
 ```
 
 And then, we map the clean reads to the reference genome. The command line for this is a little complicated, it is broken down below so that you can see what it is doing.
