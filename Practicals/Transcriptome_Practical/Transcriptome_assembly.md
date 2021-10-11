@@ -206,7 +206,7 @@ We will use the clean reads as input.
 
 ```bash
 cd ~/Practical_9/results/3_denovo_assembly
-Trinity --seqType fq --left ~/Practical_9/results/2_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \ 
+Trinity --seqType fq --left ~/Practical_9/results/2_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \
 --right ~/Practical_9/results/2_clean_data/Col_leaf_chr2_R2.clean.fastq.gz \
 --output Col_leaf_chr2_trinity --CPU 2 --max_memory 8G --no_salmon
 ```
