@@ -98,7 +98,7 @@ Did you see the difference. The `(3000)` at the beginning of your prompt indicat
 Then we need to install several tools/packages via conda. Type the following commands in your terminal to install `Trinity`, `GMAP`, `STAR`, `BUSCO` respectively.
 
 ```bash
-conda install -c bioconda trinity gmap star busco
+conda install -c bioconda trinity gmap=2020.10.14 star busco
 ```
 
 You may need to press `enter` to confirm the installation.
