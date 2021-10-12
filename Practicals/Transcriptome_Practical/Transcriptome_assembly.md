@@ -278,7 +278,7 @@ cd ~/Practical_9/results/3_denovo_assembly
 busco -i ./Col_leaf_chr2_trinity/Trinity.fasta -l ~/Practical_9/DB/viridiplantae_odb10 -o BUSCO_Trinity_viridiplantae -m transcriptome --cpu 2
 ```
 
-BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_Trinity_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:28.0%[S:20.2%,D:7.8%],F:8.5%,M:63.5%,n:425]`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
+BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_Trinity_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:28.0%[S:20.2%,D:7.8%],F:8.5%,M:63.5%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
         C:28.0%[S:20.2%,D:7.8%],F:8.5%,M:63.5%,n:425
