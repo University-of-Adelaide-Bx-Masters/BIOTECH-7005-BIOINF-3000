@@ -1,0 +1,272 @@
+#_ Copyright ©2014 Jimmy Breen and The University of Adelaide. All rights reserved.
+
+Epigenetics
+
+Jimmy Breen
+Australian Centre for Ancient DNA
+jimmy.breen@adelaide.edu.au
+
+* Evolution - Genetics vs Epigenetics
+
+- Evolution: is change in the heritable characteristics of biological populations over successive generations.
+
+- Genetics: is the study of genes, genetic variation, and heredity in living organisms
+
+* Polyphenism
+
+- "A polyphenic trait is a trait for which multiple, discrete phenotypes can arise from a single genotype as a result of differing environmental conditions" (_Wikipedia_)
+- Many examples in biology, especially insects
+
+.image epigenetics/images/queen&workerants.jpg 300 _
+
+.caption [[http://biology.mcgill.ca/faculty/abouheif/research.html][Magill University]]
+
+* Lamarckism
+
+.image epigenetics/images/lamarck_giraffe2.jpg 400 _
+
+.caption [[http://www.robinsonlibrary.com/science/natural/biography/lamarck.htm][The Robinson Library]]
+
+* Lamarckism
+
+Jean-Baptiste Pierre Antoine de Monet, Chevalier de Lamarck (1 August 1744 – 18 December 1829)
+
+- Theory of acquired inheritance or 'soft' inheritance
+
+.image epigenetics/images/Jean-baptiste_lamarck2.jpg 150 _
+
+.caption Jean-Baptiste Lamarck (Wikipedia)
+
+Major Criticisms:
+
+- Very few epigenetic changes are inherited
+- Those that are, are almost never stable (inherited over 203 generations)
+- Evolution has very good support, Lamarck's theory does not
+
+* Epigenetics
+
+Epigenetics: "stably heritable phenotype resulting from changes in a chromosome without alterations in the DNA sequence"
+
+History:
+
+- Epigenetics was coined by C. H. Waddington in 1942 in [[https://doi.org/10.1093/ije/dyr184]["The epigenotype"]]
+
+- 'Phenogenetics' (Pänogenetik) Valentin Haecker's (in parallel)
+
+* Mechanisms of Epigenetics (Classical)
+
+1. Covalent Modifications
+
+- Histone Modification
+- DNA Methylation
+- Hydroxymethylation
+
+2. Regulatory RNAs
+
+- Small interfering RNAs (siRNAs) + RNAi
+- Micro-RNAs (miRNAs)
+- Long non-coding RNAs (lncRNAs)
+- Circular RNAs
+
+* Mechanisms of Epigenetics - Extended
+
+.image epigenetics/images/classic-image-5290.jpg 510 _
+
+.caption Encyclopedia of DNA elements (ENCODE) - encodeproject.org
+
+* DNA Methylation
+
+- Addition of a methyl-group (CH3) to the DNA base (A, C, G or T)
+- Can occur on different bases, however (in Eukaryotes) the most commonly studied modification is 5' methyl-cytosine (5mC)
+- Maintained and created through the action of DNA methyltransferases (DNMTs)
+- Can occur in multiple contexts; CpG, CHG and CHH
+- Varying levels across biology. High in mammals, low in Fungi
+- Hydroxymethylation - 5mC with an addition of a hydroxy group. Function unknown...
+
+* Methylation affecting gene expression
+
+- At regulatory sites, DNA methylation has been shown to affect downstream expression
+- DNA methylation DECREASES on average before TSS of genes
+- DNA Methylation INCREASES on average before  start site of transposable elements
+- CpG Islands (Higher than expected number of CpG sites found in one block) tend to occur before transcriptional start sites
+
+.image epigenetics/images/image8_w.jpg 250 _
+
+.caption [[https://doi.org/10.5772/50798][Aml Mohammed Erhuma _et_al._ doi:10.5772/50798]]
+
+* DNA methylation is dynamic during development
+
+- Waves of methylation and demethylation
+- Almost all methylated sites are erased during embryogenesis and gametogenesis
+- Crucial to cell-specificity and differentiation
+
+.image epigenetics/images/850px-DNA_methylation_reprogramming.png 300 _
+
+.caption DNA Methylation (Wikipedia)
+
+* Small interfering RNAs and RNAi
+
+- Biological process in which RNA molecules inhibit gene expression, typically by causing the destruction of specific mRNA molecules
+- Indirect mechanisms that alter gene transcription
+- By introducing a synthesised double-stranded RNA, genes can be targeted and "knocked down"
+
+* RNAi
+
+- RNAi is a useful for molecular biologists
+- "Designed" gene targeting and silencing
+
+.image epigenetics/images/640RNAi1.jpg 400 _
+
+.caption [[http://www.the-scientist.com/?articles.view/articleNo/49203/title/RNAi-s-Future-in-Drug-Target-Screening/][The Scientist: RNAi's Future in Drug Target Screening]]
+
+* Applications
+
+- Therapeutics for genetic diseases
+- Add to crops to provide resistance to pathogens
+- _in_vitro_ RNAi-mediated inhibition of HIV-1
+
+* Examples of epigenetic modifications that produce phenotypic variation
+
+* Example 1: Plant phenotypic variation
+
+- Flower morphology
+
+.image epigenetics/images/Linaria_vulgaris-peloria.JPG_201252135254_Linaria_vulgaris-peloria.JPG 400 _
+
+.caption [[https://doi.org/10.1038/43657][Cubas _et_al_. doi:10.1038/43657]]
+
+* Example 1: Genomic Imprinting
+
+- The silencing of one allele in a diploid in a parent of origin-specific manner
+- Imprinting is established in germline cells and maintained over mitotic divisions
+- Animals: Imprinting of one X chromosome in females
+- _Xist_ - Long non-coding RNA
+
+* Example 1: Genomic Imprinting
+
+.image epigenetics/images/Fig-1-Life-cycle-of-X-chromosome-inactivation-and-reactivation-in-mice-The-state-of-an.png 500 _
+
+.caption [[https://doi.org/10.1016/j.ydbio.2006.07.011][Thorvaldsen _et_al._ doi:10.1016/j.ydbio.2006.07.011]]
+
+* 3D Chromosome structure 
+
+.image epigenetics/images/scHiC.jpg 500 _
+
+.caption Stevens et al. 2017 “3D structures of individual mammalian genomes studied by single-cell Hi-C” _Nature_
+
+
+* 3D Chromosome structure 
+
+- Non-coding DNA is starting to be recognized as a major driver of phenotypic plasticity
+- Genetic variants in regulatory elements, such as enhancers, can drive changes in gene expression by binding transcription initiators
+   - Enhancer activity are much more likely to be cell-type specific 
+
+.image epigenetics/images/enhancer-floding.jpg 200 _
+
+.caption Ong & Corces 2011 _Nature Reviews Genetics_
+
+* Epigenetic Quantification
+
+* Non-coding RNA
+
+- Total RNAseq: All coding and non-coding RNA in the sample
+- RNAseq + library size selection
+- > 50bp (long non-coding RNAs + gene-coding RNAs)
+- < 50bp (small RNAs)
+
+* Bioinformatics Analysis
+
+- Alignment to known non-coding sites
+(Programs: `Tophat`, `Hisat2`, `Salmon`)
+
+- Identify novel molecules: Assembly and reference-assisted
+(Programs: `Stringtie`, `Scallop`, `Trinity`)
+
+* DNA Methylation
+
+At each cytosine (C)
+
+- Proportion of methylation at each base
+
+   Methylation level = Methylated Cytosines / (All Cytosines)
+
+- Scale between 0 and 1
+
+*Context*is*important*
+
+   CpG: C before a G (i.e. mCG)
+   CHG: C before a H bases (A, C or T) *then* a G (e.g. mCAG)
+   CHH: C before two H bases (e.g. mCAA)
+
+- CpG is important in Vertebrates
+- CHG and CHH more important in Plants and Fungi
+
+* Bisulfite Sequencing
+
+- Requires the use of Sodium bisulfite (NaHSO3) to convert un-methylated cytosines to uracil (U)
+- Whole-genome bisulfite sequencing (WGBS)
+- Reduced Representation (RRBS) using methylation-sensitive restriction enzymes
+
+.image epigenetics/images/bisulfite-sequencing-large.png 250 _
+
+.caption [[http://www.atdbio.com/content/20/Sequencing-forensic-analysis-and-genetic-analysis][ATDBio]]
+
+* Bioinformatics Challenges
+
+- Sodium bisulfite treatment = Damaging to DNA
+- Reduction in diversity of the genome
+- Hypomethylation [too little] = Only 3 bases (A, G and T)
+- Hypermethylation [too much] = Only 3 bases (A, G and C)
+- Artificially introducing variation which is problematic to accurate alignment
+- Align bisulfite-treated DNA against bisulfite-treated target genome (Example: `Bismark`)
+
+* Bismark
+
+.image epigenetics/images/dna-methylation-data-analysis-22-638.jpg 500 _
+
+.caption [[https://www.slideshare.net/YiFengChang/dna-methylation-data-analysis][Yi-Feng Chang]]
+
+* Capture
+
+Capture techniques use probes to capture modified bases
+
+- Methyl-Capture (antibody that identifies CpG sites)
+- Methylated DNA immunoprecipitation (MeDIP)
+
+- Immunoprecipitation can also be used to identify histone modifications using chromatin immunoprecipitation (ChIP) with massively parallel DNA sequencing (ChIPseq)
+
+* Bioinformatics Analysis
+
+- Capture-based methods do not rely on Sodium bisulfite treatment (but no non-CpG sites)
+- Do not require alignment to multiple reference genomes
+- Produces characteristic "peaks" after alignment
+- Can be identified using a peak caller (such as `MACS2`)
+
+.image epigenetics/images/focusScheme.png 300 _
+
+.caption [[http://homer.ucsd.edu/homer/ngs/peaks.html][HOMER]]
+
+* Differential Methylation Analysis
+
+- Differentially Methylated Positions (DMPs): Samples that are differentially methylated at the same site
+- Differentially Methylated Regions (DMRs): Samples that are differentially methylated over a defined region
+- DMRs are functionally important
+- Compare control group with a treatment to identify areas which change in methylation given a condition
+
+* Single Molecule Sequencing
+
+- PacBio or Oxford Nanopore
+- Also DNA treatment
+- Methylated bases are read differently by the machine, and therefore methylation is inferred
+
+.image epigenetics/images/basemod_benefits_lg.png 300 _
+
+.caption [[https://doi.org/10.1016/j.gpb.2015.08.002][Rhoads and Au doi:10.1016/j.gpb.2015.08.002]]
+
+* Oxford Nanopore DNA methylation detection
+
+.image epigenetics/images/41592_2017_Article_BFnmeth4240_Fig1_HTML.jpg 500 _
+
+.caption Schatz (2017). "Nanopore sequencing meets epigenetics." _Nature Methods_ doi:10.1038/nmeth.4240
+
+
