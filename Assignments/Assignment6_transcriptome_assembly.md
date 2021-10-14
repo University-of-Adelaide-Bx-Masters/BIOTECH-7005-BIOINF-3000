@@ -2,7 +2,7 @@
 
 **Due before 5pm, Tuesday 19th October - extended deadline**
 
-Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**. [*1 mark*]
+Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
 
 The `.zip` filename must start with your student number and your bash script must be able to run without errors.
 Meaningful comments are strongly advised [*1 mark*]
@@ -14,6 +14,7 @@ Use an organised folder structure to store files generated in this assignment. [
 ```
 Assignment6/
 ├── data
+├── DB
 ├── results
 │   ├── 1_QC
 │   ├── 2_clean_data
