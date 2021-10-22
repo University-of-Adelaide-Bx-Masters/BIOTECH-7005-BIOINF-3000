@@ -1,6 +1,6 @@
 
 
-# Assignment 4 [*29 marks*]
+# Assignment 4 [*24 marks*]
 
 **Due before 5pm, Tuesday 5th October - extended deadline**
 
@@ -14,7 +14,7 @@ For all scripts, please use the directory `~/Assignment4` as the parent director
 All other folders must be created as subdirectories of this. [*1 mark*]
 
 
-## Practical questions [*25 marks*]
+## Practical questions [*20 marks*]
 
 1. Write a script to:
     + Download the genomic sequence (i.e. fasta file) and annotation (i.e. gff file) of the model plant _Arabidopsis thaliana_ to the subdirectory `Refs/Athaliana` from the Ensembl ftp directory (link below) [*2 marks*]
