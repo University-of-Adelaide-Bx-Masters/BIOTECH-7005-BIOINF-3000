@@ -4,58 +4,55 @@
 ## Biotech 7005/Bioinf 3000: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2021
+Semester 2 2022
 
 Coordinator:
 - Dave Adelson
 
 Instructors:
 - Dave Adelson
-- Steven Delean 
-- Lloyd Low 
-- Rick Tearle 
-- Bastien Llamas 
+- Steven Delean
+- Anna Sheppard
+- Bastien Llamas
 - Zhipeng Qu
-- Jimmy Breen
-- Ville Petteri-Makinen
-- Joe McConnell
+- TBA
 
 __*Course Contact*__
 Dave Adelson
 - Email: david.adelson@adelaide.edu.au
 - Phone: 08 8313 7555
-- Office: The Braggs 2.61
+- Office: Molecular Life Sciences Rm 2.10
 
 ### Contact Hours
-In view of the uncertain times we live in with respect to COVID-19 restrictions, we have all lectures delivered online. Tutorials and practicals will be delivered face to face (subject to change depending on COVID-19). Social distancing and or mask wearing may be required. 
+Lectures, Tutorials and practicals will be delivered face to face (subject to change depending on COVID-19). Social distancing and or mask wearing may be required. 
 
-Lectures: Thursday 9AM, Online - details on MyUni
-- 30 July — 29 Oct *Note: because lectures are on Fridays, the first lecture will be pre-recorded for access prior the first tutorial, see MyUni for link*
+Lectures: Monday 12 Noon, Lower Napier, LG28
+- 25 July — 24 Oct
 
-Tutorials: Monday 11am-1pm, Barr Smith South, 1063
+Tutorials: Tuesday 11am-1pm, Mawson, 134
 - 26 July — 25 Oct
 
-Practicals: Tuesday 11am-1pm, Johnson, 111
-- 27 Jul — 26 Oct
+Practicals: Friday 11am-1pm, Johnson, 111
+- 29 July — 28 Oct
 
 ### Timetable (Provisional)
 
-| **Week** | **Monday** |**Tutorial**         |**Practical**                                 | **Lecture**                              |
-|----------|------------|---------------------|----------------------------------------------|------------------------------------------|
-| **1**    | 26/7 [Intro to Bioinformatics][1]\* (Dave)<br>pre-recorded lecture.  | *Discussion* | [Introduction to R] (1) (Steven/Dave) |  [Statistics][2] (Steven)  |
-| **2**    | 2/8        | Continue practical  | [Introduction to R] (2) (Steven/Dave)             | [Evolutionary Processes][3]\* (Dave)     |
-| **3**    | 9/8        |  *Stats Test* <br> [Statistics worksheet] (Steven/Dave)                         | [Introduction To Bash] (Dave/Joe)     | [Next-generation sequencing][4]\*  (Dave)  |
-| **4**    | 16/8       | *Evolution test* (Dave/Joe)   | [Scripting In Bash] (Dave/Joe)                   | [Alignment Process][5]\* (Dave)      | 
-| **5**    | 23/8       | Continue Scripting (Dave/Joe) | [Evolutionary processes] (Dave/Joe)              | [Alignment Process][6]\* (Dave)            |   
-| **6**    | 30/8       | *NGS sequencing test* (Dave/Joe)  |    [Alignment/NGS (1)] (Dave/Joe)             | [Genome assembly][8] (Lloyd)               |   
-| **7**    | 6/9        |*Alignment test* (Dave/Joe)    | [Alignment/NGS (2)] (Dave/Joe)                   |       [Variant Calling][7] (Rick)         |
-| **8**    | 13/9       |*Genome assembly test* (Dave/Joe)  |    [Variant Calling Practical][9] (Rick/Dave)  | [Systems Biology] (Ville)                | 
-| **-**    | 20/9       | Semester Break      |                                              |                                          |
-| **-**    | 27/9       | Semester Break      |                                              |                                          |
-| **9**    | 4/10 (PH)  | *Public Holiday 4/10*|  No practical, can work on Major Project (Dave)   | [Quantifying Gene Expression] (Zhipeng))    | 
-| **10**   | 11/10      | *Variant Calling test* <br> [DE gene tutorial] (Zhipeng/Dave) |   [Transcriptomic Practical][10] (Zhipeng/Dave)  |[Epigenetics][11]\* (Jimmy) |     
-| **11**   | 18/10      | *Systems biology test* (Dave/Zhipeng) | No practical, can work on Major Project (Dave)  | [Ancient DNA][12]\* (Bastien)              | 
-| **12**   | 25/10      | Wrap-up (Dave) *Q&A* |   No practical, can work on Major Project (Dave)  | No lecture                                 |
+| **Week** | **Monday** |**Lecture**         |**Tutorial**                                 | **Practical**                              |
+|----------|------------|---------------------|--------------------------------------------|------------------------------------------|
+| **1**    | 25/7       |Intro to Bioinformatics (Dave)  |Introduction to VMs/R    |[Introduction to R] (1) (Steven/Dave)  |
+| **2**    | 1/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Dave)      |
+| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave)   |
+| **4**    | 15/8       |Next-generation sequencing]  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave)                   |
+| **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Dave) | [Evolutionary processes] (Dave)    |
+| **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave)             |
+| **7**    | 5/9        |Reproducible Science (TBA)   |*Alignment test* (Dave)/Coding comments  |[Alignment/NGS (2)] (Dave)             |
+| **8**    | 12/9       |Version Control (TBA)   |Version control tutorial (TBA)    |[Local Version Control] (TBA)  |
+| **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
+| **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
+| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (TBA)  |[GitHub Repositories] (TBA)  
+| **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical](1)[10] (Zhipeng)  |
+| **11**   | 17/10      | Transcriptomics (TBA) |[Transcriptome tutorial] (Dave/Zhipeng) |[Transcriptomic Practical] (2)[13] (Zhipeng)  | 
+| **12**   | 24/10      | Ancient DNA (Bastien)|*Transcriptomic/Gene Expression test*/ aDNA tutorial |Can work on last assessment |
 
 
 \* Slides not visible outside UofA network unless you connect via Uni VPN.
@@ -70,9 +67,9 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
-[11]: http://biotech7005.services.adelaide.edu.au/09-epigenetics.slide
-[//]: # (the following link needs to be updated)
+[11]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [12]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
+[13]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 
 [Introduction to R]: Practicals/R_Practicals
 [Introduction To Bash]: Practicals/Bash_Practicals/1_IntroBash.md
@@ -92,14 +89,14 @@ Practicals: Tuesday 11am-1pm, Johnson, 111
 
 | **Assessment - All Students**                                               | **Subject**                 |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  8%             | 6%         | Tuesday 10th August    |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Tuesday 24th August    |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Tuesday 31 August  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Tuesday 5th October |
-| [Assessment 5](Assignments/Assignment5.md)                   | Variant Calling             |  8%             | 6%         | Tuesday 12th October |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  8%             | 6%         | Tuesday 19th October   |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  8%             | 6%         | Friday 12/08/22     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Friday 26/08/22     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Friday 02/09/22  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Friday 16/09/22  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  8%             | 6%         | Friday 14/10/22  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  8%             | 6%         | Friday 28/10/22    |
 | Tests                                                        |                             |  12%            | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        | Tuesday 9th November   |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        |    |
 | Exam                                                         |                             |  40%            | 40%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
