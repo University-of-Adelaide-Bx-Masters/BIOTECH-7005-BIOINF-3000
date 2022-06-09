@@ -1,7 +1,7 @@
 ---
 title: 'Practical 2.2: Plotting Data'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "3 August 2021"
+date: "5 August 2022"
 output:
   html_document:
     fig_caption: yes
