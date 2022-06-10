@@ -51,7 +51,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (TBA)  |[GitHub Repositories] (TBA)  
 | **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical] (1) (Zhipeng)  |
-| **11**   | 17/10      | Transcriptomics (TBA) |[Transcriptome tutorial] (Dave/Zhipeng) |[Transcriptomic Practical] (2) (Zhipeng)  | 
+| **11**   | 17/10      | Transcriptomics (Zhipeng) |[Transcriptome tutorial] (Zhipeng) |[Transcriptomic Practical] (2) (Zhipeng)  | 
 | **12**   | 24/10      | Ancient DNA (Bastien)|*Transcriptomic/Gene Expression test*/ aDNA tutorial |Can work on last assessment |
 
 
