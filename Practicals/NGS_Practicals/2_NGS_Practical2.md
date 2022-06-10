@@ -21,13 +21,12 @@ Firstly let's double check our software installations.
 Going by last week, this should be unnecessary but may be wise.
 Feel free to just copy & paste this line.
 
-```
-conda activate 3000
-whereis fastqc cutadapt bwa STAR freebayes bcftools
+```bash
+which fastqc cutadapt bwa STAR freebayes bcftools
 ```
 
 You should see a line of output for each one of these tools.
-If you see a blank line by any of them, call a tutor over. 
+If you don't see one of them, call a tutor over. 
 
 ### Step 1b: Directory setup
 

@@ -55,8 +55,6 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **12**   | 24/10      | Ancient DNA (Bastien)|*Transcriptomic/Gene Expression test*/ aDNA tutorial |Can work on last assessment |
 
 
-\* Slides not visible outside UofA network unless you connect via Uni VPN.
-
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
 [2]: Lectures/02-statistics.html
 [3]: http://biotech7005.services.adelaide.edu.au/03-evoprocess.slide

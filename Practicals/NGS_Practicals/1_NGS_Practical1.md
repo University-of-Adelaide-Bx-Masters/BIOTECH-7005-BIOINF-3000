@@ -14,16 +14,6 @@ mkdir Practical_6
 **Once you have this setup, create a new R Project which can live in this directory.**
 If you can't remember how to do this, call a tutor over.
 
-You will need to activate the relevant `conda` environment before you can proceed.
-Please execute the following code.
-
-
-```
-conda activate 3000
-
-```
-
-
 # NGS Data 
 
 Next generation sequencing (NGS) has become an important tool in assessing biological signal within an organism or population. Stemming from previous low throughput technologies that were costly and time-consuming to run, NGS platforms are relatively cheap and enable the investigation of the genome, transcriptome, methylome etc at extremely high resolution by sequencing large numbers of RNA/DNA fragments simultaneously. 
