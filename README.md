@@ -85,17 +85,17 @@ Practicals: Friday 11am-1pm, Johnson, 111
 
 ### Assessment Schedule & Weighting
 
-| **Assessment - All Students**                                               | **Subject**                 |  **UG Weight**  | **PG Weight** | **Due Date**          |
+| **Assessment - All Students**                                 | **Subject**                |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  8%             | 6%         | Friday 12/08/22     |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  8%             | 6%         | Friday 26/08/22     |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  8%             | 6%         | Friday 02/09/22  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  8%             | 6%         | Friday 16/09/22  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  8%             | 6%         | Friday 14/10/22  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  8%             | 6%         | Friday 28/10/22    |
-| Tests                                                        |                             |  12%            | 9%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%        |    |
-| Exam                                                         |                             |  40%            | 40%        |                       |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%             | N/A%         | Friday 12/08/22     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%             | N/A%          | Friday 26/08/22     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%             | N/A%         | Friday 02/09/22  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%             | N/A%          | Friday 16/09/22  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%             | N/A%         | Friday 14/10/22  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  15%             | N/A%         | Friday 28/10/22    |
+| Tests                                                        |                             |  10%            | 9%         |                       |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            |N/A%        |    |
+| Exam                                                         |                             |  N/A            | 40%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
 
