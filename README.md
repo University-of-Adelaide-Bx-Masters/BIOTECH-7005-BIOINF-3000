@@ -93,7 +93,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%             | N/A%          | Friday 16/09/22  |
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%             | N/A%         | Friday 14/10/22  |
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  15%             | N/A%         | Friday 28/10/22    |
-| Tests                                                        |                             |  10%            | 9%         |                       |
+| Tests                                                        |                             |  10%            | N/A%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            |N/A%        |    |
 | Exam                                                         |                             |  N/A            | 40%        |                       |
 
