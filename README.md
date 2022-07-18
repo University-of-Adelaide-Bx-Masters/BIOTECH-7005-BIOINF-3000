@@ -95,7 +95,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  15%             | N/A%         | Friday 28/10/22    |
 | Tests                                                        |                             |  10%            | N/A%         |                       |
 | [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            |N/A%        |    |
-| Exam                                                         |                             |  N/A            | 40%        |                       |
+| Exam                                                         |                             |  N/A            | N/A%        |                       |
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
 
