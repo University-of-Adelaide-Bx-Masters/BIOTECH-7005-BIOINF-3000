@@ -41,9 +41,9 @@ Practicals: Friday 11am-1pm, Johnson, 111
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 25/7       |Intro to Bioinformatics (Dave)  |Introduction to VMs/R    |[Introduction to R] (1) (Steven/Dave)  |
 | **2**    | 1/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Dave)      |
-| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave)   |
-| **4**    | 15/8       |Next-generation sequencing]  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave)                   |
-| **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Dave) | [Evolutionary processes] (Dave)    |
+| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Anna)   |
+| **4**    | 15/8       |Next-generation sequencing]  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Anna)                   |
+| **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave)    |
 | **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave)             |
 | **7**    | 5/9        |Reproducible Science (TBA)   |*Alignment test* (Dave)/Coding comments  |[Alignment/NGS (2)] (Dave)             |
 | **8**    | 12/9       |Version Control (TBA)   |Version control tutorial (TBA)    |[Local Version Control] (TBA)  |
