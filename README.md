@@ -15,7 +15,7 @@ Instructors:
 - Anna Sheppard
 - Bastien Llamas
 - Zhipeng Qu
-- TBA
+- David Lawrence
 
 __*Course Contact*__
 Dave Adelson
@@ -45,11 +45,11 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **4**    | 15/8       |Next-generation sequencing]  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Anna)                   |
 | **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave)    |
 | **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave)             |
-| **7**    | 5/9        |Reproducible Science (TBA)   |*Alignment test* (Dave)/Coding comments  |[Alignment/NGS (2)] (Dave)             |
-| **8**    | 12/9       |Version Control (TBA)   |Version control tutorial (TBA)    |[Local Version Control] (TBA)  |
+| **7**    | 5/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/Coding comments  |[Alignment/NGS (2)] (Dave)             |
+| **8**    | 12/9       |Version Control (David L)   |Version control tutorial (David L)    |[Local Version Control] (David L)  |
 | **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (TBA)  |[GitHub Repositories] (TBA)  
+| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  |[GitHub Repositories] (David L)  
 | **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical] (1) (Zhipeng)  |
 | **11**   | 17/10      | Transcriptomics (Zhipeng) |[Transcriptome tutorial] (Zhipeng) |[Transcriptomic Practical] (2) (Zhipeng)  | 
 | **12**   | 24/10      | Ancient DNA (Bastien)|*Transcriptomic/Gene Expression test*/ aDNA tutorial |Can work on last assessment |
