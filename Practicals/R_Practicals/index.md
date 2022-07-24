@@ -5,7 +5,7 @@ You may need to work on these outside of the allocated two-hour session.
 
 Assessment 1 requires these sessions to be completed.
 
-## Practical 1: 30th July, 2022
+## Practical 1: 29th July, 2022
 
 [1.1 Introduction](1_Introduction_To_R.html)<br>
 [1.2 Importing Data](2_ImportingData.html)<br>
