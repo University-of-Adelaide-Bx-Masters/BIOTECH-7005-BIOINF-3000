@@ -5,7 +5,7 @@ All VMs are the same and we will use these for the entire practical series.
 
 **Follow all instructions here very, very carefully**
 
-1. Open your favourite internet browser. We recommend Firefox, but Chrome or Edge are also acceptable (boh are based on Google Chromium). Safari is discouraged as it may not behave identically.
+1. Open your favourite internet browser. We recommend Firefox, but Chrome or Edge are also acceptable (both are based on Google Chromium). Safari is discouraged as it may not behave identically.
 2. Enter your given IP address (`http://10.150.x.xx`) in the address bar of your browser, but follow these numbers with `:8787` (RStudio has been set to broadcast on the port 8787). *It is important that you use `http` and NOT `https`, as the version of RStudio we use only allows `http` connections.*
 3. Login with the username `student`. The username is also your initial password.
 
@@ -32,7 +32,7 @@ This is also known as the prompt.
 4. Login once again using your new password.
 
 You now have access to your VM.
-Importantly, you will be the only person to be able to access your VM:
+Importantly, you will be the only person other than instructors that can access your VM:
 
 - When connected directly to the University WiFi Network
 - When connected from another network using the [University of Adelaide VPN](https://www.adelaide.edu.au/technology/your-services/network-services/remote-access-via-virtual-private-network-vpn)
