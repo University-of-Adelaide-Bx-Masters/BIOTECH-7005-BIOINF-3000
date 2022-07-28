@@ -147,6 +147,36 @@ a couple more times we should be in the root directory of the file system and we
 Try this and print the working directory again (`pwd`).
 The output should be the root directory given as `/`.
 
+This what the directory structure of the `root` level directory looks like. 
+
+```
+.
+├── bin -> usr/bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib -> usr/lib
+├── lib32 -> usr/lib32
+├── lib64 -> usr/lib64
+├── libx32 -> usr/libx32
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -> usr/sbin
+├── snap
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+```
+
 We can change back to our home folder by entering one of either:
 
 ```bash
