@@ -63,6 +63,7 @@ Show all working & code.
 You can download your assigned species here: 'http://ftp.ensembl.org/pub/release-100/gff3/' of course you will have to add the relevant additional information to specify your species and the '.100.gff3.gz' file. 
 
 | ID            | Species                                  | Taxonomy ID         | Common Name                               |
+
 |:--------------|:-----------------------------------------|-------        -----:|:------------------------------------------|
 |        1717954|                          Pogona vitticeps|                103695                     Central Bearded Dragon|
 |        1762492|                           Geospiza fortis|                48883|                        Medium Ground-Finch|          
