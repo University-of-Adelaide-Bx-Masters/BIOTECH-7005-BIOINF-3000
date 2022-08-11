@@ -52,9 +52,9 @@ Our apologies to any purists.
 If you've ever heard of the phrase **shell scripts**, this refers to a series of commands like we will learn in these sessions, strung together into a plain text file, and which is then able to be run as a single process.
 
 Although we haven't specifically mentioned this up until now, your virtual machines are actually running the *Ubuntu* flavour of Linux, and we can access these machines by logging in remotely, as well as through the `RStudio` interface.
-(We'll cover this later in the practical course.)
+(We will not cover the use of `ssh` clients in this course, and our current VMs have direct `ssh` logins for students disabled. If you are interested in this, talk to one of the instructors.)
 Most High-Performance Computing (HPC) systems you use will require a knowledge of Linux so these practicals will give you the basics skills for working in this environment.
-Most of the data analysis performed by the Bioinformatics Hub relies on the University of Adelaide HPC for data storage and data processing.
+Most of the data analysis performed by Bioinformaticians at UoA relies on the University of Adelaide HPC for data storage and data processing.
 
 ## Initial Goals
 
@@ -71,12 +71,12 @@ Now we have setup our VM, the basic aims of the following sessions are:
 Once you're in the `Terminal` section of `RStudio`, you will notice some text in the prompt, describing your computer of the form
 
 ```
-(base) student@bioinf-2021-s2-student-29:~/Practical_3$
+(base) student@bioinf-3000-2022-1:~/Practical_3$
 ```
 
 The word `(base)` before the prompt text means that `Anaconda` is active and is using the `base` environment. Don't worry about this for now.
 
-The first section of the prompt text describes your username (`student`) and the machine `@bioinf-2021-s2-student-xx`.
+The first section of the prompt text describes your username (`student`) and the machine `@bioinf-3000-2022-xx`.
 The end of the machine identifier is marked with a colon (`:`). 
 
 After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path and the beginning of where you will type commands.
@@ -94,7 +94,7 @@ Type the command `pwd` in the terminal then press the <kbd>Enter</kbd> key and y
 pwd
 ```
 
-The command `pwd` is what we use to __p__rint the current (i.e. __w__orking) __d__irectory.
+The command `pwd` is what we use to **p**rint the current (i.e. **w**orking) **d**irectory.
 If you have setup the R project like we instructed above this command should return the RStudio project directory.
 
 ```
@@ -107,7 +107,7 @@ If not, see if you can figure out why.
 At the beginning of this section we mentioned that `~/Practical_3` represented your current directory, but now our machine is telling us that our directory is `/home/student/Practical_3`.
 This raises an important and very useful point.
 In `bash` the `~` symbol is a shortcut for the home directory of the current user.
-If Dave was logged in, this would be `/home/Dave` whilst if Dan was logged in this would be `/home/Dan`.
+If Anna was logged in, this would be `/home/Anna` whilst if Dave was logged in this would be `/home/Dave`.
 As we are all logged on as `student`, this now stands for `/home/student`.
 (Formally, `~` is  a variable, but we'll deal with variables later.)
 
@@ -424,7 +424,7 @@ ls -lhR ~
 As we have anaconda and R in our home, we would like to view our contents without seeing them. We can do this using the --ignore option.
 
 ```bash
-ls -l -R --ignore=R --ignore=anaconda ~
+ls -l -R --ignore=R --ignore=anaconda3 ~
 ```
 
 This can often save some time, but it is worth noting that not all programmers write their commands in such a way that this convention can be followed.
