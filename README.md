@@ -45,7 +45,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 25/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
 | **2**    | 1/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
-| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Anna/Alex)   |
+| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave/Alex)   |
 | **4**    | 15/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Anna/Alex)                   |
 | **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
 | **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave/Alex)             |
