@@ -62,28 +62,32 @@ Show all working & code.
 
 You can download your assigned species here: 'http://ftp.ensembl.org/pub/release-100/gff3/' of course you will have to add the relevant additional information to specify your species and the '.100.gff3.gz' file. 
 
-| ID       | Species                      | Taxonomy ID | Common Name            |
-|:---------|:-----------------------------|------------:|:-----------------------|
-| a1705481 | Larimichthys crocea          |      215358 | Large Yellow Croaker   |
-| a1707609 | Fukomys damarensis           |      885580 | Damara Mole-Rat        |
-| a1727718 | Lepidothrix coronata         |      321398 | Blue-Crowned Manakin   |
-| a1734633 | mus musculus akrj            |       10090 |                        |
-| a1743091 | panthera tigris altaica      |        9694 | Amur Tiger             |
-| a1747876 | Geospiza fortis              |       48883 | Medium Ground-Finch    |
-| a1767956 | Pan paniscus                 |        9597 | Pygmy Chimpanzee       |
-| a1770858 | Pogona vitticeps             |      103695 | Central Bearded Dragon |
-| a1773581 | Clupea harengus              |        7950 | Atlantic Herring       |
-| a1773594 | Mola mola                    |       94237 | Ocean Sunfish          |
-| a1777472 | Oryzias javanicus            |      123683 | Javanese Ricefish      |
-| a1778718 | Otolemur garnettii           |       30611 | Small-Eared Galago     |
-| a1780328 | sus scrofa usmarc            |        9823 |                        |
-| a1828691 | Fundulus heteroclitus        |        8078 | Mummichog              |
-| a1828993 | Serinus canaria              |        9135 | Common Canary          |
-| a1835622 | Poecilia mexicana            |       48701 |                        |
-| a1837876 | chrysemys picta bellii       |        8479 | Western Painted Turtle |
-| a1841011 | Macaca fascicularis          |        9541 | Crab-Eating Macaque    |
-| a1843320 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle  |
-
+| ID            | Species                                  | Taxonomy ID         | Common Name                               |
+|:--------------|:-----------------------------------------|-------        -----:|:------------------------------------------|
+|        1717954|                          Pogona vitticeps|                103695                     Central Bearded Dragon|
+|        1762492|                           Geospiza fortis|                48883|                        Medium Ground-Finch|          
+|        1800454|                      Lepidothrix coronata|               321398|                       Blue-Crowned Manakin|          
+|        1670158|                              mus musculus|                10090|                                         |          
+|        1796775|                              Pan paniscus|                 9597|                           Pygmy Chimpanzee|          
+|        1807015|                           Clupea harengus|                 7950|                           Atlantic Herring|          
+|        1795963|                                 Mola mola|                94237|                              Ocean Sunfish|          
+|        1770922|                         sus scrofa usmarc|                 9823|                                         |          
+|        1770630|                         Oryzias javanicus|               123683|                          Javanese Ricefish|          
+|        1645188|                   panthera tigris altalca|                 9694|                                 Amur Tiger|          
+|        1802655|                        Fukomys damarensis|               885580|                            Damara Mole-Rat|          
+|        1774582|                     chrysemys picta belli|                 8479|                     Western Painted Turtle|          
+|        1774707|                     Fundulus heteroclitus|                 8078|                                  Mummichog|          
+|        1773581|                       Macaca fascicularis|                 9541|                        Crab-Eating Macaque|          
+|        1737759|                         Poecilia mexicana|                48701|                                         |          
+|        1772501|              terrapene carolina triunguis|               158814|                      Three-Toed Box Turtle|          
+|        1810020|                           Serinus canaria|                 9135|                              Common Canary|          
+|        1749559|                       Larimichthys crocea|               215358|                       Large Yellow Croaker|          
+|        1794893|                         Otolemur garnetti|                30611|                         Small-Eared Galago|          
+|        1798390|                       Poecilia reticulata|                 8081|                                      Guppy|          
+|        1772000|                     sus scrofa berrkshire|                 9823|                                         |          
+|        1794885|                     mus musculus c57bl6nj|                10090|                                         |          
+|        1707609|                           Aotus nancymaae|                37293|                          Ma's Night Monkey|          
+|        1781459|                                Ovis aries|                 9940|                                      Sheep|
 
 
 ## Values For Question 4
