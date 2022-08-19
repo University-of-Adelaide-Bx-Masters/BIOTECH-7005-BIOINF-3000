@@ -331,7 +331,7 @@ Here you are passing `sed` the string Sunday, and `sed` takes day and turns it i
 echo Sundayday | sed 's/day/night/'
 ```
 
-It only replaced the first instance of day and left the second.  You can make it 'global', where it switches every instance by using the `g` option at the end of the pattern like this:
+It only replaced the first instance of day and left the second.  You can make it `global`, where it switches every instance by using the `g` option at the end of the pattern like this:
 
 ```
 echo Sundayday | sed 's/day/night/g'
