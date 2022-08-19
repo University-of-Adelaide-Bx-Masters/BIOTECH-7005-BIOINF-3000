@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2_BashScripting.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="week-4-practicals">Week 4 Practicals</h1>
+<p>{:.no_toc}</p>
+<ul>
+<li>TOC
+{:toc}</li>
+</ul>
+<h1 id="more-command-line-tips--tricks">More Command Line Tips &amp; Tricks</h1>
+<h2 id="setup-the-directory-for-today">Setup the directory for today</h2>
+<p>Just as we've created a new <code>R Project</code> for practicals 1 to 3, let's create a new one for today to make sure we're all in the same place.</p>
+<ul>
+<li>Using the <code>File</code> menu at the top left, select <code>New Project</code></li>
+<li>Select <code>New Directory</code></li>
+<li>Select <code>New Project</code></li>
+<li>If you're not already asked to create this project as a subdirectory of <code>~</code>, navigate to the Home directory using the <kbd>Browse</kbd> button</li>
+<li>In the <code>Directory Name</code> space, enter <code>Practical_4</code>, then hit the <kbd>Create Project</kbd> button.</li>
+</ul>
+<p>This again helps us keep our code organised and is good practice.</p>
+<h2 id="standard-output">Standard Output</h2>
+<p>All of the output we saw in the previous practical was 'printed' to your terminal.
+Each function returned output to you using a data stream called <em>standard out</em>, or <code>stdout</code> for short.
+Most of these tools also send information to another data stream called <em>standard error</em> (or <code>stderr</code>), and this is where many error messages go.
+This is actually sent to your terminal as well, and you may have seen this if you've made any mistakes so far.
+This basic data flow can be visualised in the following chart from www.linuxunit.com.</p>
+<p><img src="https://www.linuxunit.com/images/stdin-stdout-stderr.png" alt=""></p>
+<p>Note also that everything you've typed on your keyboard is sent to each command as a data stream called <code>stdin</code>.
+Any guesses what that is short for?</p>
+<h2 id="text-in-the-terminal">Text In the Terminal</h2>
+<p>We can display a line of text in <code>stdout</code> by using the command <code>echo</code>.
+The most simple function that people learn to write in most languages is called <code>Hello World</code> and we'll do the same thing today.</p>
+<pre class="hljs"><code><div>echo 'Hello World'
+</div></code></pre>
+<p>That's pretty amazing isn't it &amp; you can make the terminal window say anything you want without meaning it.</p>
+<pre class="hljs"><code><div>echo 'This computer will self destruct in 10 seconds!'
+</div></code></pre>
+<p>There are a few subtleties about text which are worth noting.
+If you have <code>man</code> pages accessible, inspect the <code>man echo</code> page &amp; note the effects of the <code>-e</code> option. (Unfortunately you can't access this using <code>echo --help</code>.)
+The <code>-e</code> option allows you to specify tabs (<code>\t</code>), new lines (<code>\n</code>) &amp; other special characters by using the backslash to signify these characters.
+This is an important concept &amp; the use of a backslash to <em>escape</em> the normal meaning of a character is very common, as we saw with <code>grep</code> last time.
+Try the following three commands &amp; see what effects these special characters have.</p>
+<pre class="hljs"><code><div>echo 'Hello\tWorld'
+echo -e 'Hello\tWorld'
+echo -e 'Hello\nWorld'
+</div></code></pre>
+<p>As we've seen above, the command <code>echo</code> just repeats any subsequent text.
+Now enter</p>
+<pre class="hljs"><code><div>echo ~
+</div></code></pre>
+<p><strong>Why did this happen?</strong></p>
+<h2 id="sending-output-to-a-file">Sending Output To A File</h2>
+<h3 id="using-the--symbol">Using the <code>&gt;</code> symbol</h3>
+<p>So far, the only output we have seen has been in the terminal (<code>stdout</code>).
+Similar to the <code>magrittr</code> in <code>R</code>, we can <em>redirect the output of a command to a file</em> instead of to standard output, and we do this using the greater than symbol (&gt;), which we can almost envisage as an arrow.</p>
+<p>As a simple example we can write text to a file.
+Using the command <code>echo</code> prints text to <code>stdout</code></p>
+<pre class="hljs"><code><div>echo &quot;Hello there&quot;
+</div></code></pre>
+<p>However, we can 'capture' this text and redirect it to a file using the <code>&gt;</code> symbol.</p>
+<pre class="hljs"><code><div>echo &quot;Hello there&quot; &gt; hello.txt
+</div></code></pre>
+<p>Notice that the text no longer appeared in your terminal!
+This is because we sent it to the file <code>hello.txt</code>.
+To look at the contents of <code>hello.txt</code> use either one of the commands <code>less</code>, <code>cat</code> or <code>head</code>.
+Once you've looked at it, delete it using the command <code>rm</code> to make sure you keep your folder nice &amp; tidy, as well as free from unimportant files.</p>
+<p>Let's get a more serious file to work with for today.
+<strong>Make sure you are in your <code>Practical_4</code> directory</strong>, then download the following file using <code>curl</code></p>
+<pre class="hljs"><code><div>curl ftp://ftp.ensembl.org/pub/release-89/fasta/drosophila_melanogaster/ncrna/Drosophila_melanogaster.BDGP6.ncrna.fa.gz &gt; Drosophila_melanogaster.BDGP6.ncrna.fa.gz
+</div></code></pre>
+<p>If we hadn't placed the <code>&gt;</code> symbol at the end of this command, <code>curl</code> would literally stream all of the contents of this file to <code>stdout</code>, but now we have redirected this to a file!</p>
+<p>After you've downloaded this file, unzip it using <code>gunzip</code>.
+Inspect the contents of the extracted file using <code>head</code>.</p>
+<pre class="hljs"><code><div>head Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>This file is all the <code>ncrna</code> sequences from the current build of <em>D. melanogaster</em> in <code>fasta</code> format.
+As you can see, each sequence has a header row which begins with <code>&gt;</code> so if we wanted to just collect the sequence headers we could use <code>egrep</code> and write the output to a file.</p>
+<pre class="hljs"><code><div>egrep '^&gt;' Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>This will just dump the information to <code>stdout</code>, and will appear as a stream of identifiers.
+If we want to capture <code>stdout</code> and send it to a file, we can use the <code>&gt;</code> symbol again at the end of the above command, and provide a filename to write to.
+This will create the file as an empty file, then add the data stream from <code>stdout</code> to the blank file.</p>
+<pre class="hljs"><code><div>egrep '^&gt;' Drosophila_melanogaster.BDGP6.ncrna.fa &gt; SeqIDs.txt
+less SeqIDs.txt
+</div></code></pre>
+<p>Once you've had a quick look at the file, exit the less pager (<code>q</code>) and delete the file using the <code>rm</code> command.</p>
+<h3 id="using-the--symbol">Using the <code>&gt;&gt;</code> symbol</h3>
+<p>Another alternative is to use the <code>&gt;&gt;</code> symbol, which <em>only creates a blank file if one doesn't exist.</em>
+If one with that name already exists, this symbol doesn't create an empty file first, but instead <strong>adds the data from <code>stdout</code> to the end</strong> of the existing data within that file.</p>
+<pre class="hljs"><code><div>echo -e '# Sequence identifiers for all ncrna in dm6' &gt; SeqIDs.txt
+</div></code></pre>
+<p>In this command, we've created a header for the file, and we can now add the information we need after this using the <code>&gt;&gt;</code> symbol.
+This trick of writing a header at the start of a file is very common and can be used to add important information to a file.
+Now let's add another row describing where we've obtained the data from.</p>
+<pre class="hljs"><code><div>echo -e '# Obtained from ftp://ftp.ensembl.org/pub/release-89/fasta/drosophila_melanogaster/ncrna/Drosophila_melanogaster.BDGP6.ncrna.fa.gz on 2017-08-14' &gt;&gt; SeqIDs.txt
+</div></code></pre>
+<p>Have a look at the file using <code>less</code></p>
+<pre class="hljs"><code><div>less SeqIDs.txt
+</div></code></pre>
+<p>Now we can add the sequence identifiers</p>
+<pre class="hljs"><code><div>egrep '^&gt;' Drosophila_melanogaster.BDGP6.ncrna.fa &gt;&gt; SeqIDs.txt
+</div></code></pre>
+<p>Inspect this once again using <code>less</code> or <code>head</code> (Hint: Do not use <code>cat</code> for large files)</p>
+<h2 id="redirection-using-the-pipe-symbol">Redirection Using The Pipe Symbol</h2>
+<p>Sometimes we need to build up our series of commands &amp; send the results of one to another.
+The <em>pipe</em> symbol (<code>|</code>) is the way we do this &amp; it can literally be taken as placing the output from one command into the input of the next (analogous to using a pipe and redirecting output somewhere new).
+This is where thinking about the output of a command as a <em>data stream</em> can be very helpful.
+This is a very conventional approach when working in <code>bash</code> and was the motivation behind the creation of the <code>magrittr</code> package in <code>R</code>.</p>
+<p>As a simple example, we could take the output from an <code>ls</code> command &amp; send it to the pager <code>less</code>.</p>
+<pre class="hljs"><code><div>ls -lh /usr/bin | less
+</div></code></pre>
+<p>Page through the output until you get bored, then hit <code>q</code> to quit.</p>
+<p>This process can also be visualised using the following diagram from Unix Bootcamp:</p>
+<p><img src="https://camo.githubusercontent.com/1652e94dd89d73b1e5ad43feabe12d5aac7e033b/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f3161444b397a716163677572465a537a6a704c4d5653676f64306a462d4b4648576553565f53554c387668452f7075623f773d39313626683d333534" alt=""></p>
+<h2 id="inspecting-genomic-files-using-bash">Inspecting genomic files using bash`</h2>
+<p>As you may have realised, these file types don't play well with MS Word, Excel and the like.
+We need different ways to look through these and as we go, hopefully you'll get the hang of this.
+First we'll download the file GCF_000182855.2_ASM18285v1_genomic.gff for <em>Lactobacillus amylovorus</em> from the NCBI database. (<code>wget</code> is similar to <code>curl</code> for retreiving files, however does not require redirection. Alternately you can use <code>curl</code> as we did before.)</p>
+<pre class="hljs"><code><div>wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz
+gunzip GCF_000182855.2_ASM18285v1_genomic.gff.gz
+</div></code></pre>
+<p>This file is in <code>gff</code> format, which is very commonly used.
+The first 5 lines of this file is what we refer to as a <em>header</em>, which contains important information about how the file was generated in a standardised format.
+Many file formats have these structures at the beginning, but for our purposes today we don't need to use any of this information so we can move on.
+Have a look at the beginning of the file just to see what it looks like.</p>
+<pre class="hljs"><code><div>head -n12 GCF_000182855.2_ASM18285v1_genomic.gff
+</div></code></pre>
+<p>Notice the header lines begin with one or two hash symbols, whilst the remainder of the file contains information about the genomic features in tab-separated format.
+As there is a lot of information about each feature, note that each line after the header will probably wrap onto a second line in the terminal.
+The first feature is annotated as a <em>region</em> in the third field, whilst the second feature is annotated as a <em>gene</em>.</p>
+<h4 id="question">Question</h4>
+<p>{:.no_toc}</p>
+<ul>
+<li><em>How many features are contained in this file?</em></li>
+<li><em>If we tried the following</em>: <code>wc -l GCF_000182855.2_ASM18285v1_genomic.gff</code> <em>would it be correct?</em></li>
+</ul>
+<p>This will give 4507, but we know the first 7 lines are header lines.
+To count the non-header lines you could try several things:</p>
+<pre class="hljs"><code><div>grep -vc '^#' GCF_000182855.2_ASM18285v1_genomic.gff
+</div></code></pre>
+<p>or</p>
+<pre class="hljs"><code><div>grep -c '^[^#]' GCF_000182855.2_ASM18285v1_genomic.gff
+</div></code></pre>
+<p><strong>Make sure you understand both of the above commands as it may not be immediately obvious!</strong></p>
+<p>As mentioned above, this file contains multiple features such as <em>regions</em>, <em>genes</em>, <em>CDSs</em>, <em>exons</em> or <em>tRNAs</em>.
+If we wanted to find how many regions are annotated in this file we could use the processes we've learned above:</p>
+<pre class="hljs"><code><div>grep -c 'region' GCF_000182855.2_ASM18285v1_genomic.gff
+</div></code></pre>
+<p>If we wanted to count how many genes are annotated, the first idea we might have would be to do something similar using a search for the pattern <code>'gene'</code>.</p>
+<h4 id="question">Question</h4>
+<p>{:.no_toc}</p>
+<p><em>Do you think this is the number of regions &amp; genes?</em></p>
+<ul>
+<li>Try using the above commands without the <code>-c</code> to inspect the results.</li>
+<li>Try searching for the number of coding DNA sequences using the same approach (i.e. CDS) &amp; then add the two numbers?</li>
+<li><em>Is this more than the total number of features we found earlier?</em></li>
+<li><em>Can you think of a way around this using regular expressions?</em></li>
+</ul>
+<p>Some of the occurrences of the word <em>gene</em> or <em>region</em> appear in lines which are not genes or regions.
+We could restrict the search to one of the tab-separated fields by including a white-space character in the search.
+The command:</p>
+<pre class="hljs"><code><div>egrep '\sgene\s' GCF_000182855.2_ASM18285v1_genomic.gff | wc -l
+</div></code></pre>
+<p>will give a different result again as now we are searching for the word gene surrounded by white-space.</p>
+<p>Note that we've also used the pipe here to count results using the <code>wc</code> command.
+We could have also used <code>egrep</code> with the <code>-c</code> flag set.</p>
+<h3 id="using-cut">Using <code>cut</code></h3>
+<p>Alternatively, there is a command <code>cut</code> available.
+Call the manual page (<code>man cut</code>) and inspect the option <code>-f</code>.</p>
+<pre class="hljs"><code><div>man cut
+</div></code></pre>
+<p>We can simply extract the 3rd field of this tab-delimited file by using the <code>f3</code> option.</p>
+<pre class="hljs"><code><div>cut -f3 GCF_000182855.2_ASM18285v1_genomic.gff | head -n12
+</div></code></pre>
+<p>(You can ignore any errors about a Broken pipe.)</p>
+<p>However, this hasn't cut the third field from the header rows as they are not tab-delimited.
+To remove these we need to add one further option.
+Call up the <code>man</code> page and look at the <code>-s</code> option.
+This might seem a bit confusing, but this means <em>don't print lines without delimiters</em> which would be the comment lines in this file.</p>
+<pre class="hljs"><code><div>cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | head
+</div></code></pre>
+<p>Now we could use our <code>egrep</code> approach and we know we're counting the correct field.</p>
+<pre class="hljs"><code><div>cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | egrep -c 'gene'
+</div></code></pre>
+<p>A similar question would be: <em>How many</em> <strong>types</strong> <em>of features are in this file?</em></p>
+<p>The commands <code>cut</code>, along with <code>sort</code> and <code>uniq</code> may prove to be useful when answering this</p>
+<pre class="hljs"><code><div>cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | sort | uniq -c
+</div></code></pre>
+<p>In the above some of the advantages of the pipe symbol can clearly be seen.
+Note that we haven't edited the file on disk, we've just streamed the data contained in the file into various commands.</p>
+<h1 id="sed-the-stream-editor">sed: The Stream Editor</h1>
+<p>One additional and very useful command in the terminal is <code>sed</code>, which is short for <em>stream editor</em>.
+Instead of the <code>man</code> page for <code>sed</code> the <code>info sed</code> page is larger but a little easier to digest.
+This is a very powerful command which can be a little overwhelming at first.
+If using this for your own scripts &amp; you can't figure something out, remember 'Google is your friend' &amp; sites like <a href="https://www.stackoverflow.com">https://www.stackoverflow.com</a> are full of people wrestling with similar problems to you.
+These are great places to start looking for help &amp; even advanced programmers use these tools.</p>
+<p>For today, there are two key <code>sed</code> functionalities that we want to introduce.</p>
+<ol>
+<li>Using <code>sed</code> to alter the contents of a file/input;</li>
+<li>Using <code>sed</code> to print regions of a file</li>
+</ol>
+<h2 id="altering-a-file-or-other-input">Altering a file or other input</h2>
+<p><code>sed</code> uses <em>regular expressions</em> that we have come across under the <code>grep</code> section, and we can use these to replace strings or characters within a text string, like we did in <code>R</code> using <code>str_extract()</code> and <code>str_replace()</code>.
+The command works in the form <code>sed 'SCRIPT' INPUT</code>, and the script section is where all the action happens.
+Input can be given to <code>sed</code> as either a file, or just as a text stream via the <em>pipe</em> that we have already introduced.</p>
+<p>In the following example the script begins with an <code>s</code> to indicate that we are going to make a substitution.
+The beginning of the first pattern (i.e. the <em>regexp</em> we are searching for) is denoted with the slash, with the identical delimiter indicating the replacement pattern, and this is in turn completed with the same delimiter.
+Try this simple example from the link <a href="https://www.grymoire.com/Unix/Sed.html">https://www.grymoire.com/Unix/Sed.html</a> which is a very detailed &amp; helpful resource about the usage <code>sed</code>.
+Here we are sending the input (<code>echo Sunday</code>) to the command via the pipe, so no <code>INPUT</code> section is required:</p>
+<pre class="hljs"><code><div>echo Sunday | sed 's/day/night/'
+</div></code></pre>
+<p>Here you are passing <code>sed</code> the string Sunday, and <code>sed</code> takes day and turns it into night.<br>
+<code>sed</code> will only replace the first instance of the string on any line, so try:</p>
+<pre class="hljs"><code><div>echo Sundayday | sed 's/day/night/'
+</div></code></pre>
+<p>It only replaced the first instance of day and left the second.  You can make it <code>global</code>, where it switches every instance by using the <code>g</code> option at the end of the pattern like this:</p>
+<pre class="hljs"><code><div>echo Sundayday | sed 's/day/night/g'
+</div></code></pre>
+<p>You can 'capture' parts of the pattern in parentheses and access that in the second part of the regular expression (what you are switching to) using \1, \2, etc., to denoted the number of the captured string.
+If you wanted to match <code>ATGNNNTGA</code>, where <code>N</code> is any base, and just output these three bases you could try the following</p>
+<pre class="hljs"><code><div>echo 'ATGCCAGTA' | sed -r 's/ATG(.{3})GTA/\1/g'
+</div></code></pre>
+<p>Or if we needed to replace those three bases with an expanded tri-nucleotide repeat of them, you could do the following where we capture the undefined string between <code>ATG</code> &amp; <code>GTA</code>, and expand it to three times:</p>
+<pre class="hljs"><code><div>echo 'ATGCCAGTA' | sed -r 's/ATG(.{3})GTA/ATG\1\1\1GTA/g'
+</div></code></pre>
+<p>The <code>\1</code> entry takes the contents of the first parenthesis and uses it in the substitution, even though you don't know what the bases are.
+Note that the <code>-r</code> option was set for these operations, which turns on extended regular expression capabilities.
+This can be a powerful tool &amp; multiple parentheses can also be used:</p>
+<pre class="hljs"><code><div>echo 'ATGCCAGTA' | sed -r 's/(ATG)(.{3})(GTA)/\3\2\2\1/g'
+</div></code></pre>
+<p>In this command we captured each codon separately, then switched the order of the first &amp; last triplet and expanded the middle unknown string twice.
+<em>Note how quickly this starts to look confusing though!</em>
+Taking care to be clear when writing these types of procedures can be an important idea when you have to go back &amp; re-read your code a year or two later.
+(Yes this will happen a lot!!!)</p>
+<h2 id="displaying-a-region-from-a-file">Displaying a region from a file</h2>
+<p>The command <code>sed</code> can also be used to replicate the functionality of the <code>head</code> &amp; <code>grep</code> commands, but with a little more power at your fingertips.
+By default <code>sed</code> will print the entire input stream it receives, but setting the option <code>-n</code> will turn this off.
+Try this by adding an <code>n</code> immediately after the <code>-r</code> in one of the above lines &amp; you will notice you receive no output.
+This is useful if we wish to restrict our output to a subset of lines within a file, and by including a <code>p</code> at the end of the script section, only the section matching the results of the script will be printed.</p>
+<p>Make sure you are in the <code>Practical_4</code> directory &amp; we can look through the file <code>Drosophila_melanogaster.BDGP6.ncrna.fa</code> again.</p>
+<pre class="hljs"><code><div>sed -n '1,10 p' Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>This will print the first 10 lines, like the <code>head</code> command will by default.
+However, we could now print any range of lines we choose.
+Try this by changing the script to something interesting like <code>101,112 p</code>.
+We could also restrict the range to specific lines by using the <code>sed</code> increment operator <code>~</code>.</p>
+<pre class="hljs"><code><div>sed -n '1~4p' Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>This will print every 4th line, beginning at the first, and is very useful for files with multi-line entries.
+The <code>fastq</code> file format from NGS data, and which we'll look at in week 6 will use this format.</p>
+<p>We can also make <code>sed</code> operate like <code>grep</code> by making it only print the lines which match a pattern.</p>
+<pre class="hljs"><code><div>sed -rn '/TGCAGGCTC.+(GA){2}.+/ p' Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>Note however, that the line numbers are not present in this output, and the pattern highlighting from <code>grep</code> is not present either.</p>
+<h1 id="writing-scripts">Writing Scripts</h1>
+<p>Now we've had a look at many of the key tools, we'll move on to writing scripts which is one of the most common things a bioinformatician will do.
+We often do this on a HPC to run long data processing pipelines (or workflows).</p>
+<p>Scripts are commonly written to perform repetitive tasks on multiple files, or need to perform complex series of tasks and writing the set of instructions as a script is a very powerful way of performing these tasks.
+They are also an excellent way of ensuring the commands you have used in your research are retained for future reference.
+Keeping copies of all electronic processes to ensure reproducibility is a very important component of any research.
+Writing scripts requires an understanding of several key concepts which form the foundation of much computer programming, so let's walk our way through a few of them.</p>
+<h2 id="some-important-concepts">Some Important Concepts</h2>
+<p>Two of the most widely used techniques in programming are that of the <code>for</code> loop, and logical tests using an <code>if</code> statement.</p>
+<h3 id="for-loops"><code>for</code> Loops</h3>
+<p>A <code>for</code> loop is what we use to cycle through an input one item at a time</p>
+<pre class="hljs"><code><div>for i in 1 2 3; do (echo &quot;$i^2 = $(($i*$i))&quot;); done
+</div></code></pre>
+<p>In the above code the fragment before the semi-colon asked the program to cycle through the values 1, 2 &amp; 3, letting the variable <code>i</code> take each value in order of appearance.</p>
+<ul>
+<li>Firstly: i = 1, then i = 2 &amp; finally i = 3.</li>
+<li>After that was the instruction on what to do for each value where we multiplied it by itself <code>$(($i*$i))</code> to give $i^2$.
+We placed this as the text string (<code>&quot;$i^2 = $(($i*$i))&quot;</code>) for an <code>echo</code> command to return.</li>
+</ul>
+<p>Note that the value of the variable <code>i</code> was <em>prefaced by the dollar sign ($).</em>
+<strong>This is how the bash shell knows it is a variable, not the letter <code>i</code>.</strong>
+The command <code>done</code> then finished the <code>do</code> command.
+All commands like <code>do</code>, <code>if</code> or <code>case</code> have completing statements, which respectively are <code>done</code>, <code>fi</code> &amp; <code>esac</code>.</p>
+<p>An important concept which was glossed over in the previous paragraph is that of a <em>variable</em>.
+These are essentially just <em>placeholders</em> which have a value that can change, much like an object in <code>R</code>.
+In the above loop, the same operation was performed on the variable <code>i</code>, but the value changed from 1 to 2 to 3.
+Variables in shell scripts can hold numbers or text strings and don't have to be formally defined as in some other languages.
+We will commonly use this technique to list files in a directory, then to loop through a series of operations on each file.</p>
+<h3 id="if-statements"><code>If</code> Statements</h3>
+<p>If statements are those which only have a binary <code>yes</code> or <code>no</code> response.
+For example, we could specify things like:</p>
+<ul>
+<li><strong>if</strong> (<code>i&gt;1</code>) then <code>do</code> something, or</li>
+<li><strong>if</strong> (<code>fileName == bob.txt</code>) then <code>do</code> something else</li>
+</ul>
+<p>Notice that in the second <code>if</code> statement, there was a double equals sign (<code>==</code>).
+This is the programmers way of saying <em>compare</em> the first argument with the second argument.
+A single equals sign is generally interpreted by a program as <em>assign</em> the first argument to be what is given in the second argument.
+This use of <em>double operators</em> is very common, notably you will see <code>&amp;&amp;</code> to represent the command <em>and</em>, and <code>||</code> to represent <em>or</em>.</p>
+<p>A final useful trick to be aware of is the use of an exclamation mark to reverse a command.
+A good example of this is the use of the command <code>!=</code> as the representation of <em>not equal to</em> in a logical test.</p>
+<h2 id="shell-scripts">Shell Scripts</h2>
+<p>Now that we've been through just some of the concepts &amp; tools we can use when writing scripts, it's time to tackle one of our own where we can bring it all together.</p>
+<p>Every bash shell script begins with what is known as a <em>shebang</em>, which we would commonly recognise as a hash sign followed by an exclamation mark, i.e <code>\#!</code>.
+This is immediately followed by <code>/bin/bash</code>, which tells the interpreter to run the command <code>bash </code> in the directory <code>/bin</code>.
+This opening sequence is vital &amp; tells the computer how to respond to all of the following commands.
+As a string this looks like:</p>
+<pre class="hljs"><code><div>#!/bin/bash
+</div></code></pre>
+<p>The hash symbol generally functions as a comment character in scripts.
+Sometimes we can include lines in a script to remind ourselves what we're trying to do, and we can preface these with the hash to ensure the interpreter doesn't try to run them.
+It's presence as a comment here, followed by the exclamation mark, is specifically looked for by the interpreter but beyond this specific occurrence, comment lines are generally ignored by scripts &amp; programs.</p>
+<h2 id="an-example-script">An Example Script</h2>
+<p>Let's now look at some simple scripts.
+These are really just examples of some useful things you can do &amp; may not really be the best scripts from a technical perspective.
+Hopefully they give you some pointers so you can get going</p>
+<p><strong>Don't try to enter these commands directly in the terminal!!!</strong>
+They are designed to be placed in a script which we will do after we've inspected the contents of the script (see next page).
+First, let's just have a look through the script &amp; make sure we understand what the script is doing.</p>
+<pre class="hljs"><code><div>#!/bin/bash
+
+# First we'll declare some variables with some text strings
+ME='Put your name here'
+MESSAGE='This is your first script'
+
+# Now well place these variables into a command to get some output
+echo -e &quot;Hello ${ME}\n${MESSAGE}\nWell Done!&quot;
+</div></code></pre>
+<ul>
+<li>You may notice some lines that begin with the # character.
+These are <em>comments</em> which have no impact on the execution of the script, but are written so you can understand what you were thinking when you wrote it.
+If you look at your code 6 months from now, there is a very strong chance that you won't recall exactly what you were thinking, so these comments can be a good place just to explain something to the future version of yourself.
+There is a school of thought which says that you write code primarily for humans to read, not for the computer to understand.</li>
+<li>Another coding style which can be helpful is the enclosing of each <em>variable name</em> in curly braces every time the value is called, e.g. <code>${ME}</code>
+Whilst not being strictly required, this can make it easy for you to follow in the future when you're looking back.</li>
+<li>Variables have also been named using strictly upper-case letters.
+This is another optional coding style, but can also make things clear for you as you look back through your work.
+Most command line tools use strictly lower-case names, so this is another reason the upper-case variable names can be helpful.</li>
+</ul>
+<h4 id="question">Question</h4>
+<p>{:.no_toc}
+In the above script, there are two variables.
+Although we have initially set them to be one value, they are still variables.
+<em>What are their names?</em></p>
+<h3 id="writing-and-executing-our-first-script">Writing and Executing Our First Script</h3>
+<p>{:.no_toc}</p>
+<p>Let's create an empty file which will become our script.
+We'll give it the suffix <code>.sh</code> as that is the common convention for bash scripts.
+Make sure you're in the <code>Practical_4</code> folder, then enter:</p>
+<pre class="hljs"><code><div>touch wellDone.sh
+</div></code></pre>
+<p>Now open this using the using the text editor <em>nano</em>:</p>
+<pre class="hljs"><code><div>nano wellDone.sh
+</div></code></pre>
+<p>Enter the above code into this file <strong>setting your actual name as the ME variable</strong>,  and save it by using <code>Ctrl+o</code> (indicated as <code>^O</code>) in the nano screen.
+Once you're finished, you can exit the <code>nano</code> editor by hitting <code>Ctrl+x</code> (written as <code>^X</code>).
+Assuming that you've entered everything correctly, we can now execute this script by simply entering</p>
+<pre class="hljs"><code><div>bash wellDone.sh
+</div></code></pre>
+<h3 id="setting-file-permissions">Setting File Permissions</h3>
+<p>Unfortunately, this script cannot be executed without calling <code>bash</code> explicitly but we can also enable execution of the file directly by setting the execute flag in the file permissions.
+First let's look at what permissions we have:</p>
+<pre class="hljs"><code><div>ls -lh *.sh
+</div></code></pre>
+<p>You should see output similar to this:</p>
+<pre class="hljs"><code><div>-rw-rw-r-- 1 student student  247 Aug  17 14:48 wellDone.sh
+</div></code></pre>
+<ul>
+<li>Note how the first entry is a dash (<code>-</code>) indicating this is a file.</li>
+<li>Next come the three Read/Write/Execute triplets which are <code>rw-</code> followed by <code>rw-</code> and <code>r--</code></li>
+</ul>
+<h4 id="question">Question</h4>
+<p>{:.no_toc}</p>
+<p><em>Interpret the final triplet? What are these permissions indicating, and for whom?</em></p>
+<p>As you can see, the <code>x</code> flag has not been set in any of the triplets, so this file is not executable as a script yet.
+To do this, we simply need to set the <code>x</code> flag, then we'll look again using long-listing format.</p>
+<pre class="hljs"><code><div>chmod +x wellDone.sh
+ls -lh *.sh
+</div></code></pre>
+<p>Note how the file now has the <code>x</code> flag set for every user, which means every user can execute this script.
+Now we can execute the script by calling it using the file path.
+One of the settings in <code>bash</code> though won't allow you to execute the file from the same folder, so we need to add the <code>./</code> prefix to the script.</p>
+<pre class="hljs"><code><div>./wellDone.sh
+</div></code></pre>
+<p>We can set each of these flags for all triplets using <code>+</code> to turn the flag on, or <code>-</code> to turn the flag off.
+If we wanted to remove <code>write</code> permissions for all users we could simply use the command:</p>
+<pre class="hljs"><code><div>chmod -w wellDone.sh
+ls -lh *.sh
+</div></code></pre>
+<p>This can be a very useful trick for <em>write-protecting</em> files!</p>
+<p>These flags actually represent <em>binary bits</em> that are either on or off.
+<strong>Reading the permission triplets from right to left</strong>:</p>
+<ol>
+<li>the first bit is the execute flag, which has value 1</li>
+<li>the second bit is the write flag, which has the value 2</li>
+<li>the third bit is the read flag, which has the value 4</li>
+</ol>
+<p>Thus each combination of flags can be represented by a single integer, as shown in the following table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Value</th>
+<th>Binary</th>
+<th>Flags</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td><code>000</code></td>
+<td><code>---</code></td>
+<td style="text-align:left">No read, no write, no execute</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td><code>001</code></td>
+<td><code>--x</code></td>
+<td style="text-align:left">No read, no write, execute</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td><code>010</code></td>
+<td><code>-w-</code></td>
+<td style="text-align:left">No read, write, no execute</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td><code>011</code></td>
+<td><code>-wx</code></td>
+<td style="text-align:left">No read, write, execute</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td><code>100</code></td>
+<td><code>r--</code></td>
+<td style="text-align:left">Read, no write, no execute</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td><code>101</code></td>
+<td><code>r-x</code></td>
+<td style="text-align:left">Read, no write, execute</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td><code>110</code></td>
+<td><code>rw-</code></td>
+<td style="text-align:left">Read, write, no execute</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td><code>111</code></td>
+<td><code>rwx</code></td>
+<td style="text-align:left">Read, write, execute</td>
+</tr>
+</tbody>
+</table>
+<p>We can now set permissions using a 3-digit code, where 1) the first digit represents the file owner, 2) the second digit represents the group permissions and 3) the third digit represents all remaining users.</p>
+<p>To set the permissions for our script to <code>read-write-execute</code>for you and any other users in the group you belong to, we could now use</p>
+<pre class="hljs"><code><div>chmod 774 wellDone.sh
+ls -lh *sh
+</div></code></pre>
+<h4 id="question">Question</h4>
+<p>{:.no_toc}
+<em>What will the final 4 in the above settings do?</em></p>
+<h3 id="modifying-our-script">Modifying our script</h3>
+<p>In the initial script we used two variables <code>${ME}</code> and <code>${MESSAGE}</code>.
+Now let's change the variable <code>${ME}</code> in the first line  of the script to read as <code>ME=$1</code>.
+First we'll create a copy of the script to edit, and then we'll edit using <code>nano</code></p>
+<pre class="hljs"><code><div>cp wellDone.sh wellDone2.sh
+nano wellDone2.sh
+</div></code></pre>
+<p>We may need to set the execute permissions again.</p>
+<pre class="hljs"><code><div>chmod +x wellDone2.sh
+ls -lh *sh
+</div></code></pre>
+<p>This time we have set the script to <em>receive input from stdin</em> (i.e. the terminal), and we will need to supply a value, (as we have done when passing an argument to a command) which will then be placed in the variable <code>${ME}</code>.
+Choose whichever random name you want (or just use &quot;Boris&quot; as in the example) and enter the following</p>
+<pre class="hljs"><code><div>./wellDone2.sh Boris
+</div></code></pre>
+<p>As you can imagine, this style of scripting can be useful for iterating over multiple objects.
+A trivial example, which builds on a now familiar concept would be to try the following.</p>
+<pre class="hljs"><code><div>for n in Boris Fred; do (./wellDone2.sh ${n}); done
+</div></code></pre>
+<p>As a good example, this script could summarise key features in a file.
+Then we could simply pass the script multiple files using this strategy, and write the output to another file using the <code>&gt;</code> symbol.</p>
+<h2 id="using-for-loops">Using <code>for</code> Loops</h2>
+<p>Here's an example of a script which uses a <code>for</code> loop.</p>
+<pre class="hljs"><code><div>#!/bin/bash
+
+FILES=$(ls)
+
+COUNT=0
+for f in ${FILES};
+  do
+    ((COUNT++))
+    ln=$(wc -l ${f} | sed -r 's/([0-9]*).+/\1/g')
+    echo &quot;File number ${COUNT} (${f}) has ${ln} lines&quot;
+  done
+</div></code></pre>
+<h4 id="task">Task</h4>
+<p>{:.no_toc}
+Save this as a script in the <code>Practical_4</code> folder called <code>lineCount.sh</code>.
+<strong>Add comments</strong> where you think you need them to make sure you understand what's happening.</p>
+<h4 id="question">Question</h4>
+<p>For this particular task, do you really need the <code>/g</code> in the <code>sed</code> command?</p>
+<h2 id="a-more-advanced-script">A More Advanced Script</h2>
+<p>In this section we'll write a script for the dm6:ncrna fasta file.
+Briefly inspect the file before checking the script to remind yourself what it looks like.
+We're going to extract some key information from those sequence header lines.</p>
+<pre class="hljs"><code><div>head Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+<p>Now let's look through the following script before we run it.
+There is a lot of extra information here!</p>
+<pre class="hljs"><code><div>#!/bin/bash
+
+INFILE=$1
+
+# Check the file has the suffix .fa or .fasta
+SUFFIX=$(echo ${INFILE} | sed -r 's/.+(fasta|fa)$/\1/')
+if [ ${SUFFIX} == &quot;fa&quot; ] || [ ${SUFFIX} == &quot;fasta&quot; ]; then
+  echo File has the suffix ${SUFFIX}
+else
+  echo File does not have the suffix 'fa' or 'fasta'. Exiting with error.
+  exit 1
+fi
+
+# Define the output file by changing the suffix to .locations
+OUTFILE=${INFILE%.${SUFFIX}}.locations
+echo Output will be written to $OUTFILE
+
+# Get the header lines which correspond to chromosomes, then collect the
+# gene id, chromosome, start and end and write to the output file
+egrep '^&gt;.+chromosome' ${INFILE} | \
+  sed -r 's/.+BDGP6:(.*):([0-9]+):([0-9]+):.+gene:([^ ]+).+/\4\t\1\t\2\t\3/g' \
+  &gt; ${OUTFILE}
+
+echo Done
+</div></code></pre>
+<ul>
+<li>After the <code>shebang</code>, the first line takes a filename as input.</li>
+<li>The next set of lines contains two processes:
+<ul>
+<li>The suffix <code>fasta</code> or <code>fa</code> is pulled from the filename and passed to the variable <code>${SUFFIX}</code>. <em>What will this return if the suffix is not either of these?</em></li>
+<li>Next, the value of the new variable <code>${SUFFIX}</code> is checked to make sure it contains only <code>fa</code> or <code>fasta</code><br>
++ If this condition is met a message will print to <code>stdout</code><br>
++ If one of these conditions is not satisfied, the script will exit giving an error message (<code>exit 1</code>)</li>
+<li>The output file (<code>OUTFILE</code>) is defined by changing the suffix from whichever is provided to <code>.locations</code>. The use of the <code>%</code> to <em>snip</em> the filename and replace with another is a very useful trick
+<ul>
+<li>Finally the header lines containing the word &quot;chromosome&quot; are piped into <code>sed</code>
+<ul>
+<li><code>sed</code> then captures the <strong>chromosome</strong> (<code>(.*)</code>), <strong>start</strong> (<code>[0-9]+</code>), <strong>end</strong> <code>([0-9]+):</code> and <strong>gene id</strong> (<code>[^ ]+</code>). If you have trouble seeing how this works you can <a href="https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/Bash_Practicals/regex_example">go here</a>
+<ul>
+<li>These are returned in the order <strong>gene id</strong>, <strong>chromosome</strong>, <strong>start</strong>, <strong>end</strong></li>
+<li>All information is written to the file specified in `${OUTFILE}``</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Save this as the file <code>getLocations.sh</code> and make it executable using <code>chmod +x</code>
+Now run it passing the <code>.fa</code> file as the first argument.</p>
+<pre class="hljs"><code><div>./getLocations.sh Drosophila_melanogaster.BDGP6.ncrna.fa
+</div></code></pre>
+
+</body>
+</html>

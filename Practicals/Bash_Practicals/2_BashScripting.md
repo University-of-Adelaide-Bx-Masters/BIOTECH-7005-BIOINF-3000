@@ -710,17 +710,17 @@ egrep '^>.+chromosome' ${INFILE} | \
 echo Done
 ```
 
-- After the `shebang`, the first line takes a filename as input.
-- The next set of lines contains two processes:
-    + The suffix `fasta` or `fa` is pulled from the filename and passed to the variable `${SUFFIX}`. *What will this return if the suffix is not either of these?*
-    + Next, the value of the new variable `${SUFFIX}` is checked to make sure it contains only `fa` or `fasta`
-		    + If this condition is met a message will print to `stdout`
-		    + If one of these conditions is not satisfied, the script will exit giving an error message (`exit 1`)
-    + The output file (`OUTFILE`) is defined by changing the suffix from whichever is provided to `.locations`. The use of the `%` to *snip* the filename and replace with another is a very useful trick
-		+ Finally the header lines containing the word "chromosome" are piped into `sed`
-		    + `sed` then captures the **chromosome** (`(.*)`), **start** (`[0-9]+`), **end** `([0-9]+):` and **gene id** (`[^ ]+`). If you have trouble seeing how this works you can [go here](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/Bash_Practicals/regex_example) 
-				+ These are returned in the order **gene id**, **chromosome**, **start**, **end**
-				+ All information is written to the file specified in `${OUTFILE}``
+- After the `shebang`, the first line takes a filename as input.  
+- The next set of lines contains two processes:  
+    + The suffix `fasta` or `fa` is pulled from the filename and passed to the variable `${SUFFIX}`. *What will this return if the suffix is not either of these?*  
+    + Next, the value of the new variable `${SUFFIX}` is checked to make sure it contains only `fa` or `fasta`  
+		    + If this condition is met a message will print to `stdout`  
+		    + If one of these conditions is not satisfied, the script will exit giving an error message (`exit 1`)  
+    + The output file (`OUTFILE`) is defined by changing the suffix from whichever is provided to `.locations`. The use of the `%` to *snip* the filename and replace with another is a very useful trick  
+		+ Finally the header lines containing the word "chromosome" are piped into `sed`  
+		    + `sed` then captures the **chromosome** (`(.*)`), **start** (`[0-9]+`), **end** `([0-9]+):` and **gene id** (`[^ ]+`). If you have trouble seeing how this works you can [go here](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/Bash_Practicals/regex_example)   
+				+ These are returned in the order **gene id**, **chromosome**, **start**, **end**  
+				+ All information is written to the file specified in `${OUTFILE}``  
 
 
 Save this as the file `getLocations.sh` and make it executable using `chmod +x`
