@@ -204,7 +204,7 @@ The first feature is annotated as a *region* in the third field, whilst the seco
 - *How many features are contained in this file?*
 - *If we tried the following*: `wc -l GCF_000182855.2_ASM18285v1_genomic.gff` *would it be correct?*
 
-This will give 4517, but we know the first 7 lines are header lines.
+This will give 4507, but we know the first 7 lines are header lines.
 To count the non-header lines you could try several things:
 
 ```
