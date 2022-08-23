@@ -14,8 +14,8 @@ Similarly, for Q2, only the script is required.
     + Count how many of each feature type there is, sorted in numerical order [*3 marks*]
     + Export the results to a file with a name of the form `my_species_gff_features.txt` **where you use your assigned species name instead of** `my_species` [*1 mark*].
     NB: If your actual species is not included in the name, no marks will be given.
-    + Include one or more comment lines before the table detailing the genome-build used, (hint: grep your gff to find the genome build info as the header is very large in most cases)
-    + and the code executed to generate the summary [*2 marks*]
+    + The script must also include code to generate one or more comment lines in the output file/table before the table with the genome-build used, (hint: grep your gff to find the genome build info as the header is very large in most cases)
+    + The script must also write the code used used to generate the summary (counts) data to the output file as part of the file header. [*2 marks*]
     
 2. For the file we used in the practicals (Drosophila_melanogaster.BDGP6.ncrna.fa), add to the final practical script provided so that:
     + the output contains a meaningful header [*1 mark*]
