@@ -237,7 +237,7 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 **Q10. How does the branch support differ between the two trees?** 
 **Q11. Do the trees agree with the known taxonomic groupings?** 
 
-#### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://www.pnas.org/doi/full/10.1073/pnas.0904691106)
+#### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106)
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear-tree.jpg)
 
@@ -269,12 +269,12 @@ Alternatively, these genomes can be obtained the way a biologist would from [her
 
 
 
-**Q12. What two species are the best to use as an outgroup?**
-**Q13. Which two leaves are the closest related/have the shortest branch?**
-**Q14. What is the evolutionary distance between these two leaves?**
-**Q15. Which of the following two species are more closely related?**
-    1. **silky-shrew oppossum**
-    2. **Tasmanian wolf**
-    3. **koala**
-    4. **platypus**
+**Q12. What two species are the best to use as an outgroup?**  
+**Q13. Which two leaves are the closest related/have the shortest branch?**  
+**Q14. What is the evolutionary distance between these two leaves?**  
+**Q15. Which of the following two species are more closely related?**  
+    1. **silky-shrew oppossum**  
+    2. **Tasmanian wolf**  
+    3. **koala**  
+    4. **platypus**  
 
