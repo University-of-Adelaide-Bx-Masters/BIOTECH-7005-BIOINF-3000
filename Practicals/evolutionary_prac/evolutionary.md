@@ -241,19 +241,19 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear-tree.jpg)
 
-## Tasks (due 31/8/2021)
+## Tasks (due 02/09/2022)
 
 ### Practical questions
 
-Answer the questions in **bold** above.
+Answer the questions in **bold** above (they are worth 1 mark each).
 
 ### Bayesean Trees with whole mitochondrial genomes
 
-You will have produced two trees for Bovidea (two different models), submit them as part of your practical as **Figure 1**.
+You will have produced two trees for Bovidea (two different models), submit them as part of your practical as **Figure 1** (5 marks/tree).
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
-Submit the Marsupial tree as **Figure 2**.
+Submit the Marsupial tree as **Figure 2** (5 marks).
 
 You can get the Marsupial mitochondrial genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
 ```
@@ -269,10 +269,10 @@ Alternatively, these genomes can be obtained the way a biologist would from [her
 
 
 
-**Q12. What two species are the best to use as an outgroup?**  
-**Q13. Which two leaves are the closest related/have the shortest branch?**  
-**Q14. What is the evolutionary distance between these two leaves?**  
-**Q15. Which of the following two species are more closely related?**  
+**Q12. What two species are the best to use as an outgroup?**(1 mark)  
+**Q13. Which two leaves are the closest related/have the shortest branch?**(1 mark)  
+**Q14. What is the evolutionary distance between these two leaves?**(1 mark)  
+**Q15. Which of the following two species are more closely related?**(1 mark)  
     1. **silky-shrew oppossum**  
     2. **Tasmanian wolf**  
     3. **koala**  
