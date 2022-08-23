@@ -14,9 +14,9 @@ This again helps us keep our code organised and is good practice.
 
 ## Prepare the sequence data
 
-Get the sequences from the [Biotech7005 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
+Get the sequences from the [Bioinf 3000 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
 
-### Reduced the size of the dataset
+### Reduce the size of the dataset
 
 Run the following command using your student number for id:
 ```
@@ -29,15 +29,9 @@ Remember to make `subset` executable (see the `bash` practical for a reminder on
 This selects 50 sequences from the input alignment according to your student number and writes them to a new file.
 This is not normal practice, and is only necessary because of prac time limits.
 
-### Software installation using conda
+### Software used for this practical
 
-Before you can move on to doing a multiple alignment and building a tree you will need to install the software you will need; `MAFFT`, `Mr Bayes`, `seqmagick` and `Gblocks`.
-
-To do this run the following command from within `~/Practical_5`:
-```
-conda install -c bioconda -c conda-forge mafft mrbayes seqmagick gblocks
-```
-When prompted to install (this may take a few minutes) type <kbd>y</kbd>.
+You will use the following software today: `MAFFT` for making multiple alignments [read about it here](https://mafft.cbrc.jp/alignment/software/), `Mr Bayes` for building Bayesian phylogenies [read about it here](http://nbisweden.github.io/MrBayes/), `seqmagick` a comprehensive toolkit for sequence conversion/manipulation [read about it here](https://fhcrc.github.io/seqmagick/) and `Gblocks` a tool to remove poorly aligned regions from multiple alignments to improve the inference of phylogenies [read about it here](https://doi.org/10.1080/10635150701472164).  
 
 ### Multiple alignment
 
@@ -99,7 +93,7 @@ q. Quit
 Use the menu options in the program to remove the non-conserved regions from the `fa` file (not the `nex` file).
 This will give you a file `bovidea_50_mtDNA-named.fa-gb`.
 
-**Q3. Why do we need to do this? (*Hint:read the [Gblocks documentation](http://molevol.cmima.csic.es/castresana/Gblocks.html)*)**
+**Q3. Why do we need to do this? (*Hint:read the [Gblocks documentation](https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html)*)**
 
 ### Convert to NEXUS format
 
