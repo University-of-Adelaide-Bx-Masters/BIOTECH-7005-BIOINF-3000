@@ -14,13 +14,13 @@ This again helps us keep our code organised and is good practice.
 
 ## Prepare the sequence data
 
-Get the sequences from the [Bioinf 3000 repository](bovidea_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidea_118_mtDNA.fa>) using `wget`.
+Get the sequences from the [Bioinf 3000 repository](bovidae_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidae_118_mtDNA.fa>) using `wget`.
 
 ### Reduce the size of the dataset
 
 Run the following command using your student number for id:
 ```
-./subset -id aXXXXXXX -n 50 -in bovidea_118_mtDNA.fa > bovidea_50_mtDNA.fa
+./subset -id aXXXXXXX -n 50 -in bovidae_118_mtDNA.fa > bovidae_50_mtDNA.fa
 ```
 (The subset command can be obtained from [here](subset) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/subset>)
  using `wget`.)
@@ -42,7 +42,7 @@ There are many programs that can be used to do this; two fast programs are MUSCL
 Run the following commands:
 
 ```
-mafft bovidea_50_mtDNA.fa > bovidea_50_mtDNA-mafft.fa
+mafft bovidae_50_mtDNA.fa > bovidae_50_mtDNA-mafft.fa
 ```
 
 ### Remove non-conserved blocks
@@ -53,7 +53,7 @@ To get around this problem we will shorten the identifiers in a meaningful way.
 
 Run the following command to change the sequence IDs:
 ```
-sed -e 's/^>[^ ]\+ \([^ ]\+\) \([^ ]\+\).*$/>\1_\2/g' bovidea_50_mtDNA-mafft.fa > bovidea_50_mtDNA-named.fa
+sed -e 's/^>[^ ]\+ \([^ ]\+\) \([^ ]\+\).*$/>\1_\2/g' bovidae_50_mtDNA-mafft.fa > bovidae_50_mtDNA-named.fa
 ```
 
 **Q1. What does this command do?**
@@ -61,7 +61,7 @@ sed -e 's/^>[^ ]\+ \([^ ]\+\) \([^ ]\+\).*$/>\1_\2/g' bovidea_50_mtDNA-mafft.fa 
 In order to be able to examine the alignments more effectively we will convert the format from FASTA to NEXUS format. This will make it easier to see the alignment.
 
 ```
-seqmagick convert --output-format nexus --alphabet dna bovidea_50_mtDNA-named.fa bovidea_50_mtDNA-named.nex
+seqmagick convert --output-format nexus --alphabet dna bovidae_50_mtDNA-named.fa bovidae_50_mtDNA-named.nex
 ```
 
 Look at the NEXUS alignment file. At the beginning of the alignment and near the end there are regions that have large gaps and very poor conservation.
@@ -91,7 +91,7 @@ g. (Get Blocks)
 q. Quit
 ```
 Use the menu options in the program to remove the non-conserved regions from the `fa` file (not the `nex` file).
-This will give you a file `bovidea_50_mtDNA-named.fa-gb`.
+This will give you a file `bovidae_50_mtDNA-named.fa-gb`.
 
 **Q3. Why do we need to do this? (*Hint:read the [Gblocks documentation](https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html)*)**
 
@@ -100,8 +100,8 @@ This will give you a file `bovidea_50_mtDNA-named.fa-gb`.
 The program we will be using to perform phylogenetic reconstruction uses a sequence (and other character) format called NEXUS.
 The NEXUS format is fairly widely used for phylogenetic data as it can be used to encode a variety characters, not limited to sequence data.
 
-Use `seqmagick` to convert the `fa-gb` file to a nexus format with the name `bovidea_50_mtDNA-named.nex`.
-Note that you will need to rename the `fa-gb` file so that it has an `fa` file extension, remember not to overwrite your original `bovidea_50_mtDNA-named.fa` when doing so.
+Use `seqmagick` to convert the `fa-gb` file to a nexus format with the name `bovidae_50_mtDNA-named.nex`.
+Note that you will need to rename the `fa-gb` file so that it has an `fa` file extension, remember not to overwrite your original `bovidae_50_mtDNA-named.fa` when doing so.
 Look at your `.nex` file to satisfy yourself that things are as they should be.
 
 ## Run Mr Bayes
@@ -249,7 +249,7 @@ Answer the questions in **bold** above (they are worth 1 mark each).
 
 ### Bayesean Trees with whole mitochondrial genomes
 
-You will have produced two trees for Bovidea (two different models), submit them as part of your practical as **Figure 1** (5 marks/tree).
+You will have produced two trees for Bovidae (two different models), submit them as part of your practical as **Figure 1** (5 marks/tree).
 
 Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
 
