@@ -204,7 +204,7 @@ You can see that as the run continues the average standard deviation of split fr
 After the MCMC has completed the 50,000 iterations, it will output the final average standard deviation of split frequencies and ask if the run is to be continued.
 Answer "no".
 
-See the Mr Bayes [tutorial](http://mrbayes.sourceforge.net/wiki/index.php/Tutorial#When_to_Stop_the_Analysis) for a more complete explanation of how to decide the answer to this question.
+See the Mr Bayes [tutorial](http://mrbayes.sourceforge.net/wiki/index.php/Tutorial_3.2#When_to_Stop_the_Analysis) for a more complete explanation of how to decide the answer to this question.
 
 When you stop the runs, Mr Bayes will output summary data from the analysis.
 
