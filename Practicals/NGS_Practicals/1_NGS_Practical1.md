@@ -57,7 +57,7 @@ Using the `Terminal` in RStudio, execute the following commands, paying special 
 If you get these correct, all of today's code should just work.
 If you don't get these correct, you may end up being confused.
 
-```
+```bash
 mkdir -p ~/Practical_6/0_rawData/fastq
 cd ~/Practical_6/0_rawData/fastq
 wget https://universityofadelaide.box.com/shared/static/0w0fgnm94w18ixh1z0dkmh5e0xht1ajf.gz -O multiplexed.tar.gz
@@ -71,7 +71,7 @@ Now we have downloaded the data, let's:
 2. remove the original file to save space (`rm`)
 3. move one of the files we obtained to a convenient location. (`mv`)
 
-```
+```bash
 tar -xzvf multiplexed.tar.gz
 rm multiplexed.tar.gz
 mv barcodes_R1.txt  ../../
@@ -80,7 +80,7 @@ mv barcodes_R1.txt  ../../
 The command `zcat` unzips a file and prints the output to the terminal, or standard output (`stdout`). 
 If we did this to these files, we would see a stream of data whizzing past in the terminal, but instead we can just pipe the output of `zcat` to the command `head` just to view the first few lines of a file.
 
-```
+```bash
 zcat Run1_R1.fastq.gz | head -n8
 ```
 
@@ -123,7 +123,7 @@ By and large you won’t need to utilise most of this information, but it can be
 
 While we are inspecting our data, have a look at the beginning of the second file.
 
-```
+```bash
 zcat Run1_R2.fastq.gz | head -n8
 ```
 
@@ -223,7 +223,7 @@ As with all programs on the command line, we need to see how it works before we 
 The following command will open the help file in the less pager which we used earlier.
 To navigate through the file, use the <kbd>Spacebar</kbd> to move forward a page, <kbd>B</kbd> to move back a page and <kbd>Q</kbd> to exit the manual.
 
-```
+```bash
 fastqc -h | less
 ```
 
@@ -243,7 +243,7 @@ Look up the following options to find what they mean.
 As we have two files, we will first need to create the output directory, then we can run `fastqc` using 2 threads which will ensure the files are processed in parallel.
 This can be much quicker when dealing with large experiments.
 
-```
+```bash
 cd
 mkdir ~/Practical_6/0_rawData/FastQC
 fastqc -o ~/Practical_6/0_rawData/FastQC -t 2 ~/Practical_6/0_rawData/fastq/*gz
@@ -260,7 +260,7 @@ The above command:
 
 Let's see what we have:
 
-```
+```bash
 cd ~/Practical_6/0_rawData/FastQC
 ls -lh
 ```
@@ -402,7 +402,7 @@ These are commonly used in Illumina projects.
 
 **Before we perform adapter trimming, look at the following code.**
 
-```
+```bash
 cd ~/Practical_6
 mkdir -p 1_trimmedData/fastq
 mkdir -p 1_trimmedData/FastQC
@@ -421,9 +421,11 @@ cutadapt \
 Note that the symbol `\` has been included at the end of some of these lines.
 This is often used in a script to break a long command over multiple lines to make it easier to read.
 Notice how by using this technique, it's very easy to see every parameter and argument that has been set when we run `cutadapt`.
-```
+
+```bash
 cutadapt -m 35 -q 20 -a AGATCGGAAGAGCACACGTCTGAAC -A AGATCGGAAGAGCGTCGTGTAGGGA -o 1_trimmedData/fastq/Run1_R1.fastq.gz -p 1_trimmedData/fastq/Run1_R2.fastq.gz 0_rawData/fastq/Run1_R1.fastq.gz 0_rawData/fastq/Run1_R2.fastq.gz > 1_trimmedData/log/cutadapt.log
 ```
+
 Another point worth making is how we've created the directory structure.
 NGS data analysis often requires multiple steps and keeping every step well organised can be extremely helpful for finding your way around later.
 Although this may appear trivial, in the real world decisions you make at this point can become quite significant.
@@ -440,7 +442,7 @@ During this process, the `cutadapt` tool produces a large amount of information 
 In the above we would write this output to a log file using the `>` symbol to redirect `stdout` to a file.
 Let's have a look in the file to check the output.
 
-```
+```bash
 less 1_trimmedData/log/cutadapt.log 
 ```
 
@@ -455,7 +457,7 @@ This can indicates if we've missed anything, as sometimes you'll see a strong bi
 Before moving on, we need to check the quality of the trimmed sequences, so let's run `fastqc` on these files to check them out.
 *Make sure you're in the correct directory first!*
 
-```
+```bash
 mkdir -p 1_trimmedData/FastQC
 fastqc -o 1_trimmedData/FastQC -t 2 1_trimmedData/fastq/*gz
 ```
@@ -477,7 +479,7 @@ Designing the right barcodes to add to the start of your reads extremely importa
 Our samples today have a 7bp barcode at the start of the reads.
 We can see these pretty clearly with a little usage of our newly learned `bash` skills.
 
-```
+```bash
 zcat 1_trimmedData/fastq/Run1_R1.fastq.gz | sed -n '2~4p' | cut -c 1-7 | sort | uniq -c | sort -n -r | head
 ```
 
@@ -501,7 +503,7 @@ You can check this using `cat barcodes_R1.txt`
 To demultiplex, we'll use a tool called `sabre`.
 Unfortunately, `sabre` only runs with uncompressed data, so to run this program we'll need to unzip our fastq files.
 
-```
+```bash
 cd 1_trimmedData/fastq
 gunzip Run1_R*
 ```
@@ -509,21 +511,21 @@ gunzip Run1_R*
 Now we've successfully performed this step, we can run `sabre`.
 Before we run this let's check the help page
 
-```
+```bash
 sabre --help
 ```
 
 If you ask us, this isn't helpful and this is a common problem with tools for NGS data.
 As we're going to to be using this tool in paired-end mode we can find the help we need using
 
-```
+```bash
 sabre pe --help
 ```
 
 Many NGS (and other) tools use this strategy of having a sub-command following the main command which tells the main tool (`sabre`) to operate in a specific stage or mode (`pe`).
 We can then call the specific help page for this mode.
 
-```
+```bash
 cd ~/Practical_6
 mkdir -p 2_demultiplexedData/fastq
 cd 2_demultiplexedData/fastq
@@ -539,7 +541,7 @@ sabre pe \
 *How many read pairs were extracted in each sample?*
 *Does this match the number we found by grabbing out the first 7 bases in bash?*
 
-```
+```bash
 sabre pe -m 1 -f ../../1_trimmedData/fastq/Run1_R1.fastq -r ../../1_trimmedData/fastq/Run1_R2.fastq -b ../../barcodes_R1.txt -u unknown_R1.fastq -w unknown_R2.fastq
 ```
 Run the command again without the one mismatch. *How many read are now in each?*
@@ -562,13 +564,13 @@ Notice that RStudio seems to recognise this as a bash script and will add a litt
 
 At the beginning of this file, add the shebang:
 
-```
+```bash
 #!/bin/bash
 ```
 
 Leaving a blank line after the shebang, copy and paste the following code into this script:
 
-```
+```bash
 PROJROOT=/home/student/Practical_6
 RAWDIR=${PROJROOT}/0_rawData
 
