@@ -48,7 +48,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave/Alex)   |
 | **4**    | 15/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave/Alex)                   |
 | **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
-| **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave/Alex)             |
+| **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Anna/Alex)             |
 | **7**    | 5/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/Coding comments (David L)  |[Alignment/NGS (2)] (Dave/Alex)             |
 | **8**    | 12/9       |Version Control (David L)   |Version control tutorial (David L)    |Local Version Control (David L/Nora)  |
 | **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
