@@ -311,7 +311,7 @@ bwa mem -t 2 genome/Celegans_chrI 1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz 
 
 ```
 
-This process may take 10 minutes so once you run the command, be patient and read ahead.
+This process may take ~14 minutes so once you run the command, be patient and read ahead.
 
 **Note:** By using the `-t 2` parameter, we can take advantage of modern computers that allow multi-threading or parallelisation. This just means that the command can be broken up into 2 chunks and run in parallel, speeding up the process. 
 If using phoenix or another HPC, this can really speed things up as more than 2 cores are available.
