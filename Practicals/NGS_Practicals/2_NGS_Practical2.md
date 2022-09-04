@@ -195,7 +195,7 @@ To align any reads, we first need to download the appropriate (i.e.  latest) gen
 We didn't mention this in the earlier section, but our reads today come from the nematode or Roundworm (*Caenorhabditis elegans*).  
 
 **Note**: If you want the full genome sequence you can use the command-line program `wget` to download the *C. elegans* genome sequence from [http://ftp.ensembl.org/pub/release-107/fasta/caenorhabditis_elegans/dna/Caenorhabditis_elegans.WBcel235.dna.toplevel.fa.gz](http://ftp.ensembl.org/pub/release-107/fasta/caenorhabditis_elegans/dna/Caenorhabditis_elegans.WBcel235.dna.toplevel.fa.gz) . 
-If `wget` doesn't work for you, you can always download the genome (like you can do with all model genomes) by opening your browser & heading to [http://ftp.ensembl.org/pub/release-90/fasta/caenorhabditis_elegans/](http://ftp.ensembl.org/pub/release-90/fasta/caenorhabditis_elegans/).  
+If `wget` doesn't work for you, you can always download the genome (like you can do with all model genomes) by opening your browser & heading to [http://ftp.ensembl.org/pub/release-107/fasta/caenorhabditis_elegans/dna/](http://ftp.ensembl.org/pub/release-107/fasta/caenorhabditis_elegans/dna/).  
 
 For today's session, we've already given you just the sequence of chrI (from release 90 in 2017) so let's move this into a useful folder for today.
 It will be in the folder `~/intro_ngs` (where we obtained our reads from).
