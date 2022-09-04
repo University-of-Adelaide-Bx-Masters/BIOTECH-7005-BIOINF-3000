@@ -34,7 +34,7 @@ We'll be working today in the directory `~/Practical_7`.
 Please ensure you use this *exact* path as any variations will undoubtedly cause you problems & lead to unnecessary confusion.
 An example data structure to use for today has already been made for you & can be obtained using the following strategy.
 
-```
+```bash
 cd ~
 wget https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/raw/master/Practicals/NGS_Practicals/ngsSkeleton_master.zip
 unzip ngsSkeleton_master.zip
@@ -52,7 +52,8 @@ We won't need that directory today
 Inside each of these directories are the directories `fastq`, `FastQC`, `bam`, `log` or various directories where we'll place our output.
 The more you perform bioinformatics, the more you realise how important getting your directories organised is.
 Let's have a look in a few.
-```
+
+```bash
 ls 0_rawData
 ls 1_trimmedData
 ls 2_alignedData
@@ -62,7 +63,7 @@ ls 2_alignedData
 
 Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
 
-```
+```bash
 cp /home/student/data/intro_ngs/*gz 0_rawData/fastq/
 ls 0_rawData/fastq/
 ```
@@ -153,7 +154,7 @@ First we'll check the raw data by inspecting the `FastQC` reports from the raw d
 
 Now we should inspect the results of trimming.
 
-```
+```bash
 less 1_trimmedData/log/cutadapt.log
 ```
 
@@ -202,14 +203,14 @@ It will be in the folder `~/data/intro_ngs` (where we obtained our reads from).
 Call Dave or Alex over if you can't find it somewhere (use `ls ~/data/intro_ngs`).
 
 
-```
+```bash
 mkdir -p ~/Practical_7/genome
 cp ~/data/intro_ngs/chrI.fa ~/Practical_7/genome/
 ```
 
 Let's have a look at this file just make sure we know what we have
 
-```
+```bash
 head ~/Practical_7/genome/chrI.fa
 ```
 
@@ -227,14 +228,14 @@ Today we will be using bwa-mem to align our C. elegans WGS reads.
 Once again, we need to check the help pages. 
 Fortunately the bwa page is actually pretty friendly on the screen and appears without the usual -h option, but can also be viewed using `man bwa`
 
-```
+```bash
 bwa
 ```
 
 We should also inspect the help page for bwa index which we will use to build the index.
 This is the step that makes aligning NGS data incredibly fast & marked a significant step forward from older approaches such as `blast`.
 
-```
+```bash
 bwa index
 ```
 
@@ -242,14 +243,14 @@ Using this particular process you can usually just run the command on the fasta 
 However in this case, we will name the index "Celegans_chrI" by using the `-p` flag/parameter. 
 Now that we’ve had a look, type to following command which will take a few minutes to run.
 
-```
+```bash
 cd genome
 bwa index chrI.fa -p Celegans_chrI
 ```
 
 Let’s look at what files have been created.
 
-```
+```bash
 ls
 ```
 
@@ -261,7 +262,7 @@ Because we only have a small subset of the actual sequencing run, we should be a
 
 Now let's change back to our main project folder.
 
-```
+```bash
 cd ~/Practical_7
 ```
 
@@ -269,7 +270,7 @@ The command we'll run is quite long, so please read on a little before executing
 This will help you figure out what is going wrong if you get some error messages.
 First up here's the command 
 
-```
+```bash
 bwa mem \
   -t 2 \
   genome/Celegans_chrI \
@@ -282,7 +283,7 @@ bwa mem \
 Let’s break down this main command a little. 
 The first part of the command:
 
-```
+```bash
 bwa mem \
   -t 2 \
   genome/Celegans_chrI \
@@ -296,7 +297,7 @@ Usually, you would stream this plain text output to a SAM file (see next section
 However, SAM files are plain text files which can take up a significant amount of disk space, so its much more efficient to pipe it to the `samtools` command which converts between binary and plain text versions of the format, to create a compressed binary SAM file (called BAM). 
 To do this, we pipe `stdout` to the program `samtools`:
 
-```
+```bash
 samtools view -bhS -F4 - 
 ```
 
@@ -306,7 +307,8 @@ The *globbed* arguments are 1) `-b` [output in binary format]; and 2) `-h` inclu
 The binary output is then written to the file `2_alignedData/bam/SRR2003569_chI.bam` using the `>` symbol.
 
 Here is the command for you to cut and paste:
-```
+
+```bash
 bwa mem -t 2 genome/Celegans_chrI 1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz 1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR2003569_chI.bam
 
 ```
@@ -319,7 +321,7 @@ If using phoenix or another HPC, this can really speed things up as more than 2 
 
 Once your alignments have finished, you can find out information about your alignments using `samtools stats`:
 
-```
+```bash
 samtools stats 2_alignedData/bam/SRR2003569_chI.bam > \
   2_alignedData/log/SRR2003569_chI.stats
 ```
@@ -355,7 +357,7 @@ Instead we can inspect them by using `samtools view` as mentioned above.
 There is also a header section to each file which details the fasta files used in the alignments.
 To view this header we use
 
-```
+```bash
 samtools view -H SRR2003569_chI.bam
 ```
 
@@ -388,7 +390,7 @@ Most of these fields are self-explanatory, but some require exploration in more 
 Note that in the following command, each line from the file may wrap around several lines in your terminal.
 If this is confusing, just select the first read only by adding the option `-n1` after your call to `head`
 
-```
+```bash
 samtools view 2_alignedData/bam/SRR2003569_chI.bam | head
 ```
 
@@ -420,7 +422,7 @@ If you searched for flags with the value 1, you wouldn't obtain the alignments w
 Let's try this using the command `samtools view` with the option `-f` to include reads with a flag set and the option `-F` to exclude reads with a specific flag set.
 Let's get the first few reads which are mapped in a proper pair, so the flag `2` will be set.
 
-```
+```bash
 cd 2_alignedData/bam
 samtools view -f 2 SRR2003569_chI.bam | head
 ```
@@ -428,7 +430,7 @@ samtools view -f 2 SRR2003569_chI.bam | head
 Note that none of the flags actually have the value 2, but if you typed the values 99, 147 or 163 into the webpage, you'll see that this flag is set for all of these values.
 Similarly if we wanted to extract only the reads which are NOT mapped in a proper pair we would change the option to a upper-case F.
 
-```
+```bash
 samtools view -F 2 SRR2003569_chI.bam | head
 ```
 
@@ -437,7 +439,7 @@ Again, try entering a few of these sample values into the webpage and you will s
 This can be a very helpful tool for extract subsets of your aligned reads.
 For example, we can create a new BAM file with only the reads which were aligned in a proper pair by entering the following command.
 
-```
+```bash
 samtools view -f 2 -bo SRR2003569_chI.bam
 ls -lh
 ```
@@ -483,7 +485,7 @@ Compared to previous sequencing technologies such as Sanger, which sequenced an 
 Before we start calling variants we will need to **sort the alignments**.
 The original file will contain alignments in the order they were found in the original fastq file, so sorting arranges them in *genomic order*.
 
-```
+```bash
 mkdir ~/Practical_7/2_alignedData/sorted_bam
 cd ~/Practical_7/2_alignedData
 samtools sort bam/SRR2003569_chI.bam -o sorted_bam/SRR2003569_chI.bam
@@ -495,7 +497,7 @@ This is standard for most NGS downstream programs, such as RNA gene quantificati
 Once we've sorted our alignments, we usually *index* the file, which allows rapid searching of the file.
 Running the following command will create an associated `bai` file which is the index associated with our sorted alignments.
 
-```
+```bash
 samtools index sorted_bam/SRR2003569_chI.bam
 ```
 
@@ -505,7 +507,7 @@ Ideally, before we start calling variants, there is a level of duplicate filteri
 The duplicates we wish to remove are generated during PCR and are not biological in origin, however **we'll skip this step today**.
 For future reference, the code you would use to do this is:
 
-```
+```bash
 # Remove duplicates the samtools way
 samtools rmdup [SORTED BAM] [SORTED RMDUP BAM]
 
