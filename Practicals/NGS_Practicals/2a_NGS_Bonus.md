@@ -1,7 +1,7 @@
 * TOC
 {:toc}
 
-# Biotech 7005: Practical 7 Bonus material
+# Bioinf 3000: Practical 7 Bonus material
 Dave Adelson, Modified from Jimmy Breen & Steve Pederson
 
 ## Filtering the VCF
@@ -23,24 +23,24 @@ QUAL is a phred-scaled quality score for the assertion made in ALT. i.e. give -1
 To weed out the low confidence calls in our VCF file we need to filter by QUAL. This can be done using the `bcftools` program that's included within the `samtools` suite of tools. 
 All these tools can run on gzip-compressed files which saves a lot of space on your computer.
 
-```
+```bash
 gzip SRR2003569_chI_1Mb.vcf
 ```
 
 Ok lets filter by QUAL. We can do this with the `bcftools filter` or  `bcftools view` commands which allows you to run an expression filter. This means you can either exclude (`-e`) or include (`-i`) variants based on a certain criteria. In our case, lets exclude all variants that have a QUAL < 30.
 
-```
+```bash
 bcftools filter -e 'QUAL < 30' SRR2003569_chI_1Mb.vcf.gz -Oz -o SRR2003569_chI_1Mb.sorted.q30.vcf.gz
 
 # You can pipe to grep and wc to remove the header
 #   and count your remaining variants after filtering too
-bcftools filter -e 'QUAL < 30' SRR2003569_chI_1Mb.sorted.vcf.gz | grep -v "^#" | wc -l
+bcftools filter -e 'QUAL < 30' SRR2003569_chI_1Mb.sorted.q30.vcf.gz | grep -v "^#" | wc -l
 ```
 
 How many variants greater than QUAL 30 do you have? How about the number of heterozygous variants that have a QUAL>30?
 
-```
-bcftools filter -i 'QUAL>30 && GT="0/1"' SRR2003569_chI_1Mb.sorted.vcf.gz
+```bash
+bcftools filter -i 'QUAL>30 && GT="0/1"' SRR2003569_chI_1Mb.vcf.gz
 ```
 
 The `bcftools view` commands gives a lot of additional filtering options.
