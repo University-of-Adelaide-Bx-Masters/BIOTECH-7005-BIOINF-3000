@@ -85,7 +85,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 [Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
-[Coding comments]: Tutorials/Tutorials/Code_comments_tutorial/code_comments.html
+[Coding comments]: Tutorials/Code_comments_tutorial/code_comments.html
 
 ## Assessment
 
