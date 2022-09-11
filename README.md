@@ -69,9 +69,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
-[11]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
-[12]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
-[13]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
+
 
 [Introduction to VMs]: Practicals/vm_connection.md
 [Introduction to R]: Practicals/R_Practicals
