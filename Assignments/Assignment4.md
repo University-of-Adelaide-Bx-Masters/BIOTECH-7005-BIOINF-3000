@@ -4,7 +4,7 @@
 
 **Due before 5pm, Friday 16th September**
 
-## Assignment overview
+## Assignment overview [*5 marks for general format*]
 
 This assignment is based on the `Alignmen/NGS` practicals. 
 
