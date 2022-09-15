@@ -1,0 +1,124 @@
+---
+title: "Local Version Control practical"
+author: "David Lawrence"
+date: "2022-09-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Outline
+
+* Git help
+* Git setup / config
+* Creating a new repository
+* Add/Commit
+* Staging area
+* Changelog / History
+* Bash scripts + git
+
+----------------
+
+
+moving through history / checkout previous versions etc
+git ignore (eg output of your script into results/logs)
+Git w/ R studio - https://swcarpentry.github.io/git-novice/14-supplemental-rstudio/index.html
+
+git push / pull (but we're doing github next prac)
+merges / conflicts - perhaps we'll clone from github then I alter it
+branches
+workflows - https://www.atlassian.com/git/tutorials/comparing-workflows
+
+
+---------------
+
+
+## Git help
+
+git has sub commands (like samtools) eg 
+
+git clone
+git status
+git add
+git commit
+
+Like most command line programs, git has command line help. Run:
+
+```
+git --help
+```
+
+Please read this whole page, ie the ~20 git commands and what they do.
+
+You can get help for a subcommand via:
+
+```git clone --help```
+
+This opens a man (manual) page, and is the equivalent of ```man git-clone```
+
+Scroll through the man page with up/down keys, then page up/page down keys.
+
+Press q to quit the man page.
+
+## Git setup / config
+
+Git tracks which user did what, so you need to identify yourself.
+
+If you didn't do this in the tutorial, please run this:
+
+```
+git config --global user.name "Your name"
+git config --global user.email "your.name@student.adelaide.edu.au"
+git config --global core.editor "nano -w"
+```
+
+This is stored in your home directory and so works on all git repositories (global)
+
+To see it:
+
+```
+cat ~/.gitconfig
+```
+
+## Creating a new repository
+
+```
+git init
+```
+
+Check out ```~/.git```
+
+## Add/Commit
+
+Messages. Interactive, with -m param
+Ammending git messages
+
+
+## Staging area
+
+* Need a diagram
+
+### Changelog / History
+
+paging etc - ":" - press Q, press space
+
+graph
+
+
+## Bash scripts + git
+
+Tip from scientific reproducibility lecture. If you always use Git, you can keep track of what version of a script was run. For instance:
+
+```
+#!/bin/bash
+
+TODAY=$(date --iso)
+GIT_COMMIT=$(git rev-parse HEAD)
+RUN_LOG=output_log_${TODAY}_${GIT_COMMIT}
+
+echo "Script ${0} started $(date)" >> ${RUN_LOG}
+echo "This is my script, pwd: $(pwd) git: ${GIT_COMMIT}" >> ${RUN_LOG}
+```
+
