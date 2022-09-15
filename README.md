@@ -85,7 +85,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [Coding comments]: Tutorials/Code_comments_tutorial/code_comments.html
 [Version control tutorial]: Tutorials/Version_control_tutorial/version_control_tutorial.html
-[Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.rmd
+[Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
 
 ## Assessment
 
