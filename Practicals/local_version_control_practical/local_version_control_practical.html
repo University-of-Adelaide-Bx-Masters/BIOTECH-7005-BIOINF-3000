@@ -387,6 +387,7 @@ pre code {
 <li>Bash scripts + git</li>
 <li>Git ignore</li>
 <li>Moving through history</li>
+<li>Restoring deleted files</li>
 <li>Branches</li>
 <li>Pull / Push</li>
 <li>Bonus: Workflows</li>
@@ -570,7 +571,10 @@ Watermelon</code></pre>
 <p>Then save the file, and exit to the shell. Run:</p>
 <pre><code>git status</code></pre>
 <p>This should show you that you have 1 untracked file called
-‘README.md’. Run:</p>
+‘README.md’.</p>
+<p>To see this as a diff:</p>
+<pre><code>git diff</code></pre>
+<p>We need to tell Git about this change - run:</p>
 <pre><code>git add README.md</code></pre>
 <p>Now run:</p>
 <pre><code>git status</code></pre>
@@ -647,11 +651,12 @@ you can keep track of commits in a file and use
 <p>All commits have unique hashes as labels, however these don’t mean
 anything and are hard to remember.</p>
 <p>You can give commits your own names, which is called tagging.</p>
-<pre><code>git tag cyan_monkey &lt;hash from git log&gt;  # need to change to your hash</code></pre>
+<pre><code>git tag my_tag &lt;hash from git log&gt;  # need to change to your hash</code></pre>
 <p>A common use for tags is to label a release. This makes it easier to
 know the state of code in a release, find what releases are affected by
 bugs, and for instance show what changed between releases, eg:</p>
-<p><a href="https://github.com/SACGF/cdot/compare/v0.2.7" class="uri">https://github.com/SACGF/cdot/compare/v0.2.7</a>…v0.2.8</p>
+<p><a href="https://github.com/SACGF/cdot/compare/v0.2.7...v0.2.8">CDot
+change diff</a></p>
 <p>This is linked from the CHANGELOG file in one of my GitHub
 projects:</p>
 <p><a href="https://github.com/SACGF/cdot/blob/main/CHANGELOG.md" class="uri">https://github.com/SACGF/cdot/blob/main/CHANGELOG.md</a></p>
@@ -713,15 +718,129 @@ think should happen if you add .gitignore to the .gitignore file.</p>
 </div>
 <div id="moving-through-history" class="section level2">
 <h2>Moving through history</h2>
-<p>TODO</p>
+<p>Git stores (in .git) all of the changes ever applied to the files in
+the repo.</p>
+<p>It is worth thinking of the “normal files” in the directory as
+temporary - “working files”, they can be reconstructed at various
+historical points by replaying certain git changes. Re-applying all of
+the changes will create the “latest” versions, and you can selectively
+apply patches to move through historical versions.</p>
+<p><img src="data:image/png;base64,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" /></p>
+<p>Cat the first log file from your pipeline.sh runs above, and find the
+commit hash</p>
+<p>To move the working files back to the state of this commit, you can
+run:</p>
+<pre><code>git checkout &lt;commit_hash&gt;  # Need to copy/paste from your git history</code></pre>
+<p>This will mention having a “detached head” - HEAD keeps track of the
+current point in a repository. Usually, it is attached to a branch (eg
+master), while moving through history, it’s “detached”</p>
+<p>You can also see this if you run</p>
+<pre><code>git status</code></pre>
+<p>It will say “head detached”</p>
+<p><strong>Exercise</strong></p>
+<p>Run</p>
+<pre><code>git log</code></pre>
+<p>and pick a commit, ie “initial commit”</p>
+<p>Move the repo back to this commit, and examine the README.md file</p>
+<p>To move back to the latest commit, run:</p>
+<pre><code>git checkout master</code></pre>
+<p>To check you’re back to normal - run <code>git log</code> and ensure
+that the last commit has HEAD next to it</p>
+</div>
+<div id="restoring-deleted-files" class="section level2">
+<h2>Restoring deleted files</h2>
+<p>Delete the README.md, ie:</p>
+<pre><code>rm README.md</code></pre>
+<p>Now run:</p>
+<pre><code>git status  # Shows file was deleted
+git diff  # Shows patch</code></pre>
+<p>Retrieve the file from the repo - to undelete it in the working
+files</p>
+<pre><code>git checkout README.md</code></pre>
 </div>
 <div id="branches" class="section level2">
 <h2>Branches</h2>
-<p>TODO</p>
+<p>So far in your new repository we’ve been working in a linear way.</p>
+<p>But remember Git is a graph, and you can have multiple paths (think
+back to the <code>git log --graph</code> diagrams above) that split
+apart.</p>
+<p>The default branch is main/master, but you can diverge from this, and
+also merge together different branches.</p>
+<p>A common task when working with multiple people is to create a branch
+from current HEAD to do new development, so you can store your code in
+the repository without breaking master.</p>
+<p>You can create a branch then switch to it:</p>
+<pre><code>git branch blue_monkey # Creates a new branch from HEAD
+git checkout blue_monkey</code></pre>
+<p>Or you could do this in 1 line via:</p>
+<pre><code>git checkout -b blue_monkey # if you run this after creating the branch above it will error and do nothing</code></pre>
+<p>Now edit the README.md and add a line “* Grapes”</p>
+<pre><code>git add README.md
+git commit -m &quot;blue monkey change&quot;</code></pre>
+<p>Now, go back to the master branch.</p>
+<pre><code>git checkout master
+cat README.md  # Double check that grapes are not there
+git merge blue_monkey # Merge branch back into master</code></pre>
+<p>Because there were no conflicts - the merge was done
+automatically.</p>
+<p>But imagine that the blue and cyan monkeys went off and did separate
+work. Find the commit before the merge, and create a branch from that,
+eg:</p>
+<pre><code>git checkout -b cyan_monkey HEAD^  # 1 commit back</code></pre>
+<p>Edit the README.md, say add “* Caffeinated bananas” and delete “*
+Watermelon”</p>
+<p>Add/commit</p>
+<pre><code>git add README.md
+git commit -m &quot;cyan monkey shopping list changes&quot;</code></pre>
+<p>Then back to main again:</p>
+<pre><code>git merge cyan_monkey</code></pre>
+<p>This can’t be auto-merged and is flagged as a conflict.</p>
+<pre><code>Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<p>If you look at the README.md it was merged, but with deliberate
+errors inserted around the merge conflict, so you have to manually edit
+it.</p>
+<pre><code>* Apples
+* Bananas
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+* Grapes
+=======
+* Chocolate covered bananas
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; cyan_monkey
+* Mango</code></pre>
+<p>Edit this file, to put the entries in alphabetical order, then delete
+the lines with “&lt;&lt;&lt;&lt;” and “&gt;&gt;&gt;” on them</p>
+<pre><code>git add README.md
+git commit # editor will now suggest a &#39;merge&#39; commit message</code></pre>
+<p>Now run:</p>
+<pre><code>git log --graph</code></pre>
+<p>Notice the branch and how it was merged back</p>
+<p><strong>Exercise</strong></p>
+<ul>
+<li>Create a new branch (and switch to it)</li>
+<li>Create 2 modifications against that branch. Look at the log and pick
+1 of the changes.</li>
+<li>Go back to master/main</li>
+<li>Run</li>
+</ul>
+<pre><code>git cherry-pick &lt;the hash you want&gt;</code></pre>
+<p>to only apply one change. This is useful to apply bug fixes to
+historical branches</p>
 </div>
 <div id="pull-push" class="section level2">
 <h2>Pull / Push</h2>
-<p>TODO</p>
+<p>When you clone a repository (eg from GitHub) you make a local copy
+(with all commits and history)</p>
+<p>When you edit files and make make changes to this, you</p>
+<p>and also track where you got it from (remote origin) - so it is easy
+to keep them in sync.</p>
+<p><strong>Fetch</strong> - retrieves commits from another repo, but
+doesn’t apply them <strong>Pull</strong> - runs fetch, then applies the
+commits, in effect “syncing” your local repo to the remote
+<strong>Push</strong> - send your changes to the remote server (we will
+cover this in either the bonus section below, and GitHub prac in Week
+9)</p>
 </div>
 <div id="bonus-workflows" class="section level2">
 <h2>Bonus: Workflows</h2>

@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 * Bash scripts + git
 * Git ignore
 * Moving through history
+* Restoring deleted files
 * Branches
 * Pull / Push
 * Bonus: Workflows
@@ -278,7 +279,15 @@ Then save the file, and exit to the shell. Run:
 git status
 ```
 
-This should show you that you have 1 untracked file called 'README.md'. Run:
+This should show you that you have 1 untracked file called 'README.md'. 
+
+To see this as a diff:
+
+```
+git diff
+```
+
+We need to tell Git about this change - run:
 
 ```
 git add README.md
@@ -395,12 +404,12 @@ All commits have unique hashes as labels, however these don't mean anything and 
 You can give commits your own names, which is called tagging.
 
 ```
-git tag cyan_monkey <hash from git log>  # need to change to your hash
+git tag my_tag <hash from git log>  # need to change to your hash
 ```
 
 A common use for tags is to label a release. This makes it easier to know the state of code in a release, find what releases are affected by bugs, and for instance show what changed between releases, eg:
 
-https://github.com/SACGF/cdot/compare/v0.2.7...v0.2.8
+[CDot change diff](https://github.com/SACGF/cdot/compare/v0.2.7...v0.2.8)
 
 This is linked from the CHANGELOG file in one of my GitHub projects:
 
@@ -492,15 +501,194 @@ Check in .gitignore
 
 ## Moving through history
 
-TODO
+Git stores (in .git) all of the changes ever applied to the files in the repo.
+
+It is worth thinking of the "normal files" in the directory as temporary - "working files", they can be reconstructed at various historical points by replaying certain git changes. Re-applying all of the changes will create the "latest" versions, and you can selectively apply patches to move through historical versions.
+
+![](https://openclipart.org/image/400px/332045)
+
+Cat the first log file from your pipeline.sh runs above, and find the commit hash
+
+To move the working files back to the state of this commit, you can run:
+
+```
+git checkout <commit_hash>  # Need to copy/paste from your git history
+```
+
+This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg master), while moving through history, it's "detached"
+
+You can also see this if you run 
+
+```
+git status
+```
+
+It will say "head detached"
+
+**Exercise**
+
+Run 
+
+```
+git log
+``` 
+
+and pick a commit, ie "initial commit"
+
+Move the repo back to this commit, and examine the README.md file
+
+To move back to the latest commit, run:
+
+```
+git checkout master
+```
+
+To check you're back to normal - run ```git log``` and ensure that the last commit has HEAD next to it
+
+
+## Restoring deleted files
+
+Delete the README.md, ie:
+
+```
+rm README.md
+```
+
+Now run:
+
+```
+git status  # Shows file was deleted
+git diff  # Shows patch
+```
+
+Retrieve the file from the repo - to undelete it in the working files
+
+```
+git checkout README.md
+```
 
 ## Branches
 
-TODO
+So far in your new repository we've been working in a linear way.
+
+But remember Git is a graph, and you can have multiple paths (think back to the ```git log --graph``` diagrams above) that split apart.
+
+The default branch is main/master, but you can diverge from this, and also merge together different branches.
+
+A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking master.
+
+You can create a branch then switch to it:
+
+```
+git branch blue_monkey # Creates a new branch from HEAD
+git checkout blue_monkey
+```
+
+Or you could do this in 1 line via:
+
+```
+git checkout -b blue_monkey # if you run this after creating the branch above it will error and do nothing
+```
+
+Now edit the README.md and add a line "* Grapes"
+
+```
+git add README.md
+git commit -m "blue monkey change"
+```
+
+Now, go back to the master branch.
+
+```
+git checkout master
+cat README.md  # Double check that grapes are not there
+git merge blue_monkey # Merge branch back into master
+```
+
+Because there were no conflicts - the merge was done automatically.
+
+But imagine that the blue and cyan monkeys went off and did separate work. Find the commit before the merge, and create a branch from that, eg:
+
+
+```
+git checkout -b cyan_monkey HEAD^  # 1 commit back
+```
+
+Edit the README.md, say add "* Caffeinated bananas" and delete "* Watermelon"
+
+Add/commit
+
+```
+git add README.md
+git commit -m "cyan monkey shopping list changes"
+```
+
+Then back to main again:
+
+```
+git merge cyan_monkey
+```
+
+This can't be auto-merged and is flagged as a conflict.
+
+```
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+If you look at the README.md it was merged, but with deliberate errors inserted around the merge conflict, so you have to manually edit it.
+
+```
+* Apples
+* Bananas
+<<<<<<< HEAD
+* Grapes
+=======
+* Chocolate covered bananas
+>>>>>>> cyan_monkey
+* Mango
+```
+
+Edit this file, to put the entries in alphabetical order, then delete the lines with "<<<<" and ">>>" on them
+
+```
+git add README.md
+git commit # editor will now suggest a 'merge' commit message
+```
+
+Now run:
+
+```
+git log --graph
+```
+
+Notice the branch and how it was merged back
+
+**Exercise**
+
+* Create a new branch (and switch to it)
+* Create 2 modifications against that branch. Look at the log and pick 1 of the changes.
+* Go back to master/main
+* Run
+
+```
+git cherry-pick <the hash you want>
+```
+
+to only apply one change. This is useful to apply bug fixes to historical branches
 
 ## Pull / Push
 
-TODO
+When you clone a repository (eg from GitHub) you make a local copy (with all commits and history)
+
+When you edit files and make make changes to this, you 
+
+and also track where you got it from (remote origin) - so it is easy to keep them in sync.
+
+**Fetch** - retrieves commits from another repo, but doesn't apply them
+**Pull** - runs fetch, then applies the commits, in effect "syncing" your local repo to the remote
+**Push** - send your changes to the remote server (we will cover this in either the bonus section below, and GitHub prac in Week 9)
 
 ## Bonus: Workflows
 
