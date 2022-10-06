@@ -437,15 +437,11 @@ your password in plain text on the VM, then you can do so via:</p>
 <p>Otherwise, just leave the tab open so you can copy/paste it, or
 copy/paste it into a temporary text editor</p>
 </div>
-<div id="branches" class="section level2">
-<h2>Branches</h2>
-<p>Branches allow you to keep different versions of code (say, a
-“stable” vs “experimental/active development”) and keep work
-separate.</p>
-<p>You can split off branches, and merge branches into each other.</p>
-<p><a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Git
-- branches in a nutshell</a> <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches">GitHub
-- about branches</a></p>
+<div id="projects" class="section level2">
+<h2>Projects</h2>
+<p>Create a new project * * In the top right hand corner, click the plus
+symbol, then “new repository” * Call it eg ‘week9_github_practical’ *
+Choose a licence, add a README. Probably make it private</p>
 </div>
 <div id="issues---searching" class="section level2">
 <h2>Issues - searching</h2>
@@ -461,8 +457,42 @@ how special tokens in the search form change.</p>
 can’t see the contents (though you can search for it, eg “font” will
 bring up titles without “font” in it, as they have it in the issue)</p>
 </div>
-<div id="issues" class="section level2">
-<h2>Issues</h2>
+<div id="issues---labels" class="section level2">
+<h2>Issues - labels</h2>
+<p>As well as titles, labels can be used to organise issues into related
+themes. Read the documentation <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">Github
+- managing labels</a></p>
+<ul>
+<li>Create some labels for your project, with distinct colours - if
+you’re unimaginative you could use “red”, “green”, “blue” with
+appropriate colours</li>
+<li>Raise some fake issues on your project, don’t worry about content
+just make a lot of different titles (ie “problem X with red”, “problem Y
+with red”, “problem X with green”, “problem Y with green”)</li>
+<li>Tag the issues with appropriate keywords (view each individual
+issue, click label cog on right hand toolbar, select from
+autocomplete)</li>
+<li>Perform a search for keywords, and notice how the labels make it
+easier to find related</li>
+<li>Try clicking on a label (this does a search by label)</li>
+</ul>
+</div>
+<div id="issues---lifecycle" class="section level2">
+<h2>Issues - lifecycle</h2>
+<p>Issues move througha lifecycle, ie:</p>
+<p>raised -&gt; fixed -&gt; tested -&gt; closed raised -&gt; tagged as
+“duplicate”, “wontfix” -&gt; comment about which other issue is a
+duplicate + close</p>
+<ul>
+<li>Find an issue,</li>
+<li>Add “wontfix” label</li>
+<li>Add a comment at the bottom saying this issue is too hard / out of
+scope of the project and close the issue</li>
+<li>Go back to the search, notice it’s gone</li>
+</ul>
+</div>
+<div id="issues---writing-tips" class="section level2">
+<h2>Issues - writing tips</h2>
 <p>Even for your own projects - try and write it with as much
 information as possible (aiming to be standalone, so you don’t need much
 outside context), so that a 3rd party can come in and make sense of
@@ -481,6 +511,32 @@ cut down one.</p>
 <p>For unexpected behavior, or outputs, <a href="https://medium.com/we-are-testers/chapter-2-how-to-write-useful-actual-and-expected-results-details-in-your-bug-report-10b83e5aaa75">Actual
 vs Expected</a> is very useful</p>
 </div>
+<div id="milestones" class="section level2">
+<h2>Milestones</h2>
+<p>Milestones are a way of managing releases and deadlines</p>
+<p>For instance, you may have 20 issues, but your lab head says you have
+to stop coding and start writing up your paper in 2 weeks.</p>
+<ul>
+<li>Create a milestone called “Code complete for paper” with a deadline
+in 2 weeks time</li>
+<li>Assign a few issues to this (you will need to go into each
+individual issue, click milestone cog, select from autocomplete)</li>
+<li>Go back to issues, search by milestone</li>
+</ul>
+</div>
+<div id="wiki" class="section level2">
+<h2>Wiki</h2>
+<ul>
+<li>Create a few wiki pages for your practical project (the one you made
+not forked)</li>
+<li>Use 2 levels of headers “#” and “##”</li>
+<li>Go to the wiki page, notice that it has built a hierarchical wiki
+browser for you out of your headers</li>
+</ul>
+</div>
+</div>
+<div id="simulated-open-source-project-repo" class="section level1">
+<h1>Simulated open source project repo</h1>
 <div id="practical-week-9-simulated-open-source-repo" class="section level2">
 <h2>Practical week 9 simulated open source repo</h2>
 <p>There’s a <a href="https://github.com/davmlaw/practical_week_9_github_repositories">Week
@@ -499,6 +555,19 @@ You can see the latest content, and the last commit.</p>
 commits.</li>
 <li>Go back and click “blame” to see commits that last touched a
 row</li>
+</ul>
+</div>
+<div id="branches" class="section level2">
+<h2>Branches</h2>
+<p>Branches allow you to keep different versions of code (say, a
+“stable” vs “experimental/active development”) and keep work
+separate.</p>
+<p>You can split off branches, and merge branches into each other.</p>
+<p><a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Git
+- branches in a nutshell</a> <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches">GitHub
+- about branches</a></p>
+<ul>
+<li>Click on the “branches” links on the practical repo</li>
 </ul>
 </div>
 <div id="raising-an-issue" class="section level2">
