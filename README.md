@@ -50,10 +50,10 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
 | **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Anna/Alex)             |
 | **7**    | 5/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave/Alex)             |
-| **8**    | 12/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control] (David L/Nora)  |
+| **8**    | 12/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L/Nora)  |
 | **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  |GitHub Repositories (David L/Nora)  
+| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
 | **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical] (1) (Zhipeng/Nora)  |
 | **11**   | 17/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical] (2) (Zhipeng/Nora)  | 
 | **12**   | 24/10      | Ancient DNA (Bastien)| aDNA tutorial |Can work on last assessment |
@@ -85,7 +85,8 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [Coding comments]: Tutorials/Code_comments_tutorial/code_comments.html
 [Version control tutorial]: Tutorials/Version_control_tutorial/version_control_tutorial.html
-[Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
+[Local Version Control Practical]: Practicals/local_version_control_practical/local_version_control_practical.html
+[GitHub repositories Practical]: Practicals/github_repositories_practical/github_repositories_practical.html
 
 ## Assessment
 
