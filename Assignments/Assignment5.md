@@ -85,7 +85,8 @@ These should be treated as two separate incidents, with different severities, an
 ### Resources
 
 - [How to write a good bug report](https://musescore.org/en/node/309537)
+- [Issues - Actual vs Expected](https://medium.com/we-are-testers/chapter-2-how-to-write-useful-actual-and-expected-results-details-in-your-bug-report-10b83e5aaa75)
+- [Git - branches in a nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 - [GitHub - about branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
 - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - [GitHub - creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-
