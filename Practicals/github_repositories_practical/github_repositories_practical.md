@@ -71,6 +71,22 @@ Create a new project
 * Call it eg 'week9_github_practical'
 * Choose a licence, add a README. Probably make it private
 
+## Clone your repo
+
+* Copy/paste the URL at the top of your project
+* Clone it to your VM
+* Make a change to the README.md
+
+```
+git add README.md
+git commit --message "edit README"
+git push
+```
+
+Enter your github username, and your access tokens here.
+
+If you saved it (credential store) you won't have to enter it again. Maybe you want to see how it's stored in your home directory (git config etc)
+
 ## Issues - searching
 
 Go to [IGV issues](https://github.com/igvteam/igv/issues)
@@ -199,5 +215,8 @@ Go to your forked repo page.
 * Go to the original repo (not your fork) - notice that the "pull request" tab now shows some numbers. Click it and find your pull request
 * Go to your issue - you should be able to see the linked pull request
 
+# Extras
 
-
+* Try editing the README on GitHub as well as locally. Try editing different lines then push/pulling. Try editing the same line then push/pulling
+* Tags are a label for a commit, and are useful for things like "tagging a release". It's easier than memorising a date or a hash. Try making some tags for your repository. Google for help on GitHub tags to find out the steps
+* Read some closed issues on the bioinformatics GitHub projects above. Notice how they often involve conversations over long periods of time.
