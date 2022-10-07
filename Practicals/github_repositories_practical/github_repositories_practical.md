@@ -53,28 +53,34 @@ GitHub uses [Personal access tokens](https://docs.github.com/en/authentication/k
 * Click on your user icon in the top right
 * Click "Settings"
 * In bottom left menu option - "Developer Settings", then "Personal Access token"
-* Generate new token, label it something like "bioinformatics VM", it needs repository access
+* Generate new token, label it something like "bioinformatics VM". Make sure you click the first tickbox "repo" so you can use it to push/pull
 
-If you have password access to your VM, and you are happy to store your password in plain text on the VM, then you can do so via:
+**DO NOT CLOSE THIS TAB** - leave it open so you can copy/paste it below
+
+You can store your token (as plaintext on the VM) via:
 
 ```
 git config --global credential.helper store
 ```
 
-Otherwise, just leave the tab open so you can copy/paste it, or copy/paste it into a temporary text editor
+If you do this you will only have to enter your token once. If someone gets this token they can make changes to your GitHub repo so please password protect your VMs
+
+When it comes time to enter git username/passwords - you do NOT enter your github password, you use this token.
 
 ## Projects
 
 Create a new project
-* 
+
 * In the top right hand corner, click the plus symbol, then “new repository”
 * Call it eg 'week9_github_practical'
-* Choose a licence, add a README. Probably make it private
+* Choose a licence, add a README.
+* If you want to make a wiki later, you need to make it public (only "pro" / "enterprise" and organisations (eg educational institutions) can have private repo wikis)
 
 ## Clone your repo
 
 * Copy/paste the URL at the top of your project
 * Clone it to your VM
+* If your repo is private, you will need to enter your username/password here. The password is the access token (not GitHub password)
 * Make a change to the README.md
 
 ```
@@ -83,9 +89,7 @@ git commit --message "edit README"
 git push
 ```
 
-Enter your github username, and your access tokens here.
-
-If you saved it (credential store) you won't have to enter it again. Maybe you want to see how it's stored in your home directory (git config etc)
+If the repo is public (and you didnt' have to enter it when you pulled) you will have to enter your github username and password now. The password is the access token (not GitHub password)
 
 ## Issues - searching
 
@@ -195,12 +199,11 @@ Write [Actual vs Expected](https://medium.com/we-are-testers/chapter-2-how-to-wr
 
 * You can now clone your private fork of the repo to your local machine.
 
-## Fix the high severity issue (XXXXXXX), in the "main"" and "stable" branches
+## Fix the high severity issue (XXXXXXX)
 
 * Edit your data/ file, and remove the high severity issue (XXXXXXX) ONLY (ie DO NOT change the low severity (UPPERCASE) at the same time). There should only be 1 space between the words after removing the XXXXX
-* Write a descriptive commit message, which references the high severity issue above
-* This bug needs to be fixed in the "stable" branch as well, so switch to that branch and [cherry-pick](https://git-scm.com/docs/git-cherry-pick) the commit you just made
-* Push both branches to your repo (you may need to handle access tokens here (see top of this file))
+* ```git add``` then ``git commit --message "fix issue #xxx"`` (referencing the issue in the original repo you raised)
+* ``git push`` back to your repo
 
 ## Your forked repo
 
@@ -211,8 +214,9 @@ Go to your forked repo page.
 
 ## Submit a pull request
 
-* Comments should link to both issues and give a brief description of the change
-* Go to the original repo (not your fork) - notice that the "pull request" tab now shows some numbers. Click it and find your pull request
+* Create a pull request from the front page of your repo (near "X commits ahead")
+* Comments should link to both issues and give a brief description of the change. You don't need to repeat everything in the issue, just link to it
+* after creating the pull request you'll be taken to the original repo (not your fork) - notice that the "pull request" tab now shows some numbers. Notice how the pull request comment can be hovered over to see the issue
 * Go to your issue - you should be able to see the linked pull request
 
 # Extras
