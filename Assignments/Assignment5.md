@@ -47,6 +47,7 @@ These should be treated as two separate incidents, with different severities, an
 (total: 4 points)
 
 3. Fork the repository to your personal account.
+    + Make sure you untick the "Copy the main branch only" - you want the other "stable" branch to also be copied
 
 4. Fix the high severity issue (XXXXXXX), in the "main"" and "stable" branches
     + You will need to clone your private fork of the repo to your local machine.
