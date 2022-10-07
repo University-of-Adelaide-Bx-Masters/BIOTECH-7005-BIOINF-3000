@@ -80,7 +80,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [Alignment/NGS (2)]: Practicals/NGS_Practicals/2_NGS_Practical2.md
 [Variant Calling practical]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [Graphical analyses]: https://github.com/kortschak/graphprac/
-[DE gene tutorial]: DE_gene_tutorial/Tutorial_DE_Genes.html
+[DE gene tutorial]: 
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 [Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [Coding comments]: Tutorials/Code_comments_tutorial/code_comments.html
