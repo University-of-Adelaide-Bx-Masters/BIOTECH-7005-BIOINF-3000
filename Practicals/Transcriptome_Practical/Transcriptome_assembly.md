@@ -144,15 +144,15 @@ The initial RNA-Seq raw data is stored in your data directory `~/data/Transcript
 Copy the raw data to your `data` folder
 
 ```bash
-cp ~/data/Transcriptomics_data_2021/Practicals/Col_leaf_chr2_R*.fastq.gz ~/Practical_9/data/
+cp ~/data/Transcriptomics_data/Practicals/Col_leaf_chr2_R*.fastq.gz ~/Practical_9/data/
 
 ```
 
 The databases, including Arabidopsis reference genome (TAIR10_chrALL.fa), annotated genes (TAIR10_GFF3_genes.gtf), and BUSCO lineages file (viridiplantae_odb10.2020-09-10.tar.gz) need to be copied to `~/Practical_9/DB` and the tarball decompressed and untarred..
 
 ```bash
-cp ~/data/Transcriptomics_data_2021/Practicals/TAIR10_* ~/Practical_9/DB/ 
-cp ~/data/Transcriptomics_data_2021/Practicals/viridiplantae_odb10.2020-09-10.tar.gz ~/Practical_9/DB/
+cp ~/data/Transcriptomics_data/Practicals/TAIR10_* ~/Practical_9/DB/ 
+cp ~/data/Transcriptomics_data/Practicals/viridiplantae_odb10.2020-09-10.tar.gz ~/Practical_9/DB/
 cd ~/Practical_9/DB
 tar -zxvf viridiplantae_odb10.2020-09-10.tar.gz
 ```
