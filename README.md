@@ -54,8 +54,8 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
-| **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical] (1) (Zhipeng/Nora)  |
-| **11**   | 17/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical] (2) (Zhipeng/Nora)  | 
+| **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng/Nora)  |
+| **11**   | 17/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng/Nora)  | 
 | **12**   | 24/10      | Ancient DNA (Bastien)| aDNA tutorial |Can work on last assessment |
 
 
@@ -82,7 +82,6 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [Graphical analyses]: https://github.com/kortschak/graphprac/
 [DE gene tutorial]: 
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
-[Transcriptomic Practical]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [Coding comments]: Tutorials/Code_comments_tutorial/code_comments.html
 [Version control tutorial]: Tutorials/Version_control_tutorial/version_control_tutorial.html
 [Local Version Control Practical]: Practicals/local_version_control_practical/local_version_control_practical.html
