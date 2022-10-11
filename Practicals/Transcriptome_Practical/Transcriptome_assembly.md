@@ -70,11 +70,11 @@ There are three parts to the transcriptome assembly in this Prac. Please follow 
 
 ## Part 1, Setup and data preparation
 
-In this part, we will activate the conda environment and install tools/packages required in this project. We will also create some folders to keep files (including input RNA-Seq raw reads, databases and output files) organised.
+In this part, we will create and activate the conda environment and install tools/packages required in this project. We will also create some folders to keep files (including input RNA-Seq raw reads, databases and output files) organised.
 
 ### 1.1 Create, activate `conda` environment and install required tools
 
-The first step is to install the `conda transcriptomics_analysis` environment, and we will install several essential tools/packages under this `conda` enviroment. You can learn more about `conda` environment from this [link]{https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html}. This `transcriptomics_analysis conda` environment has most of the tools that we are going to use pre-installed.
+The first step is to create and activate the `conda transcriptomics_analysis` environment, and we will install several essential tools/packages under this `conda` enviroment. You can learn more about `conda` environment from this [link](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 After you login to your VM and open the terminal you will see the prompt in the terminal window. This is the prompt in my VM.
 
@@ -302,7 +302,7 @@ Trinity --seqType fq --left ~/Practical_transcriptomics/results/2_clean_data/Col
 --output Col_leaf_chr2_trinity --CPU 2 --max_memory 8G --bypass_java_version_check
 ```
 
-This step will take more than 2 hours, so we will finish here today and let the VM finish the job, and we will come back to run the remaining analyses in Tuesday's Prac.
+This step will take more than 2 hours, so we will finish here today and let the VM finish the job, and we will come back to run the remaining analyses in next session.
 
 ### 4.2 Get Trinity assembly statistics
 
@@ -416,3 +416,5 @@ cp ~/Practical_transcriptomics/results/4_genome_guided_assembly/Col_leaf_chr2.Al
 ```
 
 Then we can check the assembled transcripts by loading the `Trinity.gff3` and `StringTie.gtf` into IGV. We can also load the `bam` file into IGV to check the reads supporting assembled transcripts.
+
+We will use online version of IGV in this Prac, and you can accsse the online IGV using this [link](https://igv.org/app/). 
