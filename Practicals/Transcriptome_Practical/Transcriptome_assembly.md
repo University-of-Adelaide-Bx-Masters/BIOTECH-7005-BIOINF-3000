@@ -263,7 +263,7 @@ gffread -w StringTie.fasta -g ~/Practical_transcriptomics/DB/TAIR10_chrALL.fa St
 
 ### 3.3 Assessing the assembly quality using BUSCO
 
-As we did before, we can use BUSCO to assess the assembly quality.
+After we get the assembled transcripts, we need to find some ways to assess the quality of the assembly, such as the completeness of genes/transcripts. One way that we can check the assembly quality is by using BUSCO (Benchmarking Universal Single-Copy Orthologs, <https://busco.ezlab.org/>). BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expections of gene content from near-universal single-copy orthologs selected from different lineages.
 
 ```bash
 cd ~/Practical_transcriptomics/results/4_genome_guided_assembly
@@ -286,10 +286,9 @@ BUSCO will output a bunch of files including the information for predicted ORFs 
         --------------------------------------------------
 ```
 
-
 ## Part 4, De novo transcriptome assembly
 
-So far we have trimmed the adaptor and low-quality sequences from the reads. Next we will do _de novo_ transcriptome assembly using Trinity.
+In Part 2, we had trimmed the adaptor and low-quality sequences from the reads. Next we will do _de novo_ transcriptome assembly using Trinity.
 
 ### 4.1 De novo assembly using Trinity
 
@@ -364,7 +363,8 @@ __Questions: What is the difference between transcripts and genes? Why have we g
 
 ### 4.3 Assessing the assembly quality using BUSCO
 
-After we get the assembled transcripts, we need to find some ways to assess the quality of the assembly, such as the completeness of genes/transcripts. One way that we can check the assembly quality is by using BUSCO (Benchmarking Universal Single-Copy Orthologs, <https://busco.ezlab.org/>). BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expections of gene content from near-universal single-copy orthologs selected from different lineages.
+As we did before, we can use BUSCO to assess the assembly quality.
+
 
 ```bash
 cd ~/Practical_transcriptomics/results/3_denovo_assembly
