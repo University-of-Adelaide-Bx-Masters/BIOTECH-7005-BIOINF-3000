@@ -33,7 +33,7 @@ __Step 1. Write the first script to:__
 + Build the genome index for GMAP [*2 marks*]
 + Build the genome index for STAR [*2 marks*]
 
-__Step 2. Write the second script to copy the sequencing data to your `data` directory  and carry out QC__. The data are in `~/data/Transcriptomics_data_2021/Assignment/`. [*1 mark*] Include the following steps:
+__Step 2. Write the second script to copy the sequencing data to your `data` directory  and carry out QC__. The data are in `~/data/Transcriptomics_data/Assignment/`. [*1 mark*] Include the following steps:
 
 + Get QC report for raw reads [*1 mark*]
 + Trim adaptor and low-quality sequences using cutadapt [*1 mark*]
