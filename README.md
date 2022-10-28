@@ -56,7 +56,7 @@ Practicals: Friday 11am-1pm, Johnson, 111
 | **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
 | **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng/Nora)  |
 | **11**   | 17/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng/Nora)  | 
-| **12**   | 24/10      | Ancient DNA (Bastien)| aDNA tutorial |Can work on last assessment |
+| **12**   | 24/10      | [Ancient DNA][11] (Bastien)| [aDNA tutorial][12] |Can work on last assessment |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
@@ -69,6 +69,8 @@ Practicals: Friday 11am-1pm, Johnson, 111
 [8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
+[11]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Lectures/12_ancient_DNA-compressed.pdf
+[12]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/tree/master/Practicals/ancient_DNA_practical
 
 
 [Introduction to VMs]: Practicals/vm_connection.md
