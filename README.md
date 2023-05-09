@@ -45,17 +45,17 @@ Practicals: Friday 11am-1pm, Johnson, 111
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
 | **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
-| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave/Alex)   |
-| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave/Alex)                   |
-| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
-| **6**    | 28/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Anna/Alex)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave/Alex)             |
-| **8**    | 11/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L/Nora)  |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Anna)   |
+| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave)                   |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/)    |
+| **6**    | 28/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave)             |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave)             |
+| **8**    | 11/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
-| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng/Nora)  |
-| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng/Nora)  | 
+| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L)  
+| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng)  |
+| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng)  | 
 | **12**   | 23/10      | [Ancient DNA][11] (Bastien)| [aDNA tutorial][12] |Can work on last assessment |
 
 
