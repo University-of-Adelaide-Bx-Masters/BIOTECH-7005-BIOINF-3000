@@ -4,7 +4,7 @@
 ## Biotech 7005/Bioinf 3000: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2022
+Semester 2 2023
 
 Coordinator:
 - Dave Adelson
@@ -18,8 +18,8 @@ Instructors:
 - David Lawrence
 
 Teaching assistants:
-- Wenjun (Nora) Liu
-- Alex Stuart
+- TBD
+- TBD
 
 __*Course Contact*__
 Dave Adelson
@@ -31,32 +31,32 @@ Dave Adelson
 Lectures, Tutorials and practicals will be delivered face to face (subject to change depending on COVID-19). Social distancing and or mask wearing may be required. 
 
 Lectures: Monday 12 Noon, Lower Napier, LG28
-- 25 July — 24 Oct
+- 24 July — 23 Oct
 
 Tutorials: Tuesday 11am-1pm, Mawson, 134
-- 26 July — 25 Oct
+- 25 July — 24 Oct
 
 Practicals: Friday 11am-1pm, Johnson, 111
-- 29 July — 28 Oct
+- 28 July — 27 Oct
 
 ### Timetable (Provisional)
 
 | **Week** | **Monday** |**Lecture**         |**Tutorial**                                 | **Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
-| **1**    | 25/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
-| **2**    | 1/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
-| **3**    | 8/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave/Alex)   |
-| **4**    | 15/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave/Alex)                   |
-| **5**    | 22/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
-| **6**    | 29/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Anna/Alex)             |
-| **7**    | 5/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave/Alex)             |
-| **8**    | 12/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L/Nora)  |
-| **-**    | 19/9       | Mid-Semester Break      |                                        |                                          |
-| **-**    | 26/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 3/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
-| **10**   | 10/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng/Nora)  |
-| **11**   | 17/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng/Nora)  | 
-| **12**   | 24/10      | [Ancient DNA][11] (Bastien)| [aDNA tutorial][12] |Can work on last assessment |
+| **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
+| **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Dave/Alex)   |
+| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave/Alex)                   |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/Alex)    |
+| **6**    | 28/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Anna/Alex)             |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave/Alex)             |
+| **8**    | 11/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L/Nora)  |
+| **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
+| **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
+| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L/Nora)  
+| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng/Nora)  |
+| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng/Nora)  | 
+| **12**   | 23/10      | [Ancient DNA][11] (Bastien)| [aDNA tutorial][12] |Can work on last assessment |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
