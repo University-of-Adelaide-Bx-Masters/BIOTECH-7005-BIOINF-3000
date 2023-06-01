@@ -28,35 +28,35 @@ Dave Adelson
 - Office: Molecular Life Sciences Rm 2.10
 
 ### Contact Hours
-Lectures, Tutorials and practicals will be delivered face to face (subject to change depending on COVID-19). Social distancing and or mask wearing may be required. 
+Lectures and practicals will be delivered face to face. If you are unwell, please think of others and do not attend. 
 
-Lectures: Monday 12 Noon, Lower Napier, LG28
+Lectures: Monday 9AM, Napier, G03
 - 24 July — 23 Oct
 
-Tutorials: Tuesday 11am-1pm, Mawson, 134
-- 25 July — 24 Oct
+Practical 01: Monday 11am-1pm, Johnson, 111
+- 24 July — 23 Oct
 
-Practicals: Friday 11am-1pm, Johnson, 111
+Practical 02: Friday 11am-1pm, Johnson, 111
 - 28 July — 27 Oct
 
 ### Timetable (Provisional)
 
-| **Week** | **Monday** |**Lecture**         |**Tutorial**                                 | **Practical**                              |
+| **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
 | **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
-| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* (Steven/Dave)  |[Introduction To Bash] (Anna)   |
-| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* (Dave)|[Scripting In Bash] (Dave)                   |
-| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* <br> Scripting tutorial (Anna) | [Evolutionary processes] (Dave/)    |
-| **6**    | 28/8       |Alignment Process (Dave) |*No test* (Dave)/Alignment tutorial  |[Alignment/NGS (1)] (Dave)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Alignment/NGS (2)] (Dave)             |
-| **8**    | 11/9       |Version Control (David L)   |[Version control tutorial] (David L)    |[Local Version Control Practical] (David L)  |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (Steven/Dave)  |[Introduction To Bash] (Anna)   |
+| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (Dave)|[Scripting In Bash] (Dave)                   |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Scripting again] (Anna) | [Evolutionary processes] (Dave/)    |
+| **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Dave)             |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Version Control Intro (01)] David L             |
+| **8**    | 11/9       |Version Control (David L)   |[Version Control (02)] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Version control test*/ GitHub tutorial (David L)  | [GitHub Repositories Practical] (David L)  
-| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[DE gene tutorial] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng)  |
-| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/Transcriptome tutorial (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng)  | 
-| **12**   | 23/10      | [Ancient DNA][11] (Bastien)| [aDNA tutorial][12] |Can work on last assessment |
+| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
+| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[GitHub Repositories] (David L) | [DE genes] (Zhipeng)  |
+| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/  [Transcriptome intro] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng)  | 
+| **12**   | 23/10      |[Ancient DNA][11] (Bastien)|[Transcriptomic Practical][10] (2) (Zhipeng) | [aDNA][12] |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
@@ -91,19 +91,19 @@ Practicals: Friday 11am-1pm, Johnson, 111
 
 ## Assessment
 
-### Assessment Schedule & Weighting
+### Assessment Schedule & Weighting (NOT YET UPDATED FOR 2023)
 
 | **Assessment - All Students**                                 | **Subject**                |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%             | N/A%         | Friday 12/08/22     |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%             | N/A%          | Friday 26/08/22     |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%             | N/A%         | Friday 02/09/22  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%             | N/A%          | Friday 16/09/22  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%             | N/A%         | Friday 14/10/22  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics|  15%             | N/A%         | Friday 28/10/22    |
-| Tests                                                        |                             |  10%            | N/A%         |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            |N/A%        |    |
-| Exam                                                         |                             |  N/A            | N/A%        |                       |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%            | 12.75%         | Friday 12/08/22     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%            | 12.75%         | Friday 26/08/22     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%            | 12.75%         | Friday 02/09/22  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%            | 12.75%         | Friday 16/09/22  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 14/10/22  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 28/10/22    |
+| Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
+| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%            |  TBD  |
+
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
 
