@@ -45,12 +45,12 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
 | **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/TBD)      |
-| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (Steven/Anna)  |[Introduction To Bash] (Anna)   |
-| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (Dave)|[Scripting In Bash] (Dave)                   |
-| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (Dave)) | [Evolutionary processes] (Dave/)    |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
+| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave)) | [Evolutionary processes] (2) (Dave/)    |
 | **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Dave)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Version Control] David L             |
-| **8**    | 11/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Version Control] (1) David L             |
+| **8**    | 11/9       |Version Control (David L)   |[Version Control] (2) (David L)    |[Local Version Control] (David L)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
