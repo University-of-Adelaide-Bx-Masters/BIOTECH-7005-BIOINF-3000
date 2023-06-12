@@ -102,7 +102,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 14/10/22  |
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 28/10/22    |
 | Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Project](Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%            |  TBD  |
+| [Project]THIS IS UNDER CONSTRUCTION (Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%            |  TBD  |
 
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
@@ -127,9 +127,9 @@ Have you:
 
 In this course, the following next-generation sequencing (NGS) datasets/protocols are covered:
 
-1. Whole genome resequencing 
-2. Transcriptome Sequencing (RNAseq) 
-3. 
+1. Phylogenetic trees
+2. Whole genome resequencing 
+3. Transcriptome Sequencing (RNAseq)  
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
