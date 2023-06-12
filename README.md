@@ -44,13 +44,13 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
-| **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/Nora)      |
-| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (Steven/Dave)  |[Introduction To Bash] (Anna)   |
+| **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/TBD)      |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (Steven/Anna)  |[Introduction To Bash] (Anna)   |
 | **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (Dave)|[Scripting In Bash] (Dave)                   |
-| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Scripting again] (Anna) | [Evolutionary processes] (Dave/)    |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (Dave)) | [Evolutionary processes] (Dave/)    |
 | **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Dave)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Version Control Intro (01)] David L             |
-| **8**    | 11/9       |Version Control (David L)   |[Version Control (02)] (David L)    |[Local Version Control] (David L)  |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Version Control] David L             |
+| **8**    | 11/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
@@ -85,7 +85,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 [DE gene tutorial]: Tutorials/Tutorial10_DE_analysis.pdf 
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 [Coding comments]: Practicals/Code_comments_practical/code_comments.html
-[Version Control (02)]: Practicals/Version_control_practical/version_control_practical.html
+[Version Control]: Practicals/Version_control_practical/version_control_practical.html
 [Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
 
@@ -127,9 +127,9 @@ Have you:
 
 In this course, the following next-generation sequencing (NGS) datasets/protocols are covered:
 
-1. Whole genome sequencing/Resequencing
-2. Transcriptome Sequencing (RNAseq)
-3. Variant Calling
+1. Whole genome resequencing 
+2. Transcriptome Sequencing (RNAseq) 
+3. 
 
 Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
 
