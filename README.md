@@ -85,7 +85,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 [DE gene tutorial]: Tutorials/Tutorial10_DE_analysis.pdf 
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 [Coding comments]: Practicals/Code_comments_practical/code_comments.html
-[Reproducible Science] Practicals/reproducible_science_practical/reproducible_science_practical.html
+[Reproducible Science]: Practicals/reproducible_science_practical/reproducible_science_practical.html
 [Version Control]: Practicals/Version_control_practical/version_control_practical.html
 [Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
