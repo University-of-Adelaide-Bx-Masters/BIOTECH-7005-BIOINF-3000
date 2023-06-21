@@ -55,7 +55,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
 | **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[GitHub Repositories] (David L) | [DE genes] (Zhipeng)  |
-| **11**   | 16/10      | Transcriptomics (Zhipeng) |*Transcriptomic/Gene Expression test*/  [Transcriptome intro] (Zhipeng) |[Transcriptomic Practical][10] (1) (Zhipeng)  | 
+| **11**   | 16/10      | Transcriptomics (Zhipeng) | [Transcriptome intro] (Zhipeng) |*Transcriptomic/Gene Expression test*/ [Transcriptomic Practical][10] (1) (Zhipeng)  | 
 | **12**   | 23/10      |[Ancient DNA][11] (Bastien)|[Transcriptomic Practical][10] (2) (Zhipeng) | [aDNA][12] |
 
 
@@ -95,14 +95,14 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 
 | **Assessment - All Students**                                 | **Subject**                |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%            | 12.75%         | Friday 12/08/22     |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%            | 12.75%         | Friday 26/08/22     |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%            | 12.75%         | Friday 02/09/22  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%            | 12.75%         | Friday 16/09/22  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 14/10/22  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 28/10/22    |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%            | 12.75%         | Friday 11/08/23     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%            | 12.75%         | Friday 25/08/23     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%            | 12.75%         | Friday 01/09/23  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%            | 12.75%         | Friday 15/09/23  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 13/10/23  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 27/10/23    |
 | Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Project]THIS IS UNDER CONSTRUCTION (Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%            |  TBD  |
+| [Project]THIS IS UNDER CONSTRUCTION (Assignments/major_project.md)                      | Complete Dataset            |  N/A            | 15%            |  Friday 03/11/23  |
 
 
 Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
