@@ -1,0 +1,88 @@
+---
+title: "Reproducible Science Practical"
+author: "David Lawrence"
+date: "2023-06-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+TODO: this is just a placeholder....
+
+### Hashes
+
+```{bash}
+md5sum --help
+```
+
+### Diffs
+
+```{bash}
+diff --help
+```
+
+### Unit testing
+
+```{r}
+library(testthat)
+
+# Define the function that counts nucleotides
+count_nucleotides <- function(dna_string) {
+  nucleotides <- c("A", "C", "G", "T")
+  counts <- sapply(nucleotides, function(n) {
+    matches <- gregexpr(pattern = n, text = dna_string)[[1]]
+    if(matches[1] == -1) {
+      return(0)
+    } else {
+      return(length(matches))
+    }
+  })
+  names(counts) <- nucleotides
+  return(counts)
+}
+
+# Now let's write a test for this function
+test_that("count_nucleotides correctly counts nucleotides", {
+  dna_string <- "ACGTACGTACGTACGTACGT"
+  expect_equal(count_nucleotides(dna_string), c(A=5, C=5, G=5, T=5))
+
+  dna_string <- "AAACCCGGGTTT"
+  expect_equal(count_nucleotides(dna_string), c(A=3, C=3, G=3, T=3))
+
+  dna_string <- ""
+  expect_equal(count_nucleotides(dna_string), c(A=0, C=0, G=0, T=0))
+})
+```
+
+### Directed Acyclic Graphs
+
+```{r}
+# Load the igraph package
+library(igraph)
+
+# Create a DAG representing a bioinformatics pipeline
+edges <- c("Raw Reads", "Quality Control", 
+           "Quality Control", "Alignment",
+           "Alignment", "BAM Indexing",
+           "BAM Indexing", "Variant Calling",
+           "Variant Calling", "Variant Filtering",
+           "Variant Filtering", "Annotation")
+
+# Create a graph object
+g <- graph(edges, directed = TRUE)
+
+# Define the layout
+l <- layout_as_tree(g, root=1, mode="out")
+
+# Plot the graph
+plot(g, layout=l, 
+     edge.arrow.size = 0.5, 
+     vertex.color = "lightblue", 
+     vertex.size = 20, 
+     vertex.frame.color = "gray", 
+     vertex.label.color = "black", 
+     vertex.label.cex = 0.8,
+     edge.curved=0.2)
+```
