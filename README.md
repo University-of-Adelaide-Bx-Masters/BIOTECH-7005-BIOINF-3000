@@ -54,9 +54,9 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 9/10      | Quantifying Gene Expression (Zhipeng)|[GitHub Repositories] (David L) | [DE genes] (Zhipeng)  |
-| **11**   | 16/10      | Transcriptomics (Zhipeng) | [Transcriptome intro] (Zhipeng) |*Transcriptomic/Gene Expression test*/ [Transcriptomic Practical][10] (1) (Zhipeng)  | 
-| **12**   | 23/10      |[Ancient DNA][11] (Bastien)|[Transcriptomic Practical][10] (2) (Zhipeng) | [aDNA][12] |
+| **10**   | 9/10      | [Ancient DNA][11] (Bastien)|[GitHub Repositories] (David L) |[aDNA][12]  |
+| **11**   | 16/10      |Quantifying Gene Expression (Zhipeng)  | [Transcriptome intro] (Zhipeng) |*Transcriptomic/Gene Expression test*/ [DE genes] (Zhipeng) | 
+| **12**   | 23/10      |Transcriptomics (Zhipeng) |[Transcriptomic Practical][10] (2) (Zhipeng) | [Transcriptomic Practical][10] (1) (Zhipeng)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
