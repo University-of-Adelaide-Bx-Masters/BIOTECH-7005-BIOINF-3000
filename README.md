@@ -18,8 +18,8 @@ Instructors:
 - David Lawrence
 
 Teaching assistants:
-- TBD
-- TBD
+- Bethany Cross
+- Chelsea Matthews
 
 __*Course Contact*__
 Dave Adelson
