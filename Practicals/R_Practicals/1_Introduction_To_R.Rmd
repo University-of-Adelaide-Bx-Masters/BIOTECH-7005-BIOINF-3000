@@ -55,7 +55,7 @@ RStudio has a whole of extra features not directly related to `R`, but that make
 For these practicals we have given you a Virtual Machine (VM) and we will use these to ensure minimal issues with the entire practical series.
 RStudio is how we will primarily interact with our VMs
 
-**Please [go here](../vm_connection) for instructions on connecting to your VM.**
+**Please [go here](../AWS_RONIN_connection) for instructions on connecting to your VM.**
 
 
 ## Using R

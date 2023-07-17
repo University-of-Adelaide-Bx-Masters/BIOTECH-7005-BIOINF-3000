@@ -73,7 +73,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 [12]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/tree/master/Practicals/ancient_DNA_practical
 
 
-[Introduction to VMs]: Practicals/vm_connection.md
+[Introduction to VMs]: Practicals/AWS_RONIN_connection.md
 [Introduction to R]: Practicals/R_Practicals
 [Introduction To Bash]: Practicals/Bash_Practicals/1_IntroBash.md
 [Scripting In Bash]: Practicals/Bash_Practicals/2_BashScripting.md
