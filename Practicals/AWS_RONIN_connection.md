@@ -60,4 +60,4 @@ You can access your VM:
 
 Practice how to [disconnect from your VM](AWS_RONIN_disconnect.md) and then re-connect and go back to the practical instructions. 
 
-[Back](./Bash_Practicals/1_IntroBash.md)
+[Back](../README.md)
