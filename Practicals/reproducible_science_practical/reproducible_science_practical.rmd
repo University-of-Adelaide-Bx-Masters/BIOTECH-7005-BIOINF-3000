@@ -23,6 +23,35 @@ md5sum --help
 diff --help
 ```
 
+### Race conditions
+
+```{bash}
+#!/bin/bash
+
+function jokepart1 {
+  sleep $[ ( $RANDOM % 10 )  + 1 ]s
+  echo "Knock Knock"
+}
+
+function jokepart2 {
+  sleep $[ ( $RANDOM % 10 )  + 1 ]s
+  echo "Race Condition"
+}
+
+function jokepart3 {
+  sleep $[ ( $RANDOM % 10 )  + 1 ]s
+  echo "Race condition who?"
+}
+
+function jokepart4 {
+  sleep $[ ( $RANDOM % 10 )  + 1 ]s
+  echo "Race Condition. This is where the punchline would have been, if not for a race condition!"
+}
+
+jokepart1 & jokepart2 & jokepart3 & jokepart4
+wait
+```
+
 ### Unit testing
 
 ```{r}
