@@ -1,7 +1,7 @@
 ---
-title: 'Practical 2.1: Working With Text In R'
+title: 'Practical 2.2: Working With Text In R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "5 August 2022"
+date: "28 July 2023"
 output:
   html_document:
     fig_caption: yes

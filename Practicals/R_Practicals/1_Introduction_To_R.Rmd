@@ -2,7 +2,7 @@
 title: "Practical 1.1: Introduction to R and R Studio"
 subtitle: "Biotech 7005/Bionf 3000: Bioinformatics and Systems Modelling"
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "29 July 2022"
+date: "24 July 2023"
 output: 
   html_document: 
     fig_caption: yes
@@ -17,6 +17,17 @@ opts_chunk$set(echo = TRUE,
                message = FALSE, warnings=  FALSE)
 ```
 
+
+# Virtual Machines
+
+The practicals that you will be participating in will make use of cloud compute resources that are provided by The University as a [virtual machine](https://en.wikipedia.org/wiki/System_virtual_machine) (VM).
+The VM is essentially a program that is running on a server but which behaves as though it is an individual separate computer.
+You will be able to log in to the VM and interact with the programs that it has installed.
+The VMs provided each have 2 CPU cores, 16GB of system memory and 80GB of hard disk space.
+They are yours to use for the semester, but they are also yours to look after.
+The University runs these VMs on AWS RONIN (Amazon Web Services) and pays by the minute for `cpu` time and for the storage. Because of this, we have implemented auto shutdown of VMs if they remain idle for too long (idle means no jobs running or no user input).
+
+**Please [go here](../AWS_RONIN_connection) for instructions on connecting to your VM.**
 
 # Introduction
 
@@ -66,7 +77,7 @@ In the top left corner, directly below the blue 'R' logo, you can see the word `
 Click this and you should see the following text (or similar depending on your version):
 
 ```
-R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+R version 4.3.1 (2023-06-16) -- "Beagle Scouts"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 

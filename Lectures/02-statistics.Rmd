@@ -1,15 +1,13 @@
 ---
 title: "02 Statistics"
 author: "Steven Delean (based on original notes by Steve Pederson)"
-date: "1 August 2022"
+date: "31 July 2023"
 output:
   ioslides_presentation:
     widescreen: yes
     css: custom.css
     fig_caption: yes
     logo: ../images/UoA_logo_col_vert.png
-  slidy_presentation: default
-  beamer_presentation: default
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
@@ -26,6 +24,7 @@ library(ggplot2)
 library(pander)
 library(magrittr)
 library(reshape2)
+library(kableExtra)
 ```
 
 
@@ -460,7 +459,7 @@ df %>%
   melt(id.vars = "x") %>%
   mutate(variable = factor(variable, levels = c("t_3", "t_10", "Z"))) %>%
   ggplot(aes(x = x, y= value, colour = variable)) +
-  geom_line(size = 1)+
+  geom_line(linewidth = 1)+
   theme_bw(base_size = 18) +
   labs(x = "", y = "",colour = "Distribution") +
   scale_y_continuous(expand = c(0, 0)) +
@@ -514,7 +513,7 @@ df %>%
   melt(id.vars = "x") %>%
   mutate(variable = factor(variable, levels = c("t_3", "t_10", "Z"))) %>%
   ggplot(aes(x = x, y= value, colour = variable)) +
-  geom_line(size = 1)+
+  geom_line(linewidth = 1)+
   geom_vline(xintercept = t, color='purple', linetype = "longdash") +
   theme_bw(base_size = 18) +
   labs(x = "", y = "",colour = "Distribution") +

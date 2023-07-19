@@ -1,7 +1,7 @@
 ---
 title: 'Biotech 7005: Statistics Tutorial'
 author: "Steven Delean (based on notes by Steve Pederson)"
-date: "2nd August 2022"
+date: "31st July 2023"
 output: 
   html_document: 
     fig_caption: yes
@@ -171,7 +171,7 @@ By my estimation, 1 in 20 of you should get a relatively extreme $T$-statistic.
 library(tidyverse)
 x <- seq(-4, 4, length.out = 101) # Create a vector for the x-axis
 y <- dt(x, df) # Find the value of the density at each value of x
-data <- data_frame(x = x, y = y) # Combine x & y into a data_frame
+data <- tibble(x = x, y = y) # Combine x & y into a tibble - i.e., a data frame
 ggplot(data, aes(x = x, y = y)) +
   geom_line() +
   geom_ribbon(data = filter(data, x > abs(Tstat)),

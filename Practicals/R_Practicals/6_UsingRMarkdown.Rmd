@@ -1,7 +1,7 @@
 ---
-title: "Practical 2.3 Using R Markdown"
+title: "Practical 3.2 Using R Markdown"
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "5 August 2022"
+date: "4 August 2023"
 output:
   html_document:
     fig_caption: yes
