@@ -100,10 +100,10 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%            | 12.75%         | Friday 25/08/23     |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%            | 12.75%         | Friday 01/09/23  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%            | 12.75%         | Friday 15/09/23  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 13/10/23  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 27/10/23    |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 20/10/23  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 03/11/23    |
 | Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Major Project]THIS DOCUMENTATION IS NOT FINAL (Assignments/major_project.md)                      | Differential gene expression   |  N/A            | 15%            |  Friday 03/11/23  |
+| [Major Project]THIS DOCUMENTATION IS NOT FINAL (Assignments/major_project.md)                      | Differential gene expression   |  N/A            | 15%            |  Friday 17/11/23  |
 
 
 Note that the Major Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
