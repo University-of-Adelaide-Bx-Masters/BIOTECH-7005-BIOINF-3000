@@ -103,7 +103,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 20/10/23  |
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 03/11/23    |
 | Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Major Project]THIS DOCUMENTATION IS NOT FINAL (Assignments/major_project.md)                      | Differential gene expression   |  N/A            | 15%            |  Friday 17/11/23  |
+| [Major Project](Assignments/major_project.md) ***THIS DOCUMENTATION IS NOT FINAL***                      | Differential gene expression   |  N/A            | 15%            |  Friday 17/11/23  |
 
 
 Note that the Major Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
