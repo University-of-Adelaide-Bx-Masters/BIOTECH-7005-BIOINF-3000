@@ -103,10 +103,10 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 13/10/23  |
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 27/10/23    |
 | Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Major Project]THIS IS UNDER CONSTRUCTION (Assignments/major_project.md)                      | To be determined            |  N/A            | 15%            |  Friday 03/11/23  |
+| [Major Project]THIS DOCUMENTATION IS NOT FINAL (Assignments/major_project.md)                      | Differential gene expression   |  N/A            | 15%            |  Friday 03/11/23  |
 
 
-Note that the Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
+Note that the Major Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
 
 ### Assessment Checklist
 
@@ -126,15 +126,12 @@ Have you:
 
 ### Major Project (15%) - Masters Students Only
 
-In this course, the following next-generation sequencing (NGS) datasets/protocols are covered:
+In this course, the following next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project.md):
 
-1. Phylogenetic trees
-2. Whole genome resequencing 
-3. Transcriptome Sequencing (RNAseq)  
+#### Transcriptome Sequencing (RNAseq)  
 
-Each of these NGS approaches uses similar programs and analysis approaches, such as quality control (quality and sequencing adapter trimming), genome alignment, and downstream visualisation and statistical methods. For the major project, you will take a published dataset and complete all the analysis tasks (from raw data to final results) during the course.
+You will be assigned a unique dataset and carry out quality control (quality and sequencing adapter trimming), genome alignment, feature counting, normalising and removal of noise transcripts followed by differential gene expression analysis and downstream visualisation and statistical methods. For the major project, we will assign part of a published dataset and you will complete all the analysis tasks (from raw data to final results).
 
-You have the freedom to choose any dataset you would like before we start week 6's practical (Alignment/NGS practical), or choose from datasets that we have chosen. You will be asked assessment questions on your data during practical assessments throughout the semester, and a final report will be due the week before the end of semester (Week 12)
 
 ## Useful Links
 
