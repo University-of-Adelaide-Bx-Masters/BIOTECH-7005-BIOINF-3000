@@ -21,7 +21,7 @@ sp <- ah %>%
 	as_tibble()
 
 # Load the students
-ids <- read_tsv("VMs.tsv", comment = "#")
+ids <- read_tsv("../VMs.tsv", comment = "#")
 
 # Define a function to map taxa to the common name
 sp2common <- function(sp){
@@ -52,6 +52,7 @@ id2sp %>%
 	    `Common Name` = Name
 	) %>%
     arrange(ID) %>%
+    mutate(ID = paste0("a", ID)) %>%
     pander( justify = "llrl", split.tables = Inf, style = "rmarkdown")
 
 # Q4:
