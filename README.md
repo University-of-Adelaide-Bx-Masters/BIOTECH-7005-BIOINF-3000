@@ -18,8 +18,8 @@ Instructors:
 - David Lawrence
 
 Teaching assistants:
-- Bethany Cross
-- Chelsea Matthews
+- Bethany Cross (Mondays)
+- Chelsea Matthews (Fridays)
 
 __*Course Contact*__
 Dave Adelson
@@ -44,19 +44,19 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 24/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
-| **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Dave) |[Introduction to R] (2) (Steven/TBD)      |
-| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
-| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
-| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave)) | [Evolutionary processes] (2) (Dave/)    |
-| **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Dave)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  |[Reproducible Science] David L             |
-| **8**    | 11/9       |Version Control (David L)   |[Version Control] (2) (David L)    |[Local Version Control] (David L)  |
+| **2**    | 31/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven/Bethany) |[Introduction to R] (2) (Steven/Chelsea)      |
+| **3**    | 7/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna/Bethany)  |[Introduction To Bash] (2) (Anna/Chelsea)   |
+| **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave/Bethany)|[Scripting In Bash] (2)(Dave/Chelsea)                   |
+| **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave/Bethany)) | [Evolutionary processes] (2) (Dave/Chelsea)    |
+| **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave/Bethany)  |[Alignment/NGS (2)] (Dave/Chelsea)             |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L/Bethany)  |[Reproducible Science] (David L/Chelsea)             |
+| **8**    | 11/9       |Version Control (David L)   |[Version Control] (2) (David L/Bethany)    |[Local Version Control] (David L/Chelsea)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 9/10      | [Ancient DNA][11] (Bastien)|[GitHub Repositories] (David L) |[aDNA][12]  |
-| **11**   | 16/10      |Quantifying Gene Expression (Zhipeng)  | [Transcriptome intro] (Zhipeng) |*Transcriptomic/Gene Expression test*/ [DE genes] (Zhipeng) | 
-| **12**   | 23/10      |Transcriptomics (Zhipeng) |[Transcriptomic Practical][] (2) (Zhipeng) | [Transcriptomic Practical][] (1) (Zhipeng)   |
+| **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L/Chelsea)   
+| **10**   | 9/10      | [Ancient DNA][11] (Bastien)|[GitHub Repositories] (David L/Bethany) |[aDNA][12] (Bastien/Chelsea) |
+| **11**   | 16/10      |Quantifying Gene Expression (Zhipeng)  | [Transcriptome intro] (Zhipeng/Bethany) |*Transcriptomic/Gene Expression test*/ [DE genes] (Zhipeng/Chelsea) | 
+| **12**   | 23/10      |Transcriptomics (Zhipeng) |[Transcriptomic Practical][] (2) (Zhipeng/Bethany) | [Transcriptomic Practical][] (1) (Zhipeng/Chelsea)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
