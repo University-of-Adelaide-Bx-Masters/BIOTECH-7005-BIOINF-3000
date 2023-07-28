@@ -71,12 +71,12 @@ Now we have setup our VM, the basic aims of the following sessions are:
 Once you're in the `Terminal` section of `RStudio`, you will notice some text in the prompt, describing your computer of the form
 
 ```
-(base) student@bioinf-3000-2022-1:~/Practical_3$
+(base) a1234567@ip-10-255-0-126:/shared/a1234567/Practical_3$
 ```
 
 The word `(base)` before the prompt text means that `Anaconda` is active and is using the `base` environment. Don't worry about this for now.
 
-The first section of the prompt text describes your username (`student`) and the machine `@bioinf-3000-2022-xx`.
+The first section of the prompt text describes your username (`a1234567`) and the machine `@ip-10-255-0-126`.
 The end of the machine identifier is marked with a colon (`:`). 
 
 After the colon, the string (`~/Practical_3`) represents your current directory, whilst the dollar sign (`$`) indicates the end of this path and the beginning of where you will type commands.
@@ -98,27 +98,27 @@ The command `pwd` is what we use to **p**rint the current (i.e. **w**orking) **d
 If you have setup the R project like we instructed above this command should return the RStudio project directory.
 
 ```
-/home/student/Practical_3
+/shared/a1234567/Practical_3
 ```
 
 Check with your neighbour to see if you get the same thing.
 If not, see if you can figure out why.
 
-At the beginning of this section we mentioned that `~/Practical_3` represented your current directory, but now our machine is telling us that our directory is `/home/student/Practical_3`.
+At the beginning of this section we mentioned that `~/Practical_3` represented your current directory, but now our machine is telling us that our directory is `/shared/a1234567/Practical_3`.
 This raises an important and very useful point.
 In `bash` the `~` symbol is a shortcut for the home directory of the current user.
-If Anna was logged in, this would be `/home/Anna` whilst if Dave was logged in this would be `/home/Dave`.
-As we are all logged on as `student`, this now stands for `/home/student`.
+If Anna was logged in, this would be `/shared/Anna` whilst if Dave was logged in this would be `/shared/Dave`.
+As we are all logged on as `aXXXXXXX`, this now stands for `/shared/a1234567`.
 (Formally, `~` is  a variable, but we'll deal with variables later.)
 
-Importantly every user with an account on a machine will have their own home directory of the format `/home/username1`, `/home/username2` etc..
-Notice that they will all live in the directory `/home` which is actually the parent directory that all users will have a home directory in, as we've just tried to explain.
+Importantly every user with an account on one of our virtual machines will have their own home directory of the format `/shared/a1234567`, `/shared/a1234568` etc..
+Notice that they will all live in the directory `/shared` which is actually the parent directory that all users on our system will have a home directory in, as we've just tried to explain.
 This can be confusing for many people, so hopefully we'll clear this up in the next section or two.
 
-In the above, the `/home` directory itself began with a slash, i.e. `/`.
+In the above, the `/shared` directory itself began with a slash, i.e. `/`.
 On a unix-based system (i.e. MacOS and Linux), the `/` directory is defined to be the root directory of the file system.
 Windows users would be more familiar with seeing `C:\` as the root of the computer, and this is an important difference in the two directory structures.
-Note also that whilst Windows uses the **backslash** (`\`) to indicate a directory, a Linux-based system uses the **forward slash** (`/`), or more commonly just referred to simply as "slash", marking another but very important difference between the two.
+Note also that whilst Windows uses the **backslash** (`\`) to indicate a directory, a Linux-based system uses the **forward slash** (`/`), or more commonly referred to simply as "slash", marking another but very important difference between the two.
 
 #### cd
 
@@ -151,30 +151,36 @@ This what the directory structure of the `root` level directory looks like.
 
 ```
 .
+├── Anaconda3-2022.10-Linux-x86_64.sh
+├── apps
 ├── bin -> usr/bin
 ├── boot
 ├── dev
+├── environment -> .singularity.d/env/90-environment.sh
 ├── etc
 ├── home
+├── init
 ├── lib -> usr/lib
 ├── lib32 -> usr/lib32
 ├── lib64 -> usr/lib64
+├── libexec
+├── libssl1.1_1.1.0g-2ubuntu4_amd64.deb
 ├── libx32 -> usr/libx32
-├── lost+found
 ├── media
 ├── mnt
 ├── opt
 ├── proc
+├── rocker_scripts
 ├── root
 ├── run
 ├── sbin -> usr/sbin
-├── snap
+├── shared
+├── singularity -> .singularity.d/runscript
 ├── srv
 ├── sys
 ├── tmp
 ├── usr
 └── var
-
 ```
 
 We can change back to our home folder by entering one of either:
@@ -197,9 +203,9 @@ An **absolute path** on Linux/Mac will always begin with the root directory symb
 
 For example, `/foo` would refer to a directory called `foo` in the root directory of the file system (NB: This directory doesn't really exist, it's an example).
 In contrast, a **relative path** can begin with either the current directory (indicated by `./`) or a higher-level directory (indicated by `../` as mentioned above).
-A subdirectory `foo` of the current directory could thus be specified as `./foo`, whilst a subdirectory of the next higher directory would be specified by `../foo`.
+A subdirectory `foo` of the current directory could thus be specified as `./foo`, whilst a subdirectory of the next higher directory would be specified by `../foo`. If the path does not have a `./` or `../` prefix, the current directory is used, so `foo` is the same as `./foo`.
 
-Another common absolute path is the one mentioned right at the start of the session, specified with `~`, which stands for your home directory `/home/student`, which also starts with a `/`.
+Another common absolute path is the one mentioned right at the start of the session, specified with `~`, which stands for your home directory `/shared/a1234567`, which also starts with a `/`.
 
 We can also move through multiple directories in one command by separating them with the slash `/`.
 For example, we could also get to the root directory from our home directory by typing
@@ -212,7 +218,7 @@ cd ../../
 
 In the above steps, this has been exactly the same as clicking through directories in our familiar folder interface that we're all familiar with.
 Now we know how to navigate folders using `bash` instead of the GUI point and click file manager.
-This is an essential skill when logged into a High Performance Computer (HPC) or a Virtual Machine (VM) as the vast majority of these run using Linux.
+This is an essential skill when logged into a High Performance Computer (HPC) or a Virtual Machine (VM) as the vast majority of these run using Linux without a graphical user interface.
 
 ### Important
 
@@ -275,7 +281,7 @@ cd
 cd ..
 ```
 
-Now to get back to your home directory (`/home/student`) start typing `cd s` followed by the <kbd>Tab</kbd> key.
+Now to get back to your home directory (`/shared/a1234567`) start typing `cd a` followed by the <kbd>Tab</kbd> key.
 This should auto-complete for you and will save you making any errors.
 This also makes navigating your computer system very fast once you get the hang of it.
 
@@ -308,7 +314,7 @@ ls /
 ```
 
 Here you can see a whole raft of directories which contain the vital information for the computer's operating system.
-Among them should be the `/home` directory which is one level above your own home directory, and where the home directories for all users are located on a Linux system.
+Among them should be the `/shared` directory which is one level above your own home directory, and where the home directories for all users are located on our Linux system. Note that our system is a special case and most Linux systems have user home directories in `/home`, not `/shared`.
 
 Have a look inside your Practical_1 directory.
 This is where you needed to have followed our instructions exactly in Week 1.
@@ -320,7 +326,7 @@ cd
 ls Practical_1
 ```
 
-Navigate into this folder using you GUI view in `RStudio` and check that everything matches.
+Navigate into this folder using the GUI view in `RStudio` and check that everything matches.
 
 #### Question
 
@@ -357,19 +363,19 @@ Options are commonly a single letter prefaced with a single dash (`-`), or a wor
 The `ls` command can be given with the option `-l` specified between the command and the directory and gives the output in what is known as *long listing* format.
 
 *Inspect the contents of your current directory using the long listing format.
-Please make sure you can tell the difference between the characters `l` and `1`. The letter l and number one.*
+Please make sure you can tell the difference between the characters `l` (lower-case letter 'l') and `1` (number one).*
 
 ```bash
 ls -l
 ```
 
-The above will give one or more lines of output, and one of the first lines should be something similar to:
+The above will give one or more lines of output, and one of the lines should be something similar to:
 
-`drwxr-xr-x  3 student student 4096 Jul  7 00:53 R`
+`drwxrwxr-x 2 a1234567 a1234567   4096 Jul 19 06:59 test`
 
 where `hh:mm` is the time of file/directory creation.
 
-The letter `d` at the beginning of the initial string of codes `drwxr-xr-x` indicates that this is a directory.
+The letter `d` at the beginning of the initial string of codes `drwxrwxr-x` indicates that this is a directory.
 These letters are known as flags which identify key attributes about each file or directory, and beyond the first flag (`d`) they appear in strict triplets.
 The first entry shows the file type and for most common files this entry will be `-`, whereas for a directory we will commonly see `d`.
 
@@ -377,7 +383,7 @@ Beyond this first position, the triplet of values `rwx` simply refer to who is a
 These three triplets refer to 1) the file's owner, 2) the group of users that the owner belongs to and 3) all users, and will only contain the values "r" (read), "w" (write), "x" (execute) or "-" (not enabled).
 These are very helpful attributes for data security, protection against malicious software, and accidental file deletions.
 
-The entries `student student` respectively refer to who is the owner of the directory (or file) and to which group of users the owner belongs.
+The entries `a1234567 a1234567` respectively refer to who is the owner of the directory (or file) and to which group of users the owner belongs.
 Again, this information won't be particularly relevant to us today, but this type of information is used to control who can read and write to a file or directory.
 Finally, the value `4096` is the size of the directory structure in bytes, whilst the date and time refer to when the directory was created.
 
@@ -388,7 +394,7 @@ ls -l ~
 ```
 
 This directory should contain numerous folders.
-There is a `-` instead of a `d` at the beginning of the initial string of flags indicates the difference between any files and directories.
+A `-` instead of a `d` at the beginning of the initial string of flags indicates a file rather than a directory.
 On Ubuntu files and directories will also be displayed with different colours.
 **Can you see only folders, or do you have any files present in your home directory?**
 
@@ -414,17 +420,12 @@ ls -l -R ~
 the output will be given in multiple sections.
 The first is what we have seen previously, but following that will be the contents of each sub-directory.
 It should become immediately clear that the output from setting this option can get very large and long depending on which directory you start from.
-It's probably not a good idea to enter `ls -l -R /` as this will display out the entire contents of your file system.
+It's probably not a good idea to enter `ls -l -R /` as this will display the entire contents of your file system.
 
 In the case of the `ls` command we can also *glob* all the above options together in the command
 
 ```bash
 ls -lhR ~
-```
-As we have anaconda and R in our home, we would like to view our contents without seeing them. We can do this using the --ignore option.
-
-```bash
-ls -l -R --ignore=R --ignore=anaconda3 ~
 ```
 
 This can often save some time, but it is worth noting that not all programmers write their commands in such a way that this convention can be followed.
