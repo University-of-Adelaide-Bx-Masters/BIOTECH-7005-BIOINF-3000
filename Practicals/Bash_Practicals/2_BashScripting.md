@@ -194,7 +194,7 @@ Have a look at the beginning of the file just to see what it looks like.
 head -n12 GCF_000182855.2_ASM18285v1_genomic.gff
 ```
 
-Notice the header lines begin with one or two hash symbols, whilst the remainder of the file contains information about the genomic features in tab-separated format.
+Notice the header/comment lines begin with one or two hash symbols, whilst the remainder of the file contains information about the genomic features in tab-separated format.
 As there is a lot of information about each feature, note that each line after the header will probably wrap onto a second line in the terminal.
 The first feature is annotated as a *region* in the third field, whilst the second feature is annotated as a *gene*.
 
@@ -204,7 +204,7 @@ The first feature is annotated as a *region* in the third field, whilst the seco
 - *How many features are contained in this file?*
 - *If we tried the following*: `wc -l GCF_000182855.2_ASM18285v1_genomic.gff` *would it be correct?*
 
-This will give 4507, but we know the first 7 lines are header lines.
+This will give 4529, but we know the first 12 lines are header lines.
 To count the non-header lines you could try several things:
 
 ```
@@ -217,6 +217,10 @@ grep -c '^[^#]' GCF_000182855.2_ASM18285v1_genomic.gff
 ```
 
 **Make sure you understand both of the above commands as it may not be immediately obvious!**
+
+There are 12 header/comment lines we can see at the top fo the file, is this the number that you got?  
+
+What do you think is going on?  
 
 As mentioned above, this file contains multiple features such as *regions*, *genes*, *CDSs*, *exons* or *tRNAs*.
 If we wanted to find how many regions are annotated in this file we could use the processes we've learned above:
@@ -317,7 +321,7 @@ Input can be given to `sed` as either a file, or just as a text stream via the *
 
 In the following example the script begins with an `s` to indicate that we are going to make a substitution.
 The beginning of the first pattern (i.e. the *regexp* we are searching for) is denoted with the slash, with the identical delimiter indicating the replacement pattern, and this is in turn completed with the same delimiter.
-Try this simple example from the link <https://www.grymoire.com/Unix/Sed.html> which is a very detailed & helpful resource about the usage `sed`.
+Try this simple example from the link <https://www.grymoire.com/Unix/Sed.html> which is a very detailed & helpful resource about usage of `sed`.
 Here we are sending the input (`echo Sunday`) to the command via the pipe, so no `INPUT` section is required:
 
 ```
@@ -543,7 +547,7 @@ ls -lh *.sh
 
 You should see output similar to this:
 ```
--rw-rw-r-- 1 student student  247 Aug  17 14:48 wellDone.sh
+-rw-rw-r-- 1 a1234567 a1234567  247 Aug  17 14:48 wellDone.sh
 ```
 
 - Note how the first entry is a dash (`-`) indicating this is a file.
