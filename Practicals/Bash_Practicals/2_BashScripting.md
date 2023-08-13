@@ -174,7 +174,7 @@ This process can also be visualised using the following diagram from Unix Bootca
 
 ![](https://camo.githubusercontent.com/1652e94dd89d73b1e5ad43feabe12d5aac7e033b/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f3161444b397a716163677572465a537a6a704c4d5653676f64306a462d4b4648576553565f53554c387668452f7075623f773d39313626683d333534)
 
-## Inspecting genomic files using bash`
+## Inspecting genomic files using `bash`
 
 As you may have realised, these file types don't play well with MS Word, Excel and the like.
 We need different ways to look through these and as we go, hopefully you'll get the hang of this.
