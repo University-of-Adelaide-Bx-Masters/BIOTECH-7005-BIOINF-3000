@@ -414,7 +414,7 @@ Writing scripts requires an understanding of several key concepts which form the
 
 Two of the most widely used techniques in programming are that of the `for` loop, and logical tests using an `if` statement.
 
-### `for` Loops
+### `for` Loops (Recursion)
 
 A `for` loop is what we use to cycle through an input one item at a time
 
@@ -439,7 +439,7 @@ In the above loop, the same operation was performed on the variable `i`, but the
 Variables in shell scripts can hold numbers or text strings and don't have to be formally defined as in some other languages.
 We will commonly use this technique to list files in a directory, then to loop through a series of operations on each file.
 
-### `If` Statements
+### `If` Statements (Conditional statements)
 
 If statements are those which only have a binary `yes` or `no` response.
 For example, we could specify things like:
