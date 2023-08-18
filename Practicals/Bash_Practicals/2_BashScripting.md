@@ -734,4 +734,4 @@ Now run it passing the `.fa` file as the first argument.
 ./getLocations.sh Drosophila_melanogaster.BDGP6.ncrna.fa
 ```
 
-
+To test regular expressions `regex` the following web sites may be useful [here](https://regex101.com/) and [here](https://regexr.com/).  I am also told that ChatGPT can help write `regex`or at least provide a starting point for testing. 
