@@ -618,7 +618,7 @@ ls -lh *sh
 ### Modifying our script
 
 In the initial script we used two variables `${ME}` and `${MESSAGE}`.
-Now let's change the variable `${ME}` in the first line  of the script to read as `ME=$1`.
+**Now let's change the variable `${ME}` in the first line  of the script to read as `ME=$1`.**
 First we'll create a copy of the script to edit, and then we'll edit using `nano`
 
 ```
