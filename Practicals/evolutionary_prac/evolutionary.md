@@ -33,6 +33,12 @@ This is not normal practice, and is only necessary because of prac time limits.
 
 You will use the following software today: `MAFFT` for making multiple alignments [read about it here](https://mafft.cbrc.jp/alignment/software/), `Mr Bayes` for building Bayesian phylogenies [read about it here](http://nbisweden.github.io/MrBayes/), `seqmagick` a comprehensive toolkit for sequence conversion/manipulation [read about it here](https://fhcrc.github.io/seqmagick/) and `Gblocks` a tool to remove poorly aligned regions from multiple alignments to improve the inference of phylogenies [read about it here](https://doi.org/10.1080/10635150701472164).  
 
+You will need to activate the `bioinf` conda environment so that you can use `Gblocks`. 
+
+```bash
+source activate bioinf
+```
+
 ### Multiple alignment
 
 In order to construct a phylogenetic tree, we need to provide positional information to the tree reconstruction program so that related positions are comparable.
