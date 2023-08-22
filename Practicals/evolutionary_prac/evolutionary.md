@@ -116,7 +116,7 @@ Mr Bayes is a program for performing phylogenetic tree reconstruction from multi
 The Bayesean approach to reconstruction is based on using a likelihood function to estimate posterior probabilities for trees and model parameters.
 There are concerns in the literature about the validity of Bayesean reconstruction, but Mr Bayes provides a good environment to do the practical and Baysean inference works for many data sets.
 
-A manual for Mr Bayes is available from [here](http://mrbayes.sourceforge.net/mb3.2_manual.pdf).
+A manual for Mr Bayes is available from [here](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf).
 
 Start Mr Bayes by entering the following command into a terminal:
 
