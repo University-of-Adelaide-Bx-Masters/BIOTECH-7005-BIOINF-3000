@@ -552,7 +552,7 @@ sabre pe \
 ```bash
 sabre pe -m 1 -f ../../1_trimmedData/fastq/Run1_R1.fastq -r ../../1_trimmedData/fastq/Run1_R2.fastq -b ../../barcodes_R1.txt -u unknown_R1.fastq -w unknown_R2.fastq
 ```
-Run the command again without the one mismatch. *How many read are now in each?*
+Run the command again without the one mismatch. *How many reads are now in each?*
 
 Note the clear directory structure that we've used.
 This can lead to a command that is tricky to understand at first, but try to keep track of the file paths.
