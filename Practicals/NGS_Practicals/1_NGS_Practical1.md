@@ -35,7 +35,7 @@ This is a common strategy in RNA-Seq libraries and many other analyses with rela
 Importantly, the index will not be included in either the forward or reverse read.
 
 A common alternative for analyses such as RAD-seq or GBS-seq, where population level data is being sequenced using a reduced representation approach.
-In these strategies, a *barcode* is added *in-line* and is directly next to the restriction site used to fragment the data (if a restriction enzyme approach was used for fragmentation).
+In these strategies, a *barcode* is added *in-line* and is directly next to the restriction site used to fragment the DNA (if a restriction enzyme approach was used for fragmentation).
 These barcodes are included next to the genomic sequence, and will be present in either or both the forward or reverse reads, depending on the barcoding strategy being used.
 A single barcode is shown in B) of the following image (taken from https://rnaseq.uoregon.edu/), whilst a single index is shown in C).
 
