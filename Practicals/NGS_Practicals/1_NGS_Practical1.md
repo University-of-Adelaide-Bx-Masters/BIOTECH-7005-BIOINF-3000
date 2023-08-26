@@ -57,6 +57,14 @@ Using the `Terminal` in RStudio, execute the following commands, paying special 
 If you get these correct, all of today's code should just work.
 If you don't get these correct, you may end up being confused.
 
+First activate the `bioinf` conda environment (needed to run `sabre` later).
+
+```bash
+source activate bioinf
+```
+
+Then, set up your directory structure and get the data.
+
 ```bash
 mkdir -p ~/Practical_6/0_rawData/fastq
 cd ~/Practical_6/0_rawData/fastq
