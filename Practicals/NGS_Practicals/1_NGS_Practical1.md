@@ -579,7 +579,8 @@ At the beginning of this file, add the shebang:
 Leaving a blank line after the shebang, copy and paste the following code into this script:
 
 ```bash
-PROJROOT=/home/student/Practical_6
+#Remember to edit the next line to include your id number
+PROJROOT=/shared/a1234567/Practical_6
 RAWDIR=${PROJROOT}/0_rawData
 
 # Check the project root has been defined correctly
