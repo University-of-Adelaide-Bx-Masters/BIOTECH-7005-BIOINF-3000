@@ -84,7 +84,7 @@ If we did this to these files, we would see a stream of data whizzing past in th
 zcat Run1_R1.fastq.gz | head -n8
 ```
 
-In the above command, we have used a trick commonly used in Linux systems where we have taken the output of one command (`zcat Run1_R1.fastq.gz`) and sent it to another command (`head`) by using the pipe symbol (`|`). 
+Ignore the line about the broken pipe. In the above command, we have used a trick commonly used in Linux systems where we have taken the output of one command (`zcat Run1_R1.fastq.gz`) and sent it to another command (`head`) by using the pipe symbol (`|`). 
 This is literally like sticking a pipe on the end of a process and redirecting the output to the input another process (you should remember this from your Introduction to Bash Practicals).  
 Additionally, we gave the argument `-n8` to the command head to ensure that we only printed the first eight lines.
 
