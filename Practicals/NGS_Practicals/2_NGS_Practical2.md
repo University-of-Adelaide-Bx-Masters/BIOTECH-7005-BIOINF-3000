@@ -15,24 +15,27 @@ To complete this task we'll need to perform a few key steps
 
 ## Step 1: Setup Folders and Checking
 
-### Step 1a: Check installations
+### Step 1a: Setup new R Project and project directory
 
-Firstly let's double check our software installations.
-Going by last week, this should be unnecessary but may be wise.
-Feel free to just copy & paste this line.
+As before, set up a new project and project directory using Rstudio. Name your new R project `Practical_7` and create a new directory for it using the same name in your home directory. 
+
+### Step 1b: Activate conda `bioinf` environment
+
+To be able to access all the tools needed you need to activate the `bioinf` conda environment.`Once you have done this, double check that the tools you need are available/in your paths.
 
 ```bash
+activate source bioinf
 which fastqc cutadapt bwa STAR freebayes bcftools
 ```
 
 You should see a line of output for each one of these tools.
 If you don't see one of them, call a tutor over. 
 
-### Step 1b: Directory setup
+### Step 1c: Directory setup
 
-We'll be working today in the directory `~/Practical_7`.
-Please ensure you use this *exact* path as any variations will undoubtedly cause you problems & lead to unnecessary confusion.
-An example data structure to use for today has already been made for you & can be obtained using the following strategy.
+We'll be working today in the directory we set up in *Step 1a*, `~/Practical_7`. 
+Please ensure you use this *exact* path as any variations **will** cause you problems & lead to unnecessary confusion.
+An example data structure to use for today has already been made for you & can be obtained using the following strategy. As always, look at what each line is doing and understand it. Blindly copying and pasting will not teach you anything. 
 
 ```bash
 cd ~
@@ -47,7 +50,7 @@ Now that we've setup our directories, have a quick look using `ls` to see the to
 Here we have directories for each step as well as folders for `R` and `bash` scripts.
 The directory `slurm` is where output would go from an HPC where we're required to submit jobs to queues and need specify where to write `stdout` and `stderr`.
 The queuing system on the University of Adelaide's HPC (phoenix) is the `slurm` system.
-We won't need that directory today
+We won't need that directory today.
 
 Inside each of these directories are the directories `fastq`, `FastQC`, `bam`, `log` or various directories where we'll place our output.
 The more you perform bioinformatics, the more you realise how important getting your directories organised is.
@@ -61,10 +64,10 @@ ls 2_alignedData
 
 ## Step 2: Copy our data across
 
-Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`.
+Now we have our directories setup, we can place our data in the directory `0_rawData/fastq`. Remember, make sure you are in `~/Project_7`.
 
 ```bash
-cp /home/student/data/intro_ngs/*gz 0_rawData/fastq/
+cp ~/data/intro_ngs/*gz 0_rawData/fastq/
 ls 0_rawData/fastq/
 ```
 
@@ -79,13 +82,14 @@ From here, we're into running our workflow.
 
 As we saw last week, we need to 1) check the quality of our raw data; 2) Remove adapters and low-quality bases; 3) Check the quality of our trimmed data.
 
-The script you'll need to run to perform these steps is given below:
+The script you'll need to run to perform these steps is given below, you will need to edit it to use your id number. :
 
 ```
 #!/bin/bash
 
 ## Define the key directories
-PROJROOT=/home/student/Practical_7
+## Make sure you edit the first line to use YOUR id number.
+PROJROOT=/shared/a1234567/Practical_7
 RAWFQ=${PROJROOT}/0_rawData/fastq
 RAWQC=${PROJROOT}/0_rawData/FastQC
 TRIMFQ=${PROJROOT}/1_trimmedData/fastq
@@ -200,7 +204,7 @@ If `wget` doesn't work for you, you can always download the genome (like you can
 
 For today's session, we've already given you just the sequence of chrI (from release 90 in 2017) so let's move this into a useful folder for today.
 It will be in the folder `~/data/intro_ngs` (where we obtained our reads from).
-Call Dave or Alex over if you can't find it somewhere (use `ls ~/data/intro_ngs`).
+Call Dave or Chelsea over if you can't find it somewhere (use `ls ~/data/intro_ngs`).
 
 
 ```bash
@@ -258,13 +262,22 @@ You should be able to open a few of the files with the ”less” command, howev
 
 ## Aligning the reads
 
-Because we only have a small subset of the actual sequencing run, we should be able to run this alignment in a reasonable period of time.
+While we only have a small subset of the actual sequencing run, it will take 25 minutes to align for this practical. We need to take the first 1,000,000 reads from each fastq file to reduce the alignment time to something manageable. This is how we do it:
 
-Now let's change back to our main project folder.
+Make sure you understand what is going on here.
+
+### Taking a subset of each of the read files.
 
 ```bash
 cd ~/Practical_7
+zcat 1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz | head -n 4000000 > 1_trimmedData/fastq/SRR2003569_subset_1.fastq
+zcat 1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz | head -n 4000000 > 1_trimmedData/fastq/SRR2003569_subset_2.fastq
+gzip 1_trimmedData/fastq/SRR2003569_subset_*
 ```
+
+**Question:** How many sequences did we take from each of the original files?
+
+### Doing the alignment
 
 The command we'll run is quite long, so please read on a little before executing this, so you understand what every section does.
 This will help you figure out what is going wrong if you get some error messages.
@@ -274,8 +287,8 @@ First up here's the command
 bwa mem \
   -t 2 \
   genome/Celegans_chrI \
-  1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz \
-  1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz | \
+  1_trimmedData/fastq/SRR2003569_subset_1.fastq.gz \
+  1_trimmedData/fastq/SRR2003569_subset_2.fastq.gz | \
   samtools view -bhS -F4 - > \ 
   2_alignedData/bam/SRR2003569_chI.bam
 ```
@@ -287,8 +300,8 @@ The first part of the command:
 bwa mem \
   -t 2 \
   genome/Celegans_chrI \
-  1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz \
-  1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz
+  1_trimmedData/fastq/SRR2003569_subset_1.fastq.gz \
+  1_trimmedData/fastq/SRR2003569_subset_2.fastq.gz
 ```
 
 will align our compressed sequenced reads to the Celegans_chrI `bwa` index that we made, using two threads (`-t 2`).
@@ -309,11 +322,11 @@ The binary output is then written to the file `2_alignedData/bam/SRR2003569_chI.
 Here is the command for you to cut and paste:
 
 ```bash
-bwa mem -t 2 genome/Celegans_chrI 1_trimmedData/fastq/SRR2003569_sub_1.fastq.gz 1_trimmedData/fastq/SRR2003569_sub_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR2003569_chI.bam
+bwa mem -t 2 genome/Celegans_chrI 1_trimmedData/fastq/SRR2003569_subset_1.fastq.gz 1_trimmedData/fastq/SRR2003569_subset_2.fastq.gz | samtools view -bhS -F4 - > 2_alignedData/bam/SRR2003569_chI.bam
 
 ```
 
-This process may take ~14 minutes so once you run the command, be patient and read ahead.
+This process may take ~5 minutes so once you run the command, be patient and read ahead.
 
 **Note:** By using the `-t 2` parameter, we can take advantage of modern computers that allow multi-threading or parallelisation. This just means that the command can be broken up into 2 chunks and run in parallel, speeding up the process. 
 If using phoenix or another HPC, this can really speed things up as more than 2 cores are available.
@@ -591,10 +604,10 @@ sed -n '61,64p' 2_alignedData/vcf/SRR2003569_chI_1Mb.vcf
 ```
 
 ```
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	unknown
-I	352	.	TA	TG,TT	0.0290299	.	AB=0,0;ABP=0,0;AC=0,0;AF=0,0;AN=2;AO=2,2;CIGAR=1M1X,1M1X;DP=13;DPB=13;DPRA=0,0;EPP=3.0103,7.35324;EPPR=5.18177;GTI=0;LEN=1,1;MEANALT=2,2;MQM=11,6;MQMR=9.22222;NS=1;NUMALT=2;ODDS=5.03558;PAIRED=0.5,1;PAIREDR=0.777778;PAO=0,0;PQA=0,0;PQR=0;PRO=0;QA=66,66;QR=318;RO=9;RPL=0,0;RPP=7.35324,7.35324;RPPR=22.5536;RPR=2,2;RUN=1,1;SAF=1,0;SAP=3.0103,7.35324;SAR=1,2;SRF=6;SRP=5.18177;SRR=3;TYPE=snp,snp	GT:DP:AD:RO:QR:AO:QA:GL	0/0:13:9,2,2:9:318:2,2:66,66:0,-1.31131,-5.26205,-2.25752,-5.39282,-6.16753
-I	359	.	A	T	1.91348e-08	.	AB=0.222222;ABP=27.1378;AC=1;AF=0.5;AN=2;AO=8;CIGAR=1X;DP=36;DPB=36;DPRA=0;EPP=20.3821;EPPR=16.6021;GTI=0;LEN=1;MEANALT=2;MQM=17.25;MQMR=10.9259;NS=1;NUMALT=1;ODDS=19.2582;PAIRED=0.125;PAIREDR=0.592593;PAO=0;PQA=0;PQR=0;PRO=0;QA=298;QR=1004;RO=27;RPL=0;RPP=20.3821;RPPR=61.6401;RPR=8;RUN=1;SAF=8;SAP=20.3821;SAR=0;SRF=20;SRP=16.6021;SRR=7;TYPE=snp	GT:DP:AD:RO:QR:AO:QA:GL	0/1:36:27,8:27:1004:8:298:-1.98135,0,-15.6069
-I	362	.	C	T	0	.	AB=0;ABP=0;AC=0;AF=0;AN=2;AO=5;CIGAR=1X;DP=50;DPB=50;DPRA=0;EPP=13.8677;EPPR=22.751;GTI=0;LEN=1;MEANALT=2;MQM=28.2;MQMR=13.0227;NS=1;NUMALT=1;ODDS=43.9933;PAIRED=0.4;PAIREDR=0.545455;PAO=0;PQA=0;PQR=0;PRO=0;QA=171;QR=1620;RO=44;RPL=0;RPP=13.8677;RPPR=98.5551;RPR=5;RUN=1;SAF=5;SAP=13.8677;SAR=0;SRF=32;SRP=22.751;SRR=12;TYPE=snp	GT:DP:AD:RO:QR:AO:QA:GL	0/0:50:44,5:44:1620:5:171:0,-4.42149,-39.0258
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  unknown
+I       365     .       A       G       5.48143e-08     .       AB=0;ABP=0;AC=0;AF=0;AN=2;AO=2;CIGAR=1X;DP=15;DPB=15;DPRA=0;EPP=7.35324;EPPR=7.18621;GTI=0;LEN=1;MEANALT=1;MQM=4.5;MQMR=11.0769;NS=1;NUMALT=1;ODDS=18.1966;PAIRED=1;PAIREDR=0.692308;PAO=0;PQA=0;PQR=0;PRO=0;QA=81;QR=502;RO=13;RPL=0;RPP=7.35324;RPPR=31.2394;RPR=2;RUN=1;SAF=2;SAP=7.35324;SAR=0;SRF=9;SRP=7.18621;SRR=4;TYPE=snp GT:DP:AD:RO:QR:AO:QA:GL 0/0:15:13,2:13:502:2:81:0,-3.66059,-12.128
+I       371     .       A       G       0.0040121       .       AB=0;ABP=0;AC=0;AF=0;AN=2;AO=3;CIGAR=1X;DP=19;DPB=19;DPRA=0;EPP=9.52472;EPPR=6.62942;GTI=0;LEN=1;MEANALT=2;MQM=20;MQMR=9.13333;NS=1;NUMALT=1;ODDS=6.98659;PAIRED=0.333333;PAIREDR=0.8;PAO=0;PQA=0;PQR=0;PRO=0;QA=112;QR=593;RO=15;RPL=0;RPP=9.52472;RPPR=35.5824;RPR=3;RUN=1;SAF=3;SAP=9.52472;SAR=0;SRF=10;SRP=6.62942;SRR=5;TYPE=snp      GT:DP:AD:RO:QR:AO:QA:GL 0/0:19:15,3:15:593:3:112:0,-0.0395599,-6.91621
+I       373     .       G       A       2.09043e-11     .       AB=0;ABP=0;AC=0;AF=0;AN=2;AO=2;CIGAR=1X;DP=20;DPB=20;DPRA=0;EPP=7.35324;EPPR=7.35324;GTI=0;LEN=1;MEANALT=1;MQM=4.5;MQMR=12.3889;NS=1;NUMALT=1;ODDS=26.1012;PAIRED=1;PAIREDR=0.666667;PAO=0;PQA=0;PQR=0;PRO=0;QA=81;QR=656;RO=18;RPL=0;RPP=7.35324;RPPR=42.0968;RPR=2;RUN=1;SAF=2;SAP=7.35324;SAR=0;SRF=12;SRP=7.35324;SRR=6;TYPE=snp        GT:DP:AD:RO:QR:AO:QA:GL 0/0:20:18,2:18:656:2:81:0,-5.16576,-17.2477
 
 ```
 
