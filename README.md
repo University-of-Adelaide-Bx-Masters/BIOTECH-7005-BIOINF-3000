@@ -49,7 +49,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **4**    | 14/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave/Bethany)|[Scripting In Bash] (2)(Dave/Chelsea)                   |
 | **5**    | 21/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave/Bethany)) | [Evolutionary processes] (2) (Dave/Chelsea)    |
 | **6**    | 28/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave/Bethany)  |[Alignment/NGS (2)] (Dave/Chelsea)             |
-| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L/Bethany)  |[Reproducible Science] (David L/Chelsea)             |
+| **7**    | 4/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L/Bethany)  | *Cancelled*   |
 | **8**    | 11/9       |Version Control (David L)   |[Version Control] (2) (David L/Bethany)    |[Local Version Control] (David L/Chelsea)  |
 | **-**    | 18/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
