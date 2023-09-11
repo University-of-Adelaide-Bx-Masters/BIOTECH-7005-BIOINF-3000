@@ -13,7 +13,7 @@ Your answers to all questions should be submitted to myUni as a `.zip` file cont
 The `.zip` filename must start with your student number [*1 mark*] and *your bash script must be able to run without errors*. This means it should run regardless of where it is located in the directory tree.
 Meaningful comments are strongly advised [*2 marks*]
 
-For all scripts, please use the directory `~/Assignment4` as the parent directory for all downloads and analysis.
+For all scripts, please use the directory `~/Assignment_4` as the parent directory for all downloads and analysis.
 **You will be expected to hard code this into your script.**
 All other folders must be created as subdirectories of this. It will be simplest for you to stick with the structure in NGS_skeleton [*1 mark*]
 
