@@ -36,13 +36,13 @@ Each student will be provided a unique pair of transcriptome dataset (6 zipped `
 | Col0_SA_treated_0h_rep2.fastq.gz   | fastq       | Control   | Biological replicate 2 (rep2) of Arabidopsis Col-0 ecotype (Col0) treated with Salicylic Acid (SA) for 0 hours (0h)    |
 | Col0_SA_treated_0h_rep3.fastq.gz   | fastq       | Control   | Biological replicate 3 (rep3) of Arabidopsis Col-0 ecotype (Col0) treated with Salicylic Acid (SA) for 0 hours (0h)    |
 
-### Access/use your unique transcriptome dataset [**IMPORTANT, PLEASE READ**]
+### [**IMPORTANT, PLEASE READ**] Access/use your unique transcriptome dataset 
 
-Your unique transcriptome dataset can be accessed through VM path `/shared/data/axxxxxxx`, in which `axxxxxxx` is your university `a` number. You can use your unique transcriptome dataset according to two options:
+Your unique transcriptome dataset can be accessed through VM path `/shared/data/axxxxxxx`, in which `axxxxxxx` is your university `a` number. You have two options to access/use your unique transcriptome dataset:
 
 - Option 1, create soft links pointing to the original raw data files
 
-For example, if your major project top level directory is `~/major_project`, and in your analysis, you want access your raw fastq data in directory `~/major_project/01_raw_data`, you can run following commands (replace `axxxxxxx` with your `a` number):
+For example, if your major project top level directory is `~/major_project`, and you want to access your raw fastq data in directory `~/major_project/01_raw_data` in your analysis, you can run following commands (replace `axxxxxxx` with your `a` number) to create soft links of your unique transcriptome raw data files:
 
 ```
 mkdir -p ~/major_project/01_raw_data
@@ -54,7 +54,7 @@ ln -s /shared/data/axxxxxxx/*.fastq.gz ./
 
 You can hard code your unique transcriptome dataset path (`/shared/data/axxxxxxx`, replace `axxxxxxx` with your `a` number) in your bash script.
 
-**Please DO NOT copy the transcriptome raw data files into your home directory**
+**[Important] Please DO NOT copy the transcriptome raw data files into your home directory**
 
 ### Additional information
 The major project is mainly based on the practicals of `Week 6, Alignment/NGS` and `Week 10, Transciptomic/Gene Expression`, and also requires skills that you have learned from other practicals (R, bash).
