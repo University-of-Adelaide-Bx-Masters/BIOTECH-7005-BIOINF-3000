@@ -25,7 +25,7 @@ For your major project, you will compare Arabidopsis transcriptome data under th
 
 ### Description of your unique transcriptome dataset
 
-Each student will be provided a unique pair of transcriptome dataset (6 zipped `fastq` files), including 3 files representing the RNA-Seq of three biological replicates under hormone treatment and 3 files representing the RNA-seq of three corresponding control biological replicates. For example, the following is the typical list of files for one student:
+Each student will be provided a unique pair of transcriptome dataset (6 zipped `fastq` files), including 3 files representing the RNA-Seq of three biological replicates under hormone treatment and 3 files representing the RNA-seq of three corresponding control biological replicates. For example, the following is a typical list of files for one student:
 
 | File name                          | File format | Group     | Description of file                                                                                                     |
 |------------------------------------|-------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ Your unique transcriptome dataset can be accessed through VM path `/shared/data/
 
 - Option 1, create soft links pointing to the original raw data files
 
-For example, if your major project top level directory is `~/major_project`, and you want to access your raw fastq data in directory `~/major_project/01_raw_data` in your analysis, you can run following commands (replace `axxxxxxx` with your `a` number) to create soft links of your unique transcriptome raw data files:
+For example, if your major project top level directory is `~/major_project`, and you want to access your raw fastq data in directory `~/major_project/01_raw_data` in your analysis, you can run the following commands (replace `axxxxxxx` with your `a` number) to create soft links of your unique transcriptome raw data files:
 
 ```
 mkdir -p ~/major_project/01_raw_data
@@ -54,7 +54,7 @@ ln -s /shared/data/axxxxxxx/*.fastq.gz ./
 
 You can hard code your unique transcriptome dataset path (`/shared/data/axxxxxxx`, replace `axxxxxxx` with your `a` number) in your bash script.
 
-**[Important] Please DO NOT copy the transcriptome raw data files into your home directory**
+**[Important] Please DO NOT copy the transcriptome raw data files into your home directory** If everyone did this, we would run out of storage again.
 
 ### Additional information
 The major project is mainly based on the practicals of `Week 6, Alignment/NGS` and `Week 10, Transciptomic/Gene Expression`, and also requires skills that you have learned from other practicals (R, bash).
