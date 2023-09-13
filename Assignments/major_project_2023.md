@@ -19,7 +19,7 @@ Analysis of the major project dataset requires quality control (quality and sequ
 
 ## Transcriptome/RNAseq data set
 
-Your major project RNA-Seq data is from [a gene expression study](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182617). The study (Yin et al., 2023) was trying to understand the roles of plant hormones on the regulation of plant growth and development using Arabidopsis as a plant model. If you want to learn more about the study, you can read their preprint paper [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10028877/).
+Your major project RNA-Seq data is from [a gene expression study](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182617). The study (Yin et al., 2023) was trying to understand the roles of plant hormones on the regulation of plant growth and development using Arabidopsis as a plant model. If you want to learn more about the study, you can read their preprint paper [1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10028877/). This RNA-Seq data was sequenced on Illumina HiSeq2500 (single end 95 bp). 
 
 For your major project, you will compare Arabidopsis transcriptome data under the treatment of plant hormone (Salicylic Acid (SA), Brassinosteroid (BR) or Strigolactone/karrikin (SL_KAR)) for a specific time period (0.25, 0.5, 1, 2, 4, 8, 12 or 24 hours) with the control transcriptome data (treated with plant hormone for 0 hour). Your research goal will be to understand what kind of genes/pathways are potentially regulated by the plant hormone. 
 
