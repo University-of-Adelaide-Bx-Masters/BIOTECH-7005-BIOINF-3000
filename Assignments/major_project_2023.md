@@ -57,7 +57,7 @@ You can hard code your unique transcriptome dataset path (`/shared/data/axxxxxxx
 **[Important] Please DO NOT copy the transcriptome raw data files into your home directory** If everyone did this, we would run out of storage again.
 
 ### Additional information
-The major project is mainly based on the practicals of `Week 6, Alignment/NGS` and `Week 10, Transciptomic/Gene Expression`, and also requires skills that you have learned from other practicals (R, bash).
+The major project is mainly based on the practicals of `Week 6, Alignment/NGS` and `Week 11, Transciptomics/Gene Expression`, and also requires skills that you have learned from other practicals (R, bash).
 
 ### Reference
 [1] Yin L, Zander M, Huang SC, Xie M, Song L, Guzm N JPS, Hann E, Shanbhag BK, Ng S, Jain S, Janssen BJ, Clark NM, Walley JW, Beddoe T, Bar-Joseph Z, Lewsey MG, Ecker JR. Transcription Factor Dynamics in Cross-Regulation of Plant Hormone Signaling Pathways. bioRxiv [Preprint]. 2023 Mar 9:2023.03.07.531630. doi: 10.1101/2023.03.07.531630. PMID: 36945593; PMCID: PMC10028877.
