@@ -55,8 +55,8 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 | **-**    | 25/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 2/10 (PH)  | *Public Holiday 3/10* No lecture|*Public Holiday No practical*  | *Version control test*/ [GitHub Intro] (David L/Chelsea)   
 | **10**   | 9/10      | [Ancient DNA][11] (Bastien)|[GitHub Repositories] (David L/Bethany) |[aDNA][12] (Bastien/Chelsea) |
-| **11**   | 16/10      |Quantifying Gene Expression (Zhipeng)  | [Transcriptome intro] (Zhipeng/Bethany) |*Transcriptomic/Gene Expression test*/ [DE genes] (Zhipeng/Chelsea) | 
-| **12**   | 23/10      |Transcriptomics (Zhipeng) |[Transcriptomic Practical][] (2) (Zhipeng/Bethany) | [Transcriptomic Practical][] (1) (Zhipeng/Chelsea)   |
+| **11**   | 16/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng/Bethany) |[Transcriptomics - DE analysis] (2) (Zhipeng/Chelsea) | 
+| **12**   | 23/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng/Bethany) | [Transcriptomics - assembly] (2) (Zhipeng/Chelsea)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
@@ -89,6 +89,8 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 [Version Control]: Practicals/Version_control_practical/version_control_practical.html
 [Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
+[Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE_2023.md
+[Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly_2023.md
 
 ## Assessment
 
