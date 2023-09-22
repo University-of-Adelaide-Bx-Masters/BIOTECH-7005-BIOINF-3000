@@ -1,13 +1,12 @@
----
-title: "BIOTECH-7005/BIOINF-3000 Transcriptomics Practical - Transcriptome assembly"
-author: "Zhipeng Qu"
-date: 'Week 12, 2023'
-output: 
-  html_document: 
-    toc: yes
----
+# Week 12 Transcriptomics Practical - assembly
+*By Zhipeng Qu* 
 
-# Introduction
+{:.no_toc}
+
+* TOC
+{:toc}
+
+## Introduction
 
 In this practical, we will use a RNA-Seq dataset from a model plant *Arabidopsis thaliana* (Wang et al, 2017, <https://onlinelibrary.wiley.com/doi/10.1111/tpj.13481>). This dataset was initially used for identification of long non-coding RNAs by transcriptome assembly of RNA-Seq.
 
