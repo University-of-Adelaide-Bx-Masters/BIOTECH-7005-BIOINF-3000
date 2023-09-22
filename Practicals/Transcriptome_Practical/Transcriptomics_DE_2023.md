@@ -1,13 +1,12 @@
----
-title: "BIOTECH-7005/BIOINF-3000 Transcriptomics Practical - DE analysis"
-author: "Zhipeng Qu/Steve Pederson/Jimmy Breen"
-date: 'Week 11, 2023'
-output: 
-  html_document: 
-    toc: yes
----
+# Week 11 Transcriptomics Practical - DE analysis
+*By Zhipeng Qu/Steve Pederson/Jimmy Breen* 
 
-# Introduction
+{:.no_toc}
+
+* TOC
+{:toc}
+
+## Introduction
 
 Gene differential expression (DE) anaysis using RNA-Seq or transcriptomes is to detect the level of activity at a genomic locus, and determine if any changes are evident due to the specific biological question. 
 
@@ -206,7 +205,7 @@ samtools index Col_0_mock_rep1.Aligned.sortedByCoord.out.bam
 
 Basically, up to this step, we have finished all the steps in the first section of DE analysis, which are mainly processed using tools/commands in bash. Next we will move to section 2, in which we will be using different packages under `R` environment.
 
-## Part 4 Gene DE analysis
+## Part 4 Gene DE analysis (under R environment)
 
 There are multiple packages to do gene DE analysis, most of them are R-based packages. The DE analysis in this Prac will be mainly based on the `R` package `edgeR`. `edgeR` implements a range of statistical methodology based on the negative binomial distributions, including empirical Bayes estimation, exact tests, generalized linear models and quasi-likelihood tests. If you want to understand more about `edgeR`, have a read of their published [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2796818/). 
 
@@ -346,7 +345,6 @@ dgeList <- calcNormFactors(dgeList)
 
 Notice that now the column `norm.factors`is no longer all `1`.
 This is used by all downstream functions in `edgeR`.
-## RNA Seq Analysis using `R`
 
 #### Data Exploration
 
