@@ -11,7 +11,7 @@
 
 
 
-<title>github_repositories_practical.knit</title>
+<title>github_intro_practical.knit</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -367,273 +367,45 @@ pre code {
 
 <div id="github-repositories-practical" class="section level1">
 <h1>GitHub repositories practical</h1>
-<div id="user-security" class="section level2">
-<h2>User security</h2>
-<p>GitHub handles <a href="https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github">user
-authentication</a></p>
-<p>You can make organisations (which are basically groups that own
-projects rather than individual users).</p>
-<p>This is a matter of choice (or lab policy) but I generally release
-work projects under my organisation as it’s more professional, makes it
-easier for my coworkers to maintain it, and our lab seems more permanent
-than an individual job. You can always transfer it, and have the old URL
-redirect, but generally it’s better to make URLs permanent.</p>
+<div id="github" class="section level2">
+<h2>GitHub</h2>
+<p>Git is the command line tool (and version control database)</p>
+<p>GitHub is company that runs git on the cloud to help you host a
+repository</p>
+<p>A centrally hosted repo on the internet (with authorization) is
+useful as you can access it from many computers</p>
+<p>They also provide many other features to help you run software
+projects like issue trackers, wikis and more</p>
 </div>
-<div id="access-tokens" class="section level2">
-<h2>Access tokens</h2>
-<p>GitHub uses <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal
-access tokens</a> rather than passwords. To generate one of these for
-the VM:</p>
-<ul>
-<li>Click on your user icon in the top right</li>
-<li>Click “Settings”</li>
-<li>In bottom left menu option - “Developer Settings”, then “Personal
-Access token”</li>
-<li>Generate new token, label it something like “bioinformatics VM”.
-Make sure you click the first tickbox “repo” so you can use it to
-push/pull</li>
-</ul>
-<p><strong>DO NOT CLOSE THIS TAB</strong> - leave it open so you can
-copy/paste it below</p>
-<p>You can store your token (as plaintext on the VM) via:</p>
-<pre><code>git config --global credential.helper store</code></pre>
-<p>If you do this you will only have to enter your token once. If
-someone gets this token they can make changes to your GitHub repo so
-please password protect your VMs</p>
-<p>When it comes time to enter git username/passwords - you do NOT enter
-your github password, you use this token.</p>
+<div id="projects-repositories" class="section level2">
+<h2>Projects / Repositories</h2>
+<p>Here are some repositories of famous bioinformatics tools.</p>
+<p>Go and view the pages, skim the README and the issue trackers. Open
+some random issues</p>
+<p><a href="https://github.com/igvteam/igv">IGV</a> - paper in 2013,
+last commit 10 hours ago</p>
+<p><a href="https://github.com/samtools/samtools">Samtools</a> - paper
+in 2009, last commit 21 hours ago</p>
+<p><a href="https://github.com/lh3/bwa">BWA</a> - paper in 2009, last
+commit 14 days ago</p>
+<p>Compare the release date of the paper vs the last commit.</p>
+<p>Consider how different it must be from the first release, and whether
+the authors realised someone (or they themselves) would be working on
+the code 13 years later!</p>
 </div>
-<div id="projects" class="section level2">
-<h2>Projects</h2>
-<p>Create a new project</p>
-<ul>
-<li>In the top right hand corner, click the plus symbol, then “new
-repository”</li>
-<li>Call it eg ‘week9_github_practical’</li>
-<li>Choose a licence, add a README.</li>
-<li>If you want to make a wiki later, you need to make it public (only
-“pro” / “enterprise” and organisations (eg educational institutions) can
-have private repo wikis)</li>
-</ul>
+<div id="licences" class="section level2">
+<h2>Licences</h2>
+<p>Look to see if you can quickly spot the licence against the
+bioinformatics projects above.</p>
+<p>Click on the link, and open it up and skim it. Open <a href="https://tldrlegal.com/">TLDR legal</a> and search for GPL or MIT
+licences.</p>
 </div>
-<div id="clone-your-repo" class="section level2">
-<h2>Clone your repo</h2>
-<ul>
-<li>Copy/paste the URL at the top of your project</li>
-<li>Clone it to your VM</li>
-<li>If your repo is private, you will need to enter your
-username/password here. The password is the access token (not GitHub
-password)</li>
-<li>Make a change to the README.md</li>
-</ul>
-<pre><code>git add README.md
-git commit --message &quot;edit README&quot;
-git push</code></pre>
-<p>If the repo is public (and you didnt’ have to enter it when you
-pulled) you will have to enter your github username and password now.
-The password is the access token (not GitHub password)</p>
+<div id="documentation" class="section level2">
+<h2>Documentation</h2>
+<p>Github has excellent help -<a href="https://docs.github.com/en">GitHub docs</a></p>
+<p>However, I tend to just Google “GitHub X” to find what I’m looking
+for.</p>
 </div>
-<div id="issues---searching" class="section level2">
-<h2>Issues - searching</h2>
-<p>Go to <a href="https://github.com/igvteam/igv/issues">IGV
-issues</a></p>
-<p>Notice how all you can see are the titles. Titles are extremely
-important.</p>
-<p>Before raising a bug, you should always check it see if it has
-already been reported (ie don’t create a “dupe”)</p>
-<p>Run a few searches. Experiment with clicking on Open/Closed. Notice
-how special tokens in the search form change.</p>
-<p>Again, notice how the title is critical for finding things as you
-can’t see the contents (though you can search for it, eg “font” will
-bring up titles without “font” in it, as they have it in the issue)</p>
-</div>
-<div id="issues---labels" class="section level2">
-<h2>Issues - labels</h2>
-<p>As well as titles, labels can be used to organise issues into related
-themes. Read the documentation <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">Github
-- managing labels</a></p>
-<ul>
-<li>Create some labels for your project, with distinct colours - if
-you’re unimaginative you could use “red”, “green”, “blue” with
-appropriate colours</li>
-<li>Raise some fake issues on your project, don’t worry about content
-just make a lot of different titles (ie “problem X with red”, “problem Y
-with red”, “problem X with green”, “problem Y with green”)</li>
-<li>Tag the issues with appropriate keywords (view each individual
-issue, click label cog on right hand toolbar, select from
-autocomplete)</li>
-<li>Perform a search for keywords, and notice how the labels make it
-easier to find related</li>
-<li>Try clicking on a label (this does a search by label)</li>
-</ul>
-</div>
-<div id="issues---lifecycle" class="section level2">
-<h2>Issues - lifecycle</h2>
-<p>Issues move througha lifecycle, ie:</p>
-<p>raised -&gt; fixed -&gt; tested -&gt; closed raised -&gt; tagged as
-“duplicate”, “wontfix” -&gt; comment about which other issue is a
-duplicate + close</p>
-<ul>
-<li>Find an issue,</li>
-<li>Add “wontfix” label</li>
-<li>Add a comment at the bottom saying this issue is too hard / out of
-scope of the project and close the issue</li>
-<li>Go back to the search, notice it’s gone</li>
-</ul>
-</div>
-<div id="issues---writing-tips" class="section level2">
-<h2>Issues - writing tips</h2>
-<p>Even for your own projects - try and write it with as much
-information as possible (aiming to be standalone, so you don’t need much
-outside context), so that a 3rd party can come in and make sense of
-things.</p>
-<p>If it’s clear - maybe it’ll stop them raising a dupe. Maybe someone
-will fix it for you!</p>
-<p>Depending on the type of bug, there’s certain information you want to
-include</p>
-<p>For crashes: stack traces and logs</p>
-<p>For ones that involve complicated user steps - Try to find a way to
-“reproduce” the error consistently and produce clear step by step
-instructions. Ideally your instructions should reproduce the issue 100%
-of the time with a minimal amount of steps</p>
-<p>For ones involving input files, perhaps try and produce a minimal,
-cut down one.</p>
-<p>For unexpected behavior, or outputs, <a href="https://medium.com/we-are-testers/chapter-2-how-to-write-useful-actual-and-expected-results-details-in-your-bug-report-10b83e5aaa75">Actual
-vs Expected</a> is very useful</p>
-</div>
-<div id="milestones" class="section level2">
-<h2>Milestones</h2>
-<p>Milestones are a way of managing releases and deadlines</p>
-<p>For instance, you may have 20 issues, but your lab head says you have
-to stop coding and start writing up your paper in 2 weeks.</p>
-<ul>
-<li>Create a milestone called “Code complete for paper” with a deadline
-in 2 weeks time</li>
-<li>Assign a few issues to this (you will need to go into each
-individual issue, click milestone cog, select from autocomplete)</li>
-<li>Go back to issues, search by milestone</li>
-</ul>
-</div>
-<div id="wiki" class="section level2">
-<h2>Wiki</h2>
-<ul>
-<li>Create a few wiki pages for your practical project (the one you made
-not forked)</li>
-<li>Use 2 levels of headers “#” and “##”</li>
-<li>Go to the wiki page, notice that it has built a hierarchical wiki
-browser for you out of your headers</li>
-</ul>
-</div>
-</div>
-<div id="simulated-open-source-project-repo" class="section level1">
-<h1>Simulated open source project repo</h1>
-<div id="practical---simulated-open-source-repo" class="section level2">
-<h2>Practical - simulated open source repo</h2>
-<p>There’s a <a href="https://github.com/davmlaw/2023_practical_github_repositories">GitHub
-repo</a> which is a simulation of an open source project with bugs.</p>
-<p>It has randomly generated data, so has the same structure (but
-different data) as <a href="https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Assignments/Assignment5.html">Assignment
-5</a></p>
-</div>
-<div id="file-history" class="section level2">
-<h2>File history</h2>
-<p>From the project page, click on “data” then click on your “VM file”.
-You can see the latest content, and the last commit.</p>
-<ul>
-<li>Click “history” in the top right hand corner to see all the
-commits.</li>
-<li>Go back and click “blame” to see commits that last touched a
-row</li>
-</ul>
-</div>
-<div id="branches" class="section level2">
-<h2>Branches</h2>
-<p>Branches allow you to keep different versions of code (say, a
-“stable” vs “experimental/active development”) and keep work
-separate.</p>
-<p>You can split off branches, and merge branches into each other.</p>
-<p><a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Git
-- branches in a nutshell</a> <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches">GitHub
-- about branches</a></p>
-<ul>
-<li>Click on the “branches” links on the practical repo</li>
-</ul>
-</div>
-<div id="raising-an-issue" class="section level2">
-<h2>Raising an issue</h2>
-<p>Raise an issue in the <a href="https://github.com/davmlaw/practical_week_9_github_repositories">Week
-9 GitHub repo</a> for the high severity bug (XXXXXXX)</p>
-<p>Make sure the title includes your filename and what’s wrong with it,
-ie “file doc/BIOINF_3000_2022-1 contains ‘XXXXXXX’”</p>
-<p>Remember to be nice - perhaps start the issue with “Hi, thanks for
-your project! I think I may have found an issue” - be humble and kind.
-You may be adding more stress to an overworked person trying to do
-altruistic work…</p>
-<p>A bad issue raises stress but a good issue helps people, and makes it
-more easy for them to fix, and happier to do so.</p>
-<p>Write <a href="https://medium.com/we-are-testers/chapter-2-how-to-write-useful-actual-and-expected-results-details-in-your-bug-report-10b83e5aaa75">Actual
-vs Expected</a> for your file, only mentioning the high severity bug
-(XXXXXXX)</p>
-</div>
-<div id="fork-the-repository-to-your-personal-account." class="section level2">
-<h2>Fork the repository to your personal account.</h2>
-<ul>
-<li>You can now clone your private fork of the repo to your local
-machine.</li>
-</ul>
-</div>
-<div id="fix-the-high-severity-issue-xxxxxxx" class="section level2">
-<h2>Fix the high severity issue (XXXXXXX)</h2>
-<ul>
-<li>Edit your data/ file, and remove the high severity issue (XXXXXXX)
-ONLY (ie DO NOT change the low severity (UPPERCASE) at the same time).
-There should only be 1 space between the words after removing the
-XXXXX</li>
-<li><code>git add</code> then
-<code>git commit --message &quot;fix issue #xxx&quot;</code> (referencing the
-issue in the original repo you raised)</li>
-<li><code>git push</code> back to your repo</li>
-</ul>
-</div>
-<div id="your-forked-repo" class="section level2">
-<h2>Your forked repo</h2>
-<p>Go to your forked repo page.</p>
-<ul>
-<li>Notice your files last updates have changed</li>
-<li>Notice it says “X commits ahead of the old repo”</li>
-</ul>
-</div>
-<div id="submit-a-pull-request" class="section level2">
-<h2>Submit a pull request</h2>
-<ul>
-<li>Create a pull request from the front page of your repo (near “X
-commits ahead”)</li>
-<li>Comments should link to both issues and give a brief description of
-the change. You don’t need to repeat everything in the issue, just link
-to it</li>
-<li>after creating the pull request you’ll be taken to the original repo
-(not your fork) - notice that the “pull request” tab now shows some
-numbers. Notice how the pull request comment can be hovered over to see
-the issue</li>
-<li>Go to your issue - you should be able to see the linked pull
-request</li>
-</ul>
-</div>
-</div>
-<div id="extras" class="section level1">
-<h1>Extras</h1>
-<ul>
-<li>Try editing the README on GitHub as well as locally. Try editing
-different lines then push/pulling. Try editing the same line then
-push/pulling</li>
-<li>Tags are a label for a commit, and are useful for things like
-“tagging a release”. It’s easier than memorising a date or a hash. Try
-making some tags for your repository. Google for help on GitHub tags to
-find out the steps</li>
-<li>Read some closed issues on the bioinformatics GitHub projects above.
-Notice how they often involve conversations over long periods of
-time.</li>
-</ul>
 </div>
 
 

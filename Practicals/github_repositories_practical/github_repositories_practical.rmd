@@ -1,43 +1,5 @@
 # GitHub repositories practical
 
-## GitHub
-
-Git is the command line tool (and version control database)
-
-GitHub is company that runs git on the cloud to help you host a repository
-
-A centrally hosted repo on the internet (with authorization) is useful as you can access it from many computers
-
-They also provide many other features to help you run software projects like issue trackers, wikis and more
-
-## Projects / Repositories
-
-Here are some repositories of famous bioinformatics tools.
-
-Go and view the pages, skim the README and the issue trackers. Open some random issues
-
-[IGV](https://github.com/igvteam/igv) - paper in 2013, last commit 10 hours ago
-
-[Samtools](https://github.com/samtools/samtools) - paper in 2009, last commit 21 hours ago
-
-[BWA](https://github.com/lh3/bwa) - paper in 2009, last commit 14 days ago
-
-Compare the release date of the paper vs the last commit.
-
-Consider how different it must be from the first release, and whether the authors realised someone (or they themselves) would be working on the code 13 years later!
-
-## Licences
-
-Look to see if you can quickly spot the licence against the bioinformatics projects above.
-
-Click on the link, and open it up and skim it. Open [TLDR legal](https://tldrlegal.com/) and search for GPL or MIT licences.
-
-## Documentation
-
-Github has excellent help -[GitHub docs](https://docs.github.com/en)
-
-However, I tend to just Google "GitHub X" to find what I'm looking for.
-
 ## User security
 
 GitHub handles [user authentication](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github)
@@ -159,9 +121,9 @@ For instance, you may have 20 issues, but your lab head says you have to stop co
 
 # Simulated open source project repo
 
-## Practical week 9 simulated open source repo
+## Practical - simulated open source repo
 
-There's a [Week 9 GitHub repo](https://github.com/davmlaw/practical_week_9_github_repositories) which is a simulation of an open source project with bugs.
+There's a [GitHub repo](https://github.com/davmlaw/2023_practical_github_repositories) which is a simulation of an open source project with bugs.
 
 It has randomly generated data, so has the same structure (but different data) as [Assignment 5](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Assignments/Assignment5.html)
 

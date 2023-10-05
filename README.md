@@ -88,6 +88,7 @@ Practical 02: Friday 11am-1pm, Johnson, 111
 [Reproducible Science]: Practicals/reproducible_science_practical/reproducible_science_practical.html
 [Version Control]: Practicals/Version_control_practical/version_control_practical.html
 [Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
+[GitHub intro]: Practicals/github_intro_practical/github_intro_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
 [Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE_2023.md
 [Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly_2023.md
