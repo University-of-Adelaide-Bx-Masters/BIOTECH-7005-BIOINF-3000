@@ -1,7 +1,5 @@
 # Assignment 5 [*30 marks*]
 
-**Due before 5pm, Friday 14th October **
-
 ## Assignment overview [*4 marks for general format*]
 
 This assignment is based on the Local version control and GitHub repository practicals. 
@@ -67,7 +65,7 @@ These should be treated as two separate incidents, with different severities, an
 
 (total: 4 points)
 
-6. Submit a pull request
+6. Submit a pull request from your main/master branch
     + Comments should link to both issues and give a brief description of the change [*2 points*] 
 
 (total: 2 points)
