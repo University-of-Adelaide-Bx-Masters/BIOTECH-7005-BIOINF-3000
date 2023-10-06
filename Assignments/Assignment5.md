@@ -52,6 +52,7 @@ These should be treated as two separate incidents, with different severities, an
 4. Fix the high severity issue (XXXXXXX), in the "main"" and "stable" branches
     + You will need to clone your private fork of the repo to your local machine.
     + Edit your data/ file, and remove the high severity issue (XXXXXXX) ONLY (ie DO NOT change the low severity (UPPERCASE) at the same time). There should only be 1 space between the words after removing the XXXXX [*1 point*]
+    + Edit your doc/ file, which is in the format of a [changelog](https://keepachangelog.com/en/1.0.0/) adding a CHANGED entry for your fix, that links to the high severity issue above [*1 points*]
     + Write a descriptive commit message, which references the high severity issue above [*1 point*]
     + This bug needs to be fixed in the "stable" branch as well, so switch to that branch and cherry-pick the commit you just made [*3 points*]  
     + Push both branches to your repo
@@ -60,9 +61,9 @@ These should be treated as two separate incidents, with different severities, an
 
 5. Fix the low severity issue (UPPERCASE), in the "main"" branch ONLY
     + Edit your data/ file, and remove the low severity issue. [*1 points*]
+    + Edit your doc/ file, which is in the format of a [changelog](https://keepachangelog.com/en/1.0.0/) adding a CHANGED entry for your fix, that links to the low severity issue above [*1 points*]
     + Write a descriptive commit message, which references the low severity issue above [*1 point*]
     + Push both branches to your repo
-    + Edit the doc/ file, which is in the format of a [changelog](https://keepachangelog.com/en/1.0.0/) adding a CHANGED entry for your fix, that links to the low severity issue above [*2 points*]
 
 (total: 4 points)
 
