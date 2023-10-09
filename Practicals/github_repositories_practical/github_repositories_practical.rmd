@@ -129,7 +129,7 @@ It has randomly generated data, so has the same structure (but different data) a
 
 ## File history
 
-From the project page, click on "data" then click on your "VM file". You can see the latest content, and the last commit.
+From the project page, click on "data" then click on your student number .txt file. You can see the latest content, and the last commit.
 
 * Click "history" in the top right hand corner to see all the commits.
 * Go back and click "blame" to see commits that last touched a row
@@ -149,7 +149,7 @@ You can split off branches, and merge branches into each other.
 
 Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2023_practical_github_repositories) for the high severity bug (XXXXXXX)
 
-Make sure the title includes your filename and what's wrong with it, ie "file doc/BIOINF_3000_2022-1 contains 'XXXXXXX'"
+Make sure the title includes your filename and what's wrong with it, ie "file doc/a1059391.txt contains 'XXXXXXX'"
 
 Remember to be nice - perhaps start the issue with "Hi, thanks for your project! I think I may have found an issue" - be humble and kind. You may be adding more stress to an overworked person trying to do altruistic work...
 
