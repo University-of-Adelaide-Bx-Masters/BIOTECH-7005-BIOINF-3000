@@ -34,7 +34,7 @@ When it comes time to enter git username/passwords - you do NOT enter your githu
 Create a new project
 
 * In the top right hand corner, click the plus symbol, then “new repository”
-* Call it eg 'week9_github_practical'
+* Call it eg 'github_practical_example_project'
 * Choose a licence, add a README.
 * If you want to make a wiki later, you need to make it public (only "pro" / "enterprise" and organisations (eg educational institutions) can have private repo wikis)
 
@@ -51,7 +51,7 @@ git commit --message "edit README"
 git push
 ```
 
-If the repo is public (and you didnt' have to enter it when you pulled) you will have to enter your github username and password now. The password is the access token (not GitHub password)
+If the repo is public (and you didn't have to enter it when you pulled) you will have to enter your github username and password now. The password is the access token (not GitHub password)
 
 ## Issues - searching
 
@@ -123,13 +123,13 @@ For instance, you may have 20 issues, but your lab head says you have to stop co
 
 ## Practical - simulated open source repo
 
-There's a [GitHub repo](https://github.com/davmlaw/2023_practical_github_repositories) which is a simulation of an open source project with bugs.
+There's a [GitHub repository Practical project](https://github.com/davmlaw/2023_practical_github_repositories) which is a simulation of an open source project with bugs.
 
 It has randomly generated data, so has the same structure (but different data) as [Assignment 5](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Assignments/Assignment5.html)
 
 ## File history
 
-From the project page, click on "data" then click on your "VM file". You can see the latest content, and the last commit.
+From the project page, click on "data" then click on your student number .txt file. You can see the latest content, and the last commit.
 
 * Click "history" in the top right hand corner to see all the commits.
 * Go back and click "blame" to see commits that last touched a row
@@ -147,9 +147,9 @@ You can split off branches, and merge branches into each other.
 
 ## Raising an issue
 
-Raise an issue in the [Week 9 GitHub repo](https://github.com/davmlaw/practical_week_9_github_repositories) for the high severity bug (XXXXXXX)
+Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2023_practical_github_repositories) for the high severity bug (XXXXXXX)
 
-Make sure the title includes your filename and what's wrong with it, ie "file doc/BIOINF_3000_2022-1 contains 'XXXXXXX'"
+Make sure the title includes your filename and what's wrong with it, ie "file doc/a1059391.txt contains 'XXXXXXX'"
 
 Remember to be nice - perhaps start the issue with "Hi, thanks for your project! I think I may have found an issue" - be humble and kind. You may be adding more stress to an overworked person trying to do altruistic work...
 
@@ -185,4 +185,6 @@ Go to your forked repo page.
 
 * Try editing the README on GitHub as well as locally. Try editing different lines then push/pulling. Try editing the same line then push/pulling
 * Tags are a label for a commit, and are useful for things like "tagging a release". It's easier than memorising a date or a hash. Try making some tags for your repository. Google for help on GitHub tags to find out the steps
-* Read some closed issues on the bioinformatics GitHub projects above. Notice how they often involve conversations over long periods of time.
+
+* Read some closed issues on some famous bioinformatics GitHub projects, eg: [IGV](https://github.com/igvteam/igv), [Samtools](https://github.com/samtools/samtools), [BWA](https://github.com/lh3/bwa) Notice how they often involve conversations over long periods of time.
+
