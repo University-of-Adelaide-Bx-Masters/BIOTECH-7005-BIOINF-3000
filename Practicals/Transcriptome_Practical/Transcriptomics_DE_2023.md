@@ -199,7 +199,7 @@ We will use these `ReadsPerGene.out.tab` files to make a gene count matrix and d
 The mapped reads are stored in a `bam` file called `Col_0_mock_rep1.Aligned.sortedByCoord.out.bam`. To view this file in IGV, we need to create an index file (You can write this in the same loop as the genome mapping).
 
 ```bash
-cd ~/prac_transcriptomics_DE/03_results/03_aligned_data
+cd ~/prac_transcriptomics_DE/04_results/03_aligned_data
 samtools index Col_0_mock_rep1.Aligned.sortedByCoord.out.bam
 ```
 
