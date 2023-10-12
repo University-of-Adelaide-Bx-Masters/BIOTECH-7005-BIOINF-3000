@@ -181,7 +181,7 @@ STAR --genomeDir ~/prac_transcriptomics_DE/02_DB/TAIR10_STAR149 --readFilesIn ~/
 ~/prac_transcriptomics_DE/04_results/02_clean_data/Col_0_mock_rep1_R2.clean.fastq.gz --readFilesCommand zcat \
 --runThreadN 2 --outSAMstrandField intronMotif --outSAMattributes All \
 --outFilterMismatchNoverLmax 0.03 --alignIntronMax 10000 --outSAMtype BAM SortedByCoordinate \
---outFileNamePrefix Col0_mock_rep1. --quantMode GeneCounts
+--outFileNamePrefix Col_0_mock_rep1. --quantMode GeneCounts
 ```
 
 STAR will output multiple files with prefix `Col_0_mock_rep1`. To get an idea about the mapping info, you can check `Col_0_mock_rep1.final.Log.out`. Another important command option is `--quantMode GeneCounts`. With this option, STAR will count number reads per gene while mapping, and it outputs read counts per gene into a `ReadsPerGene.out.tab` file with 4 columns which correspond to different strandedness options:
