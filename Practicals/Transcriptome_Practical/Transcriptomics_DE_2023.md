@@ -516,15 +516,14 @@ etResults %>%
 We can also generate interactive HTML graphics to examine the expression difference of individual genes between groups using R package `Glimma`.
 
 ```{r}
-DEs -> decideTests(exactTest(dgeList), adjust.method = "fdr", p.value = 0.01, lfc = 1)
-md_name -> "prac_transcriptomics_DE/04_results/04_DE/glimmer_plot"
+DEs <- decideTests(exactTest(dgeList), adjust.method = "fdr", p.value = 0.01, lfc = 1)
 glMDPlot(exactTest(dgeList), counts = cpm(dgeList, log = TRUE),
         groups = dgeList$samples$group,
         status = DEs[, 1],
         main="MD plot: Col_0_normal_light_vs_Col_0_mock",
         side.main = "ID", side.ylab = "Expression (CPM)",
         sample.cols = pal_npg()(2)[dgeList$samples$group],
-        folder = md_name, launch = FALSE)
+        folder = "glimmer_plot", launch = FALSE)
 ```
 
 `edgeR` offers many more other variants on DE analytic appraches other than `Exact Test`. As the description in its user guide, *"The glm approach is more popular than the classic approach as it offers great flexibilities. There are two testing methods under the glm framework: likelihood ratio tests and quasi-likelihood F-tests. The quasi-likelihood method is highly recommended for differential expression analyses of bulk RNA-seq data as it gives stricter error rate control by accounting for the uncertainty in dispersion estimation. The likelihood ratio test can be useful in some special cases such as single cell RNA-seq and datasets with no replicates."* Due to time limitation, we wound cover these other approaches in this Prac. Please have a look at the `edgeR` [user guide](https://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf) if you want to learn more about these different approaches.
