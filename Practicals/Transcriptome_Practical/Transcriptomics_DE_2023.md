@@ -162,6 +162,11 @@ After we trim the adapter and low-quality sequences from the raw data, we have t
 
 Before we do the genome mapping, we can run `fastQC` again on these `clean data` to check how we did with the trimming.
 
+```bash
+cd ~/prac_transcriptomics_DE/04_results/02_clean_data
+fastqc -t 2 -o ./ ~/prac_transcriptomics_DE/04_results/02_clean_data/*.fastq.gz
+```
+
 ## Part 3 Genome mapping/alignment
 
 For a typical differential gene expression analysis using RNA-Seq, we normally have the reference genome available (if you don't have the reference genome, you can do de novo transcriptome assembly first (next Prac), and then do DE analysis based on transcriptome mapping). We will be using a RNA-aligner called `RNA-STAR` to do the genome mapping in this Prac.
@@ -170,10 +175,10 @@ Before we do the genome mapping, `STAR` requires the reference genome to be inde
 
 ```bash
 cd ~/prac_transcriptomics_DE/02_DB
-STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/prac_transcriptomics_DE/02_DB/TAIR10_STAR149 --genomeFastaFiles TAIR10_chrALL.fa --sjdbGTFfile TAIR10_GFF3_genes.gtf --sjdbOverhang 124 --genomeSAindexNbases 12
+STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/prac_transcriptomics_DE/02_DB/TAIR10_STAR149 --genomeFastaFiles TAIR10_chrALL.fa --sjdbGTFfile TAIR10_GFF3_genes.gtf --sjdbOverhang 149 --genomeSAindexNbases 12
 ```
 
-After we have the reference genome indexed, we can run align the clean reads aginst the reference genome. The following is an example command to map one sample (You can write a loop in your bash script to process samples automatically).
+After we have the reference genome indexed, we can align the clean reads aginst the reference genome. The following is an example command to map one sample (You can write a loop in your bash script to process samples automatically).
 
 ```bash
 cd ~/prac_transcriptomics_DE/04_results/03_aligned_data
