@@ -18,7 +18,7 @@ Due to the the limitation of computing resources in our VM, we will use a subset
 - Number of chromosomes: 5 chromosomes + Chloroplast + Mitochondria
 - Genome size: ~135 Mb
 
-- Number of raw reads (pairs): 2,991,799
+- Number of raw reads (pairs): 747,412
 - Sequencing type: PE125
 
 ## Tools and pipeline
@@ -33,7 +33,7 @@ Tools used in this Prac:
 | ----------- | ----------- | ----------- |
 | fastQC      | v0.11.9     |   <https://www.bioinformatics.babraham.ac.uk/projects/fastqc/>   |
 | cutadapt    | 3.5         |   <https://cutadapt.readthedocs.io/en/stable/>   |
-| Trinity     | 2.1.1       |   <https://github.com/trinityrnaseq/trinityrnaseq/wiki>   |
+| Trinity     | 2.15.1      |   <https://github.com/trinityrnaseq/trinityrnaseq/wiki>   |
 | GMAP        | 2021-12-17  |   <http://research-pub.gene.com/gmap/>   |
 | STAR        | 2.7.10a     |   <https://github.com/alexdobin/STAR>   |
 | StringTie   | v2.2.1      |   <https://ccb.jhu.edu/software/stringtie/>   |
@@ -81,7 +81,7 @@ mkdir prac_transcriptomics_assembly
 cd prac_transcriptomics_assembly
 mkdir 01_bin 02_DB 03_raw_data 04_results
 cd 04_results
-mkdir 01_QC 02_clean_data 03_denovo_assembly 04_genome_guided_assembly 05_final_assembly
+mkdir 01_QC 02_clean_data 03_genome_guided_assembly 04_denovo_assembly 05_final_assembly
 ```
 
 The final folder structure for this project will look like this:
@@ -94,8 +94,8 @@ prac_transcriptomics_assembly/
 └── 04_results
     ├── 01_QC
     ├── 02_clean_data
-    ├── 03_denovo_assembly
-    ├── 04_genome_guided_assembly
+    ├── 03_genome_guided_assembly
+    ├── 04_denovo_assembly
     └── 05_final_assembly
 ```
 
@@ -174,7 +174,7 @@ STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/prac_transcriptomics_
 And then, we map the clean reads to the reference genome. The command line for this is a little complicated, it is broken down below so that you can see what it is doing.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 STAR --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --readFilesIn ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \
 ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz --readFilesCommand zcat \
 --runThreadN 2 --outSAMstrandField intronMotif --outSAMattributes All \
@@ -185,14 +185,14 @@ STAR --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --readFile
 You can copy and paste this version.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 STAR --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --readFilesIn ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz --readFilesCommand zcat --runThreadN 2 --outSAMstrandField intronMotif --outSAMattributes All --outFilterMismatchNoverLmax 0.03 --alignIntronMax 10000 --outSAMtype BAM SortedByCoordinate --outFileNamePrefix Col_leaf_chr2. --quantMode GeneCounts
 ```
 
 STAR will output multiple files with prefix `Col_leaf_chr2`. To get an idea about the mapping info, you can check `Col_leaf_chr2.final.Log.out`. The mapped reads are stored in a `bam` file called `Col_leaf_chr2.Aligned.sortedByCoord.out.bam`. To view this file in IGV, we need to create an index file.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 samtools index Col_leaf_chr2.Aligned.sortedByCoord.out.bam
 ```
 
@@ -203,14 +203,14 @@ In next step, we will use this mapped bam file to do genome guided transcriptome
 The command for genome guided transcriptome assembly is as follows:
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 stringtie Col_leaf_chr2.Aligned.sortedByCoord.out.bam -o StringTie.gtf -p 2
 ```
 
 StringTie only outputs coordinates for assembled transcripts in into the assembled transcripts file. We can get the sequences of the assembled transcripts using a command called `gffread`.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 gffread -w StringTie.fasta -g ~/prac_transcriptomics_assembly/02_DB/TAIR10_chrALL.fa StringTie.gtf
 ```
 
@@ -227,11 +227,11 @@ source activate busco
 You should be able to see that your terminal prompt is now showing `(busco) axxxxxxx@ip-xx-xxx-x-xx:/shared/axxxxxxx$` after the `busco` environment is activated.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly
+cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 busco -i StringTie.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_StringTie_viridiplantae -m transcriptome --cpu 2
 ```
 
-BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:30.3%[S:21.6%,D:8.7%],F:11.8%,M:57.9%,n:425 `. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
+BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:21.4%[S:16.2%,D:5.2%],F:6.8%,M:71.8%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
 
@@ -253,12 +253,18 @@ BUSCO will output a bunch of files including the information for predicted ORFs 
 
 In Part 2, we had trimmed the adapter and low-quality sequences from the reads. Next we will do _de novo_ transcriptome assembly using Trinity.
 
+Trinity is installed under a different conda environment named `trinityenv`, so we need to activate the environment before we run trinity:
+
+```bash
+source activate trinityenv
+```
+
 ### 4.1 De novo assembly using Trinity
 
 We will use the clean reads as input.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly
+cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
 Trinity --seqType fq --left ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \
 --right ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz \
 --output Col_leaf_chr2_trinity --CPU 2 --max_memory 8G --bypass_java_version_check
@@ -268,12 +274,12 @@ This step will take more than 2 hours, so we will finish here today and let the 
 
 ### 4.2 Get Trinity assembly statistics
 
-All results from Trinity will be stored in the folder of `Col_leaf_chr2_trinity` in the directory `~/prac_transcriptomics_assembly/04_results/03_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and is named `Trinity.fasta`.  
+All results from Trinity will be stored in the folder of `Col_leaf_chr2_trinity` in the directory `~/prac_transcriptomics_assembly/04_results/04_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and is named `Trinity.fasta`.  
 
 The Trinity package provides a useful utility to summarise the basic assembly statistics.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly
+cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
 TrinityStats.pl ./Col_leaf_chr2_trinity/Trinity.fasta
 ```
 
@@ -328,9 +334,10 @@ __Questions: What is the difference between transcripts and genes? Why have we g
 
 As we did before, we can use BUSCO to assess the assembly quality.
 
+And remember to activate `busco` environment before you run busco.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly
+cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
 busco -i ./Col_leaf_chr2_trinity/Trinity.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_Trinity_viridiplantae -m transcriptome --cpu 2
 ```
 
@@ -356,7 +363,7 @@ gmap_build -D ./ -d TAIR10_GMAP TAIR10_chrALL.fa
 After building the genome index, we can map the assembled transcripts to the reference genome using following commands:
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly
+cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
 gmap -D ~/prac_transcriptomics_assembly/02_DB/TAIR10_GMAP -d TAIR10_GMAP -t 2 -f 3 -n 1 ./Col_leaf_chr2_trinity/Trinity.fasta > Trinity.gff3
 ```
 
@@ -370,12 +377,12 @@ First, we will put all the important final files into one folder.
 
 ```bash
 cd ~/prac_transcriptomics_assembly/04_results/05_final_assembly
-cp ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly/Col_leaf_chr2_trinity/Trinity.fasta ./
-cp ~/prac_transcriptomics_assembly/04_results/03_denovo_assembly/Trinity.gff3 ./
-cp ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly/StringTie.fasta ./
-cp ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly/StringTie.gtf ./
-cp ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam ./
-cp ~/prac_transcriptomics_assembly/04_results/04_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam.bai ./
+cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTie.fasta ./
+cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTie.gtf ./
+cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam ./
+cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam.bai ./
+cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Col_leaf_chr2_trinity/Trinity.fasta ./
+cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Trinity.gff3 ./
 ```
 
 Then we can check the assembled transcripts by loading the `Trinity.gff3` and `StringTie.gtf` into IGV. We can also load the `bam` file into IGV to check the reads supporting assembled transcripts.
