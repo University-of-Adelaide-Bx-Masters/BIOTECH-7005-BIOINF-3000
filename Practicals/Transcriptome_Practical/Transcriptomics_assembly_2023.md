@@ -234,19 +234,17 @@ busco -i StringTie.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_
 BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:21.4%[S:16.2%,D:5.2%],F:6.8%,M:71.8%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
-
         --------------------------------------------------
         |Results from dataset viridiplantae_odb10         |
         --------------------------------------------------
-        |C:30.3%[S:21.6%,D:8.7%],F:11.8%,M:57.9%,n:425    |
-        |129    Complete BUSCOs (C)                       |
-        |92     Complete and single-copy BUSCOs (S)       |
-        |37     Complete and duplicated BUSCOs (D)        |
-        |50     Fragmented BUSCOs (F)                     |
-        |246    Missing BUSCOs (M)                        |
+        |C:21.4%[S:16.2%,D:5.2%],F:6.8%,M:71.8%,n:425     |
+        |91     Complete BUSCOs (C)                       |
+        |69     Complete and single-copy BUSCOs (S)       |
+        |22     Complete and duplicated BUSCOs (D)        |
+        |29     Fragmented BUSCOs (F)                     |
+        |305    Missing BUSCOs (M)                        |
         |425    Total BUSCO groups searched               |
         --------------------------------------------------
-
 ```
 
 ## Part 4, De novo transcriptome assembly
