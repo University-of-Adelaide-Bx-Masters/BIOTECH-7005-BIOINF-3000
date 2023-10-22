@@ -278,49 +278,47 @@ The Trinity package provides a useful utility to summarise the basic assembly st
 
 ```bash
 cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-TrinityStats.pl ./Col_leaf_chr2_trinity/Trinity.fasta
+/usr/local/bin/util/TrinityStats.pl ./Col_leaf_chr2_trinity.Trinity.fasta
 ```
 
 And you will get output like this:
 
 ```
-
 ################################
 ## Counts of transcripts, etc.
 ################################
-Total trinity 'genes':  10060
-Total trinity transcripts:      11288
-Percent GC: 41.93
+Total trinity 'genes':  4736
+Total trinity transcripts:      6000
+Percent GC: 42.21
 
 ########################################
 Stats based on ALL transcript contigs:
 ########################################
 
-        Contig N10: 3926
-        Contig N20: 2944
-        Contig N30: 2371
-        Contig N40: 1963
-        Contig N50: 1653
+        Contig N10: 3254
+        Contig N20: 2516
+        Contig N30: 2071
+        Contig N40: 1751
+        Contig N50: 1501
 
-        Median contig length: 531
-        Average contig: 950.92
-        Total assembled bases: 10734026
+        Median contig length: 766
+        Average contig: 1021.80
+        Total assembled bases: 6130806
 
 
 #####################################################
 ## Stats based on ONLY LONGEST ISOFORM per 'GENE':
 #####################################################
 
-        Contig N10: 3461
-        Contig N20: 2626
-        Contig N30: 2087
-        Contig N40: 1747
-        Contig N50: 1422
+        Contig N10: 3165
+        Contig N20: 2447
+        Contig N30: 2011
+        Contig N40: 1686
+        Contig N50: 1427
 
-        Median contig length: 454.5
-        Average contig: 824.61
-        Total assembled bases: 8295533
-
+        Median contig length: 635.5
+        Average contig: 930.81
+        Total assembled bases: 4408303
 
 ```
 
