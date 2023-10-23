@@ -334,7 +334,7 @@ And remember to activate `busco` environment before you run busco.
 
 ```bash
 cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-busco -i ./Col_leaf_chr2_trinity/Trinity.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_Trinity_viridiplantae -m transcriptome --cpu 2
+busco -i ./Col_leaf_chr2_trinity.Trinity.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_Trinity_viridiplantae -m transcriptome --cpu 2
 ```
 
 __Questions:__
@@ -360,7 +360,7 @@ After building the genome index, we can map the assembled transcripts to the ref
 
 ```bash
 cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-gmap -D ~/prac_transcriptomics_assembly/02_DB/TAIR10_GMAP -d TAIR10_GMAP -t 2 -f 3 -n 1 ./Col_leaf_chr2_trinity/Trinity.fasta > Trinity.gff3
+gmap -D ~/prac_transcriptomics_assembly/02_DB/TAIR10_GMAP -d TAIR10_GMAP -t 2 -f 3 -n 1 ./Col_leaf_chr2_trinity.Trinity.fasta > Trinity.gff3
 ```
 
 This will generate a GFF3 format file, including genomic coordinates for our _de novo_ assembled transcripts, which we can import into IGV for visualisation.
@@ -377,7 +377,7 @@ cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTi
 cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTie.gtf ./
 cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam ./
 cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam.bai ./
-cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Col_leaf_chr2_trinity/Trinity.fasta ./
+cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Col_leaf_chr2_trinity.Trinity.fasta ./
 cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Trinity.gff3 ./
 ```
 
