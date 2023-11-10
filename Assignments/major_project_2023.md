@@ -47,7 +47,7 @@ For example, if your major project top level directory is `~/major_project`, and
 ```
 mkdir -p ~/major_project/01_raw_data
 cd ~/major_project/01_raw_data
-ln -s /shared/data/axxxxxxx/*.fastq.gz ./
+ln -s /shared/data/major_project_2023/axxxxxxx/*.fastq.gz ./
 ```
 
 - Option 2, directly access the raw data
