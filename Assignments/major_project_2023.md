@@ -38,7 +38,7 @@ Each student will be provided a unique pair of transcriptome dataset (6 zipped `
 
 ### [**IMPORTANT, PLEASE READ**] Access/use your unique transcriptome dataset 
 
-Your unique transcriptome dataset can be accessed through VM path `/shared/data/axxxxxxx`, in which `axxxxxxx` is your university `a` number. You have two options to access/use your unique transcriptome dataset:
+Your unique transcriptome dataset can be accessed through VM path `/shared/data/major_project_2023/axxxxxxx`, in which `axxxxxxx` is your university `a` number. You have two options to access/use your unique transcriptome dataset:
 
 - Option 1, create soft links pointing to the original raw data files
 
@@ -52,7 +52,7 @@ ln -s /shared/data/major_project_2023/axxxxxxx/*.fastq.gz ./
 
 - Option 2, directly access the raw data
 
-You can hard code your unique transcriptome dataset path (`/shared/data/axxxxxxx`, replace `axxxxxxx` with your `a` number) in your bash script.
+You can hard code your unique transcriptome dataset path (`/shared/data/major_project_2023/axxxxxxx`, replace `axxxxxxx` with your `a` number) in your bash script.
 
 **[Important] Please DO NOT copy the transcriptome raw data files into your home directory** If everyone did this, we would run out of storage again.
 
