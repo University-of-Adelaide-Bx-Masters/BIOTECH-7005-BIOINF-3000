@@ -1,17 +1,17 @@
-# Assignment 2 [*29 marks*]
+# Assignment 2 [*30 marks*] Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
 
-**Due before 12pm, Friday 25th August, 2023**
+**Due before 12pm, Friday 23rd August, 2024**
 
-Your answers to all questions should be submitted to myUni as a single `.zip` file containing three files:
-1) a bash script for Q1 2) a bash script for Q2, and 3) a single Rmarkdown document containing the answers to the statistics questions (Q3 and Q4).
+Your answers to all questions should be submitted to myUni as a single `.zip` file containing 3 files:
+1) a bash script for Q1 2) a bash script for Q2, and 3) a single Rmarkdown document that includes the required coversheet and contains the answers to the statistics questions (Q3 and Q4).
 Note that the file `my_species_gff_features.txt` is not required as part of your submission for Q1, **only the script which will generate this file**!
 Similarly, for Q2, only the script is required.
 
-## Required scripts [*14 marks*]
+## Required scripts [*15 marks*]
 
 **Q1.** Write a script to:
     + Download the gff3 file for your assigned species ([see bottom of page](#species-for-question-1)) to your current directory from Ensembl [*1 mark*]
-    + Count how many of each feature type there is, sorted in numerical order [*3 marks*]
+    + Count how many of each feature type there is, sorted in numerical order [*4 marks*]
     + Export the results to a file with a name of the form `my_species_gff_features.txt` **where you use your assigned species name instead of** `my_species` [*1 mark*].
     NB: If your actual species is not included in the name, no marks will be given.
     + The script must also include code to generate one or more comment lines in the output file/table before the table with the genome-build used, (hint: grep your gff to find the genome build info as the header is very large in most cases)
