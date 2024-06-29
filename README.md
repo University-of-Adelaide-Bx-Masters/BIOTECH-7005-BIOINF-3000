@@ -99,17 +99,18 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 
 | **Assessment - All Students**                                 | **Subject**                |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  15%            | 12.75%         | Friday 9/08/24     |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |  15%            | 12.75%         | Friday 23/08/24     |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |  15%            | 12.75%         | Friday 30/08/24  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |  15%            | 12.75%         | Friday 13/09/24  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |  15%            | 12.75%         | Friday 18/10/24  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |  15%            | 12.75%         | Friday 01/11/24    |
-| Tests (x6)                                                   |                             |  10%            | 8.5%           |                       |
-| [Major Project](Assignments/major_project_2023.md)                     | Differential gene expression   |  N/A            | 15%            |  Friday 15/11/24  |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  90% for all assignments combined           | 60% for all assignments combined         | Friday 9/08/24     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |              |         | Friday 23/08/24     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 30/08/24  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 13/09/24  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |              |          | Friday 18/10/24  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 01/11/24    |
+| Tests (x6)                                                   |                             |  10%  for all quzzes combined           | 10% for all quizzes combined           |                       |
+| Major Project topic acceptance/confirmation | Differential gene expression  | 10% of total mark
+| [Major Project](Assignments/major_project_2023.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 15/11/24  |
 
 
-Note that the Major Project assignment only applies to Masters level students. Undergraduates do not do a Project. 
+Note that the Major Project topic accepotance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
 
 ### Assessment Checklist
 
@@ -117,21 +118,21 @@ Have you:
 
 - [ ] Answered all the questions?
 - [ ] Followed naming conventions for Assessments?
-- [ ] Attached an assessment coversheet? (Available [here](COVERSHEET.md)).
-	- This is a course requirement. See the [Academic Honesty Policy](http://www.adelaide.edu.au/policies/230/).
+- [ ] **Attached an assessment coversheet?** (Available [here](COVERSHEET.md)).
+	- This is a course requirement. See the [Academic Honesty Policy](http://www.adelaide.edu.au/policies/230/). **Failure to attach a coversheet to your submission will incur a 5 point penalty for the assignment.** 
 - [ ] Identified the work as yours?
 	- Emails should have the course and assessment task names.
 	- Documents should be named with your name, the course name and the assessment task.
-	- Printed documents should have you name and the course and assessment task in the text/footer/header.
+	- Printed documents should have your name and the course and assessment task in the text/footer/header.
 - [ ] Used appropriate electronic communication with assessors?
 	- Emails should have a meaningful subject.
-- [ ] Handed in the assignment before the due time (Friday tutorial 9am)?
+- [ ] Handed in the assignment before the due time (As specified on MyUni)?
 
-### Major Project (15%) - Masters Students Only
+### Major Project (20%) - Masters Students Only
 
-In this course, the following next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project_2023.md):
+In this course, next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project_2024.md):
 
-#### Transcriptome Sequencing (RNAseq)  
+#### Differential gen expression analysis (RNAseq)  
 
 You will be assigned a unique dataset and carry out quality control (quality and sequencing adapter trimming), genome alignment, feature counting, normalising and removal of noise transcripts followed by differential gene expression analysis and downstream visualisation and statistical methods. For the major project, we will assign part of a published dataset and you will complete all the analysis tasks (from raw data to final results).
 
