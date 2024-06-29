@@ -1,4 +1,4 @@
-# Assignment 5 [*30 marks*]
+# Assignment 5 [*30 marks*] Due Friday 18 October 2024
 
 ## Assignment overview [*4 marks for general format*]
 
