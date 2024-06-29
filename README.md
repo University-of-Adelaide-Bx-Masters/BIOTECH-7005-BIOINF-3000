@@ -107,7 +107,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 01/11/24    |
 | Tests (x6)                                                   |                             |  10%  for all quzzes combined           | 10% for all quizzes combined           |                       |
 | Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 13/09/24
-| [Major Project](Assignments/major_project_2023.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 15/11/24  |
+| [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 15/11/24  |
 
 
 Note that the Major Project topic accepotance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
@@ -130,7 +130,7 @@ Have you:
 
 ### Major Project (20%) - Masters Students Only
 
-In this course, next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project_2024.md):
+In this course, next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project_2024.md).  *Note that these data sets have not been provided yet and that the major project assignment document has not been finalised yet*
 
 #### Differential gen expression analysis (RNAseq)  
 
