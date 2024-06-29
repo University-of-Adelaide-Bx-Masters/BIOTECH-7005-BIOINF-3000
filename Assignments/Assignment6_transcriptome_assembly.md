@@ -1,6 +1,6 @@
 # Assignment 6 - Transcriptome analysis [*35 marks*] Due Friday 01 November 2024
 
-**Due before 5pm, Friday 03 Novemberr**
+**Due Friday 01 November**
 
 Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
 
