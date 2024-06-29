@@ -1,6 +1,8 @@
 * TOC
 {:toc}
 
+# BIOINF 3000/BIOTECH 7005 NGS Alignment Practical 1
+
 # Setup
 
 Before we begin our material for today, we first need to set ourselves up like we have for most other weeks.

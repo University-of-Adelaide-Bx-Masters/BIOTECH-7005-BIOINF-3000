@@ -1,6 +1,6 @@
 * TOC
 {:toc}
-
+# BIOINF 3000/BIOTECH 7005 Alignment Practical 2
 # Setup for Today
 
 Today's practical is all about alignment of reads from a `fastq` file against a reference genome, followed by the identification of genomic variants.
