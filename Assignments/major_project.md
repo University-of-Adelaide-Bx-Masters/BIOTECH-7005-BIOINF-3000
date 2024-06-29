@@ -1,4 +1,4 @@
-# Major Project (15%)
+# Major Project (20%)
 
 In this course, the following next-generation sequencing (NGS) datasets/protocols are described in detail:
 

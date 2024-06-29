@@ -107,7 +107,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 01/11/24    |
 | Tests (x6)                                                   |                             |  10%  for all quzzes combined           | 10% for all quizzes combined           |                       |
 | Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 13/09/24
-| [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 15/11/24  |
+| [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 08/11/24  |
 
 
 Note that the Major Project topic accepotance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
