@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment6_transcriptome_assembly.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="assignment-6---transcriptome-analysis-35-marks-due-friday-01-november-2024">Assignment 6 - Transcriptome analysis [<em>35 marks</em>] Due Friday 01 November 2024</h1>
+<p><strong>Due before 5pm, Friday 03 Novemberr</strong></p>
+<p>Your answers to all questions should be submitted to myUni as a <code>.zip</code> file containing <strong>four</strong> bash scripts, and a <code>5_final_assembly</code> folder including files required in <strong>step 5</strong>, and a text file inlcuding your answers to theoretical questions. [<em>1 mark</em>]</p>
+<p>The <code>.zip</code> filename must start with your student number and your bash script must be able to run without errors.
+Meaningful comments are strongly advised [<em>1 mark</em>]</p>
+<p>For all scripts, please use the directory <code>~/Assignment6</code> as the parent directory for all downloads and analysis.
+<strong>You will be expected to hard code this into your scripts.</strong>
+Use an organised folder structure to store files generated in this assignment. [<em>1 mark</em>]</p>
+<pre class="hljs"><code><div>Assignment6/
+├── data
+├── DB
+├── results
+│   ├── 1_QC
+│   ├── 2_clean_data
+│   ├── 3_denovo_assembly
+│   ├── 4_genome_guided_assembly
+│   └── 5_final_assembly
+└── scripts
+</div></code></pre>
+<h2 id="practical-questions-28-marks-in-total">Practical questions [<em>28 marks</em> in total]</h2>
+<p><strong>Step 1. Write the first script to:</strong></p>
+<ul>
+<li>Download the genomic sequence (i.e. fasta file) and annotation (i.e. gff file) of the model plant <em>Arabidopsis thaliana</em> to the subdirectory <code>DB</code> from the Ensembl <code>ftp</code> directory as you did in assignment 4 [<em>1 mark</em>]</li>
+<li>Download the BUSCO &quot;brassicales&quot; lineage dataset using this <a href="https://busco-data.ezlab.org/v5/data/lineages/brassicales_odb10.2020-08-05.tar.gz">link</a>. Store the lineage dataset in the <code>DB</code> subdirectory and decompress and untar it [<em>1 mark</em>]</li>
+<li>Build the genome index for GMAP [<em>2 marks</em>]</li>
+<li>Build the genome index for STAR [<em>2 marks</em>]</li>
+</ul>
+<p><strong>Step 2. Write the second script to copy the sequencing data to your <code>data</code> directory  and carry out QC</strong>. The data are in <code>~/data/Transcriptomics_data/Assignment/</code>. [<em>1 mark</em>] Include the following steps:</p>
+<ul>
+<li>Get QC report for raw reads [<em>1 mark</em>]</li>
+<li>Trim adaptor and low-quality sequences using cutadapt [<em>1 mark</em>]</li>
+<li>Get QC report for clean reads [<em>1 mark</em>]</li>
+</ul>
+<p><strong>Step 3. Write the third script to:</strong></p>
+<ul>
+<li>Do <em>de novo</em> transcriptome assembly for clean reads from chromosome 4 using <code>Trinity</code> [<em>3 marks</em>]</li>
+<li>Get the genome coordinates file (GFF3) of <em>de novo</em> assembled transcripts using <code>GMAP</code> [<em>1 mark</em>]</li>
+<li>Assess the <em>de novo</em> assembly quality using <code>BUSCO</code> [<em>2 marks</em>]</li>
+</ul>
+<p><strong>Step 4. Write the fourth script to:</strong></p>
+<ul>
+<li>Do genome guided transcriptome assembly for clean reads from chromosome 4 with STAR and StringTie [<em>3 marks</em>]</li>
+<li>Get a <code>fasta</code> file of genome guided assembled transcripts using <code>gffread</code> [<em>1 mark</em>]</li>
+<li>Assess the genome guided assembly quality using <code>BUSCO</code> [<em>2 marks</em>]</li>
+</ul>
+<p><strong>Step 5. Organise the final results:</strong></p>
+<ul>
+<li>Copy QC reports for raw reads (two html files) and clean reads (two html files) into <code>5_final_assembly</code> [<em>1 mark</em>]</li>
+<li>Copy <em>de novo</em> assembly results (including one fasta file and one GFF3 file) into <code>5_final_assembly</code> [<em>1 mark</em>]</li>
+<li>Copy genome guided assembly results (including one GTF file and one fasta file) into <code>5_final_assembly</code> [<em>1 mark</em>]</li>
+</ul>
+<p><strong>Step 6. Identify one assembled transcript including alternative splicing events with read evidence</strong> (Take a screenshot from IGV and put it in the <code>5_final_assembly</code> subdirectory) [<em>3 marks</em>].</p>
+<h2 id="theoretical-questions-4-marks-in-total">Theoretical questions [<em>4 marks</em> in total]</h2>
+<ol>
+<li>Can we get all genes assembled from one transcriptome sequenced from a sample collected from one particular tissue at one particular developmental stage? [<em>1 mark</em>]</li>
+<li>Give the reason(s) supporting your answer in quesion 1 [<em>3 marks</em>]</li>
+</ol>
+<h3 id="resources-also-in-assignment-4">Resources (also in assignment 4)</h3>
+<ul>
+<li>The genome (fasta) for the model plant <em>Arabidopsis thaliana</em> can be found <a href="http://ftp.ebi.ac.uk/ensemblgenomes/pub/release-51/plants/fasta/arabidopsis_thaliana/dna/">here: http://ftp.ebi.ac.uk/ensemblgenomes/pub/release-51/plants/fasta/arabidopsis_thaliana/dna/</a> and the annotation (gff3) files can be found <a href="http://ftp.ebi.ac.uk/ensemblgenomes/pub/release-51/plants/gff3/arabidopsis_thaliana/">here: http://ftp.ebi.ac.uk/ensemblgenomes/pub/release-51/plants/gff3/arabidopsis_thaliana/</a>. There are multiple files in these directories, so take care to choose the full genome sequence and full genome gff files.</li>
+<li>The genome file should be &quot;Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz&quot; and not contain an &quot;rm&quot; or &quot;sm&quot; in the filename. These refer to the genome being &quot;repeat-masked&quot; i.e. all the repetitive elements have been ignored, or &quot;soft-masked&quot; were the repeats and low-complexity regions are in lower-case letters (acgt not ACGT)</li>
+</ul>
+
+</body>
+</html>
