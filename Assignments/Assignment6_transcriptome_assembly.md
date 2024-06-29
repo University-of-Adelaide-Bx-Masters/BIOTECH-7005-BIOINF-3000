@@ -1,4 +1,4 @@
-# Assignment 6 - Transcriptome analysis [*35 marks*]
+# Assignment 6 - Transcriptome analysis [*35 marks*] Due Friday 01 November 2024
 
 **Due before 5pm, Friday 03 Novemberr**
 
