@@ -13,9 +13,9 @@ Instructors:
 - Dave Adelson
 - Steven Delean
 - Anna Sheppard
-- Bastien Llamas
-- Zhipeng Qu
 - David Lawrence
+` Yassine Souilmi
+- Zhipeng Qu
 
 Teaching assistants:
 - TBD
@@ -53,8 +53,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **8**    | 9/9       |Version Control (David L)   |[Version Control] (2) (David L)    |[Local Version Control] (David L)  |
 | **-**    | 16/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 23/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 30/9   | [Ancient DNA][11] (Bastien)|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 7/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Bastien) |
+| **9**    | 30/9   | [Ancient DNA][11] (Yassine)|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
+| **10**   | 7/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Yassine) |
 | **11**   | 14/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
 | **12**   | 21/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
 
