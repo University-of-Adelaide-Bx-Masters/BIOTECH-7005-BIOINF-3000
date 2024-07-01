@@ -13,8 +13,8 @@ Instructors:
 - Dave Adelson
 - Steven Delean
 - Anna Sheppard
-- David Lawrence
-` Yassine Souilmi
+- David Lawrence  
+- Yassine Souilmi
 - Zhipeng Qu
 
 Teaching assistants:
