@@ -1,11 +1,11 @@
-# Assignment 1 - 27 Marks
+# Assignment 1 - 30 Marks
 
-**Due before 5pm, Friday 11th August, 2023**
+**Due before 5pm, Friday 9th August, 2024**
 
 Your answers to all questions should be submitted to myUni as a single R markdown file with the file suffix `.Rmd`. [*1 mark*]
 
 - A compiled html, MS Word or PDF document **is not required, but will be generated when marking**.[*1 mark*]
-- Ensure your submitted file begins with your student number. [*1 mark*]
+- Ensure your submitted file includes the assignment cover sheet text (text version) [*5 marks*], 
 - Add appropriate text and/or comments making your thoughts clear to any collaborators. [*2 marks*]
 
 ## Obtaining Your Data
