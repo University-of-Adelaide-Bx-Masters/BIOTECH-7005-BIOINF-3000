@@ -1,13 +1,14 @@
 ---
 title: "02 Statistics"
-author: "Steven Delean (based on original notes by Steve Pederson)"
-date: "31 July 2023"
+author: "Steven Delean (based on original notes by Stevie Pederson)"
+date: "29th July 2024"
 output:
   ioslides_presentation:
-    widescreen: yes
+    widescreen: true
     css: custom.css
-    fig_caption: yes
+    fig_caption: true
     logo: ../images/UoA_logo_col_vert.png
+  beamer_presentation: default
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
@@ -138,12 +139,13 @@ For every experiment we conduct we can get two key values:
 1: The sample mean ($\bar{x}$) estimates the population-level mean (e.g. $\mu$)
 
 $$
-\text{For} \quad \mathbf{x} = (x_1, x_2, ..., x_n) \\
+\text{For} \quad \mathbf{x} = (x_1, x_2, ..., x_n)
+$$
+$$
 \bar{x} = \frac{1}{n}\sum_{i = i}^n x_i
 $$
 
-*This will be a different value every time we repeat the experiment*  
-*This is an estimate of the __true__ effect*
+This will be a different value every time we repeat the experiment. *This is an estimate of the __true__ effect*
 
 ## The Sample Variance | Normally Distributed Data
 
@@ -155,7 +157,7 @@ $$
 s^2 = \frac{1}{n-1} \sum_{i = 1}^n (x_i - \bar{x})^2
 $$
 
-*This will also be a different value every time we repeat the experiment*
+This will also be a different value every time we repeat the experiment.
 
 ## The Sample Mean | A qPCR Experiment
 
@@ -535,7 +537,9 @@ df %>%
 - Our degrees of freedom here are $\nu = 3$
 - By comparing to $t_3$ we get
 
-$$p = `r sprintf("%0.5f", t.test(x)[["p.value"]])`$$
+$$p = `r sprintf('%0.5f', t.test(x)[['p.value']])`$$
+
+
 
 - Thus, the probability of observing data as (or more) extreme as this is very low if $H_0$ was true (1 in ~2300 experiments).
 - We reject $H_0$ and infer that our alternative $H_A$ is more likely

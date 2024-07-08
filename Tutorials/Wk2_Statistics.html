@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Steven Delean (based on notes by Steve Pederson)" />
+<meta name="author" content="Steven Delean (based on notes by Stevie Pederson)" />
 
 
 <title>Biotech 7005: Statistics Tutorial</title>
@@ -298,23 +298,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -356,8 +350,9 @@ display: none;
 
 
 <h1 class="title toc-ignore">Biotech 7005: Statistics Tutorial</h1>
-<h4 class="author">Steven Delean (based on notes by Steve Pederson)</h4>
-<h4 class="date">31st July 2023</h4>
+<h4 class="author">Steven Delean (based on notes by Stevie
+Pederson)</h4>
+<h4 class="date">29th July 2024</h4>
 
 </div>
 
@@ -577,7 +572,7 @@ df &lt;- 10 - 1</code></pre>
 <p>NB: Here the degrees of freedom is n - 1, so we would check this
 against the distribution for <span class="math inline">\(t_9\)</span>.
 In my simulations I got the value <span class="math inline">\(T
-=\)</span> <em>-0.3174</em>. <strong>What value did you get from the
+=\)</span> <em>-0.8771</em>. <strong>What value did you get from the
 first column in your simulations?</strong></p>
 <p>Let’s visualise this by first plotting the density of a <span class="math inline">\(t_9\)</span> distribution, then adding vertical
 lines for our obtained statistic. By my estimation, 1 in 20 of you

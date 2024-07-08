@@ -2,7 +2,7 @@
 title: "Practical 1.1: Introduction to R and R Studio"
 subtitle: "Biotech 7005/Bionf 3000: Bioinformatics and Systems Modelling"
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "24 July 2023"
+date: "22 July 2024"
 output: 
   html_document: 
     fig_caption: yes
