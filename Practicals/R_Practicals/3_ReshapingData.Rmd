@@ -1,7 +1,7 @@
 ---
 title: 'Practical 2.1: Reshaping Data in R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "28 July 2023"
+date: "26 July 2024"
 output:
   html_document:
     fig_caption: yes
@@ -117,13 +117,13 @@ We can also use the `-` sign before a name to remove columns.
 select(data, -name)
 ```
 
-It looks like the frst column (`1`) is actually just the rownames written to the file when saved by our collaborators.
+It looks like the frst column (`X1`) is actually just the rownames written to the file when saved by our collaborators.
 Let's remove that column, and this time we'll over-write the object.
 **If you haven't been keeping track of the above in your script, this would be an important line to put there as we are overwriting the original object.**
 If we delete a column and then realise we need it back , we can just rerun our code to reload the object.
 
 ```{r}
-data <- select(data, -1)
+data <- select(data, -X1)
 ```
 
 This is an alternate method to skipping the column when importing using `read_csv()`.
