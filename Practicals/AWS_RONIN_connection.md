@@ -7,12 +7,13 @@ Accessing your cloud compute resource is like having your very own server.
 **Follow all instructions here very, very carefully**
 
 1. Open your favourite internet browser. We recommend Firefox, but Edge/Chrome are also acceptable. Safari has not been tested.
-2. Enter the following address (`https://rstudio-ubuntu.uoa.cloud:4200`) in the address bar of your browser.
-3. You should see this login screen  
+2. Enter the following address (`https://rstudio-ubuntuX.uoa.cloud:4200`) (where `X` will be the number of the login node assigned to you) in the address bar of your browser.
+3. You may get a warning that your connection is not private. You can ignore this warning and continue to connect.
+4. Once you connect, you should see this login screen  
 
     ![AWS RONIN shell in a box](./Bash_Practicals/images/shell_in_a_box.png)
 
-4. Login with your UoA id number and the password you have been assigned.
+5. Login with your UoA id number and the password you have been assigned.
 
     You should see this if login is successful:
 
@@ -37,13 +38,13 @@ Accessing your cloud compute resource is like having your very own server.
 
     __Make sure you copy the password before proceeding__
 
-5. Open a new browser tab as instructed above and type in the URL given above (`http://rstudio-ubuntu.uoa.cloud:8001`)*For this step it is essential that you use `http` and NOT `https`*
+6. Open a new browser tab as instructed above and type in the URL given above (`http://rstudio-ubuntu.uoa.cloud:8001`)*For this step it is essential that you use `http` and NOT `https`*
 
     you should see the following login screen. 
 
     ![Rstudio_login_screen](./Bash_Practicals/images/Rstudio_AWS_login.png)
 
-6. Use your UoA id (a1234567) and paste the password that you copied in the password box. __You have two minutes to complete this__ if you don't complete in time, you have to start over. 
+7. Use your UoA id (a1234567) and paste the password that you copied in the password box. __You have two minutes to complete this__ if you don't complete in time, you have to start over. 
 
     You now have access to your cloud compute resource (VM). 
 
