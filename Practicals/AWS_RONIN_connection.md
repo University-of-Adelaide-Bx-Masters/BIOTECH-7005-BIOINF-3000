@@ -55,7 +55,7 @@ Accessing your cloud compute resource is like having your very own server.
 
 You can access your VM:
 
-- When connected from a workstation in Johnson 111
+- When connected from a workstation in the practical room.
 - When connected directly to the University WiFi Network from a personal device
 - When connected from another network using the [University of Adelaide VPN](https://www.adelaide.edu.au/technology/your-services/network-services/remote-access-via-virtual-private-network-vpn)
 
