@@ -51,7 +51,9 @@ Accessing your cloud compute resource is like having your very own server.
     - Every time you log in to your VM you will be given a new one-time password that you have to paste into the Rstudio login panel.
     - RStudio sessions automatically shut down after 3 hours, if this happens and you are still working, log in again, you can resume where you left off. This is because we pay by the minute for access to this resource. Please remember to [log out of RStudio and disconnect](AWS_RONIN_disconnect.md) (see below) when you are done so that we don't pay for compute resources that are not being used. 
 
-    Importantly, because of the one-time password you will be the only person to be able to access your VM as the system has been set up to allow you to use one VM at a time.
+    Importantly, because of the one-time password you will be the only person to be able to access your VM as the system has been set up to allow you to use one VM at a time. 
+
+    **As per University IT policy, do not share your login details for your VM with anyone**, sharing these details may have severe consequences as described [here](https://www.adelaide.edu.au/policies/2783/). 
 
 You can access your VM:
 
