@@ -18,8 +18,10 @@ Instructors:
 - Zhipeng Qu
 
 Teaching assistants:
-- TBD
-- TBD
+- Shyamsundar Ravishankar
+- Luan Zhong
+- Zhenglong (Chandler) Du
+- Chelsea Matthews
 
 __*Course Contact*__
 Dave Adelson
