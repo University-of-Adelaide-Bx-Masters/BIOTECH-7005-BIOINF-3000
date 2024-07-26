@@ -489,7 +489,7 @@ remove that column, and this time we’ll over-write the object.
 this would be an important line to put there as we are overwriting the
 original object.</strong> If we delete a column and then realise we need
 it back , we can just rerun our code to reload the object.</p>
-<pre class="r"><code>data &lt;- select(data, -X1)</code></pre>
+<pre class="r"><code>data &lt;- select(data, -1)</code></pre>
 <p>This is an alternate method to skipping the column when importing
 using <code>read_csv()</code>. In the function <code>select()</code>, we
 can also use column numbers but in general it is best practice to use

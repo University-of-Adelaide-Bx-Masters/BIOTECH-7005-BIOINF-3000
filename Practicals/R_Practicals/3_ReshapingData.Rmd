@@ -123,7 +123,7 @@ Let's remove that column, and this time we'll over-write the object.
 If we delete a column and then realise we need it back , we can just rerun our code to reload the object.
 
 ```{r}
-data <- select(data, -X1)
+data <- select(data, -1)
 ```
 
 This is an alternate method to skipping the column when importing using `read_csv()`.
