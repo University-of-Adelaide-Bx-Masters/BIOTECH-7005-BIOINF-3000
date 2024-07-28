@@ -50,7 +50,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **3**    | 5/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
 | **4**    | 12/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
 | **5**    | 19/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave) | [Evolutionary processes] (2) (Dave)    |
-| **6**    | 26/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Dave)             |
+| **6**    | 26/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Zhipeng)             |
 | **7**    | 2/9        |Reproducible Science (David L)   |*Alignment test* (Dave)/ [Coding comments] (David L)  | [Version Control] (1) (David L)  |
 | **8**    | 9/9       |Version Control (David L)   |[Version Control] (2) (David L)    |[Local Version Control] (David L)  |
 | **-**    | 16/9       | Mid-Semester Break      |                                        |                                          |
