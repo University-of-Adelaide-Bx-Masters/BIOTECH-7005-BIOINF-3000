@@ -64,47 +64,59 @@ You can download your assigned species here: 'http://ftp.ensembl.org/pub/release
 
 | ID       | Species                      | Taxonomy ID | Common Name                    |
 |:---------|:-----------------------------|------------:|:-------------------------------|
-| a1670158 | Hippocampus comes            |      109280 | Tiger Tail Seahorse            |
-| a1685584 | sus scrofa bamei             |        9823 |                                |
-| a1711004 | Ictidomys tridecemlineatus   |       43179 | Thirteen-Lined Ground Squirrel |
-| a1731685 | Ictalurus punctatus          |        7998 | Channel Catfish                |
-| a1745654 | Gambusia affinis             |       33528 | Western Mosquitofish           |
-| a1749310 | Anabas testudineus           |       64144 | Climbing Perch                 |
-| a1771951 | Zonotrichia albicollis       |       44394 | White-Throated Sparrow         |
-| a1779334 | panthera tigris altaica      |        9694 | Amur Tiger                     |
-| a1781749 | Fundulus heteroclitus        |        8078 | Mummichog                      |
-| a1791787 | Ovis aries                   |        9940 | Sheep                          |
-| a1793463 | Pelodiscus sinensis          |       13735 | Chinese Soft-Shelled Turtle    |
-| a1809569 | Geospiza fortis              |       48883 | Medium Ground-Finch            |
-| a1813640 | Poecilia formosa             |       48698 | Amazon Molly                   |
-| a1818796 | bison bison bison            |        9901 |                                |
-| a1820572 | sus scrofa pietrain          |        9823 |                                |
-| a1826048 | Castor canadensis            |       51338 | American Beaver                |
-| a1826245 | astyanax mexicanus pachon    |        7994 |                                |
-| a1827429 | Strigops habroptila          |     2489341 | Kakapo                         |
-| a1827586 | Xiphophorus maculatus        |        8083 | Southern Platyfish             |
-| a1828691 | Lepidothrix coronata         |      321398 | Blue-Crowned Manakin           |
-| a1830214 | canis lupus dingo            |        9612 | Dingo                          |
-| a1838426 | mustela putorius furo        |        9668 | Domestic Ferret                |
-| a1866470 | Aotus nancymaae              |       37293 | Ma's Night Monkey              |
-| a1871383 | Fukomys damarensis           |      885580 | Damara Mole-Rat                |
-| a1872578 | Poecilia reticulata          |        8081 | Guppy                          |
-| a1873748 | mus musculus akrj            |       10090 |                                |
-| a1878299 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle          |
-| a1879743 | Poecilia mexicana            |       48701 |                                |
-| a1880903 | Pogona vitticeps             |      103695 | Central Bearded Dragon         |
-| a1881885 | Serinus canaria              |        9135 | Common Canary                  |
-| a1882601 | chrysemys picta bellii       |        8479 | Western Painted Turtle         |
-| a1893135 | mus musculus c57bl6nj        |       10090 |                                |
-| a1893784 | Larimichthys crocea          |      215358 | Large Yellow Croaker           |
-| a1894438 | Macaca fascicularis          |        9541 | Crab-Eating Macaque            |
-| a1894742 | Mola mola                    |       94237 | Ocean Sunfish                  |
-| a1895152 | sus scrofa usmarc            |        9823 |                                |
-| a1895218 | Pan paniscus                 |        9597 | Pygmy Chimpanzee               |
-| a1896450 | Otolemur garnettii           |       30611 | Small-Eared Galago             |
-| a1896652 | sus scrofa berkshire         |        9823 |                                |
-| a1899420 | Clupea harengus              |        7950 | Atlantic Herring               |
-| a1901571 | Oryzias javanicus            |      123683 | Javanese Ricefish              |
+| a1137364 | Monodelphis domestica        |       13616 | Gray Short-Tailed Opossum      |
+| a1608942 | Neolamprologus brichardi     |       32507 | Princess cichlid               |
+| a1645191 | Mola mola                    |       94237 | Ocean Sunfish                  |
+| a1703423 | Pelodiscus sinensis          |       13735 | Chinese Soft-Shelled Turtle    |
+| a1749842 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle          |
+| a1766804 | Hippocampus comes            |      109280 | Tiger Tail Seahorse            |
+| a1773594 | bison bison bison            |        9901 | Plains Bison                   |
+| a1792812 | canis lupus dingo            |        9612 | Dingo                          |
+| a1795973 | sus scrofa pietrain          |        9823 | Pig                            |
+| a1797428 | chrysemys picta bellii       |        8479 | Western Painted Turtle         |
+| a1823995 | Aotus nancymaae              |       37293 | Ma's Night Monkey              |
+| a1839745 | Poecilia mexicana            |       48701 | Shortfin molly                 |
+| a1843355 | mustela putorius furo        |        9668 | Domestic Ferret                |
+| a1850508 | Serinus canaria              |        9135 | Common Canary                  |
+| a1851176 | Salmo salar                  |        8030 | Atlantic Salmon                |
+| a1851451 | Poecilia reticulata          |        8081 | Guppy                          |
+| a1851815 | Macaca fascicularis          |        9541 | Crab-Eating Macaque            |
+| a1853428 | Poecilia formosa             |       48698 | Amazon Molly                   |
+| a1862759 | Pan paniscus                 |        9597 | Pygmy Chimpanzee               |
+| a1863615 | Neovison vison               |      452646 | American Mink                  |
+| a1864525 | Fukomys damarensis           |      885580 | Damara Mole-Rat                |
+| a1865749 | Gambusia affinis             |       33528 | Western Mosquitofish           |
+| a1868878 | sus scrofa usmarc            |        9823 | Pig                            |
+| a1869981 | Chinchilla lanigera          |       34839 | Long-Tailed Chinchilla         |
+| a1871922 | Rhinolophus ferrumequinum    |       59479 | Greater Horseshoe Bat          |
+| a1872208 | Monopterus albus             |       43700 | Swamp Eel                      |
+| a1873151 | mus musculus c57bl6nj        |       10090 | Mouse                          |
+| a1875420 | Fundulus heteroclitus        |        8078 | Mummichog                      |
+| a1876866 | Parambassis ranga            |      210632 | Indian Glassy Fish             |
+| a1886661 | Castor canadensis            |       51338 | American Beaver                |
+| a1893982 | astyanax mexicanus pachon    |        7994 | Pachon Cavefish                |
+| a1894721 | Pygocentrus nattereri        |       42514 | Red-Bellied Piranha            |
+| a1894991 | Oryzias javanicus            |      123683 | Javanese Ricefish              |
+| a1897552 | Clupea harengus              |        7950 | Atlantic Herring               |
+| a1899345 | Ictidomys tridecemlineatus   |       43179 | Thirteen-Lined Ground Squirrel |
+| a1900426 | Sarcophilus harrisii         |        9305 | Tasmanian Devil                |
+| a1901379 | Otolemur garnettii           |       30611 | Small-Eared Galago             |
+| a1903005 | Xiphophorus maculatus        |        8083 | Southern Platyfish             |
+| a1904204 | Anabas testudineus           |       64144 | Climbing Perch                 |
+| a1904509 | Lepidothrix coronata         |      321398 | Blue-Crowned Manakin           |
+| a1906661 | mus musculus akrj            |       10090 | Mouse                          |
+| a1908426 | Strigops habroptila          |     2489341 | Kakapo                         |
+| a1909154 | Cebus capucinus              |        9516 | White-Faced Sapajou            |
+| a1910059 | sus scrofa bamei             |        9823 | Pig                            |
+| a1930255 | sus scrofa berkshire         |        9823 | Pig                            |
+| a1932615 | Zonotrichia albicollis       |       44394 | White-Throated Sparrow         |
+| a1935423 | Geospiza fortis              |       48883 | Medium Ground-Finch            |
+| a1940870 | Pogona vitticeps             |      103695 | Central Bearded Dragon         |
+| a1947736 | Equus caballus               |        9796 | Horse                          |
+| a1947841 | Larimichthys crocea          |      215358 | Large Yellow Croaker           |
+| a1954027 | Ictalurus punctatus          |        7998 | Channel Catfish                |
+| a1954456 | panthera tigris altaica      |        9694 | Amur Tiger                     |
+| a1955686 | Ovis aries                   |        9940 | Sheep                          |
 
 ## Values For Question 4
 
@@ -113,47 +125,59 @@ You can download your assigned species here: 'http://ftp.ensembl.org/pub/release
 The results you are analysing for Q4 are as follows.
 You can simply paste these values into your RMarkdown document as the object `x` and perform all of your analysis on these values.
 
-| ID       | Values                                                                                   |
-|:---------|:-----------------------------------------------------------------------------------------|
-| a1670158 | x <- c(3.4078, -0.362, -0.1241, 0.17, -0.2975, -1.1878, 2.5201, -0.7974, 0.6078, 1.8075) |
-| a1685584 | x <- c(1.783, 0.7986, 0.6015, 1.042, 1.3967, 3.4582, 3.87, 2.4096, 0.8027)               |
-| a1711004 | x <- c(0.3384, -1.239, -0.4653, -1.2589, 1.9388, -1.0695, -1.0622, 2.3031)               |
-| a1731685 | x <- c(2.2962, 2.3225, -0.6423, -0.2588)                                                 |
-| a1745654 | x <- c(2.5999, 2.4134, 0.7226, -0.5628)                                                  |
-| a1749310 | x <- c(0.9669, 0.9458, -1.0238, -0.537, 0.0973, 0.8976, -1.2348, 0.3315)                 |
-| a1771951 | x <- c(-3.6227, -0.5281, 0.8609, 1.5519, -1.9202, 0.111)                                 |
-| a1779334 | x <- c(3.0414, 0.3347, 0.2598, 0.0669, -2.273, 2.3805, -0.2023, 0.0795)                  |
-| a1781749 | x <- c(-4.8139, -0.693, -0.4226, 2.3468, -0.6309, 0.1241)                                |
-| a1791787 | x <- c(0.4395, 1.3864, -0.0849, 2.2884, 0.6172, 0.9241, 0.9488)                          |
-| a1793463 | x <- c(-1.5012, -0.3761, 1.6316, 1.5747, 0.5813, -2.4942, 3.8002, 3.0263, 1.0505)        |
-| a1809569 | x <- c(-0.4614, 0.8025, 1.1472, 0.1815, -1.51, 1.2096)                                   |
-| a1813640 | x <- c(3.5413, 1.1081, -1.2902, -0.492, 1.2689, 0.2239, 2.7458, 0.5778, 4.1346, -0.1029) |
-| a1818796 | x <- c(1.4362, 0.374, 0.8476, 0.5466, 0.7706, -2.423)                                    |
-| a1820572 | x <- c(0.379, 2.9524, 3.2554, -0.277)                                                    |
-| a1826048 | x <- c(0.3902, 1.0562, 1.8898, -1.5771)                                                  |
-| a1826245 | x <- c(0.6447, 0.884, 2.1958, 0.285)                                                     |
-| a1827429 | x <- c(1.3417, 0.8312, 2.3665, 2.2907)                                                   |
-| a1827586 | x <- c(-0.0582, 2.0452, 1.2181, -1.3813, 2.3816, 0.6085, 0.3904, 0.1846, 1.9378)         |
-| a1828691 | x <- c(2.0259, -0.57, 0.4786, -0.146, 1.4909, 1.3815, -0.9265, 0.9515)                   |
-| a1830214 | x <- c(1.2928, 0.0834, 2.385, 2.4948, 1.792)                                             |
-| a1838426 | x <- c(0.3964, 1.8519, 0.7053, -0.4396, 0.7592, -3.41, 2.0735)                           |
-| a1866470 | x <- c(-0.4671, 1.2932, -0.1467, 1.3883, 0.1519, -1.8978, 0.1778)                        |
-| a1871383 | x <- c(0.165, -0.9126, 2.5109, -0.1687, 1.1595, -3.136, 0.7482)                          |
-| a1872578 | x <- c(1.916, 0.3201, 0.7413, -0.521)                                                    |
-| a1873748 | x <- c(0.1494, 1.4849, -0.7284, 2.2843, 2.5131, -3.8016, 0.6135)                         |
-| a1878299 | x <- c(-0.255, 3.4432, -0.9247, 0.8383, 1.8246, -0.2636, 0.5293)                         |
-| a1879743 | x <- c(-1.3717, 2.1238, 2.785, 0.0893, -0.4422, 1.8277)                                  |
-| a1880903 | x <- c(0.5291, 3.2479, -0.0146, -0.129, -1.3898, 0.1013, 0.8595, 0.8511, 1.0816, 0.5843) |
-| a1881885 | x <- c(0.7392, -0.4325, 0.9298, -0.1884, -1.6, 2.7959, 2.9149)                           |
-| a1882601 | x <- c(1.9765, 1.8482, 0.5765, -0.7912, 0.0571, 2.2725, 0.1549)                          |
-| a1893135 | x <- c(0.6247, -1.22, 1.3306, 1.391, -0.5297)                                            |
-| a1893784 | x <- c(0.1346, 2.5644, 3.8117, -0.8703, 2.5529)                                          |
-| a1894438 | x <- c(1.6571, 0.6298, 0.987, 3.6434)                                                    |
-| a1894742 | x <- c(-4.2777, -0.5161, 1.8382, -1.8204, 0.4913, -0.4342, 2.0994, -1.3816)              |
-| a1895152 | x <- c(2.1686, 1.9082, 1.5076, -0.2429, -0.7984, 2.1778, 2.802, 0.3417, 2.3734)          |
-| a1895218 | x <- c(0.0324, -1.5352, -0.9229, 1.1434)                                                 |
-| a1896450 | x <- c(-1.647, 1.2667, 0.5816, 2.5689, -0.0199, -0.0102, -0.0266, 0.341)                 |
-| a1896652 | x <- c(-0.2389, 0.2398, 0.0642, 1.5957, 2.5635, 2.7395)                                  |
-| a1899420 | x <- c(-1.558, -1.943, 1.7205, 0.7086, 0.3317, 1.361, -0.1501, 3.0054, 0.5291)           |
-| a1901571 | x <- c(0.1868, 2.7585, 0.8184, 1.3255, 0.8488)                                           |
+| ID       | Values                                                                                       |
+|:---------|:---------------------------------------------------------------------------------------------|
+| a1137364 | x <- c(-0.0433, 2.2891, 1.0951, 1.8736)                                                      |
+| a1608942 | x <- c(-0.1669, -0.1257, 0.5036, 0.0166, -2.4042, -0.1197, 2.1225, 1.212, 5.6835)            |
+| a1645191 | x <- c(1.4484, 1.3787, -0.4143, 3.6535, 1.8083, 0.4871)                                      |
+| a1703423 | x <- c(0.8609, 0.1178, 0.9691, -1.4772, 2.5688, 0.1644, -0.8474, -2.1161)                    |
+| a1749842 | x <- c(1.6882, 0.6029, 1.9638, -0.8317, -0.988, -2.3742, -0.4314)                            |
+| a1766804 | x <- c(4.8103, -0.8988, -0.7313, 3.5593, -0.4826, 2.4308, -0.4153, 0.0668, 2.867)            |
+| a1773594 | x <- c(0.2608, -1.4151, 2.8979, 1.4756, 2.2516)                                              |
+| a1792812 | x <- c(-0.6245, -0.2226, 1.5684, -1.2285)                                                    |
+| a1795973 | x <- c(1.8684, 0.2476, 0.5143, 0.3547, -0.1645, 1.251, -1.9733, 2.3365, -0.1596)             |
+| a1797428 | x <- c(-1.2975, 1.7608, -0.0982, 1.8631, -2.3649, 0.1515, 1.709, -1.1104)                    |
+| a1823995 | x <- c(0.0863, 0.5653, 0.4356, 2.2952, 0.8758, 0.0343)                                       |
+| a1839745 | x <- c(0.5774, 1.3214, 2.6437, -0.2024)                                                      |
+| a1843355 | x <- c(1.0581, -1.0416, -0.8031, -0.1871)                                                    |
+| a1850508 | x <- c(-0.9714, 1.6317, -1.3517, 1.1421, -0.2032, 1.0515, 1.9313, 1.8357, -1.4458)           |
+| a1851176 | x <- c(-2.08, -0.8782, 0.285, 1.3781)                                                        |
+| a1851451 | x <- c(1.2449, -0.7304, -0.1646, 2.0851, -0.7812, 0.5486, 0.9953, 0.1769, 0.3606)            |
+| a1851815 | x <- c(0.0134, 1.9545, 1.0156, 2.4974)                                                       |
+| a1853428 | x <- c(-0.0298, -1.3617, 2.1709, 0.8543, 0.2726, -0.7025)                                    |
+| a1862759 | x <- c(0.0065, 1.0768, -0.7598, 3.0874)                                                      |
+| a1863615 | x <- c(0.7639, 0.0844, 1.6849, -0.5075, -0.8914, 1.0112, 2.7931)                             |
+| a1864525 | x <- c(1.1527, 1.6518, 1.6833, -1.3038, 0.6058, 0.4401, -1.1379, 1.6957)                     |
+| a1865749 | x <- c(1.5056, 1.647, -0.0661, -2.1343, 1.423, 0.7569, 0.0609)                               |
+| a1868878 | x <- c(-2.9709, -0.45, 0.0074, 0.1217, 2.5973)                                               |
+| a1869981 | x <- c(0.8152, 1.4271, 0.4694, -0.2918, -0.286, -0.6054, 1.2336)                             |
+| a1871922 | x <- c(0.5119, -1.8475, 1.8198, -0.1338, 0.8777, 0.0604, -0.4013, 0.3594, 2.3255)            |
+| a1872208 | x <- c(0.7079, 0.3685, 0.2181, 0.5549, -2.3652, -1.2004, 3.4151)                             |
+| a1873151 | x <- c(2.4517, 1.4722, 2.6803, -1.9407, -0.6271, -0.2569, -0.4746, 2.6373, -2.0029)          |
+| a1875420 | x <- c(-1.5192, 2.833, 3.3837, -1.0578, 0.8613, 2.5236, -2.2051, -0.4782, 3.1518)            |
+| a1876866 | x <- c(-1.123, -0.3904, -0.4987, 2.0421, -0.8621, -0.7427, 0.7549, -0.5748, 0.4906, -1.0987) |
+| a1886661 | x <- c(1.129, -0.5184, 0.0759, 0.4659)                                                       |
+| a1893982 | x <- c(0.4595, 1.7962, 2.1128, 2.646, -2.3673, -0.1961)                                      |
+| a1894721 | x <- c(-2.91, 2.5906, -1.8167, -0.9061, -0.8382, 0.2453, 0.4134, 3.5842)                     |
+| a1894991 | x <- c(1.9851, -0.5493, 1.7286, 3.7736, 0.4708, 0.7642, 0.8895, 2.0142, -0.3351)             |
+| a1897552 | x <- c(3.2391, -1.7528, 0.4305, -0.6628, -1.6469, 0.782, 1.5166, 0.237)                      |
+| a1899345 | x <- c(0.1474, 1.9407, 0.5564, 1.7953, 1.2655, 0.1691, 0.4547, 0.0187, -2.1591, 0.6655)      |
+| a1900426 | x <- c(-0.3584, 3.5074, 2.9401, 2.1211, -0.1264, 0.9589, -1.1208, -1.9353, 1.7136)           |
+| a1901379 | x <- c(0.3038, -1.1985, -1.7394, 0.2135, 2.5004, 1.6915, 2.8043, 0.5944)                     |
+| a1903005 | x <- c(0.6722, -0.1956, 0.5278, 1.8678, 3.1052, 1.2281, 3.0446, -0.5916)                     |
+| a1904204 | x <- c(-0.992, 4.0864, 1.3728, 1.2436, -0.6282)                                              |
+| a1904509 | x <- c(-0.1648, 2.1814, -1.0161, 0.9513, 1.0205, -0.0862, 0.5003, -1.3463, -0.1135, 2.1983)  |
+| a1906661 | x <- c(0.706, -0.9058, 2.1544, 2.9012, 1.1209, -1.3753, 1.9729, 2.875, 3.6917, -1.077)       |
+| a1908426 | x <- c(1.2641, 1.44, 0.1889, 0.1464, -0.4497, 1.3661, 2.1486, 2.4283, 1.108, 1.2788)         |
+| a1909154 | x <- c(2.4852, 1.2269, -0.0679, -0.9611, 2.1799)                                             |
+| a1910059 | x <- c(2.8994, -3.0528, 0.1018, 1.3461, 0.9224, 1.1955, 2.3327)                              |
+| a1930255 | x <- c(2.0478, -1.8305, 1.4769, -0.1325, 1.2525, 1.7385)                                     |
+| a1932615 | x <- c(0.9234, 1.4015, -0.3947, -3.1329, -0.1542, 1.9771, -0.4997, 0.0226)                   |
+| a1935423 | x <- c(0.6379, 2.0681, 2.887, 0.844, 0.398, 0.265, 0.0612, 0.8686)                           |
+| a1940870 | x <- c(-1.0123, 2.6733, 0.0865, 2.7096, 2.1062, -0.157, 0.6258, -0.5091, 0.114, 0.0341)      |
+| a1947736 | x <- c(1.2537, 2.7525, 0.5015, 0.3354, -1.129, 1.1688, 3.6342, 1.2302, 0.8297, 1.3461)       |
+| a1947841 | x <- c(-1.5333, 2.0824, 2.7886, -0.0431, 0.0146, -1.404, 0.7452, 3.0861, -1.9524, 0.3867)    |
+| a1954027 | x <- c(0.6892, -0.1318, -0.1043, 4.0503, 0.0989, 0.8987, 1.7833)                             |
+| a1954456 | x <- c(-0.0944, -1.7223, 0.9764, 0.657, 0.6068, -1.0101, 0.5493)                             |
+| a1955686 | x <- c(0.1344, 0.0336, -1.2412, 0.3731)                                                      |
 
