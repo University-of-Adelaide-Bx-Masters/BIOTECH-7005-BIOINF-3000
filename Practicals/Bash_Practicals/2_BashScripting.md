@@ -204,7 +204,7 @@ The first feature is annotated as a *region* in the third field, whilst the seco
 - *How many features are contained in this file?*
 - *If we tried the following*: `wc -l GCF_000182855.2_ASM18285v1_genomic.gff` *would it be correct?*
 
-This will give 4529, but we know the first 12 lines are header lines.
+This will give 4521, but we know the first 12 lines are header lines.
 To count the non-header lines you could try several things:
 
 ```
@@ -212,13 +212,13 @@ grep -vc '^#' GCF_000182855.2_ASM18285v1_genomic.gff
 ```
 or
 
-```
+``` 
 grep -c '^[^#]' GCF_000182855.2_ASM18285v1_genomic.gff
 ```
 
 **Make sure you understand both of the above commands as it may not be immediately obvious!**
 
-There are 12 header/comment lines we can see at the top fo the file, is this the number that you got?  
+There are 9 header/comment lines we can see at the top fo the file, is this the number that you got?  
 
 What do you think is going on?  
 
