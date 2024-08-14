@@ -529,7 +529,7 @@ nano wellDone.sh
 ```
 
 Enter the above code into this file **setting your actual name as the ME variable**,  and save it by using `Ctrl+o` (indicated as `^O`) in the nano screen.
-Once you're finished, you can exit the `nano` editor by hitting `Ctrl+x` (written as `^X`).
+Once you're finished, you can exit the `nano` editor by hitting `Ctrl+x` (written as `^X`), then confirm saving changes with `y`, and finally press `Enter` to return to the terminal.
 Assuming that you've entered everything correctly, we can now execute this script by simply entering
 
 ```
