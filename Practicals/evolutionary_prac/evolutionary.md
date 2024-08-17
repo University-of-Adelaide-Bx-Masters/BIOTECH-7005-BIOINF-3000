@@ -1,4 +1,4 @@
-# Evolutionary Processes assignment (Due 30/8/2023)
+# Evolutionary Processes assignment (Due 30/8/2024)
 
 ## Setup the directory for today
 
@@ -201,7 +201,7 @@ We don't have enough time to run for 1e6 generations, we want to see the converg
 mcmc ngen=50000 relburnin=no burnin=0 filename=model-<num>
 ```
 
-This will take some time (the remaining time is shown to the right of the output).
+This will take 5-6 minutes (the remaining time is shown to the right of the output).
 You will see in the output the log likelihoods of the trees being considered (2 runs by 4 chains) in the analysis, and every 5 lines the variance between the two runs is output to give an indication of how far the trees have converged.
 You can see that as the run continues the average standard deviation of split frequencies decreases, showing that the two runs are converging on the same tree or similar trees.
 
@@ -210,7 +210,7 @@ You can see that as the run continues the average standard deviation of split fr
 After the MCMC has completed the 50,000 iterations, it will output the final average standard deviation of split frequencies and ask if the run is to be continued.
 Answer "no".
 
-See the Mr Bayes [tutorial](http://mrbayes.sourceforge.net/wiki/index.php/Tutorial_3.2#When_to_Stop_the_Analysis) for a more complete explanation of how to decide the answer to this question.
+See the Mr Bayes [manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf) for a more complete explanation of how to decide the answer to this question.
 
 When you stop the runs, Mr Bayes will output summary data from the analysis.
 
@@ -237,7 +237,7 @@ sumt
 This will output a large quantity of data about the estimated paramaters and the statistical support for branch nodes, and two trees, one showing the consensus branch lengths and one showing the branch node support.
 It will also output a consensus tree file called "model-\<num\>.con.tre".
 
-Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). `FigTree` is a tree visualising tool that you will need to run on your computer. Select the best download type for your computer/operating system and install it. 
+Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). `FigTree` is a tree visualising tool that you will need to run on your computer. Select the best download type for your computer/operating system and install it (use .dmg for Mac, use .zip for Win). 
 
 **Q9. Do the trees from the two models differ?** 
 **Q10. How does the branch support differ between the two trees?** 
