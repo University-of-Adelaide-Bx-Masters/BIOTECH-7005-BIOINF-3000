@@ -491,7 +491,7 @@ First, let's just have a look through the script & make sure we understand what 
 ME='Put your name here'
 MESSAGE='This is your first script'
 
-# Now well place these variables into a command to get some output
+# Now we will place these variables into a command to get some output
 echo -e "Hello ${ME}\n${MESSAGE}\nWell Done!"
 ```
 
