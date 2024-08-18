@@ -1,5 +1,7 @@
 # Evolutionary Processes assignment (Due 30/8/2024)
 
+In today's practical we are trying to wean you off of detailed instructions and will expect you to be able to do basic things that have been covered before, such as renaming a file or using `wget`. You should read through the practical fully before beginning so that you understand the sequence of operations and what is expected. 
+
 ## Setup the directory for today
 
 Just as we've created a new `R Project` for practicals 1 to 3, let's create a new one for today to make sure we're all in the same place.
@@ -87,6 +89,9 @@ SELECTION OF CONSERVED BLOCKS FROM MULTIPLE ALIGNMENTS
 ******************************************************
 
 o. Open File
+s. Saving Options
+
+g. (Get Blocks)
 
 b. Block Parameters
 
@@ -106,7 +111,7 @@ This will give you a file `bovidae_50_mtDNA-named.fa-gb`.
 The program we will be using to perform phylogenetic reconstruction uses a sequence (and other character) format called NEXUS.
 The NEXUS format is fairly widely used for phylogenetic data as it can be used to encode a variety characters, not limited to sequence data.
 
-Use `seqmagick` to convert the `fa-gb` file to a nexus format with the name `bovidae_50_mtDNA-named.nex`.
+Use `seqmagick` to convert the `fa-gb` file containing the trimmed alignment blocks to a nexus format with the name `bovidae_50_mtDNA-named.nex`.
 Note that you will need to rename the `fa-gb` file so that it has an `fa` file extension, remember not to overwrite your original `bovidae_50_mtDNA-named.fa` when doing so.
 Look at your `.nex` file to satisfy yourself that things are as they should be.
 
