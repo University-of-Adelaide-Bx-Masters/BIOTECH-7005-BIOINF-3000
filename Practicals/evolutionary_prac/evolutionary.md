@@ -195,7 +195,7 @@ help mcmc
 You can see here that the default analysis runs for 1,000,000 iterations, retaining every 500th iteration for tree reconstruction.
 You can also see that the first 25% of samples are discarded by default.
 
-We don't have enough time to run for 1e6 generations, we want to see the convergence behaviour and we want to specify the output file name (again `<num>` is the model subtitution type number), so start the analysis with the following command.
+We don't have enough time to run for 1x10^6 generations, we want to see the convergence behaviour and we want to specify the output file name (again `<num>` is the model subtitution type number), so start the analysis with the following command.
 
 ```
 mcmc ngen=50000 relburnin=no burnin=0 filename=model-<num>
