@@ -65,7 +65,7 @@ You can download your assigned species here: 'http://ftp.ensembl.org/pub/release
 | ID       | Species                      | Taxonomy ID | Common Name                    |
 |:---------|:-----------------------------|------------:|:-------------------------------|
 | a1137364 | Monodelphis domestica        |       13616 | Gray Short-Tailed Opossum      |
-| a1755331 | Neolamprologus brichardi     |       32507 | Princess cichlid               |
+|          | Neolamprologus brichardi     |       32507 | Princess cichlid               |
 | a1645191 | Mola mola                    |       94237 | Ocean Sunfish                  |
 | a1703423 | Pelodiscus sinensis          |       13735 | Chinese Soft-Shelled Turtle    |
 | a1749842 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle          |
@@ -128,7 +128,7 @@ You can simply paste these values into your RMarkdown document as the object `x`
 | ID       | Values                                                                                       |
 |:---------|:---------------------------------------------------------------------------------------------|
 | a1137364 | x <- c(-0.0433, 2.2891, 1.0951, 1.8736)                                                      |
-| a1755331 | x <- c(-0.1669, -0.1257, 0.5036, 0.0166, -2.4042, -0.1197, 2.1225, 1.212, 5.6835)            |
+|          | x <- c(-0.1669, -0.1257, 0.5036, 0.0166, -2.4042, -0.1197, 2.1225, 1.212, 5.6835)            |
 | a1645191 | x <- c(1.4484, 1.3787, -0.4143, 3.6535, 1.8083, 0.4871)                                      |
 | a1703423 | x <- c(0.8609, 0.1178, 0.9691, -1.4772, 2.5688, 0.1644, -0.8474, -2.1161)                    |
 | a1749842 | x <- c(1.6882, 0.6029, 1.9638, -0.8317, -0.988, -2.3742, -0.4314)                            |
