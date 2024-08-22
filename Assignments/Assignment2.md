@@ -65,7 +65,7 @@ You can download your assigned species here: 'http://ftp.ensembl.org/pub/release
 | ID       | Species                      | Taxonomy ID | Common Name                    |
 |:---------|:-----------------------------|------------:|:-------------------------------|
 | a1137364 | Monodelphis domestica        |       13616 | Gray Short-Tailed Opossum      |
-| a1608942 | Neolamprologus brichardi     |       32507 | Princess cichlid               |
+| a1755331 | Neolamprologus brichardi     |       32507 | Princess cichlid               |
 | a1645191 | Mola mola                    |       94237 | Ocean Sunfish                  |
 | a1703423 | Pelodiscus sinensis          |       13735 | Chinese Soft-Shelled Turtle    |
 | a1749842 | terrapene carolina triunguis |      158814 | Three-Toed Box Turtle          |
@@ -105,10 +105,10 @@ You can download your assigned species here: 'http://ftp.ensembl.org/pub/release
 | a1904204 | Anabas testudineus           |       64144 | Climbing Perch                 |
 | a1904509 | Lepidothrix coronata         |      321398 | Blue-Crowned Manakin           |
 | a1906661 | mus musculus akrj            |       10090 | Mouse                          |
-| a1908426 | Strigops habroptila          |     2489341 | Kakapo                         |
+| a1773541 | Strigops habroptila          |     2489341 | Kakapo                         |
 | a1909154 | Cebus capucinus              |        9516 | White-Faced Sapajou            |
 | a1910059 | sus scrofa bamei             |        9823 | Pig                            |
-| a1930255 | sus scrofa berkshire         |        9823 | Pig                            |
+| a1909565 | sus scrofa berkshire         |        9823 | Pig                            |
 | a1932615 | Zonotrichia albicollis       |       44394 | White-Throated Sparrow         |
 | a1935423 | Geospiza fortis              |       48883 | Medium Ground-Finch            |
 | a1940870 | Pogona vitticeps             |      103695 | Central Bearded Dragon         |
