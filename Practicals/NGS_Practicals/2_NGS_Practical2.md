@@ -289,7 +289,7 @@ bwa mem \
   genome/Celegans_chrI \
   1_trimmedData/fastq/SRR2003569_subset_1.fastq.gz \
   1_trimmedData/fastq/SRR2003569_subset_2.fastq.gz | \
-  samtools view -bhS -F4 - > \ 
+  samtools view -bhS -F4 - > \
   2_alignedData/bam/SRR2003569_chI.bam
 ```
 
