@@ -24,7 +24,7 @@ As before, set up a new project and project directory using Rstudio. Name your n
 To be able to access all the tools needed you need to activate the `bioinf` conda environment.`Once you have done this, double check that the tools you need are available/in your paths.
 
 ```bash
-activate source bioinf
+source activate bioinf
 which fastqc cutadapt bwa STAR freebayes bcftools
 ```
 
