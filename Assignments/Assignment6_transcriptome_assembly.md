@@ -29,7 +29,7 @@ Assignment6/
 __Step 1. Write the first script to:__
 
 + Download the genomic sequence (i.e. fasta file) and annotation (i.e. gff file) of the model plant _Arabidopsis thaliana_ to the subdirectory `DB` from the Ensembl `ftp` directory as you did in assignment 4 [*1 mark*]
-+ Download the BUSCO "brassicales" lineage dataset using this [link](https://busco-data.ezlab.org/v5/data/lineages/brassicales_odb10.2020-08-05.tar.gz). Store the lineage dataset in the `DB` subdirectory and decompress and untar it [*1 mark*] 
++ Download the BUSCO "brassicales" lineage dataset using this [link](https://busco-data.ezlab.org/v5/data/lineages/brassicales_odb10.2024-01-08.tar.gz). Store the lineage dataset in the `DB` subdirectory and decompress and untar it [*1 mark*] 
 + Build the genome index for GMAP [*2 marks*]
 + Build the genome index for STAR [*2 marks*]
 
