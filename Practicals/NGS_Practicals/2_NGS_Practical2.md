@@ -396,7 +396,7 @@ In order, these are:
 | 11 | QUAL | query QUALity (The PHRED scores from the fastq file) |
 | 12 | OPT | variable OPTional fields in the format TAG:VTYPE:VALUE |
 
-Notice that each read is considered to be a *query* in the above descriptions, as we a querying the genome to find out where it probably came from.
+Notice that each read is considered to be a *query* in the above descriptions, as we are querying the genome to find out where it probably came from.
 
 Several of these fields contain useful information, so looking the the first few lines, you can see that these reads are mapped in pairs as consecutive entries in the QNAME field are often (but not always) identical.
 Most of these fields are self-explanatory, but some require exploration in more detail.
