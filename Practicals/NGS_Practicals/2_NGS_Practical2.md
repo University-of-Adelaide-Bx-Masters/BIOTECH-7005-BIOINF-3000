@@ -621,5 +621,5 @@ I       373     .       G       A       2.09043e-11     .       AB=0;ABP=0;AC=0;
 3. Which INFO field contains information about the variant allele-frequency?
 
 
-If you have made it this far & wish to keep going, there is an optional section of [Bonus Material](./2a_NGS_Bonus.html).
+If you have made it this far & wish to keep going, there is an optional section of [Bonus Material](./2a_NGS_Bonus.md).
 None of this material will be referenced in future sessions, however you may find it interesting.
