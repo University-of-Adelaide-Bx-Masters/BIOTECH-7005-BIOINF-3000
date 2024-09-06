@@ -18,7 +18,7 @@ Due to the the limitation of computing resources in our VM, we will use a subset
 - Number of chromosomes: 5 chromosomes + Chloroplast + Mitochondria
 - Genome size: ~135 Mb
 
-- Number of raw reads (pairs): 747,412
+- Number of raw reads (pairs): 660,583
 - Sequencing type: PE125
 
 ## Tools and pipeline
