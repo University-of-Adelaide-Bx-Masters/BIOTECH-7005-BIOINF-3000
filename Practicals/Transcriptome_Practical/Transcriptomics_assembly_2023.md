@@ -231,18 +231,18 @@ cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 busco -i StringTie.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_StringTie_viridiplantae -m transcriptome --cpu 2
 ```
 
-BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:21.4%[S:16.2%,D:5.2%],F:6.8%,M:71.8%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
+BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:21.7%[S:15.1%,D:6.6%],F:5.4%,M:72.9%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
         --------------------------------------------------
         |Results from dataset viridiplantae_odb10         |
         --------------------------------------------------
-        |C:21.4%[S:16.2%,D:5.2%],F:6.8%,M:71.8%,n:425     |
-        |91     Complete BUSCOs (C)                       |
-        |69     Complete and single-copy BUSCOs (S)       |
-        |22     Complete and duplicated BUSCOs (D)        |
-        |29     Fragmented BUSCOs (F)                     |
-        |305    Missing BUSCOs (M)                        |
+        |C:21.7%[S:15.1%,D:6.6%],F:5.4%,M:72.9%,n:425     |
+        |92     Complete BUSCOs (C)                       |
+        |64     Complete and single-copy BUSCOs (S)       |
+        |28     Complete and duplicated BUSCOs (D)        |
+        |23     Fragmented BUSCOs (F)                     |
+        |310    Missing BUSCOs (M)                        |
         |425    Total BUSCO groups searched               |
         --------------------------------------------------
 ```
