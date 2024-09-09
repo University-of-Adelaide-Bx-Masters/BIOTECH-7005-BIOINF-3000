@@ -18,7 +18,7 @@ Due to the the limitation of computing resources in our VM, we will use a subset
 - Number of chromosomes: 5 chromosomes + Chloroplast + Mitochondria
 - Genome size: ~135 Mb
 
-- Number of raw reads (pairs): 660,583
+- Number of raw reads (pairs): 550,405
 - Sequencing type: PE125
 
 ## Tools and pipeline
@@ -231,18 +231,18 @@ cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
 busco -i StringTie.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_StringTie_viridiplantae -m transcriptome --cpu 2
 ```
 
-BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:21.7%[S:15.1%,D:6.6%],F:5.4%,M:72.9%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
+BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
         --------------------------------------------------
         |Results from dataset viridiplantae_odb10         |
         --------------------------------------------------
-        |C:21.7%[S:15.1%,D:6.6%],F:5.4%,M:72.9%,n:425     |
-        |92     Complete BUSCOs (C)                       |
-        |64     Complete and single-copy BUSCOs (S)       |
-        |28     Complete and duplicated BUSCOs (D)        |
-        |23     Fragmented BUSCOs (F)                     |
-        |310    Missing BUSCOs (M)                        |
+        |C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425     |
+        |86     Complete BUSCOs (C)                       |
+        |63     Complete and single-copy BUSCOs (S)       |
+        |23     Complete and duplicated BUSCOs (D)        |
+        |22     Fragmented BUSCOs (F)                     |
+        |317    Missing BUSCOs (M)                        |
         |425    Total BUSCO groups searched               |
         --------------------------------------------------
 ```
@@ -287,38 +287,38 @@ And you will get output like this:
 ################################
 ## Counts of transcripts, etc.
 ################################
-Total trinity 'genes':  4606
-Total trinity transcripts:      5731
-Percent GC: 42.29
+Total trinity 'genes':  4495
+Total trinity transcripts:      5473
+Percent GC: 42.33
 
 ########################################
 Stats based on ALL transcript contigs:
 ########################################
 
-        Contig N10: 3131
-        Contig N20: 2468
-        Contig N30: 2056
-        Contig N40: 1726
-        Contig N50: 1494
+        Contig N10: 2975
+        Contig N20: 2375
+        Contig N30: 1928
+        Contig N40: 1640
+        Contig N50: 1410
 
-        Median contig length: 752
-        Average contig: 1006.96
-        Total assembled bases: 5770890
+        Median contig length: 731
+        Average contig: 965.20
+        Total assembled bases: 5282533
 
 
 #####################################################
 ## Stats based on ONLY LONGEST ISOFORM per 'GENE':
 #####################################################
 
-        Contig N10: 3101
-        Contig N20: 2397
-        Contig N30: 1953
-        Contig N40: 1664
-        Contig N50: 1411
+        Contig N10: 2975
+        Contig N20: 2299
+        Contig N30: 1871
+        Contig N40: 1580
+        Contig N50: 1334
 
-        Median contig length: 636
-        Average contig: 924.00
-        Total assembled bases: 4255941
+        Median contig length: 627
+        Average contig: 895.56
+        Total assembled bases: 4025531
 ```
 
 This report gives us some basic statistics of the assembled transcripts from Trinity, such as the number of genes and transcripts and length of transcripts.
