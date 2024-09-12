@@ -422,9 +422,9 @@ Containers - [What is Docker - 15m video](https://www.youtube.com/watch?v=rOTqpr
 
 VMs - You are already using a virtual machine! There are free tools to set one up yourself! See [VirtualBox](https://www.virtualbox.org/) among others
 
+# Further reading
 
+It'll take a few days each to understand workflow languages, or containers, but you can get very quick and easy wins just by:
 
-
-
-
-
+* Pinning your software versions  [renv](https://rstudio.github.io/renv/articles/renv.html) 
+* Clear and re-run your notebooks before trusting the results or sharing them. [paper](https://link.springer.com/article/10.1007/s10664-021-09961-9)
