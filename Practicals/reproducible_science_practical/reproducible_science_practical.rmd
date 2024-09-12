@@ -11,48 +11,212 @@ knitr::opts_chunk$set(echo = TRUE)
 
 TODO: this is just a placeholder....
 
-### Hashes
+# Hashes
+
+### Command line
 
 ```{bash}
 md5sum --help
 ```
 
-### Diffs
+### File integrity
+
 
 ```{bash}
-diff --help
+# md5sum -c md5sum_hashes.txt
 ```
 
-### Race conditions
+
+
+### Hashes in R
+
+Most languages have a way to calculate the common hash functions.
+
+In R, install the "digest" package:
+
+
+```{r}
+install.packages("digest")
+```
+
+Then you can calculate it from a string, or a file:
+
+
+```{r}
+
+library(digest)
+
+# Example with a string
+string <- "your data here"
+md5_hash <- digest(string, algo = "md5")
+print(md5_hash)
+
+# Example with a file
+#file_path <- "data/blah"
+#md5_file_hash <- digest(file = file_path, algo = "md5")
+#print(md5_file_hash)
+```
+
+
+# Diff
+
+The Unix diff command compares two files *line by line* and displays the differences between them. It highlights which lines need to be added, deleted, or changed to make the files identical. The character at the start of each line means:
+
+"<" lines in first file 
+">" lines in the second file
+
+It works great on simple files:
 
 ```{bash}
 #!/bin/bash
 
-function jokepart1 {
-  sleep $[ ( $RANDOM % 10 )  + 1 ]s
-  echo "Knock Knock"
-}
+echo "List 1:"
+cat data/simple_diff/shopping_list1.txt
 
-function jokepart2 {
-  sleep $[ ( $RANDOM % 10 )  + 1 ]s
-  echo "Race Condition"
-}
+echo
+echo "List 2:"
+cat data/simple_diff/shopping_list2.txt
 
-function jokepart3 {
-  sleep $[ ( $RANDOM % 10 )  + 1 ]s
-  echo "Race condition who?"
-}
+echo
+echo "The difference is: "
+diff data/simple_diff/shopping_list1.txt data/simple_diff/shopping_list2.txt
 
-function jokepart4 {
-  sleep $[ ( $RANDOM % 10 )  + 1 ]s
-  echo "Race Condition. This is where the punchline would have been, if not for a race condition!"
-}
-
-jokepart1 & jokepart2 & jokepart3 & jokepart4
-wait
 ```
 
-### Unit testing
+However, compare the same data that's unsorted:
+
+
+```{bash}
+#!/bin/bash
+
+echo "List 1:"
+cat data/simple_diff/shopping_list1_unsorted.txt
+
+echo
+echo "List 2:"
+cat data/simple_diff/shopping_list2_unsorted.txt
+
+echo
+echo "The difference is: "
+diff data/simple_diff/shopping_list1_unsorted.txt data/simple_diff/shopping_list2_unsorted.txt
+
+```
+
+While this output is technically correct - it could be used to perform modifications to make the files identical, it's probably not what you want.
+
+### Diff exercise
+
+I generated 100 fake scientific papers, and put them in a text file in "data/scientific_papers"
+
+There's a second file there, with 99 of the same papers, but 1 is missing. *Can you find it?*
+
+```{bash}
+#!/bin/bash
+
+# Show that the same lines are in both 
+grep -n holistic data/scientific_papers/*
+```
+
+# Determinism
+
+The code you have written so far has all been deterministic - you could run the program a million times and it would always produce exactly the same answer.
+
+Determinism is useful for reproducibility, but also for debugging. Remember the sorted vs unsorted diff above? If a code change causes a single line to change, it's much easier to find it if the data appears in the same order each run.
+
+### Race conditions
+
+When running multiple things in parallel, things like CPU scheduling or disk I/O can affect run time, so the order wil be non-deterministic.
+
+Consider the Dad-joke bash script below, which executes 5 jobs taking between 0 and 5 seconds to execute:
+
+
+```{bash}
+#!/bin/bash
+
+function joke1 {
+  sleep $[ ( $RANDOM % 5 )  + 1 ]s
+  echo "1. Knock Knock"
+}
+
+function joke2 {
+  sleep $[ ( $RANDOM % 5 )  + 1 ]s
+  echo "2. Who's there?"
+}
+
+function joke3 {
+  sleep $[ ( $RANDOM % 5 )  + 1 ]s
+  echo "3. Race Condition"
+}
+
+
+function joke4 {
+  sleep $[ ( $RANDOM % 5 )  + 1 ]s
+  echo "4. Race condition who?"
+}
+
+function joke5 {
+  sleep $[ ( $RANDOM % 5 )  + 1 ]s
+  echo "5. Race condition who depends on execution order!"
+}
+
+{ 
+  joke1 &
+  joke2 &
+  joke3 &
+  joke4 &
+  joke5 &
+  wait
+} # | sort
+```
+
+### Random numbers (RNG)
+
+Some algorithms use randomness, eg: Monte-Carlo simulations, stochastic gradient descent, randomly sub-sampling a file, or an aligner randomly assigning a read between two equally scoring locations. 
+
+While you could sort this as per above, there's another way, that takes into account how computers generate random numbers.
+
+CPUs generate "pseudo random numbers"
+
+TODO: Example of random numbers in R
+
+They take a "seed", then feed that into something that generates a sequence of random numbers (feeding in the previous to generate the next)
+
+What's a good seed? Something a CPU can get that's random - current time in milliseconds, temperature of a CPU. Someone even took photos of a lava lamp...
+
+Here's an example of a RNG:
+
+```{r}
+# Linear Congruential Generator (LCG) RNG
+# You are not expected to understand this - just see that it's not super complicated to make somewhat random numbers...
+simple_rng_lcg <- function(n, seed = 123) {
+  a = 1664525
+  c = 1013904223
+  m = 2^32
+  random_numbers <- numeric(n)  # Initialize a vector to store random numbers
+  X <- seed  # Starting with the seed
+  
+  for (i in 1:n) {
+    X <- (a * X + c) %% m  # LCG formula
+    random_numbers[i] <- X / m  # Normalize the result to get a number between 0 and 1
+  }
+  
+  return(random_numbers)
+}
+
+# Example: Generate 5 random numbers using the LCG method
+random_numbers <- simple_rng_lcg(5, seed = 123)
+print(random_numbers)
+```
+
+
+
+
+
+# Pinning versions
+
+
+
+# Unit testing
 
 ```{r}
 library(testthat)
@@ -84,6 +248,11 @@ test_that("count_nucleotides correctly counts nucleotides", {
   expect_equal(count_nucleotides(dna_string), c(A=0, C=0, G=0, T=0))
 })
 ```
+
+# Workflows
+
+Representing commands with a graph
+
 
 ### Directed Acyclic Graphs
 
