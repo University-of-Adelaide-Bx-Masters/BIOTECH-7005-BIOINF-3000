@@ -22,18 +22,18 @@ echo "Hello, World!" | md5sum
 md5sum data/hashing/hello_world.txt
 ```
 
-
-
 ### File integrity
 
-TODO: Add some files, and a md5sum_hashes.txt
+We copy billions of bytes all the time. How can we be sure a bit hasn't been flipped somewhere?
+
+Hashes can be used to verify files moved across networks and disks. Sometimes you'll see hashes on FTP sites, or download pages. You can use these to verify your files haven't been corrupted.
+
+md5sum has a short cut to perform checks across multiple files:
 
 
 ```{bash}
-# md5sum -c md5sum_hashes.txt
+md5sum -c md5sum_hashes.txt
 ```
-
-
 
 ### Hashes in R
 
@@ -266,8 +266,34 @@ hist(random_numbers)
 ```
 
 
-# Pinning versions
+# Tool / Library versions
 
+To build modern software you often use large number of 3rd party libraries (eg built by random people and put on the internet). Examples include CRAN (R) and Pip (Python)
+
+These libraries can change over time. If you don't specify what version to use, your script can suddenly stop working upon any one of the libraries you use (or libraries they use...) being updated.
+
+A way to fix this is to explicitly list the version of a library used.
+
+### Finding versions
+
+For a tool - usually "--version". You may want to clean it a bit:
+
+
+```{bash}
+R --version | grep "R version"
+```
+
+In R, you can call packageVersion:
+
+```{r}
+packageVersion("digest")
+```
+
+### Pinning versions
+
+How do we ensure R is loading the correct version?
+
+See [renv](https://rstudio.github.io/renv/articles/renv.html) 
 
 
 # Unit testing
@@ -314,10 +340,17 @@ test_that("count_nucleotides correctly counts nucleotides", {
 })
 ```
 
-# Workflows
+# Dependencies
 
-Representing commands with a graph
+Many things in life have "dependencies" - you need to do one step before another.
 
+In computing, examples include:
+
+* You need to install a library for a program to work
+* Map reads before calling variants (run pipeline step as input to later one)
+* You need to build a sub component (code module) before another that uses it
+
+These dependencies can be represented by a directed acyclinc graph.
 
 ### Directed Acyclic Graphs
 
@@ -334,13 +367,17 @@ Show DAG
 library(igraph)
 
 # Create a DAG representing a bioinformatics pipeline
-edges <- c("Raw Reads", "Quality Control", 
-           "Quality Control", "Alignment",
+edges <- c(#"Raw Reads", "Quality Control", 
+           # "Quality Control", "Alignment",
+           "Raw Reads", "Alignment",
            "Alignment", "BAM Indexing",
            "BAM Indexing", "Calculate gene coverage",
            "BAM Indexing", "Variant Calling",
-           "Variant Calling", "Variant Filtering",
-           "Variant Filtering", "Annotation")
+           "BAM Indexing", "CNV detection",
+           "Variant Calling", "Merge calls",
+           "CNV detection", "Merge calls",
+           "Merge calls", "Annotation",
+           "Annotation", "Filtering and prioritisation")
 
 # Create a graph object
 g <- graph(edges, directed = TRUE)
@@ -360,11 +397,30 @@ plot(g, layout=l,
 
 ```
 
+You'll notice we didn't explicitly tell the graphing library where to draw the nodes and edges.
 
+We *defined the dependencies* then allowed the library to process the directed acyclic graph, then draw the image.
 
+### Workflows
 
+Some workflow tools allow you to define dependencies, then it will auto manage things for you, such as:
 
+* On errors - run from last successful step, rather than the whole pipeline again
+* Know what files need to be updated if a step changes (eg if you switch out variant caller - everything below that needs to be re-run but not above)
 
+Examples include:
+
+* [SnakeMake](https://snakemake.readthedocs.io/en/stable/) - which is based on Python
+* [NextFlow](https://www.nextflow.io/) - which is based on Groovy (scripting language based on Java) - see [nf core pipelines](https://nf-co.re/pipelines/) - great collection of pre-assembled Bioinfo pipelines
+* Make - you may run into this building Unix tools but probably don't want to use it yourself
+
+# Managing environments
+
+[Anaconda](https://docs.anaconda.com/working-with-conda/environments/)
+
+Containers - [What is Docker - 15m video](https://www.youtube.com/watch?v=rOTqprHv1YE)
+
+VMs - You are already using a virtual machine! There are free tools to set one up yourself! See [VirtualBox](https://www.virtualbox.org/) among others
 
 
 

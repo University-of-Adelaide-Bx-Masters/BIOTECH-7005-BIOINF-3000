@@ -1,0 +1,4 @@
+5bbf5a52328e7439ae6e719dfe712200  data/hashing/one.txt
+c193497a1a06b2c72230e6146ff47080  data/hashing/two.txt
+febe6995bad457991331348f7b9c85fa  data/hashing/three.txt
+75ffdb827341e578959bfcabde3789d8  data/hashing/four.txt
