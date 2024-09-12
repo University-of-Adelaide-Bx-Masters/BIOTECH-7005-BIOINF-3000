@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Science Practical"
 author: "David Lawrence"
-date: "2023-06-20"
+date: "2024-09-12"
 output: html_document
 ---
 
@@ -9,17 +9,24 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-TODO: this is just a placeholder....
-
 # Hashes
 
 ### Command line
 
 ```{bash}
-md5sum --help
+echo "Hello, World!" | md5sum
 ```
 
+
+```{bash}
+md5sum data/hashing/hello_world.txt
+```
+
+
+
 ### File integrity
+
+TODO: Add some files, and a md5sum_hashes.txt
 
 
 ```{bash}
@@ -46,15 +53,19 @@ Then you can calculate it from a string, or a file:
 
 library(digest)
 
-# Example with a string
-string <- "your data here"
-md5_hash <- digest(string, algo = "md5")
+# Using same file as md5sum above
+file_path <- "data/hashing/hello_world.txt"
+md5_file_hash <- digest(file = file_path, algo = "md5")
+print(md5_file_hash)
+```
+
+Or with a string:
+
+```{r}
+string <- "Hello, World!\n"
+md5_hash <- digest(string, algo = "md5", serialize=FALSE)
 print(md5_hash)
 
-# Example with a file
-#file_path <- "data/blah"
-#md5_file_hash <- digest(file = file_path, algo = "md5")
-#print(md5_file_hash)
 ```
 
 
@@ -79,7 +90,9 @@ cat data/simple_diff/shopping_list2.txt
 
 echo
 echo "The difference is: "
-diff data/simple_diff/shopping_list1.txt data/simple_diff/shopping_list2.txt
+diff data/simple_diff/shopping_list1.txt data/simple_diff/shopping_list2.txt || true  # we don't want to return an error here
+
+
 
 ```
 
@@ -98,7 +111,7 @@ cat data/simple_diff/shopping_list2_unsorted.txt
 
 echo
 echo "The difference is: "
-diff data/simple_diff/shopping_list1_unsorted.txt data/simple_diff/shopping_list2_unsorted.txt
+diff data/simple_diff/shopping_list1_unsorted.txt data/simple_diff/shopping_list2_unsorted.txt || true  # Don't want to return error code
 
 ```
 
@@ -175,19 +188,55 @@ Some algorithms use randomness, eg: Monte-Carlo simulations, stochastic gradient
 
 While you could sort this as per above, there's another way, that takes into account how computers generate random numbers.
 
-CPUs generate "pseudo random numbers"
+CPUs generate "pseudo" random numbers, they use functions that take a number as input, and produce another number that looks really different. You can produce a sequence of numbers by feeding the previous number back in.
 
-TODO: Example of random numbers in R
-
-They take a "seed", then feed that into something that generates a sequence of random numbers (feeding in the previous to generate the next)
+But you need a starting number - this is called a random "seed"
 
 What's a good seed? Something a CPU can get that's random - current time in milliseconds, temperature of a CPU. Someone even took photos of a lava lamp...
 
-Here's an example of a RNG:
+R, like most RNGs, set the seed for you, so calls to random are non-deterministic by default. Here's how to generate 5 random numbers in R:
+
+
+```{r}
+runif(5)
+```
+
+Now run that multiple times. Are you getting the same number?
+
+```{r}
+runif(5)
+```
+
+
+```{r}
+runif(5)
+```
+
+
+
+```{r}
+random_numbers <- runif(100000)  # 100k random numbers
+hist(random_numbers, main = "Histogram of Uniform Random Numbers")
+```
+
+```{r}
+# Now we set the seed
+set.seed(42)
+runif(5)
+```
+
+```{r}
+# Now we set the seed
+set.seed(42)
+runif(5)
+```
+
+
+What does an RNG look like?  You are not expected to understand this - just see that it's not super complicated to make somewhat random numbers...
+
 
 ```{r}
 # Linear Congruential Generator (LCG) RNG
-# You are not expected to understand this - just see that it's not super complicated to make somewhat random numbers...
 simple_rng_lcg <- function(n, seed = 123) {
   a = 1664525
   c = 1013904223
@@ -204,12 +253,17 @@ simple_rng_lcg <- function(n, seed = 123) {
 }
 
 # Example: Generate 5 random numbers using the LCG method
-random_numbers <- simple_rng_lcg(5, seed = 123)
+random_numbers <- simple_rng_lcg(5)
 print(random_numbers)
 ```
 
 
 
+```{r}
+# This isn't as good as the default R one, but it's not too bad...
+random_numbers <- simple_rng_lcg(100000)
+hist(random_numbers)
+```
 
 
 # Pinning versions
@@ -217,6 +271,17 @@ print(random_numbers)
 
 
 # Unit testing
+
+Can you write software right on the first go? I can't!
+
+How do you know if it gives you the right answer? You test it.
+
+"Unit testing" is a form of testing where you write code to run and execute your code. It is aimed at testing small components (units) like a few functions.
+
+Running automated unit tests regularly gives you confidence you haven't broken everything by making a change somewhere.
+
+Some people to "test first development" where you define the expected answers before you even 
+
 
 ```{r}
 library(testthat)
@@ -256,6 +321,14 @@ Representing commands with a graph
 
 ### Directed Acyclic Graphs
 
+If you don't already have the package:
+
+```{r}
+# install.packages("igraph")
+```
+
+Show DAG
+
 ```{r}
 # Load the igraph package
 library(igraph)
@@ -264,6 +337,7 @@ library(igraph)
 edges <- c("Raw Reads", "Quality Control", 
            "Quality Control", "Alignment",
            "Alignment", "BAM Indexing",
+           "BAM Indexing", "Calculate gene coverage",
            "BAM Indexing", "Variant Calling",
            "Variant Calling", "Variant Filtering",
            "Variant Filtering", "Annotation")
@@ -283,4 +357,18 @@ plot(g, layout=l,
      vertex.label.color = "black", 
      vertex.label.cex = 0.8,
      edge.curved=0.2)
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
