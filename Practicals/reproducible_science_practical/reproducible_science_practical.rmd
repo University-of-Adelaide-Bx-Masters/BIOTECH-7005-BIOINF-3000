@@ -9,6 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# R studio
+
+This is generated from an R markdown file, open it in R studio:
+
+BIOTECH-7005-BIOINF-3000/Practicals/reproducible_science_practical/reproducible_science_practical.rmd
+
 # Hashes
 
 ### Command line
@@ -32,7 +38,7 @@ md5sum has a short cut to perform checks across multiple files:
 
 
 ```{bash}
-md5sum -c md5sum_hashes.txt
+md5sum -c md5sum_hashes.txt || true # don't die on error
 ```
 
 ### Hashes in R
@@ -293,8 +299,72 @@ packageVersion("digest")
 
 How do we ensure R is loading the correct version?
 
-See [renv](https://rstudio.github.io/renv/articles/renv.html) 
+See [renv](https://rstudio.github.io/renv/articles/renv.html) which allows you to load specific versions of packages
 
+
+```{r}
+install.packages("renv")
+```
+
+
+*Same code, different outputs!*
+
+An example of a popular library function changing behavior across versions is dplyr
+
+In pre-1.0 dplyr, after calling summarize(), the data is automatically ungrouped.
+
+After 1.0 - the data remains grouped after summarization unless you explicitly ungroup it using ungroup()
+
+*note: The below takes a while so you probably don't want to do it in class*
+
+*note: It's generally a bad idea to mix different versions in the same script!*
+
+
+
+```{r}
+renv::install("dplyr@0.8.5", prompt=FALSE)
+
+library(dplyr)
+ddplyr_version = packageVersion("dplyr")
+print(ddplyr_version)
+
+```
+
+Now, install a newer version:
+
+
+```{r}
+renv::install("dplyr@1.0.5", prompt=FALSE)
+
+library(dplyr)
+ddplyr_version = packageVersion("dplyr")
+print(ddplyr_version)
+
+```
+
+
+On your own project (not here) sometime, try running:
+
+```{r}
+# renv::init()
+# renv::snapshot()
+```
+
+This will dump out all the versions currently loaded in the systme into a file called "renv.lock" which looks like eg:
+
+```
+    "digest": {
+      "Package": "digest",
+      "Version": "0.6.37",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "utils"
+      ],
+      "Hash": "33698c4b3127fc9f506654607fb73676"
+    },
+```
 
 # Unit testing
 
