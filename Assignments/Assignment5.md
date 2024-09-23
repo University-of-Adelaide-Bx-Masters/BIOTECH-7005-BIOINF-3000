@@ -28,7 +28,7 @@ There are two kinds of changes/bugs:
 
 These should be treated as two separate incidents, with different severities, and will be handled separately.
 
-1. Raise an issue in the [repo](https://github.com/davmlaw/2023_assignment_5_adelaide_uni_bioinfo) for the XXXXXXX bug
+1. Raise an issue in the [repo](https://github.com/davmlaw/2024_assignment_5_adelaide_uni_bioinfo) for the XXXXXXX bug
     + Giving a good title succinctly stating the problem and identifying the file (such that it is clear why it is distinct from other issues) [*1 point*]
     + Thank the maintainer and use a polite, kind and non-accusatory tone  [*1 point*]
     + Provide the commit message of the commit that introduced the error to your file [*1 point*]
@@ -37,7 +37,7 @@ These should be treated as two separate incidents, with different severities, an
 
 (total: 6 points)
 
-2. Raise an issue in the [repo](https://github.com/davmlaw/2023_assignment_5_adelaide_uni_bioinfo) for the UPPERCASE bug
+2. Raise an issue in the [repo](https://github.com/davmlaw/2024_assignment_5_adelaide_uni_bioinfo) for the UPPERCASE bug
     + Giving a good title succinctly stating the problem and identifying the file (such that it is clear why it is distinct from other issues) [*1 point*]
     + Provide the date and Git hash of the commit that introduced the error to your file [*1 point*]
     + Write a expected / actual for the lines affected, only mentioning the low severity bug (UPPERCASE) [*2 points*]
