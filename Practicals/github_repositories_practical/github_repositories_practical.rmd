@@ -145,7 +145,7 @@ To experiment with wikis:
 
 ## Practical - simulated open source repo
 
-There's a [GitHub repository Practical project](https://github.com/davmlaw/2023_practical_github_repositories) which is a simulation of an open source project with bugs.
+There's a [GitHub repository Practical project](https://github.com/davmlaw/2024_practical_github_repositories) which is a simulation of an open source project with bugs.
 
 It has randomly generated data, so has the same structure (but different data) as [Assignment 5](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Assignments/Assignment5.html)
 
@@ -169,7 +169,7 @@ You can split off branches, and merge branches into each other.
 
 ## Raising an issue
 
-Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2023_practical_github_repositories) for the high severity bug (XXXXXXX)
+Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2024_practical_github_repositories) for the high severity bug (XXXXXXX)
 
 Make sure the title includes your filename and what's wrong with it, ie "file doc/a1059391.txt contains 'XXXXXXX'"
 
