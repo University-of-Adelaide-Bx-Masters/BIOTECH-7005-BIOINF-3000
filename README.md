@@ -56,7 +56,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **-**    | 16/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 23/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 30/9   | [Ancient DNA][11] (Yassine)|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 7/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Yassine) |
+| **10**   | 7/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Yassine/Shyam) |
 | **11**   | 14/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
 | **12**   | 21/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
 
@@ -72,7 +72,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [11]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Lectures/12_ancient_DNA-compressed.pdf
-[12]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/tree/master/Practicals/ancient_DNA_practical
+[12]: Practicals/ancient_DNA_practical/aDNA_prac.pdf
 
 
 [Introduction to VMs]: Practicals/AWS_RONIN_connection.md
