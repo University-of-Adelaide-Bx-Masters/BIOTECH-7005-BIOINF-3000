@@ -72,7 +72,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
 [11]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Lectures/12_ancient_DNA-compressed.pdf
-[12]: Practicals/ancient_DNA_practical/aDNA_prac.pdf
+[12]: Practicals/ancient_DNA_practical/aDNA_prac.html
 
 
 [Introduction to VMs]: Practicals/AWS_RONIN_connection.md
