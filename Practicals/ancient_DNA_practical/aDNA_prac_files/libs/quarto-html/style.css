@@ -1,0 +1,10 @@
+pre, code {
+    background-color: #f5f5f5;  /* Light grey background */
+    padding: 10px;               /* Add padding to make it look nice */
+    border-radius: 5px;           /* Rounded corners */
+    overflow-x: auto;             /* Horizontal scroll if the code is too long */
+  }
+  
+  pre {
+    white-space: pre-wrap;       /* Wrap code if too long */
+  }
