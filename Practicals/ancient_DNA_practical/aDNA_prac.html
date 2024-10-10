@@ -279,7 +279,7 @@ conda activate adna
 cd ~/Prac10/rmdups/
 
 for bam in ../data/alignment/*bam; do
-  sn=$(basename $bam .bam)
+  sn=$(basename $bam .sorted.bam)
   picard MarkDuplicates INPUT=$bam \
     OUTPUT=${sn}_rmdup.bam REMOVE_DUPLICATES=TRUE \
     AS=TRUE METRICS_FILE="${sn}_rmdup.metrics" \
@@ -304,9 +304,9 @@ Figure&nbsp;3: Fragment misincorporations as predicted by mapDamage. Notice the 
 </div>
 <p>Lets run mapdamage on a few samples and check the results.</p>
 <pre class="{bash}"><code>cd ~/Prac10/mapdamage/
-ref="~/Prac10/data/reference/dog_mtDNA.fasta"
+ref="../data/reference/dog_mtDNA.fasta"
  
-for bam in ../rmdups{D10,D11,D12,D13,Y47,BaliVD}_*rmdup.bam; do
+for bam in ../rmdups/{D10,D11,D12,D13,Y47,BaliVD}*rmdup.bam; do
   mapDamage -i $bam -r $ref --no-stats
 done</code></pre>
 <ul>
@@ -367,9 +367,11 @@ done &gt; concatinated.fasta</code></pre>
 </section>
 <section id="perform-multiple-sequence-alignment" class="level3">
 <h3 class="anchored" data-anchor-id="perform-multiple-sequence-alignment">6.2 Perform Multiple Sequence Alignment</h3>
-<p>We then want to compare how the mitochondrial genomes across our samples compare to each other. For this we will use the tool <a href="https://www.ebi.ac.uk/jdispatcher/msa/muscle?stype=protein">MUSCLE</a> <span class="citation" data-cites="edgar_muscle_2004">(<a href="#ref-edgar_muscle_2004" role="doc-biblioref">Edgar 2004</a>)</span> that can perform multiple sequence alignment (MSA).</p>
-<pre class="{bash}"><code># MUSCLE Multiple Alignment
-muscle -in concatinated.fasta -out aligned.fasta </code></pre>
+<p>We then want to compare how the mitochondrial genomes across our samples compare to each other. For this we will use the tool <a href="https://mafft.cbrc.jp/alignment/software/">mafft</a> <span class="citation" data-cites="mafft">(<a href="#ref-mafft" role="doc-biblioref">Katoh et al. 2002</a>)</span> that can perform multiple sequence alignment (MSA).</p>
+<pre class="{bash}"><code>conda activate bioinf
+
+# mafft Multiple Alignment
+mafft concatinated.fasta &gt; aligned.fasta</code></pre>
 </section>
 <section id="convert-msa-to-nexus" class="level3">
 <h3 class="anchored" data-anchor-id="convert-msa-to-nexus">6.3 Convert MSA to Nexus</h3>
@@ -380,12 +382,12 @@ seqmagick convert --alphabet dna aligned.fasta aligned.nex</code></pre>
 <section id="visualise-structure-in-popart" class="level3">
 <h3 class="anchored" data-anchor-id="visualise-structure-in-popart">6.4 Visualise Structure in PopART</h3>
 <p>Before, visualising the multiple alignment we need to add metadata about our samples to the Nexus file.</p>
-<pre class="{bash}"><code>cat aligned.nex ~/Prac10/data/traits.nex &gt; aligned_traits.nex</code></pre>
+<pre class="{bash}"><code>cat aligned.nex ~/data/ancient_dna/traits.nex &gt; aligned_traits.nex</code></pre>
 <p>We can use <a href="https://popart.maths.otago.ac.nz/download/">PopART (Population Analysis with Reticulate Trees)</a> <span class="citation" data-cites="leigh_popart_2015">(<a href="#ref-leigh_popart_2015" role="doc-biblioref">Leigh and Bryant 2015</a>)</span> to create a median-joining network <span class="citation" data-cites="bandelt_median-joining_1999">(<a href="#ref-bandelt_median-joining_1999" role="doc-biblioref">Bandelt, Forster, and Röhl 1999</a>)</span>. This is a tool to visualise the differences in mitochondrial sequences. It clusters similar sequences together and calculates the number of differences between dissimilar sequences.</p>
 <p>Unfortunately, PopART does not have a command line tool. You will have to run PopART on your local computer. It is free to use and can be downloaded from <a href="https://popart.maths.otago.ac.nz/download/">here</a>.</p>
 <p>Once you’ve installed PopART, follow the instructions below.</p>
 <p><img src="aDNA_prac_files/assets/LoadNexus.png" id="fig-loadnexus" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Load Nexus file into PopArt"> <img src="aDNA_prac_files/assets/MaskSites.png" id="fig-removesite" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Remove sites with missing data"> <img src="aDNA_prac_files/assets/RemoveSamples.png" id="fig-removesamples" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Remove samples with missing data"> <img src="aDNA_prac_files/assets/MedianJoiningNetwork.png" id="fig-mjn" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Create a Medium-Joining Network"></p>
-<p>We should be able to create something like this. <img src="aDNA_prac_files/assets/network.png" id="fig-mjn" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="A Medium-Joining Network with ancient and modern Dingoes, as well as New Guinea Singing dogs and Bali Village Dog"></p>
+<p>We should be able to create something like this. <img src="aDNA_prac_files/assets/aligned_mafft_traits.png" id="fig-mjn" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="A Medium-Joining Network with ancient and modern Dingoes, as well as New Guinea Singing dogs and Bali Village Dog"></p>
 <ul>
 <li><strong>Q9:</strong> What can you infer about the population structure of Dingoes?</li>
 </ul>
@@ -408,9 +410,6 @@ Broad Institute. n.d. <span>“Picard Tools.”</span><em><span> Broad Institute
 <div id="ref-Chen.2018.Bioinformatics" class="csl-entry" role="listitem">
 Chen, Shifu, Yanqing Zhou, Yaru Chen, and Jia Gu. 2018. <span>“<span class="nocase">fastp: an ultra-fast all-in-one FASTQ preprocessor</span>.”</span> <em>Bioinformatics</em> 34 (17): i884–90. <a href="https://doi.org/10.1093/bioinformatics/bty560">https://doi.org/10.1093/bioinformatics/bty560</a>.
 </div>
-<div id="ref-edgar_muscle_2004" class="csl-entry" role="listitem">
-Edgar, Robert C. 2004. <span>“<span>MUSCLE</span>: Multiple Sequence Alignment with High Accuracy and High Throughput.”</span> <em>Nucleic Acids Research</em> 32 (5): 1792–97. <a href="https://doi.org/10.1093/nar/gkh340">https://doi.org/10.1093/nar/gkh340</a>.
-</div>
 <div id="ref-Ewels.2016.bioinformatics" class="csl-entry" role="listitem">
 Ewels, Philip, Måns Magnusson, Sverker Lundin, and Max Käller. 2016. <span>“<span class="nocase">MultiQC: summarize analysis results for multiple tools and samples in a single report</span>.”</span> <em>Bioinformatics</em> 32 (19): 3047–48. <a href="https://doi.org/10.1093/bioinformatics/btw354">https://doi.org/10.1093/bioinformatics/btw354</a>.
 </div>
@@ -419,6 +418,9 @@ Jónsson, Hákon, Aurélien Ginolhac, Mikkel Schubert, Philip L. F. Johnson, and
 </div>
 <div id="ref-jun_efficient_2015" class="csl-entry" role="listitem">
 Jun, Goo, Mary Kate Wing, Gonçalo R. Abecasis, and Hyun Min Kang. 2015. <span>“An Efficient and Scalable Analysis Framework for Variant Extraction and Refinement from Population Scale <span>DNA</span> Sequence Data.”</span> <em>Genome Research</em>, April, gr.176552.114. <a href="https://doi.org/10.1101/gr.176552.114">https://doi.org/10.1101/gr.176552.114</a>.
+</div>
+<div id="ref-mafft" class="csl-entry" role="listitem">
+Katoh, Kazutaka, Kazuharu Misawa, Kei‐ichi Kuma, and Takashi Miyata. 2002. <span>“<span class="nocase">MAFFT: a novel method for rapid multiple sequence alignment based on fast Fourier transform</span>.”</span> <em>Nucleic Acids Research</em> 30 (14): 3059–66. <a href="https://doi.org/10.1093/nar/gkf436">https://doi.org/10.1093/nar/gkf436</a>.
 </div>
 <div id="ref-leigh_popart_2015" class="csl-entry" role="listitem">
 Leigh, Jessica W., and David Bryant. 2015. <span>“Popart: Full-Feature Software for Haplotype Network Construction.”</span> <em>Methods in Ecology and Evolution</em> 6 (9): 1110–16. <a href="https://doi.org/10.1111/2041-210X.12410">https://doi.org/10.1111/2041-210X.12410</a>.
