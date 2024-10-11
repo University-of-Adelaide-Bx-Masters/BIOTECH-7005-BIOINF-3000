@@ -266,7 +266,11 @@ theme_set(theme_bw())
 We normally want to have some additional information about the reference genes so that when we get the differential expressed genes, we can have some ideas about their functions. In this Prac, we can use following R code to get a gene annotation table for all annotated Arabidopsis reference genes.
 
 ```{r}
-gene_anno_df <- read.delim("/shared/a1183549/prac_transcriptomics_DE/02_DB/TAIR10_functional_descriptions.txt")
+gene_anno_df <- read.delim("gene_anno_df <- read.delim("/shared/a1183549/prac_transcriptomics_DE/02_DB/TAIR10_functional_descriptions.txt")
+gene_anno_df$Model_name <- gsub("\\..+", "", gene_anno_df$Model_name)
+gene_anno_df <- gene_anno_df[!duplicated(gene_anno_df$Model_name), ]
+rownames(gene_anno_df) <- gene_anno_df$Model_name
+")
 gene_anno_df$Model_name <- gsub("\\..+", "", gene_anno_df$Model_name)
 gene_anno_df <- gene_anno_df[!duplicated(gene_anno_df$Model_name), ]
 rownames(gene_anno_df) <- gene_anno_df$Model_name
