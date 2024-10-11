@@ -93,7 +93,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [GitHub intro]: Practicals/github_intro_practical/github_intro_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
 [Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE.md
-[Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly_2023.md
+[Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly.md
 
 ## Assessment
 
