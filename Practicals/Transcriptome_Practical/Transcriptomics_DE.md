@@ -521,7 +521,7 @@ DEs <- decideTests(exactTest(dgeList), adjust.method = "fdr", p.value = 0.01, lf
 glMDPlot(exactTest(dgeList), counts = cpm(dgeList, log = TRUE),
         groups = dgeList$samples$group,
         status = DEs[, 1],
-        main="MD plot: Col_0_normal_light_vs_Col_0_mock",
+        main="MD plot: Col_0_Zeocin_vs_Col_0_mock",
         side.main = "ID", side.ylab = "Expression (CPM)",
         sample.cols = pal_npg()(2)[dgeList$samples$group],
         folder = "glimmer_plot", launch = FALSE)
