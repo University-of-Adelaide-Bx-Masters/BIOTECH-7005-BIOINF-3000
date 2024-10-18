@@ -498,7 +498,7 @@ write.csv(etResults[etResults$Geneid %in% sigGenes, ],
             row.names = F)
 ```
 
-Now we can visualise the pattern of logFC to expression level.
+Now we can visualise the pattern of logFC to expression level. We can use `plotMD` to generate MD (mean-difference) plot showing the library size-adjusted log-fold change between two libraries (the difference) against the average log-expression across those libraries (the mean). We can use the following command to compare sample 1 (`Col_0_mock_rep1`) to an artificial reference library constructed from the average of all other samples.
 
 ```{r}
 plotMD(dgeList, status = rownames(dgeList) %in% sigGenes)
