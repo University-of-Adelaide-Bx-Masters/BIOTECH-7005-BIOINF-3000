@@ -501,7 +501,7 @@ write.csv(etResults[etResults$Geneid %in% sigGenes, ],
 Now we can visualise the pattern of logFC to expression level. We can use `plotMD` to generate MD (mean-difference) plot showing the library size-adjusted log-fold change between two libraries (the difference) against the average log-expression across those libraries (the mean). We can use the following command to compare sample 1 (`Col_0_mock_rep1`) to an artificial reference library constructed from the average of all other samples.
 
 ```{r}
-plotMD(dgeList, status = rownames(dgeList) %in% sigGenes)
+plotMD(dgeList, status = rownames(dgeList) %in% sigGenes, column = 1)
 ```
 
 An alternative is to plot the logFC in relation to the $p$-value, to make what is known as a volcano plot.
