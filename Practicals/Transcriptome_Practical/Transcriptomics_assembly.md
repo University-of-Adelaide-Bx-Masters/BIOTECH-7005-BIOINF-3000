@@ -274,6 +274,13 @@ This step will take more than 2 hours, so we will finish here today and let the 
 
 All results from Trinity will be stored in the folder of `Col_leaf_chr2_trinity` in the directory `~/prac_transcriptomics_assembly/04_results/04_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and with suffix `Trinity.fasta`.  
 
+If you didn't successfully complete the Trinity assembly. You can copy the final assembly output file from the shared data folder using following command:
+
+```bash
+cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
+cp ~/data/prac_assembly_week12/Col_leaf_chr2_trinity.Trinity.fasta ./
+```
+
 The Trinity package provides a useful utility to summarise the basic assembly statistics.
 
 ```bash
