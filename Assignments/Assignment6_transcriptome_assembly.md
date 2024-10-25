@@ -2,7 +2,7 @@
 
 **Due Friday 01 November**
 
-Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
+Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, a screenshot file showing alternative splicing events in **Step6**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
 
 The `.zip` filename must start with your student number and your bash script must be able to run without errors.
 Meaningful comments are strongly advised [*1 mark*]
@@ -57,7 +57,7 @@ __Step 5. Organise the final results:__
 + Copy _de novo_ assembly results (including one fasta file and one GFF3 file) into `5_final_assembly` [*1 mark*]
 + Copy genome guided assembly results (including one GTF file and one fasta file) into `5_final_assembly` [*1 mark*]
 
-__Step 6. Identify one assembled transcript including alternative splicing events with read evidence__ (Take a screenshot from IGV and put it in the `5_final_assembly` subdirectory) [*3 marks*].
+__Step 6. Identify one assembled transcript including alternative splicing events with read evidence__ (Take a screenshot from IGV and include the screenshot file in you assignment submission) [*3 marks*].
 
 ## Theoretical questions [*4 marks* in total]
 
