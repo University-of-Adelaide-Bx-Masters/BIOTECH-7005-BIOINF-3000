@@ -27,31 +27,31 @@ Jessica Webb
 
 ### Contact Hours
 
-Lectures: Monday 9AM, Napier, LG29
-- 22 July — 21 Oct
+Lectures: Monday 9AM, Physics, 103
+- 28 July — 27 Oct
 
 Practical 01: Monday 11am-1pm, Ingkarni Wardlii 218
-- 22 July — 21 Oct
+- 28 July — 27 Oct
 
 Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
-- 26 July — 25 Oct
+- 1 Aug — 31 Oct
 
 ### Timetable (Provisional)
 
 | **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
-| **1**    | 28/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
+| **1**    | 28/7       |Intro to Bioinformatics (TBD)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/TBD)  |
 | **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
-| **3**    | 11/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
-| **4**    | 18/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
-| **5**    | 25/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave) | [Evolutionary processes] (2) (Dave)    |
-| **6**    | 1/9       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Zhipeng)             |
+| **3**    | 11/8        |Evolutionary Processes (TBD) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
+| **4**    | 18/8       |Next-generation sequencing  (TBD) |*Evolution test* [Scripting in Bash] (1) (TBD)|[Scripting In Bash] (2)(TBD)                   |
+| **5**    | 25/8       |Alignment Process (TBD) |*NGS test* [Evolutionary Processes] (1) (TBD) | [Evolutionary processes] (2) (TBD)    |
+| **6**    | 1/9       |Alignment Process (TBD) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (Zhipeng)             |
 | **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (Zhipeng)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 22/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 29/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 13/10      | [Ancient DNA][11] (Yassine) |*Public Holiday No practical*  |[aDNA][12] (Yassine/Shyam) |
+| **10**   | 13/10      | [Ancient DNA][11] (Yassine) |*No practical*  |[aDNA][12] (Yassine/Shyam) |
 | **11**   | 20/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
 | **12**   | 27/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
 
