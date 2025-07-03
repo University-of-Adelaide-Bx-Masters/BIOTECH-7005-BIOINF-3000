@@ -9,25 +9,23 @@ Semester 2 2025
 Coordinator:
 - Jessica Webb
 
-Instructors:
+Instructors (provisional):
 - Jessica Webb
 - Anna Sheppard
 - Steven Delean
 - David Lawrence  
-- Yassine Souilmi
 - Zhipeng Qu
 
 Teaching assistants:
 - TBD
 
 __*Course Contact*__
-Dave Adelson
-- Email: david.adelson@adelaide.edu.au
-- Phone: 08 8313 7555
-- Office: Molecular Life Sciences Rm 2.10
+Jessica Webb
+- Email: Jessica.webb@adelaide.edu.au
+- Phone: N/A
+- Office: Molecular Life Sciences Rm 4.11
 
 ### Contact Hours
-Lectures and practicals will be delivered face to face. If you are unwell, please think of others and do not attend. 
 
 Lectures: Monday 9AM, Napier, LG29
 - 22 July — 21 Oct
@@ -42,20 +40,20 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 
 | **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
-| **1**    | 22/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
-| **2**    | 29/7        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
-| **3**    | 5/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
-| **4**    | 12/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
-| **5**    | 19/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave) | [Evolutionary processes] (2) (Dave)    |
-| **6**    | 26/8       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Zhipeng)             |
-| **7**    | 2/9        |Reproducible Science (David L)   |*Alignment test* (Zhipeng)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
-| **8**    | 9/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
-| **-**    | 16/9       | Mid-Semester Break      |                                        |                                          |
-| **-**    | 23/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 30/9   | [Ancient DNA][11] (Yassine)|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 7/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Yassine/Shyam) |
-| **11**   | 14/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
-| **12**   | 21/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
+| **1**    | 28/7       |Intro to Bioinformatics (Dave)  |[Introduction to VMs]/[Introduction to R] (1)   |[Introduction to R] (1.5) (Steven/Dave)  |
+| **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
+| **3**    | 11/8        |Evolutionary Processes (Dave) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
+| **4**    | 18/8       |Next-generation sequencing  (Dave) |*Evolution test* [Scripting in Bash] (1) (Dave)|[Scripting In Bash] (2)(Dave)                   |
+| **5**    | 25/8       |Alignment Process (Dave) |*NGS test* [Evolutionary Processes] (1) (Dave) | [Evolutionary processes] (2) (Dave)    |
+| **6**    | 1/9       |Alignment Process (Dave) |*No test* [Alignment/NGS (1)] (Dave)  |[Alignment/NGS (2)] (Zhipeng)             |
+| **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (Zhipeng)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
+| **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
+| **-**    | 22/9       | Mid-Semester Break      |                                        |                                          |
+| **-**    | 29/9       | Mid-Semester Break      |                                        |                                          |
+| **9**    | 6/10   | [Ancient DNA][11] (Yassine)|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
+| **10**   | 13/10 (PH)     | *Public Holiday 7/10* No lecture |*Public Holiday No practical*  |[aDNA][12] (Yassine/Shyam) |
+| **11**   | 20/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
+| **12**   | 27/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
