@@ -4,24 +4,21 @@
 ## Biotech 7005/Bioinf 3000: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2024
+Semester 2 2025
 
 Coordinator:
-- Dave Adelson
+- Jessica Webb
 
 Instructors:
-- Dave Adelson
-- Steven Delean
+- Jessica Webb
 - Anna Sheppard
+- Steven Delean
 - David Lawrence  
 - Yassine Souilmi
 - Zhipeng Qu
 
 Teaching assistants:
-- Shyamsundar Ravishankar
-- Luan Zhong
-- Zhenglong (Chandler) Du
-- Chelsea Matthews
+- TBD
 
 __*Course Contact*__
 Dave Adelson
