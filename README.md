@@ -6,10 +6,10 @@
 
 Semester 2 2025
 
-Coordinator:
+**Coordinator:**
 - Jessica Webb
 
-Instructors (provisional):
+**Instructors (provisional):**
 - Jessica Webb
 - Anna Sheppard
 - Steven Delean
