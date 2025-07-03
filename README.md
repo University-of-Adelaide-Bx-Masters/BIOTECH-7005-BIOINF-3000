@@ -4,12 +4,12 @@
 ## Biotech 7005/Bioinf 3000: Frontiers of Biotechnology: Bioinformatics and Systems Modelling
 {:.no_toc}
 
-Semester 2 2025
+Semester 2 2025 - Provisional Timetable
 
 **Coordinator:**
 - Jessica Webb
 
-**Instructors (provisional):**
+**Instructors:**
 - Jessica Webb
 - Anna Sheppard
 - Steven Delean
