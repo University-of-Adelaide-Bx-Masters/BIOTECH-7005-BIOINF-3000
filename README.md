@@ -13,8 +13,8 @@ Semester 2 2025 - Provisional Timetable
 - Jessica Webb
 - Anna Sheppard
 - Steven Delean
-- David Lawrence  
-- Zhipeng Qu
+- David Lawrence
+- Stevie Pederson  
 
 Teaching assistants:
 - TBD
@@ -45,15 +45,15 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **3**    | 11/8        |Evolutionary Processes (TBD) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
 | **4**    | 18/8       |Next-generation sequencing  (TBD) |*Evolution test* [Scripting in Bash] (1) (TBD)|[Scripting In Bash] (2)(TBD)                   |
 | **5**    | 25/8       |Alignment Process (TBD) |*NGS test* [Evolutionary Processes] (1) (TBD) | [Evolutionary processes] (2) (TBD)    |
-| **6**    | 1/9       |Alignment Process (TBD) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (Zhipeng)             |
-| **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (Zhipeng)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
+| **6**    | 1/9       |Alignment Process (TBD) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (TBD)             |
+| **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 22/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 29/9       | Mid-Semester Break      |                                        |                                          |
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture| *Public Holiday 6/10* No lecture | [GitHub Repositories] (David L)   
-| **10**   | 13/10      | [Ancient DNA][11] (Yassine) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (Yassine/Shyam) |
-| **11**   | 20/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
-| **12**   | 27/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
+| **10**   | 13/10      | [Ancient DNA][11] (TBD) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (TBD) |
+| **11**   | 20/10      |Transcriptomics - Gene Expression (Stevie)  | [Transcriptomics - DE analysis] (1) (Stevie) |[Transcriptomics - DE analysis] (2) (Stevie) | 
+| **12**   | 27/10      |Transcriptomics - assembly (Stevie) |[Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
