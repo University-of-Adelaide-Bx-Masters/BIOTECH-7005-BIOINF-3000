@@ -16,9 +16,6 @@ Semester 2 2025 - Provisional Timetable
 - David Lawrence
 - Stevie Pederson  
 
-Teaching assistants:
-- TBD
-
 __*Course Contact*__
 Jessica Webb
 - Email: Jessica.webb@adelaide.edu.au
