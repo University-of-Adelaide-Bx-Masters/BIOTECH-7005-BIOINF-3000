@@ -48,9 +48,9 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **6**    | 1/9       |Alignment Process (TBD) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (TBD)             |
 | **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
-| **-**    | 22/9       | Mid-Semester Break      |                                        |                                          |
-| **-**    | 29/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture| *Public Holiday 6/10* No lecture | [GitHub Repositories] (David L)   
+| **-**    | 22/9       |** Mid-Semester Break **     |                                        |                                          |
+| **-**    | 29/9       |** Mid-Semester Break**      |                                        |                                          |
+| **9**    | 6/10 (PH)  |** *Public Holiday 6/10* No lecture**| ***Public Holiday 6/10* No Practical **| [GitHub Repositories] (David L)   
 | **10**   | 13/10      | [Ancient DNA][11] (TBD) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (TBD) |
 | **11**   | 20/10      |Transcriptomics - Gene Expression (Stevie)  | [Transcriptomics - DE analysis] (1) (Stevie) |[Transcriptomics - DE analysis] (2) (Stevie) | 
 | **12**   | 27/10      |Transcriptomics - assembly (Stevie) |[Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
