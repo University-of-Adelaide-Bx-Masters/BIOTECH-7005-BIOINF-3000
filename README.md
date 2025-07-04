@@ -50,8 +50,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 22/9       | Mid-Semester Break      |                                        |                                          |
 | **-**    | 29/9       | Mid-Semester Break      |                                        |                                          |
-| **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture|[GitHub Repositories] (David L) | *Version control test*/ [GitHub Intro] (David L)   
-| **10**   | 13/10      | [Ancient DNA][11] (Yassine) |*No practical*  |[aDNA][12] (Yassine/Shyam) |
+| **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture| *Public Holiday 6/10* No lecture | [GitHub Repositories] (David L)   
+| **10**   | 13/10      | [Ancient DNA][11] (Yassine) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (Yassine/Shyam) |
 | **11**   | 20/10      |Transcriptomics - Gene Expression (Zhipeng)  | [Transcriptomics - DE analysis] (1) (Zhipeng) |[Transcriptomics - DE analysis] (2) (Zhipeng) | 
 | **12**   | 27/10      |Transcriptomics - assembly (Zhipeng) |[Transcriptomics - assembly] (1) (Zhipeng) | [Transcriptomics - assembly] (2) (Zhipeng)   |
 
