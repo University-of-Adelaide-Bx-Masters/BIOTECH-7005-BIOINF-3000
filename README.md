@@ -96,15 +96,15 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 
 | **Assessment - All Students**                                 | **Subject**                |  **UG Weight**  | **PG Weight** | **Due Date**          |
 |--------------------------------------------------------------|-----------------------------|-----------------|------------|-----------------------|
-| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  90% for all assignments combined           | 60% for all assignments combined         | Friday 9/08/24     |
-| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |              |         | Friday 23/08/24     |
-| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 30/08/24  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 13/09/24  |
-| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |              |          | Friday 18/10/24  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 01/11/24    |
+| [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  90% for all assignments combined           | 60% for all assignments combined         | Friday 15/08/25     |
+| [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |              |         | Friday 29/08/25     |
+| [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 05/09/25  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 20/09/25  |
+| [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |              |          | Friday 18/10/25  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 07/11/25    |
 | Tests (x6)                                                   |                             |  10%  for all quzzes combined           | 10% for all quizzes combined           |                       |
-| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 13/09/24
-| [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 08/11/24  |
+| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 20/09/25
+| [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 14/11/25  |
 
 
 Note that the Major Project topic accepotance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
