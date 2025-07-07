@@ -14,7 +14,8 @@ Semester 2 2025 - Provisional Timetable
 - Anna Sheppard
 - Steven Delean
 - David Lawrence
-- Stevie Pederson  
+- Stevie Pederson
+- Alexander Stuart
 
 __*Course Contact*__
 Jessica Webb
@@ -41,7 +42,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
 | **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Anna)  |[Introduction To Bash] (2) (Anna)   |
 | **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (TBD)|[Scripting In Bash] (2)(TBD)                   |
-| **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (TBD) | [Evolutionary processes] (2) (TBD)    |
+| **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
 | **6**    | 1/9       |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (TBD)             |
 | **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
