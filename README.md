@@ -41,10 +41,10 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 28/7       |Intro to Bioinformatics (recording)  |[Introduction to VMs]/[Introduction to R] (1) (Steven)  |[Introduction to R] (1.5) (Steven)  |
 | **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
-| **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/TBD)  |[Introduction To Bash] (2) (TBD)   |
-| **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (TBD)|[Scripting In Bash] (2)(TBD)                   |
+| **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
+| **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (Chelsea)|[Scripting In Bash] (2)(Chelsea)                   |
 | **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
-| **6**    | 1/9       |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (TBD)  |[Alignment/NGS (2)] (TBD)             |
+| **6**    | 1/9       |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
 | **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 22/9       |*Mid-Semester Break*     |                                        |                                          |
