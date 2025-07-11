@@ -52,7 +52,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **9**    | 6/10 (PH)  |*Public Holiday 6/10* No lecture*| *Public Holiday 6/10* No Practical *| [GitHub Repositories] (David L)   
 | **10**   | 13/10      | [Ancient DNA][11] (Bastien) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (Bastien) |
 | **11**   | 20/10      |Transcriptomics - Gene Expression (Stevie)  | [Transcriptomics - DE analysis] (1) (Stevie) |[Transcriptomics - DE analysis] (2) (Stevie) | 
-| **12**   | 27/10      |Transcriptomics - assembly (Stevie) |[Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
+| **12**   | 27/10      |Transcriptomics - assembly (Stevie) |*Gene expression test* [Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
