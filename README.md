@@ -16,6 +16,7 @@ Semester 2 2025 - Provisional Timetable
 - David Lawrence
 - Stevie Pederson
 - Bastien Llamas
+- Chelsea Matthews
 - Alexander Stuart
 
 __*Course Contact*__
