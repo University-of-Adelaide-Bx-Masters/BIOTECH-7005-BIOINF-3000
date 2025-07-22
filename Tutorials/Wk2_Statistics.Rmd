@@ -1,12 +1,16 @@
 ---
 title: 'Biotech 7005: Statistics Tutorial'
 author: "Steven Delean (based on notes by Stevie Pederson)"
-date: "29th July 2024"
+date: "4th August 2025"
 output: 
   html_document: 
     fig_caption: yes
     fig_width: 8
-    toc: yes
+    theme: flatly
+    highlight: tango
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r setup, include=FALSE}
@@ -16,60 +20,60 @@ knitr::opts_chunk$set(echo = TRUE, results = "hide",
 library(pander)
 ```
 
+# Types of Statistical Inference {.tabset .tabset-fade .tabset-pills}
 
-# Single Hypothesis Testing
+## Single Hypothesis Testing {.tabset .tabset-fade .tabset-pills}
 
-## Recap
+### Recap
 
-In the lectures we discussed a few things:
+In the lectures we discussed:
 
-### Normally Distributed Data
+#### Normally Distributed Data
 
-1. Every experiment is a random sample of the complete set of all possible samples
-2. We define a *null hypothesis* ($H_0$) so we can describe what our data will look like if there are **no effects due to our experiment**
-3. The sample mean ($\bar{x}$) is Normally Distributed around the population mean ($\mu$)
-4. We can use our sample variance ($s^2$) to estimate population variance ($\sigma^2$)
-5. A $T$-statistic can be calculated using the formula <br> <center>$T = \frac{\bar{x} - \mu}{s / \sqrt{n}}$</center>
-6. We compare our $T$-statistic to a $t$-distribution to see how likely more extreme values are if $H_0$ is true, and reject $H_0$ if these $p$-values are low.
+1.  Every experiment is a random sample of the complete set of all possible samples
 
-### Non-parametric Tests
+2.  We define a *null hypothesis* ($H_0$) so we can describe what our data will look like if there are **no effects due to our experiment**
 
-For data that is not normally distributed we learned two new tests besides a $t$-test:
+3.  The sample mean ($\bar{x}$) is Normally Distributed around the population mean ($\mu$)
 
-1. The Wilcoxon Rank-Sum Test
-2. Fisher's Exact Test
+4.  We can use our sample variance ($s^2$) to estimate population variance ($\sigma^2$)
 
-## Exercises
+5.  A $T$-statistic can be calculated using the formula <br>
 
-### Question 1
+    <center>$T = \frac{\bar{x} - \mu}{s / \sqrt{n}}$</center>
+
+6.  We compare our $T$-statistic to a $t$-distribution to see how likely more extreme values are if $H_0$ is true, and reject $H_0$ if these $p$-values are low.
+
+### Exercises
+
+#### **<u>Question 1</u>**
 
 In the following, try to describe the value that the experiment is investigating:
 
-a. The SNP at https://gnomad.broadinstitute.org/variant/3-8787263-G-A?dataset=exac was found in 0.09% of 16366 South Asian genomes, and 0.05% of 8644 East Asian genomes. 
-    i. *What do these numbers represent?*
+a.  The SNP at <https://gnomad.broadinstitute.org/variant/3-8787263-G-A?dataset=exac> was found in 0.09% of 16366 South Asian genomes, and 0.05% of 8644 East Asian genomes.
+    i.  *What do these numbers represent?*
     ii. *Do you think that these values represent normally distributed data?*
-b. In a qPCR experiment, the gene CTLA4 was found to be expressed in Treg cells at levels 10 times higher than those found in Th cells. *What is this number an estimate of?*
-c. In three transfection experiments, the average transfection efficiency was found to be 6%. *What is this number estimating?*
+b.  In a qPCR experiment, the gene CTLA4 was found to be expressed in Treg cells at levels 10 times higher than those found in Th cells. *What is this number an estimate of?*
+c.  In three transfection experiments, the average transfection efficiency was found to be 6%. *What is this number estimating?*
 
-### Question 2
+#### **<u>Question 2</u>**
 
-The average age of all students at the University of Adelaide was calculated. *Is this an estimate? Explain your reasoning*
+The average age of all students at the University of Adelaide was calculated.
+*Is this an estimate? Explain your reasoning*
 
+#### **<u>Question 3</u>**
 
-### Question 3
-
-a) We think that a gene will be silenced by over-expression of a targeted siRNA. *What would our null hypothesis and alternate hypothesis be?*
-b) We suspect that a given SNP will provide increased zebrafish survival in a low-oxygen environment. We place 100 fish in a low-oxygen tank, and 100 fish in a normal-oxygen tank for 6 hours. At the end, we collect the survivors in each tank and genotype them at this SNP, giving the following results:
+a)  We think that a gene will be silenced by over-expression of a targeted siRNA. *What would our null hypothesis and alternate hypothesis be?*
+b)  We suspect that a given SNP will provide increased zebrafish survival in a low-oxygen environment. We place 100 fish in a low-oxygen tank, and 100 fish in a normal-oxygen tank for 6 hours. At the end, we collect the survivors in each tank and genotype them at this SNP, giving the following results:
 
 |          | Allele A | Allele B |
-|:-------- | --------:| --------:|
-| Hypoxia  | 10       |      32  |
-| Normoxia | 94       |      86  |
+|:---------|---------:|---------:|
+| Hypoxia  |       10 |       32 |
+| Normoxia |       94 |       86 |
 
 *What would the null and alternate hypotheses be for this experiment?*
 
-
-### Question 4
+#### **<u>Question 4</u>**
 
 `R` allows us to easily take random samples from a normal distribution.
 We can generate 10 random samples from $\mathcal{N}(5, 1)$ using the following code.
@@ -84,8 +88,8 @@ We could then find the mean of our random sample using the following
 mean(x)
 ```
 
-a) *Why was this value not equal to 5?*
-b) *Repeat the random sampling several times. Do you ever get 5 exactly?*
+a)  *Why was this value not equal to 5?*
+b)  *Repeat the random sampling several times. Do you ever get 5 exactly?*
 
 We could actually repeat this 1000 times, very quickly in `R`.
 The following command will form a matrix with 1000 columns, and each column will be the 10 randomly sampled values.
@@ -103,12 +107,11 @@ xbar <- colMeans(rnd)
 hist(xbar, breaks = 50, freq = FALSE)
 ```
 
-This is a histogram of the sample means from each of our 1000 random samples. 
+This is a histogram of the sample means from each of our 1000 random samples.
 
-c) *Does it look like a normal distribution?*
+c)  *Does it look like a normal distribution?*
 
-We know from lectures that each sample mean will itself be a random sample from 
-$$
+We know from lectures that each sample mean will itself be a random sample from $$
 \bar{x} \sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})
 $$
 
@@ -124,7 +127,7 @@ lines(x, y)
 
 We can clearly see that each sample mean is truly a single random sample from this distribution.
 
-### Question 5
+#### **<u>Question 5</u>**
 
 In the above example, we knew the variance ($\sigma = 1$) because we set this value as an argument to the `rnorm` function in our random sampling step.
 In reality we don't know this value, so we would use our sample variance ($s^2$) and a $t$-test to calculate the $t$-statistic and compare this to a null distribution of the $t$-statistic.
@@ -138,7 +141,7 @@ hist(s2, breaks = 50)
 
 Notice that the sample variances ($s^2$) are not normally distributed around the true variance ($\sigma = 1$).
 
-For these random samples, we knew the true value for the population mean  ($\mu = 5$).
+For these random samples, we knew the true value for the population mean ($\mu = 5$).
 In reality, **we wouldn't know this** and we'd need to conduct a hypothesis test with a null hypothesis and alternate hypothesis.
 
 Let's test the hypothesis using $\mu = 5$ as the value of interest:
@@ -147,12 +150,9 @@ $$
 H_0: \mu = 5 \quad \text{Vs} \quad H_A: \mu \neq 5
 $$
 
-
-To do this, we first calculate our $T$-statistic using:
-$$
+To do this, we first calculate our $T$-statistic using: $$
 T = \frac{\bar{x} - \mu}{s / \sqrt{n}}
-$$
-Let's just do this on the first column to start with.
+$$ Let's just do this on the first column to start with.
 
 ```{r}
 Tstat <- (mean(rnd[,1]) - 5) / (sd(rnd[,1]) / sqrt(10))
@@ -192,26 +192,26 @@ ggplot(data, aes(x = x, y = y)) +
         panel.grid = element_blank())
 ```
 
-a) *Do you think we have a low or high probability of observing this $t$-statistic?*
-Let's check
+a)  *Do you think we have a low or high probability of observing this* $t$-statistic? Let's check
 
 ```{r}
 2*pt(abs(Tstat), df, lower.tail = FALSE)
 ```
 
+## Multiple Hypothesis Testing {.tabset .tabset-fade .tabset-pills}
 
-# Multiple Hypothesis Testing
-
-## Recap
+### Recap
 
 We also learned about:
 
-1. Type I and Type II errors
-2. The Family-Wise Error Rate (FWER)
-3. The Bonferroni Adjustment
-4. The False Discovery Rate
+1.  Type I and Type II errors
+2.  The Family-Wise Error Rate (FWER)
+3.  The Bonferroni Adjustment
+4.  The False Discovery Rate
 
-### Question 6
+### Exercises
+
+#### **<u>Question 6</u>**
 
 We could do this for every column in our matrix of random samples, which **we know** is a sample of 10 from $\mathcal{N}(5, 1)$
 
@@ -222,14 +222,14 @@ pValues <- 2*pt(abs(Tstat), df, lower.tail = FALSE)
 
 In many analyses, we use $p < 0.05$ to reject $H_0$
 
-a) *How many pValues out of our $m = 1000$ tests do we see below 0.05?*
+a)  *How many pValues out of our* $m = 1000$ tests do we see below 0.05?
 
 ```{r}
 sum(pValues < 0.05)
 ```
 
-b) Should we reject $H_0$ for these random samples? 
-c) If so, would this be a correct rejection of $H_0$, a Type I error or a Type II error?
+b)  Should we reject $H_0$ for these random samples?
+c)  If so, would this be a correct rejection of $H_0$, a Type I error or a Type II error?
 
 We could use the Bonferroni procedure to reduce our Type I errors, and control the Family Wise Error Rate (FWER)
 
@@ -254,12 +254,101 @@ fdrP <- p.adjust(pValues, method = "fdr")
 sum(fdrP < 0.05) 
 ```
 
-d) *Did you obtain different results using the two different methods?*
-e) *Explain why or why not?*
+d)  *Did you obtain different results using the two different methods?*
+e)  *Explain why or why not?*
 
-# Non-parametric Testing
+### Extended Example Using Simulation to Demonstrate Concepts {.tabset .tabset-fade .tabset-pills}
 
-## The Wilcoxon Rank-Sum Test
+We often use simulated data to demonstrate statistical concepts like the central limit theorem and multiple testing procedures. As you have seen, we used simulated data from a t-distribution in the Statistics Tutorial to demonstrate what would happen if we did an experiment many, many times and calculated the means and variances of those repeat experiments. We do this because it can be difficult to generate test statistics from real data that contain combinations of results that come from both null and alternative hypotheses because we don't know which hypotheses are truly null and which are alternative. So sometimes it can be helpful to combine real and simulated data to help demonstrate the concepts. We will use that combined approach in the following example.
+
+#### Example genomic data
+This example used data on normalised chromatin accessibility across 68 human donors. Chromatin accessibility is a quantitative measurement of the packing of DNA in a location that indicates protein accessibility and binding to DNA, in particular regulatory proteins which might affect transcription of genes. The original data are available from this source - http://mitra.stanford.edu/kundaje/portal/chromovar3d/dnase.html. Large values correspond to more accessible chromatin, each column corresponds to a different human donor, and each row corresponds to a distinct location in the genome. The rows are actually peaks of accessibility that were detected in at least some subset of the samples.
+
+For the purposes of this example, and in part because the original data are many hundreds of megabytes in size, the code below simulates $p$-values to match the results of an analysis of the data where individual donors were grouped according to whether they had a particular disease or not. The analysis of differences in normalised chromatin accessibility between the two groups of donors was conducted using a $t$-test for each of the 250,000 genomic loci in the data. The details about the following code are not important, so you can skip over this section (for those interested, we are simulating $p$-values from 250,000 tests where the null hypothesis of no difference in chromatin accessibility is true, and then spiking these results with 10,000 tests where the alternative hypothesis is true (i.e., $p$-values < 0.05)).
+
+```{r}
+# Generate p-values under the null hypothesis of no difference
+set.seed(3574)
+tsPvals <- runif(250000, 0, 1)
+# Spike in 10,000 tests where the null hypothesis will be rejected 
+# (i.e., inferring the alternative hypothesis)
+tsPvals[1:10000] <- 10^runif(10000,-6.8,-1)
+# Set Type 1 error rate (alpha)
+alpha <- 0.05
+# Histogram of the resulting p-values
+brks <- 0:20/20
+hist(tsPvals, col="grey", breaks=brks, main = "Histogram of P-values", xlab = "P-values")
+```
+
+#### Single Hypothesis testing
+
+Recall that a Type 1 error is an incorrect decision that occurs when we conduct a statistical test and reject a null hypothesis that is actually true. The researcher can set the rate of such errors that are deemed acceptable for a particular experiment. Generally, 1/20 such errors are deemed acceptable, so the error rate is 5%, which makes the probability of a Type 1 error equal to 0.05; this value is usually termed (α).
+
+Therefore, when we conduct a single hypothesis test the probability of making an error equals α (1/20 = 0.05) and the probability of not making an error equals 1-α (19/20 = 0.95).
+
+#### Multiple hypothesis testing
+
+If we want to do `m = 250,000` hypothesis tests, as in our example data above, then if we use the standard `α = 0.05` threshold as the Type 1 error rate for each test we would expect to reject the null hypothesis in 12,500 (`250,000 * (1/20)`) tests by chance alone (i.e., we would deem 12,500 loci *significantly different between our treatment groups of donors* by chance alone). We could say that the per-family error rate (PFER), which is the expected number of Type 1 Errors, is 12,500.
+
+If we then define the Family-Wise Error Rate (FWER) as the probability of at least one Type 1 Error, we can calculate this probability across `m` tests as  `P(Making at least 1 error in m tests) = 1 - (1 - α)^m`. If we have one hypothesis test, this equals `1 - (1 - 0.05)^1 = 0.05`. This probability will continue to increase nonlinearly as we conduct more and more tests, and will asymptote close to 1 by the time we get to 100 tests!
+
+Clearly, we have a multiple testing problem to address for our example data because we are performing 250,000 hypothesis tests - our FWER = 1!
+
+Let's now ask *How many pValues out of our simulated $m = 250000$ tests do we see below 0.05?*
+
+```{r}
+sum(tsPvals < alpha)
+```
+
+So this number is greater than the expected PFER of 12,500 by chance alone. How do we correct for multiple testing to see which results we should retain for further experimentation to make useful scientific discoveries?
+
+#### Correcting the error rate for multiple tests {.tabset .tabset-fade .tabset-pills}
+
+Many procedures have been developed to control the FWER (the probability of at least one type I error), and these fall into two types of FWER corrections: a *single step* type where equal adjustments are made to all $p$-values and a *sequential* type where adaptive adjustments are made to each $p$-value.
+
+##### Bonferroni Adjustment
+One *single step* approach is the *Bonferroni adjustment* to ensure the FWER equals α by adjusting α to equal `α/m`. In our example we would adjust α to equal `0.05/250000 = 0.0000002`
+
+```{r}
+alphaADJ <- 0.05/250000
+sum(tsPvals < alphaADJ)
+```
+
+In `R` we can simply adjust our $p$-values using the function `p.adjust()`. This will give identical results to the above manual adjustment of α, but instead each adjusted-$p$ value will be $min(1, p*m)$, where $m = 250000$ and represents the number of tests we are performing.
+
+```{r}
+adjustedP <- p.adjust(tsPvals, method = "bonferroni")
+sum(adjustedP < 0.05)
+```
+
+So the *Bonferroni adjustment* is a severe adjustment and would result in only `r sum(adjustedP < 0.05)` null hypotheses being rejected and these loci being explored further. Among many criticisms of the approach are that it is counter-intuitive because the interpretation of findings depends on the number of other tests performed, that the general null hypothesis (that all the null hypotheses are true) is rarely of interest, and that it leads to a high probability of Type 2 Errors (i.e., of failing to reject the null hypothesis when important effects exist).
+
+
+##### False Discovery Rate
+To address these concerns, one *sequential* approach is to control the False Discovery Rate (FDR), which is the expected proportion of Type I errors (false positives) among the rejected hypotheses. We want to control this FDR at `α = 0.05`. As described in the lecture, this approach is sequential because we first order the unadjusted $p$-values in ascending order (i.e., from smallest to largest). Then we work our way sequentially through the ordered list of $p$-values and evaluate whether each $p$-value is less than or equal to `(j/m)*α` where `j` is the rank order and reject the null hypotheses in these cases. We can stop when we reach the first $p$-value in the sequence that is greater than `(j/m)*α` because all subsequent $p$-values will also fail to reject the null hypothesis.
+
+The following code used the False Discovery Rate (FDR) adjustment for our example results:
+
+```{r}
+adjustedP_BH <- p.adjust(tsPvals, method = "BH")
+sum(adjustedP_BH < 0.05)
+```
+
+Here we see that the FDR results in `r sum(adjustedP_BH < alpha)` rejections that we can pursue with further research. This result is therefore intermediate between the result we would come to without accounting for multiple tests rejecting `r sum(tsPvals < alpha)` tests and the extremely conservative Bonferroni approach where we would reject only `r sum(adjustedP < alpha)` tests.
+
+The FDR balances between making too many Type 1 Errors and wasting lost of money chasing dead ends with making too many Type 2 Errors and missing lots of important discoveries.
+
+
+
+
+
+
+
+## Non-parametric Testing {.tabset .tabset-fade .tabset-pills}
+
+### Recap
+
+#### The Wilcoxon Rank-Sum Test
 
 All of the above examples refer to normally distributed data.
 Let's say we have some pretty extreme values.
@@ -269,13 +358,37 @@ sample1 <- c(5.5, 2.45, 1000, 6)
 sample2 <- c(-1.1, 1.2, 2.4, -40)
 ```
 
-### Question 7
+#### Fisher's Exact Test
 
-a) *Do you think these values come from the same distribution?*
+Fisher's Exact Test can be used for comparing counts in a $2 \times 2$ contingency table.
+In the hypoxia example above these values would be:
+
+```{r}
+counts <- matrix(c(10, 94, 32, 86), ncol = 2)
+rownames(counts) <- c("Hypoxia", "Normoxia")
+colnames(counts) <- c("Allele A", "Allele B")
+```
+
+```{r, echo=FALSE, results='asis'}
+pander(counts, justify = c("lrr"))
+```
+
+Here the null hypothesis & alternative are:
+
+$$
+H_0: \text{There is no association between alleles and survival in hypoxic conditions} \\
+Vs \\
+H_A: \text{There is an association between alleles and survival in hypoxic conditions}
+$$
+
+### Exercises
+
+#### **<u>Question 7</u>**
+
+a)  *Do you think these values come from the same distribution?*
 
 Let's do a quick $t$-test in `R` and see what the results are.
-The null and alternative hypotheses for a $t$-test are:
-$$
+The null and alternative hypotheses for a $t$-test are: $$
 H_0: \mu_1 = \mu_2 \quad \text{Vs} \quad H_A: \mu_1 \neq \mu_2
 $$
 
@@ -308,8 +421,8 @@ The ranks for each value can be seen using the following code:
 
 Note that because we use the ranks, instead of the values, this procedure is robust to changes in the actual values which don't affect the ranks.
 
-b) *If we change the value `1000` to `10` will it change the results of the Wilcoxon Rank Sum Test?*
-c) *Would it change the results for a $t$-test?*
+b)  *If we change the value `1000` to `10` will it change the results of the Wilcoxon Rank Sum Test?*
+c)  *Would it change the results for a* $t$-test?
 
 ```{r}
 sample1[3] <- 10
@@ -318,32 +431,11 @@ t.test(sample1, sample2)
 wilcox.test(sample1, sample2)
 ```
 
-## Fisher's Exact Test
 
-Fisher's Exact Test can be used for comparing counts in a $2 \times 2$ contingency table.
-In the hypoxia example above these values would be:
 
-```{r}
-counts <- matrix(c(10, 94, 32, 86), ncol = 2)
-rownames(counts) <- c("Hypoxia", "Normoxia")
-colnames(counts) <- c("Allele A", "Allele B")
-```
+#### **<u>Question 8</u>**
 
-```{r, echo=FALSE, results='asis'}
-pander(counts, justify = c("lrr"))
-```
-
-Here the null hypothesis & alternative are:
-
-$$
-H_0: \text{There is no association between alleles and survival in hypoxic conditions} \\
-Vs \\
-H_A: \text{There is an association between alleles and survival in hypoxic conditions}
-$$
-
-### Question 8 
-
-a) *Do you think there is an association just by looking at the data?*
+a)  *Do you think there is an association just by looking at the data?*
 
 In `R` we can simply conduct the test using `fisher.test()`
 
@@ -357,5 +449,4 @@ Alternatively, we could've used a $\chi^2$ test, however we would've need to ens
 chisq.test(counts)
 ```
 
-b) *Would you reject $H_0$ using either test?*
-
+b)  *Would you reject* $H_0$ using either test?

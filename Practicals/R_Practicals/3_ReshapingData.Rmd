@@ -1,11 +1,12 @@
 ---
 title: 'Practical 2.1: Reshaping Data in R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "26 July 2024"
+date: "1 August 2025"
 output:
   html_document:
     fig_caption: yes
-    toc: yes
+    theme: flatly
+    highlight: tango
   word_document:
     toc: yes
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
@@ -19,6 +20,7 @@ opts_chunk$set(echo = TRUE,
                message = FALSE, warning =  FALSE)
 ```
 
+# Reshaping data {.tabset .tabset-fade .tabset-pills}
 
 ## Working with Data Frames
 
@@ -45,9 +47,11 @@ We'll cover:
 The datasets required are contained in the files 1) `transport.csv` and 2) `pcr.csv`
 Create a new R Script called `DataWrangling.R`
 
-## The package `dplyr`
+## The package dplyr {.tabset .tabset-fade .tabset-pills}
 
-### Starting with `dplyr`
+
+
+### Starting with dplyr
 
 This package is also loaded by default when we enter `library(tidyverse)`.
 For this session we'll use the same data as for the previous session.
@@ -77,7 +81,7 @@ Our tasks will be to:
 - count how many of each gender use each transport method
 - add a column with BMI
 
-### Sub-setting a `data.frame`
+### Sub-setting a data.frame
 
 The conventional `R` method of sub-setting a `data.frame` is to use the square brackets (`[]`) and specify rows/columns by position or by name.
 
@@ -161,6 +165,7 @@ It's probably a good idea for reading your code back.
 data <- mutate(data, height_m = height/100, BMI = weight / height_m^2)
 ```
 
+
 ### Renaming columns
 
 Now we have a column called `height` and another called `height_m` so it might be sensible to rename our original column as `height_cm` to make this clear.
@@ -216,7 +221,7 @@ arrange(data, transport, height_cm)
 ```
 
 
-### Combining Functions using `%>%`
+### Combining Functions using %>%
 
 This is where `dplyr` steps up a gear.
 We can chain functions together using the symbol `%>%`, which behaves like a pipe symbol (`|`) in the bash shell.

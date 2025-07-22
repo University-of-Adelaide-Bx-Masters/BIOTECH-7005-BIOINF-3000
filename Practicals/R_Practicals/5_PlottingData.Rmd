@@ -1,11 +1,12 @@
 ---
 title: 'Practical 3.1: Plotting Data'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "2 August 2024"
+date: "4 August 2025"
 output:
   html_document:
     fig_caption: yes
-    toc: yes
+    theme: flatly
+    highlight: tango
   word_document:
     toc: yes
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
@@ -18,9 +19,11 @@ opts_chunk$set(echo = TRUE, include = TRUE, eval = FALSE,
                results = 'hide', fig.show = 'hide')
 ```
 
-## Data Visualisation Using the Package `ggplot2`
 
-### The package `graphics`
+
+# Data Visualisation {.tabset .tabset-fade .tabset-pills}
+
+## Using the base R graphics
 
 `R` has numerous plotting functions in the base package `graphics`.
 Whilst they can be useful for quickly drawing up a plot, customising them can prove highly challenging.
@@ -31,17 +34,21 @@ Whilst they can be useful for quickly drawing up a plot, customising them can pr
 ?hist
 ```
 
-__Go to the `Examples` at the bottom of each help page and copy a few lines__
+__We will not use base R graphics further. However, for your interest, go to the `Examples` at the bottom of each help page from the three plotting functions in the code block above and copy a few lines__
+
+## Using the package ggplot2 {.tabset .tabset-fade .tabset-pills} 
 
 The package `ggplot2` gives much more flexibility and power.
 However, it has a unique syntax and approach where we plot by adding layers of relevant information, based on the concepts outlined in [The Grammar of Graphics](https://www.springer.com/gp/book/9780387245447).
 As a result, we won't explore the base `graphics` capabilities of `R` any further as `ggplot2` is generally far superior.
 `ggplot2` is also one of the core `tidyverse` packages.
 
-![](images/tidy_workflow.png)
 
-### The package `ggplot2` 
+```{r, echo = FALSE, eval = TRUE, results = 'show', fig.show = 'show', out.width='50%', fig.align='center'}
+knitr::include_graphics("images/tidy_workflow.png")
+```
 
+### Create a canvas
 Start a new script for this topic called `DataVisualisation.R` and add the usual first line.
 
 ```{r}
@@ -127,7 +134,7 @@ ggplot(data, aes(x = weight, y = height)) +
   geom_point(aes(colour = transport, shape = gender), size = 3)
 ```
 
-### Layering Multiple Geometry Types
+### Layering geometries
 
 In addition to the points, we can easily add a smoothed line.
 This defaults to a loess fit, so let's select a regression line straight away by setting the `method` argument to `"lm"`.
@@ -147,7 +154,7 @@ ggplot(data, aes(x = weight, y = height)) +
 ```
 
 
-### Axis and Legend Labels
+### Axis and legend labels
 
 Axis and legend labels can be added using `labs()`.
 The default values are the column names, so we can tidy those up fairly easily.
@@ -160,7 +167,7 @@ ggplot(data, aes(x = weight, y = height)) +
 ```
 
 
-### Using Facets
+### Using facets
 
 One of the most useful features of `ggplot2` is the ability to create multiple sub-plots using the function `facet_wrap()`.
 Let's create separate plots based on the `gender` column.
@@ -220,7 +227,7 @@ ggplot(data, aes(x = height)) +
 ```
 
 
-## Combining With `dplyr`
+## Combining ggplot2 With dplyr
 
 We can use `dplyr` (or any other) function to summarise our data before plotting, then _pipe_ (`%>%`) into `ggplot()` without modifying our original data object.
 As we saw last time, this is loaded by default when we called `library(tidyverse)`.
@@ -259,7 +266,7 @@ Notice that `geom_errorbar()` needed a lot of information, so we spread our code
 This is a fairly useful trick for making your code more readable at a later point in time.
 
 
-## Bonus Material
+## Bonus Material {.tabset .tabset-fade .tabset-pills}
 
 **Please only attempt this section if you have more than an hour left of the practical session. Otherwise, this is simply here as a helpful guide for future reference.**
 

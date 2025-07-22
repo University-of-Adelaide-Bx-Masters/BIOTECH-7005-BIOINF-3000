@@ -1,11 +1,12 @@
 ---
 title: 'Practical 1.2: Importing Data Into R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "22 July 2024"
+date: "28 July 2025"
 output:
   html_document:
     fig_caption: yes
-    toc: yes
+    theme: flatly
+    highlight: tango
   word_document:
     toc: yes
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
@@ -22,7 +23,9 @@ opts_chunk$set(
 ```
 
 
-## Working With Data In R
+# Working With Data In R {.tabset .tabset-fade .tabset-pills}
+
+## Data in the tidyverse {.tabset .tabset-fade .tabset-pills}
 
 As well as forming objects like we did in the introductory session, we often import pre-existing data into R from a spreadsheet, and use this to perform an analysis.
 Sometimes we have to manipulate & 'wrangle' the data a little and as part of this.
@@ -32,7 +35,11 @@ Today we'll start the ball rolling by introducing a set of packages known as the
 This is a core set of packages produced by the RStudio team that make working with data as painless as possible.
 A brief introduction to these packages and the general approach is summarised below.
 
-![](images/tidy_workflow.png)
+
+```{r, echo=FALSE, out.width='50%', fig.align='center'}
+knitr::include_graphics("images/tidy_workflow.png")
+```
+
 
 ### Importing Data
 
@@ -264,7 +271,7 @@ head(transport)
 
 **What were the differences between each method?**
 
-## Dealing With Difficult Data
+## Dealing With Difficult Data {.tabset .tabset-fade .tabset-pills}
 
 **What if the data we have isn't nice and clean?**
 

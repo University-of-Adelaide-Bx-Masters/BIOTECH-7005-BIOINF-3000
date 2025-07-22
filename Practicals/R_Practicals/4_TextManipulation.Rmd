@@ -1,11 +1,12 @@
 ---
 title: 'Practical 2.2: Working With Text In R'
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "26 July 2024"
+date: "1 August 2025"
 output:
   html_document:
     fig_caption: yes
-    toc: yes
+    theme: flatly
+    highlight: tango
   word_document:
     toc: yes
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
@@ -13,15 +14,13 @@ subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 
 ```{r, echo = FALSE}
 library(knitr)
-opts_chunk$set(
-  echo = TRUE,
-  eval = FALSE,
-  results = 'hide',
-  message = FALSE, 
-  warnings =  FALSE
-)
+opts_chunk$set(echo = TRUE,
+               eval = FALSE,
+               results = "hide",
+               message = FALSE, warning =  FALSE)
 ```
 
+# Text operations {.tabset .tabset-fade .tabset-pills}
 
 ## Setup
 
@@ -53,7 +52,11 @@ This package is also part of the core `tidyverse`.
 In the `Wrangle` section of the following workflow you'll see it listed alongside `dplyr` and `magrittr` (`%>%`).
 The package `lubridate` is excellent for managing time & date data, whilst `forcats` is for categorical data, however we won't really explore these in this course.
 
-![](images/tidy_workflow.png)
+
+```{r, echo = FALSE, eval = TRUE, results = 'show', out.width='50%', fig.align='center'}
+knitr::include_graphics("images/tidy_workflow.png")
+```
+
 
 Some immediately useful functions in the `stringr` package are `str_to_lower()`, `str_to_upper()` and `str_to_title()`.
 Let's load last week's pcr.csv file to have a look.
