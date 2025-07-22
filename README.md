@@ -42,18 +42,18 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
 | **1**    | 28/7       |Intro to Bioinformatics (recording)  |[Introduction to VMs]/[Introduction to R] (1) (Steven)  |[Introduction to R] (1.5) (Steven)  |
 | **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
-| **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
+| **3**    | 11/8       |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
 | **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (Chelsea)|[Scripting In Bash] (2)(Chelsea)                   |
 | **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
-| **6**    | 1/9       |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
+| **6**    | 1/9        |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
 | **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
 | **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
 | **-**    | 22/9       |*Mid-Semester Break*     |                                        |                                          |
 | **-**    | 29/9       |*Mid-Semester Break*     |                                        |                                          |
 | **9**    | 6/10 (PH)  |*Public Holiday 6/10* No lecture*| *Public Holiday 6/10* No Practical *| [GitHub Repositories] (David L)   
 | **10**   | 13/10      | [Ancient DNA][11] (Bastien) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (Bastien) |
-| **11**   | 20/10      |Transcriptomics - Gene Expression (Stevie)  | [Transcriptomics - DE analysis] (1) (Stevie) |[Transcriptomics - DE analysis] (2) (Stevie) | 
-| **12**   | 27/10      |Transcriptomics - assembly (Stevie) |*Gene expression test* [Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
+| **11**   | 20/10      | Transcriptomics (Stevie)  | Transcriptomics - DGE analysis (1) (Stevie) | Transcriptomics - DGE analysis (2) (Stevie) |
+| **12**   | 27/10      | Transcriptomics (Stevie) | *Gene expression test* Transcriptomics (1) (Stevie) | Transcriptomics (2) (Stevie)   |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
@@ -87,8 +87,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
 [GitHub intro]: Practicals/github_intro_practical/github_intro_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
-[Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE.md
-[Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly.md
+<!-- [Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE.md -->
+<!-- [Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly.md -->
 
 ## Assessment
 
@@ -101,13 +101,13 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 05/09/25  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 20/09/25  |
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |              |          | Friday 18/10/25  |
-| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 07/11/25    |
+| Assessment 6 | Transcriptomics   |           |          | Friday 07/11/25    |
 | Tests (x6)                                                   |                             |  10%  for all quzzes combined           | 10% for all quizzes combined           |                       |
 | Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 20/09/25
 | [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 14/11/25  |
 
 
-Note that the Major Project topic accepotance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
+Note that the Major Project topic acceptance and assignment only apply to Masters level students. Undergraduates do not do a Project. 
 
 ### Assessment Checklist
 
@@ -129,9 +129,10 @@ Have you:
 
 In this course, next-generation sequencing (NGS) datasets/protocols will used for the [Major Project](Assignments/major_project_2024.md).  *Note that these data sets have not been provided yet and that the major project assignment document has not been finalised yet*
 
-#### Differential gen expression analysis (RNAseq)  
+#### Differential Gene Expression analysis (RNAseq)  
 
-You will be assigned a unique dataset and carry out quality control (quality and sequencing adapter trimming), genome alignment, feature counting, normalising and removal of noise transcripts followed by differential gene expression analysis and downstream visualisation and statistical methods. For the major project, we will assign part of a published dataset and you will complete all the analysis tasks (from raw data to final results).
+You will be assigned a unique dataset and carry out quality control (quality and sequencing adapter trimming), genome alignment, feature counting, normalisation and removal of low abundance transcripts, followed by differential gene expression analysis and downstream visualisation and statistical methods. 
+For the major project, we will assign part of a published dataset and you will complete all the analysis tasks (from raw data to final results).
 
 
 ## Useful Links

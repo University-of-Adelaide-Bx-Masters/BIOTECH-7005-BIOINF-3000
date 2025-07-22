@@ -1,6 +1,6 @@
 #' Used to simulate RT-PCR data for assignment1
 #'
-#' @author Steve Pederson
+#' @author Stevie Pederson
 #'
 #' @details
 #' This will take a list of student IDs and simulate a complete dataset for each student
