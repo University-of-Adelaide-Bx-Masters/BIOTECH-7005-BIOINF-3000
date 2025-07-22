@@ -1,11 +1,12 @@
 ---
 title: "Practical 3.2 Using R Markdown"
 author: "Steven Delean (original material from Bioinformatics Hub, University of Adelaide)"
-date: "2 August 2024"
+date: "4 August 2025"
 output:
   html_document:
     fig_caption: yes
-    toc: yes
+    theme: flatly
+    highlight: tango
   word_document:
     toc: yes
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
@@ -18,9 +19,9 @@ library(pander)
 ```
 
 
-## R Markdown
+# R Markdown {.tabset .tabset-fade .tabset-pills}
 
-### Writing Reports Using `rmarkdown`
+## Writing documents
 
 * `rmarkdown` is a cohesive way to
     + Load & tidy data 
@@ -102,7 +103,7 @@ Check the help for a guide to the syntax.
     + Italics can be indicated using a single asterisk/underline: \*Italics\* or \_Italics\_
 
 
-### Compiling The Report
+## Compiling The Document
 
 The default format is an `html_document` & we can change this later.
 Generate the default document by clicking `Knit HTML`
@@ -122,7 +123,7 @@ By default, this will be Read-Only, but can be helpful for sharing with collabor
 
 Saving as a `.PDF` usually requires an installation of $\LaTeX$, so we'll ignore that for now.
 
-### Making our own report
+## Making our own document {.tabset .tabset-fade .tabset-pills}
 
 Now we can modify the code to create our own analysis.
 
@@ -134,11 +135,11 @@ Now we can modify the code to create our own analysis.
 ?PlantGrowth
 ```
 
-#### Rename the report
+### Rename the report
 
 First we should change the title of the report to something suitable, e.g. *The Effects of Two Herbicide Treatments on Plant Growth*
 
-#### Create a ``Data Description" Section
+### Create a ``Data Description" Section
 
 Now let's add a section header for our analysis to start the report
 
@@ -163,7 +164,7 @@ __We can embed this in our data description!__
 1. Instead of the number 30 in your description, enter \`r` nrow(PlantGrowth)`\`
 2. Recompile the HTML document.
 
-#### Loading *R* packages
+### Loading *R* packages
 
 1. Before the Data Description header, add a new header called `Required Packages`
 2. Create a code chunk with the contents `library(tidyverse)`.
@@ -192,7 +193,7 @@ PlantGrowth %>%
 
 (Recompile...)
 
-#### Formatting Output
+### Formatting Output
 
 To change this table into a nicely formatted one, we can use the package `pander`
 
@@ -222,7 +223,7 @@ Here we have three different categories (or treatments) which represent the cont
 <details>
 <br>
 
-#### Add a plot of the data
+### Add a plot of the data
 
 We can use `ggplot2` for this
 
@@ -238,7 +239,7 @@ ggplot(PlantGrowth, aes(x = group, y = weight, fill = group)) +
   labs(x = "Treatment Group", y = "Dried Weight (g)")
 ```
 
-#### Analyse the data
+### Analyse the data
 
 Here we can fit a simple linear regression using:
 
@@ -276,7 +277,7 @@ model_fit %>% anova() %>% pander()
 
 You can change the default captions if you like using the argument `caption = "my caption"` inside the `pnder()` function.
 
-#### Finishing the analysis
+### Finishing the analysis
 
 After you're happy with the way your analysis looks
 

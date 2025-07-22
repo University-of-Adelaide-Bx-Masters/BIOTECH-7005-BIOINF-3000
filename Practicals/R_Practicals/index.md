@@ -5,21 +5,21 @@ You may need to work on these outside of the allocated two-hour session.
 
 Assessment 1 requires these sessions to be completed.
 
-## Practical 1: 22nd July, 2024
+## Practical 1: 28th July, 2025
 
 [1.1 Introduction](1_Introduction_To_R.html)<br>
 [1.2 Importing Data](2_ImportingData.html)<br>
 
-## Practical 2: 26th July, 2024
+## Practical 2: 1st August, 2025
 
 [2.1 Reshaping Data](3_ReshapingData.html)<br>
 [2.2 Working With Text](4_TextManipulation)<br>
 
-## Practical 3: 2nd August, 2024
+## Practical 3: 4th August, 2025
 
 [3.1 Plotting Data](5_PlottingData.html)<br>
 [3.2 RMarkdown](6_UsingRMarkdown.html)
 
 ## Assessment 1
 
-[Now available here.](../../Assignments/Assignment1.html) Due 5pm, Friday 9th August, 2024
+[Now available here.](../../Assignments/Assignment1.html) Due 5pm, Friday 15th August, 2025

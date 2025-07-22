@@ -1,0 +1,17 @@
+---
+title: "Theme Test"
+output:
+  html_document:
+    theme:
+      bslib: true
+      bootswatch: flatly
+      "link-color": "#5C2E91"
+---
+
+# Testing the Primary Colour
+
+This is a test document. The link below should be purple.
+
+This is a [test link to Google](https://www.google.com).
+
+If the link is purple, your environment is set up correctly!
