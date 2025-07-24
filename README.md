@@ -40,7 +40,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 
 | **Week** | **Monday** |**Lecture**         |**Monday Practical**                                 | **Friday Practical**                              |
 |----------|------------|---------------------|--------------------------------------------|------------------------------------------|
-| **1**    | 28/7       |Intro to Bioinformatics (recording)  |[Introduction to VMs]/[Introduction to R] (1) (Steven)  |[Introduction to R] (1.5) (Steven)  |
+| **1**    | 28/7       |NO LIVE LECTURE Intro to Bioinformatics (recording)  |[Introduction to VMs]/[Introduction to R] (1) (Steven)  |[Introduction to R] (1.5) (Steven)  |
 | **2**    | 4/8        |[Statistics][2] (Steven)  |[Statistics worksheet]  (Steven) |[Introduction to R] (2) (Steven)      |
 | **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
 | **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (Chelsea)|[Scripting In Bash] (2)(Chelsea)                   |
