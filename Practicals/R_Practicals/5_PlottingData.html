@@ -493,7 +493,7 @@ completely reproducible manner. This strategy also allows for additional
 data to be provided as more experiments or data points are added.</p>
 <p><strong>Remember to load all packages at the top of your
 <code>R</code> script for easier reference in the future!</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>csvFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;~&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>csvFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">file.exists</span>(csvFile)</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(csvFile) <span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">height =</span> height<span class="sc">/</span><span class="dv">100</span>, <span class="at">BMI =</span> weight <span class="sc">/</span> height<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>

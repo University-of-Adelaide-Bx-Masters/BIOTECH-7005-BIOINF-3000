@@ -501,7 +501,7 @@ are <code>str_to_lower()</code>, <code>str_to_upper()</code> and
 <code>str_to_title()</code>. Let’s load last week’s pcr.csv file to have
 a look.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pcrFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;~&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;pcr.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pcrFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;pcr.csv&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">file.exists</span>(pcrFile)</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>pcrData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(pcrFile)</span></code></pre></div>
 <p>We can actually just grab the <code>Gene</code> column out from this

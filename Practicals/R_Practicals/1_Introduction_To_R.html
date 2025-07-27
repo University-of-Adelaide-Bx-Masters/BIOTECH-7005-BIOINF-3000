@@ -591,25 +591,48 @@ of following this rule from now on!</strong></p>
 <p>This is where we’ll run everything for today’s session. To make an R
 Project for this folder use the following commands in the menu bar at
 the top of your R Studio session:</p>
-<ol style="list-style-type: decimal">
-<li><code>File</code> &gt; <code>New Project</code></li>
-<li>When asked if you’d like to <code>Save Current Workspace</code>,
-choose <code>Don&#39;t Save</code>.</li>
-<li>Choose <code>Existing Directory</code> &gt;
-<ul>
-<li>Browse to <code>Practical_1</code></li>
-<li><code>Create Project</code></li>
-</ul></li>
-</ol>
-<p>You will now find yourself in this folder we have created. If you
-look at the top right of your RStudio session you will also see
-<code>Practical_1</code> and an arrow for the drop-down menu. We only
-have one project at this point, but this is where you can switch between
-projects. For this practical series, we’ll start a new project for every
-session. This will help you keep everything organised so you can find
-everything later. Managing your data and code intelligently is a
-considerable challenge in bioinformatics, so it is important to be
-organised from the beginning!</p>
+<pre><code>1. `File` &gt; `New Project` 
+2. When asked if you&#39;d like to `Save Current Workspace`, choose `Don&#39;t Save`.
+3. Choose `Existing Directory` &gt;
+    + Browse to `Practical_1`
+    + `Choose`
+    + `Create Project`</code></pre>
+<p>You will now find yourself in the <code>Practical_1</code> is folder
+we have created. If you look at the top right of your RStudio session
+you will also see <code>Practical_1</code> and an arrow for the
+drop-down menu. We only have one project at this point, but this is
+where you can switch between projects. For this practical series, we’ll
+start a new project for every session. This will help you keep
+everything organised so you can find everything later. Managing your
+data and code intelligently is a considerable challenge in
+bioinformatics, so it is important to be organised from the
+beginning!</p>
+<p>The final step is to copy the data we have provided for this
+practical into your <code>Practical_1</code> folder (it is best practice
+when using <code>R Projects</code> to keep all data, scripts, outputs,
+reports within the R Project folder for maximum portability and
+reproducibility).</p>
+<p>The provided data is in the folder <code>~/data/intro_r</code> within
+your Home folder on the VM (the <code>~/</code> part here expands to
+your system <code>Home</code> folder, which on the VM expands to
+<code>/shared//aXXXXXXX</code>). We want to preserve the original folder
+structure, so we will copy it rather than move it. We can do this using
+the Terminal (command line), or we can use the Files pane in RStudio. We
+will keep things simple for now and use the Files pane as follows:</p>
+<pre><code>1. Click on the `Files` tab in the bottom right pane of RStudio.
+   - Ensure you are in the `~/Practical_1` folder
+2. Click on the new folder icon (looks like a folder with a plus sign) to create a new folder.
+   - Name this folder `data`
+3. Click on the `Home` icon (looks like a house) to go to your home folder.
+4. Navigate to the `~/data` folder within `Home`.
+5. Click on the box next to the `intro_r` folder to select it.
+6. Click on the `More` button in the top right of the Files pane.
+7. Select `Copy To` from the drop-down menu.
+8. Click `Home`, then double-click &#39;Practical_1`, and then click `data`.
+9. In the `File name` box type `intro_r` and select `Save`
+  - This will copy the `intro_r` folder into your `Practical_1/data` folder.</code></pre>
+<p>Great, the data is now in your <code>Practical_1/data/intro_r</code>
+folder! Now we are ready to start using R and RStudio.</p>
 </div>
 <div id="starting-with-r-studio-creating-an-r-script" class="section level3">
 <h3>Starting with R Studio: Creating an R Script</h3>
@@ -684,7 +707,7 @@ assignment operator</li>
 </ul></li>
 </ul>
 <p>In the Script Window type:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
 <ul>
 <li>We have just defined an object called <code>x</code></li>
 <li>View the contents of the object <code>x</code> by entering it’s name
@@ -693,8 +716,8 @@ and running it in the script. It is good practice to use the script
 window rather than interact directly with the Console as it can be
 directly saved for future use and easily edited.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>x</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>x</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <p><strong>Where have we created the object <code>x</code>?</strong></p>
 <ul>
 <li>Is it on your hard drive somewhere?</li>
@@ -722,8 +745,8 @@ spread and piled up everywhere. In the R Environment, we can create
 objects of multiple types. Once an object is in our
 <code>Environment</code> we can perform calculations on it. Using the
 object <code>x</code> we created as an example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> x</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> x</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <p><strong>NB: R is <em>case sensitive</em></strong></p>
 <div id="functions" class="section level4">
 <h4>Functions</h4>
@@ -732,8 +755,8 @@ e.g. <code>sqrt()</code>, <code>log()</code>, <code>max()</code>,
 <code>min()</code> etc. loaded into your Environment. We place an object
 or value inside the <code>()</code> after the name of a function - these
 are the <em>arguments</em> to the function.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">log</span>(x)</span></code></pre></div>
 <p>Many in-built functions are organised into a package called
 <code>base</code></p>
 <ul>
@@ -806,8 +829,8 @@ comment following</li>
 <li>Enter the following in the Script Window (but don’t do anything
 else)</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">## Create an object called x</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="do">## Create an object called x</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div>
 <p>To send this to the Console:</p>
 <ul>
 <li>Place the cursor on a line then <code>Ctrl+Enter</code>
@@ -819,20 +842,20 @@ button</li>
 </ul>
 <p>As well as creating objects, we can use this to write general code.
 Enter the following in your script, then send it to the R Console.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">## What do we have in the object `x`</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="do">## What do we have in the object `x`</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <p>In <code>R</code>, this type of object is known as a vector, and this
 is quite similar to a single column in Excel. We can perform operations
 on an entire vector. Again, type this into your script window, then send
 it to the Console</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="do">## I&#39;m not sure. Which values are greater than one?</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="do">## I&#39;m not sure. Which values are greater than one?</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
 <p>As well as a logical test, we can perform mathematical operations on
 a vector.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="do">## Let&#39;s square every value in `x`</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="do">## And we can find the square root of every value</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="do">## Let&#39;s square every value in `x`</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="do">## And we can find the square root of every value</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code></pre></div>
 <p>We’ll learn more about vectors later.</p>
 </div>
 <div id="other-features-of-rstudio" class="section level3">

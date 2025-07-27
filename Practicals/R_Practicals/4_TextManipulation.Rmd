@@ -63,7 +63,7 @@ Let's load last week's pcr.csv file to have a look.
 
 ```{r, results='hide', eval = FALSE}
 library(tidyverse)
-pcrFile <- file.path("~", "data", "intro_r", "pcr.csv")
+pcrFile <- file.path("data", "intro_r", "pcr.csv")
 file.exists(pcrFile)
 pcrData <- read_csv(pcrFile)
 ```

@@ -484,13 +484,10 @@ imported</li>
 <p><strong>Before We Go On</strong></p>
 <p>We first need to create a new script for this section. Save and close
 the first script we used, then create a new one</p>
-<ol style="list-style-type: decimal">
-<li><code>File</code> &gt; <code>New File</code> &gt;
-<code>R Script</code> (Or <code>Ctrl++Alt+Shift+N</code>)</li>
-<li>Save as <code>DataImport.R</code></li>
-<li>Enter this line at the top of the script</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>1. `File` &gt; `New File` &gt; `R Script` (Or `Ctrl++Alt+Shift+N`)
+2. Save as `DataImport.R`
+3. Enter this line at the top of the script</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Once you’ve entered this in your script, send it to the console using
 one of the methods we introduced earlier. This will load several
 packages which contains many useful functions for the following section.
@@ -513,16 +510,10 @@ months.</p>
 <h4>Using the GUI To Load Data</h4>
 <p>Now we’ve gone through some formalities, let’s import some data using
 the Graphical User Interface (GUI) that comes with RStudio</p>
-<ol style="list-style-type: decimal">
-<li>Navigate to your <code>~/data/intro_r</code> folder using the
-<code>Files</code> Tab
-<ul>
-<li>First click the <img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAVCAIAAADNQonCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcbDBQ0bzwVhgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAACHUlEQVQ4y6WTPW8TQRCGZz9u784mCRSAscBEBEFBQeQCJBqixAhEnaTjj/AT6FKAW0okEkqEkBAIWYbIEYgClFgJRcA4jg0H2Gd7z7czFCGQMxcDyXQ77+yzs69mmB8Y2A7CEP4/5N6uRRC12uY+EczXwSCdcylFGBpA3LWEBoauVl5eOqerlQE1fFe2rfzV8nIui+vl5amsv1rmtoqvxLgOmRBeaXFzNldJpdIPlxonM7WZKa+0yISIKW58/eY4Tl82qNfe57LvDh289viNhSF3ko+unh+rbpx68lodPvqHF9EuuK38tfLK5PjG8RMTCwUeBGGIQfP75fnnX8ZOr0yO+2v9P4p4wTj3XhTqs1c+plJn8/OWtFC6JF2yEoRwJn+/nsnUZ3JescA4j0cYrb27+WeMXVwoOgeGUKjS3PSrOzdKc9MolFDOhQfFp4LX7+WN1r9HK9KSUulbt48tveVhLzQEhpq+FoqbQKMhY4i32+JmfvT6BFcKiGIQQJQcGlGABgkROVHT78geC4MOESEiIhcmTA6P6B0DKTnnUQgBwa8XOl0tSYTbbRMAAdG2+hNhqYi9DCA0Zv1TlYiEZfeGR9Gyja0/VCqmp4UQiNQ/F62ujpwZa3z2Wu02AyAAYSkgAAamF2xlbGWlU0d2gvoRe1l232/HrzDbsuYfEJyzWKHZbCUSrohbin6E67qxQrerHceRUv4VwWHf8QMmlkG6c5FbcAAAAABJRU5ErkJggg==" /> icon then click into
-<code>data</code>, then <code>intro_r</code></li>
-</ul></li>
-<li>Click on the file <code>transport.csv</code></li>
-<li>Select <code>View File</code></li>
-</ol>
+<pre><code>1. Navigate to your `Practical_1/data/intro_r` folder using the `Files` Tab
+    - First click the ![](images/home.png) icon then click into `Practical_1`, then `data`, then `intro_r`
+2. Click on the file `transport.csv`
+3. Select `View File`</code></pre>
 <p>This can be used to open (small) files in the
 <code>Script Window</code> and view them as plain text files. When doing
 this <strong>the file is not loaded into R</strong>. However, it can be
@@ -533,10 +524,8 @@ expect for a <code>.csv</code> file.</p>
 in the Script Window.</p>
 <p>To import the file, or more accurately, to import the data within the
 file into our <code>R Environment</code> we can either:</p>
-<ol style="list-style-type: decimal">
-<li>Click on the file and choose <code>Import Dataset</code>, or</li>
-<li>Use the button as shown in the <code>Environment</code> Tab</li>
-</ol>
+<pre><code>1. Click on the file and choose `Import Dataset`, or
+2. Use the button as shown in the `Environment` Tab</code></pre>
 <p><img role="img" src="data:image/png;base64,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" /></p>
 <p>Let’s use the first of these methods, so click on the file and choose
 <code>Import Dataset</code>. This will open the <strong>Preview
@@ -580,7 +569,7 @@ code directly below the line</strong>
 <code>library(tidyverse)</code>, so this line is a little redundant but
 won’t hurt to include. Reloading a package generally does nothing.</li>
 </ul></li>
-<li><code>transport &lt;- read_csv(&quot;~/data/intro_r/transport.csv&quot;)</code>
+<li><code>transport &lt;- read_csv(&quot;data/intro_r/transport.csv&quot;)</code>
 <ul>
 <li>This is the code executed to load the data into your
 <code>R Environment</code></li>
@@ -633,12 +622,12 @@ the directory <code>/home/student</code> on your VM.
 <strong>Reproducible Research!!!</strong></p>
 </div>
 <div id="understanding-read_csv" class="section level3">
-<h3>Understanding <code>read_csv()</code></h3>
+<h3>Understanding read_csv()</h3>
 <p>In the above we called the <code>R</code> function
 <code>read_csv()</code>. To find out how the function works, we can
 check the help page by typing a <code>?</code> followed by the function
 name (no spaces)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>?read_csv</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>?read_csv</span></code></pre></div>
 <p>This page lists four functions, but stick to <code>read_csv()</code>
 This function has numerous arguments given with names like
 <code>file</code>, <code>col_names</code> etc.</p>
@@ -656,9 +645,9 @@ them</strong></li>
 in the GUI</li>
 </ul>
 <p>For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/transport.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/transport.csv&quot;</span>)</span></code></pre></div>
 <p>Is equivalent to:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;~/data/intro_r/transport.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data/intro_r/transport.csv&quot;</span>)</span></code></pre></div>
 <div id="questions" class="section level4">
 <h4>Questions</h4>
 <details>
@@ -668,7 +657,7 @@ look like?</b>
 </summary>
 <p>Setting the argument <code>skip = 3</code> would then tell
 <code>read_csv()</code> to ignore the first 3 lines.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;path/to/file&quot;</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;path/to/file&quot;</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span></code></pre></div>
 </details>
 <details>
 <summary>
@@ -687,27 +676,30 @@ the original function in base R, which is still in regular use, but is
 inferior to <code>read_csv()</code>. If you ask for help and we see
 <code>read.csv()</code> instead of <code>read_csv()</code>, we will
 definitely ask why you are trying to make your life harder!</p>
-<!-- ### Working with Files -->
-<!-- We often have to load data into `R` from a file on our computer, and as many of us know, Windows uses the `\` symbol to separate directory names. -->
-<!-- OSX and Linux use the `/` symbol, so `R` has a convenient function called `file.path()` which is able to decide which separator to put there. -->
-<!-- This can often be a useful way to pass file paths to a function such as `read_csv()`. -->
-<!-- ```{r} -->
-<!-- transportFile <- file.path("~", "data", "intro_r", "transport.csv") -->
-<!-- transportFile -->
-<!-- ``` -->
-<!-- Depending on your OS, this will give different results. -->
-<!-- Once we've defined the path to a file as an `R` object, we can also check to see if the file exists, and to make sure we have the path correct. -->
-<!-- ```{r} -->
-<!-- file.exists(transportFile) -->
-<!-- ``` -->
-<!-- Thus an experienced bioinformatician may write the original importing code as: -->
-<!-- ```{r} -->
-<!-- library(tidyverse) -->
-<!-- transportFile <- file.path("data", "transport.csv") -->
-<!-- file.exists(transportFile) -->
-<!-- transport <- read_csv(transportFile) -->
-<!-- ``` -->
 </div>
+</div>
+<div id="working-with-files" class="section level3">
+<h3>Working with Files</h3>
+<p>We often have to load data into <code>R</code> from a file on our
+computer, and as many of us know, Windows uses the <code>\</code> symbol
+to separate directory names. OSX and Linux use the <code>/</code>
+symbol, so <code>R</code> has a convenient function called
+<code>file.path()</code> which is able to decide which separator to put
+there. This can often be a useful way to pass file paths to a function
+such as <code>read_csv()</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>transportFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>transportFile</span></code></pre></div>
+<p>Depending on your OS, this will give different results.</p>
+<p>Once we’ve defined the path to a file as an <code>R</code> object, we
+can also check to see if the file exists, and to make sure we have the
+path correct.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">file.exists</span>(transportFile)</span></code></pre></div>
+<p>Thus an experienced bioinformatician may write the original importing
+code as:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>transportFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="fu">file.exists</span>(transportFile)</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>transport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(transportFile)</span></code></pre></div>
 </div>
 <div id="data-frame-objects" class="section level3">
 <h3>Data Frame Objects</h3>
@@ -717,9 +709,9 @@ definitely ask why you are trying to make your life harder!</p>
 wrapping paper). This is the <code>R</code> equivalent to a spreadsheet
 and the main object type we’ll work with for the next two weeks. Three
 possible ways to inspect this using the Console are:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">View</span>(transport)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>transport</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">head</span>(transport)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">View</span>(transport)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>transport</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="fu">head</span>(transport)</span></code></pre></div>
 <p><strong>What were the differences between each method?</strong></p>
 </div>
 </div>
@@ -748,8 +740,8 @@ variables/columns are in the first row (<code>col_names = TRUE</code>).
 This row is used to tell <code>R</code> how many columns you have.</p>
 <p>Let’s see what happens if we get this wrong, by loading a file
 without column names.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/no_header.csv&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>no_header</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/no_header.csv&quot;</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>no_header</span></code></pre></div>
 <details>
 <summary>
 <b>Does anything look wrong to you?</b>
@@ -759,7 +751,7 @@ really values which belong to the data
 </details>
 <p><br> We can easily fix this using the argument <code>col_names</code>
 inside the function <code>read_csv()</code></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><strong>What about that first column?</strong></p>
 <p>That first column looks like it’s just row numbers, which are
 unnecessary in R, as they are automatically included in
@@ -767,14 +759,14 @@ unnecessary in R, as they are automatically included in
 specify what is loaded or skipped using <code>col_types</code>. Use the
 help page for <code>read_csv()</code> to try and understand what
 <code>&quot;-ccnnc&quot;</code> means.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="st">&quot;-ccnnc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="st">&quot;-ccnnc&quot;</span>)</span></code></pre></div>
 <p>Notice that we have specifically told <code>R</code> what type of
 values we have in each column. We never need to worry about this in
 Excel, but it can be very useful in <code>R</code>.</p>
 <p><strong>What if we get that wrong?</strong></p>
 <p>Let’s miss-specify the third column as a number instead of a
 text-string, i.e. “character”</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="st">&quot;-cnnnc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>no_header <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/no_header.csv&quot;</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">col_types =</span> <span class="st">&quot;-cnnnc&quot;</span>)</span></code></pre></div>
 <p><strong>Did the error message make any sense?</strong></p>
 <p><strong>Did the file load?</strong></p>
 <p><strong>What happened to the third column?</strong></p>
@@ -790,7 +782,7 @@ specify the comment symbol in the argument <code>comment =</code> which
 tells <code>read_csv()</code> to ignore lines which begin with these
 characters. We’ll return to this idea later.</p>
 <p>Let’s get it wrong first</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>comments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/comments.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>comments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/comments.csv&quot;</span>)</span></code></pre></div>
 <p>Did the data load as an <code>R</code> object?</p>
 <details>
 <summary>
@@ -804,13 +796,13 @@ line appeared to have 6 columns</li>
 </details>
 <p><br> Now we can get it right by telling <code>read_csv()</code> to
 ignore any rows beginning with <code>#</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>comments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/comments.csv&quot;</span>, <span class="at">comment =</span> <span class="st">&quot;#&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>comments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/comments.csv&quot;</span>, <span class="at">comment =</span> <span class="st">&quot;#&quot;</span>)</span></code></pre></div>
 </div>
 <div id="structural-problems" class="section level3">
 <h3>Structural Problems</h3>
 <p>What happens when you try to load the file
 <code>bad_colnames_.csv</code>?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>bad_colnames <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/bad_colnames.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>bad_colnames <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/bad_colnames.csv&quot;</span>)</span></code></pre></div>
 <details>
 <summary>
 <b>Does this look right to you?</b>
@@ -821,9 +813,9 @@ the first row. Thus, the column names are shifted left by one column.
 </details>
 <p><br> Here’s my solution, where I’ve set the column names
 manually.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>bad_colnames <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/bad_colnames.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">colnames</span>(bad_colnames)</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="fu">colnames</span>(bad_colnames) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;rowname&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;height&quot;</span>, <span class="st">&quot;transport&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>bad_colnames <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/bad_colnames.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">1</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">colnames</span>(bad_colnames)</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="fu">colnames</span>(bad_colnames) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;rowname&quot;</span>, <span class="st">&quot;gender&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;weight&quot;</span>, <span class="st">&quot;height&quot;</span>, <span class="st">&quot;transport&quot;</span>)</span></code></pre></div>
 <p>There are two important new concepts here.</p>
 <ol style="list-style-type: decimal">
 <li>We can use the function <code>colnames()</code> to call the column
@@ -837,7 +829,7 @@ of the most common functions in <code>R</code>. This stands for
 <code>vector</code>. If left empty, it is equivalent to a
 <code>NULL</code> or empty object.</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">c</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">c</span>()</span></code></pre></div>
 <p>We’ll see this function a great deal when using <code>R</code>.</p>
 </div>
 <div id="encoded-missing-values" class="section level3">
@@ -845,7 +837,7 @@ of the most common functions in <code>R</code>. This stands for
 <p><strong>What if missing values have been set to “-” or some other
 value in our csv file?</strong></p>
 <p>Let’s get it wrong first:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>missing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/missing_data.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>missing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/missing_data.csv&quot;</span>)</span></code></pre></div>
 <details>
 <summary>
 <b>Where have the errors appeared?</b>
@@ -855,7 +847,7 @@ column of text (characters)
 </details>
 <p><br> Now we can get it right using both the <code>na</code> and
 <code>col_types</code> arguments.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>missing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/data/intro_r/missing_data.csv&quot;</span>, <span class="at">na =</span> <span class="st">&quot;-&quot;</span>, <span class="at">col_types =</span> <span class="st">&quot;-ccnnc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>missing_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/intro_r/missing_data.csv&quot;</span>, <span class="at">na =</span> <span class="st">&quot;-&quot;</span>, <span class="at">col_types =</span> <span class="st">&quot;-ccnnc&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>

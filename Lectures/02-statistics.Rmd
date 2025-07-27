@@ -8,7 +8,6 @@ output:
     css: custom.css
     fig_caption: true
     logo: ../images/UoA_logo_col_vert.png
-  beamer_presentation: default
 subtitle: 'Biotech 7005: Bioinformatics and Systems Modelling'
 ---
 
