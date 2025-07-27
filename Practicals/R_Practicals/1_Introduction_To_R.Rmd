@@ -130,19 +130,42 @@ Click on ![NewFolder](images/NewFolder.png) directly above this and call this fo
 This is where we'll run everything for today's session.
 To make an R Project for this folder use the following commands in the menu bar at the top of your R Studio session:
 
+```
 1. `File` > `New Project` 
 2. When asked if you'd like to `Save Current Workspace`, choose `Don't Save`.
 3. Choose `Existing Directory` >
     + Browse to `Practical_1`
+    + `Choose`
     + `Create Project`
+```
 
-You will now find yourself in this folder we have created.
+You will now find yourself in the `Practical_1` is folder we have created.
 If you look at the top right of your RStudio session you will also see `Practical_1` and an arrow for the drop-down menu.
 We only have one project at this point, but this is where you can switch between projects.
 For this practical series, we'll start a new project for every session.
 This will help you keep everything organised so you can find everything later.
 Managing your data and code intelligently is a considerable challenge in bioinformatics, so it is important to be organised from the beginning!
 
+The final step is to copy the data we have provided for this practical into your `Practical_1` folder (it is best practice when using `R Projects` to keep all data, scripts, outputs, reports within the R Project folder for maximum portability and reproducibility).
+
+The provided data is in the folder `~/data/intro_r` within your Home folder on the VM (the `~/` part here expands to your system `Home` folder, which on the VM expands to `/shared//aXXXXXXX`). We want to preserve the original folder structure, so we will copy it rather than move it. We can do this using the Terminal (command line), or we can use the Files pane in RStudio. We will keep things simple for now and use the Files pane as follows:
+
+```
+1. Click on the `Files` tab in the bottom right pane of RStudio.
+   - Ensure you are in the `~/Practical_1` folder
+2. Click on the new folder icon (looks like a folder with a plus sign) to create a new folder.
+   - Name this folder `data`
+3. Click on the `Home` icon (looks like a house) to go to your home folder.
+4. Navigate to the `~/data` folder within `Home`.
+5. Click on the box next to the `intro_r` folder to select it.
+6. Click on the `More` button in the top right of the Files pane.
+7. Select `Copy To` from the drop-down menu.
+8. Click `Home`, then double-click 'Practical_1`, and then click `data`.
+9. In the `File name` box type `intro_r` and select `Save`
+  - This will copy the `intro_r` folder into your `Practical_1/data` folder.
+```
+
+Great, the data is now in your `Practical_1/data/intro_r` folder! Now we are ready to start using R and RStudio.
 
 ### Starting with R Studio: Creating an R Script
 

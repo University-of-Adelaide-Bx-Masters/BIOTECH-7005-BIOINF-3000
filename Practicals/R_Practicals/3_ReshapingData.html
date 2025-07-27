@@ -499,7 +499,7 @@ object and then we’ll pass it to <code>read_csv()</code>. To check that
 we have this correct, we’ll first check that the file exists, using the
 appropriately named function <code>file.exists()</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>csvFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;~&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>csvFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;transport.csv&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">file.exists</span>(csvFile)</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(csvFile)</span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>data</span></code></pre></div>
@@ -542,8 +542,8 @@ easily. Try the following, and you’ll see how useful this can be.</p>
 <p>We can also use the <code>-</code> sign before a name to remove
 columns.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">select</span>(data, <span class="sc">-</span>name)</span></code></pre></div>
-<p>It looks like the frst column (<code>X1</code>) is actually just the
-rownames written to the file when saved by our collaborators. Let’s
+<p>It looks like the first column (<code>...1</code>) is actually just
+the rownames written to the file when saved by our collaborators. Let’s
 remove that column, and this time we’ll over-write the object.
 <strong>If you haven’t been keeping track of the above in your script,
 this would be an important line to put there as we are overwriting the
@@ -696,7 +696,7 @@ prevent catastrophes.</p>
 data folder. Let’s load the data first by placing this at the beginning
 of your new script file.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>pcrFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;~&quot;</span>, <span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;pcr.csv&quot;</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>pcrFile <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;intro_r&quot;</span>, <span class="st">&quot;pcr.csv&quot;</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="fu">file.exists</span>(pcrFile)</span>
 <span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>pcrData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(pcrFile)</span></code></pre></div>
 <p>Here we have RT-PCR data from T cells as a time course for two
