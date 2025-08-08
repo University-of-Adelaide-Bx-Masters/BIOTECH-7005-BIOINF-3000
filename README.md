@@ -45,7 +45,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
 | **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (Chelsea)|[Scripting In Bash] (2)(Chelsea)                   |
 | **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
-| **6**    | 1/9       |Alignment Process (recording), Transcriptomics - Gene Expression (Stevie)|*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
+| **6**    | 1/9       |Alignment Process (recording), Transcriptomics - Gene Expression (Stevie)|[Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
 | **7**    | 8/9        |[Ancient DNA][11] (Bastien)   |*Alignment test* / [aDNA][12] (Bastien)  | [Transcriptomics - DE analysis] (1) (Stevie)  |
 | **8**    | 15/9       |Transcriptomics - assembly (Stevie)  |*Gene expression test* [Transcriptomics - DE analysis] (2) (Stevie)    | [Transcriptomics - assembly] (1) (Stevie) |
 | **-**    | 22/9       |*Mid-Semester Break*     |                                        |                                          |
