@@ -52,7 +52,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **-**    | 29/9       |*Mid-Semester Break*     |                                        |                                          |
 | **9**    | 6/10 (PH)  |*Public Holiday 6/10* No lecture*| *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie)    
 | **10**   | 13/10      | Reproducible Science (David L)  |[Coding comments] (David L) |[Reproducible Science] (1) (David L)  |
-| **11**   | 20/10      |Version Control (David L)  | [Version Control] (David L)  ||[Local Version Control] (David L) | 
+| **11**   | 20/10      |Version Control (David L)  | [Version Control] (David L)  | [Local Version Control] (David L) | 
 | **12**   | 27/10      |NO LECTURE |*Version control test*/[GitHub Repositories] (David L) | [GitHub Intro] (David L)  |
 
 
