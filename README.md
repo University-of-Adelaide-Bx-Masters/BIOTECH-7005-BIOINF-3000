@@ -45,15 +45,15 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **3**    | 11/8        |Evolutionary Processes (recording) |*Stats Test* [Introduction to Bash] (1) (Steven/Chelsea)  |[Introduction To Bash] (2) (Chelsea)   |
 | **4**    | 18/8       |Next-generation sequencing  (recording) |*Evolution test* [Scripting in Bash] (1) (Chelsea)|[Scripting In Bash] (2)(Chelsea)                   |
 | **5**    | 25/8       |Alignment Process (recording) |*NGS test* [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
-| **6**    | 1/9       |Alignment Process (recording) |*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
-| **7**    | 8/9        |Reproducible Science (David L)   |*Alignment test* (TBD)/ [Coding comments] (David L)  | [Reproducible Science] (1) (David L)  |
-| **8**    | 15/9       |Version Control (David L)   |[Version Control] (David L)    |[Local Version Control] (David L)  |
+| **6**    | 1/9       |Alignment Process (recording), Transcriptomics - Gene Expression (Stevie)|*No test* [Alignment/NGS (1)] (Chelsea)  |[Alignment/NGS (2)] (Chelsea)             |
+| **7**    | 8/9        |[Ancient DNA][11] (Bastien)   |*Alignment test* / [aDNA][12] (Bastien)  | [Transcriptomics - DE analysis] (1) (Stevie)  |
+| **8**    | 15/9       |Transcriptomics - assembly (Stevie)  |*Gene expression test* [Transcriptomics - DE analysis] (2) (Stevie)    | [Transcriptomics - assembly] (1) (Stevie) |
 | **-**    | 22/9       |*Mid-Semester Break*     |                                        |                                          |
 | **-**    | 29/9       |*Mid-Semester Break*     |                                        |                                          |
-| **9**    | 6/10 (PH)  |*Public Holiday 6/10* No lecture*| *Public Holiday 6/10* No Practical *| [GitHub Repositories] (David L)   
-| **10**   | 13/10      | [Ancient DNA][11] (Bastien) |*Version control test*/ [GitHub Intro] (David L) |[aDNA][12] (Bastien) |
-| **11**   | 20/10      |Transcriptomics - Gene Expression (Stevie)  | [Transcriptomics - DE analysis] (1) (Stevie) |[Transcriptomics - DE analysis] (2) (Stevie) | 
-| **12**   | 27/10      |Transcriptomics - assembly (Stevie) |*Gene expression test* [Transcriptomics - assembly] (1) (Stevie) | [Transcriptomics - assembly] (2) (Stevie)   |
+| **9**    | 6/10 (PH)  |*Public Holiday 6/10* No lecture*| *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie)    
+| **10**   | 13/10      | Reproducible Science (David L)  |[Coding comments] (David L) |[Reproducible Science] (1) (David L)  |
+| **11**   | 20/10      |Version Control (David L)  | [Version Control] (David L)  ||[Local Version Control] (David L) | 
+| **12**   | 27/10      |NO LECTURE |*Version control test*/[GitHub Repositories] (David L) | [GitHub Intro] (David L)  |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
