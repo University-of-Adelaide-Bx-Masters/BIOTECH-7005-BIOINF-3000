@@ -100,8 +100,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |              |         | Friday 29/08/25     |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 05/09/25  |
 | [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 20/09/25  |
+| [Assessment 6](Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 07/11/25    |
 | [Assessment 5](Assignments/Assignment5.md)                   | Version Control             |              |          | Friday 18/10/25  |
-| [Assessment 6] (Assignments/Assignment5.md)   (Assignments/Assignment6_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 07/11/25    |
 | Tests (x6)                                                   |                             |  10%  for all tests combined           | 10% for all tests combined           |                       |
 | Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 20/09/25
 | [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 14/11/25  |
