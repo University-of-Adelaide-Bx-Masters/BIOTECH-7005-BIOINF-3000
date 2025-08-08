@@ -1,4 +1,4 @@
-# Assignment 6 - Transcriptome analysis [*35 marks*] Due Friday 01 November 2024
+# Assignment 5 - Transcriptome analysis [*35 marks*] Due Friday 01 November 2024
 
 **Due Friday 01 November**
 
@@ -12,7 +12,7 @@ For all scripts, please use the directory `~/Assignment6` as the parent director
 Use an organised folder structure to store files generated in this assignment. [*1 mark*]
 
 ```
-Assignment6/
+Assignment5/
 ├── data
 ├── DB
 ├── results
