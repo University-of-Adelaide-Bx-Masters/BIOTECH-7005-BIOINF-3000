@@ -265,7 +265,7 @@ You will have produced two trees for Bovidae (two different models), submit them
 
 **All text must be fully legible in your submitted trees to receive full marks**.
 
-Produce a Bayesean tree for the whole mitochondrial genome of the Australidelphia order of marsupials (including all Australasian speccies and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
+Produce a Bayesean tree for the whole mitochondrial genome of the Australidelphia order of marsupials (including all Australasian species and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
 
 Submit the Australidelphia tree as **Figure 2** (5 marks).
 
