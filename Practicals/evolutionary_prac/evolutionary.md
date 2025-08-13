@@ -1,4 +1,4 @@
-# Evolutionary Processes assignment (Due 30/8/2024)
+# Evolutionary Processes assignment (Due 12/09/2025)
 
 In today's practical we are trying to wean you off of detailed instructions and will expect you to be able to do basic things that have been covered before, such as renaming a file or using `wget`. You should read through the practical fully before beginning so that you understand the sequence of operations and what is expected. 
 
@@ -16,13 +16,13 @@ This again helps us keep our code organised and is good practice.
 
 ## Prepare the sequence data
 
-Get the sequences from the [Bioinf 3000 repository](bovidae_118_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidae_118_mtDNA.fa>) using `wget`.
+Get the sequences from the [Bioinf 3000 repository](bovidae_73_mtDNA.fa) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/bovidae_73_mtDNA.fa>) using `wget`.
 
 ### Reduce the size of the dataset
 
 Run the following command using your student number for id:
 ```
-./subset -id aXXXXXXX -n 50 -in bovidae_118_mtDNA.fa > bovidae_50_mtDNA.fa
+./subset -id aXXXXXXX -n 50 -in bovidae_73_mtDNA.fa > bovidae_50_mtDNA.fa
 ```
 (The subset command can be obtained from [here](subset) (<https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/subset>)
  using `wget`.)
@@ -72,9 +72,7 @@ In order to be able to examine the alignments more effectively we will convert t
 seqmagick convert --output-format nexus --alphabet dna bovidae_50_mtDNA-named.fa bovidae_50_mtDNA-named.nex
 ```
 
-Look at the NEXUS alignment file. At the beginning of the alignment and near the end there are regions that have large gaps and very poor conservation.
-
-**Q2. What is the reason for this? (*Hint: use the accession numbers in the name to search [Entrez](https://www.ncbi.nlm.nih.gov/genome/) for the annotation.*)**
+Look at the NEXUS alignment file. At the beginning of the alignment and near the end there are regions that have large gaps and very poor conservation. Because the mitochondrial genome is circular, the chosen "position 0" is conventionally set to the beginning of the non-coding [Control Loop](http://www.geneticorigins.org/mito/theory3.html), which can be highly variable between species.
 
 The phylogenetic reconstruction methods we will be using cannot handle missing bases, so these must be removed. 
 We can use Gblocks to remove the non-conserved regions of the alignment.
@@ -104,7 +102,7 @@ q. Quit
 Use the menu options in the program to remove the non-conserved regions from the `fa` file (not the `nex` file).
 This will give you a file `bovidae_50_mtDNA-named.fa-gb`.
 
-**Q3. Why do we need to do this? (*Hint:read the [Gblocks documentation](https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html)*)**
+**Q2. Why do we need to do this? (*Hint:read the [Gblocks documentation](https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html)*)**
 
 ### Convert to NEXUS format
 
@@ -161,10 +159,11 @@ First you will need to load the data set that you prepared.
 
 Use the `execute` command to load the NEXUS sequence file you created with seqmagick.
 
-**Q4. How many taxa were read into memory?** 
-**Q5. How many characters are being used?** 
+**Q3. How many taxa were read into memory?** 
 
-### Set options
+**Q4. How many characters are being used?** 
+
+### Adjust likelihood settings
 
 For the practical you are to perform 2 reconstructions, choosing from substitution models with 1, 2, 6 or mixed.
 Each run takes about an hour, so you will have time to work on other parts of the practical while it is running.
@@ -178,7 +177,7 @@ help lset
 
 You can see that the default rate matrix is 4 by 4 which corresponds to nucleotide.
 
-**Q6. What substitution models does the default number of substitution types correspond to?**
+**Q5. What are the models used by the default substitution type?**
 
 Set the number of substitution types to the number you have chosen (written below as `<num>`).
 
@@ -197,7 +196,7 @@ First examine the defaults.
 help mcmc
 ```
 
-You can see here that the default analysis runs for 1,000,000 iterations, retaining every 500th iteration for tree reconstruction.
+You can see here that the default analysis runs for 1,000,000 iterations, samping every 500th iteration for tree reconstruction.
 You can also see that the first 25% of samples are discarded by default.
 
 We don't have enough time to run for 1x10^6 generations, we want to see the convergence behaviour and we want to specify the output file name (again `<num>` is the model subtitution type number), so start the analysis with the following command.
@@ -215,7 +214,7 @@ You can see that as the run continues the average standard deviation of split fr
 After the MCMC has completed the 50,000 iterations, it will output the final average standard deviation of split frequencies and ask if the run is to be continued.
 Answer "no".
 
-See the Mr Bayes [manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf) for a more complete explanation of how to decide the answer to this question.
+See the Mr Bayes [manual](https://github.com/NBISweden/MrBayes/blob/develop/doc/manual/Manual_MrBayes_v3.2.pdf) for a more detailed explanation of how to determine the answer to this question. I strongly suggest putting your Ctrl+F skills to work (a vital skill in bioinformatics!).
 
 When you stop the runs, Mr Bayes will output summary data from the analysis.
 
@@ -225,11 +224,11 @@ To look at the convergence, execute the following command.
 sump
 ```
 
-**Q7. Describe what the output graph shows.**
+**Q6. Describe what the initial output graph shows.**
 
-Find where the plateau starts by choosing different burnin lengths (note that the burnin describes the number of leading sample to discard, not the number of MCMC iterations).
+Find where the plateau starts by choosing different burnin lengths (note that the burnin describes the number of sampled trees to discard, not the number of MCMC iterations). You will not be able to answer the following question without playing around with a couple of burnin values.
 
-**Q8. Approximately when does the plateau start in terms of number of samples?**
+**Q7. Approximately when does the plateau start in terms of number of samples? Provide evidence to support your answer.**
 
 ### Examine trees
 
@@ -244,31 +243,35 @@ It will also output a consensus tree file called "model-\<num\>.con.tre".
 
 Repeat the analysis with another model and compare the trees using the [FigTree program](https://github.com/rambaut/figtree/releases/). `FigTree` is a tree visualising tool that you will need to run on your computer. Select the best download type for your computer/operating system and install it (use .dmg for Mac, use .zip for Win). 
 
-**Q9. Do the trees from the two models differ?** 
-**Q10. How does the branch support differ between the two trees?** 
-**Q11. Do the trees agree with the known taxonomic groupings?** 
+**Q8. Do the trees from the two models differ?** 
+
+**Q9. How does the branch support differ between the two trees?** 
+
+**Q11. Do the trees agree with the known taxonomic groupings? If not, propose possible explanations.** 
 
 #### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106)
 
-![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear-tree.jpg)
+![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear_tree_withmya.jpg)
 
-## Tasks (due 01/09/2023)
+## Tasks (due 12/09/2025)
 
 ### Practical questions
 
-Answer the questions in **bold** above (they are worth 1 mark each).
+Answer the questions in **bold** above.
 
 ### Bayesean Trees with whole mitochondrial genomes
 
-You will have produced two trees for Bovidae (two different models), submit them as part of your practical as **Figure 1** (5 marks/tree).
+You will have produced two trees for Bovidae (two different models), submit them as part of your practical as **Figure 1** (5 marks/tree). 
 
-Produce a Bayesean tree for the whole mitochondrial genome of Marsupials.
+**All text must be fully legible in your submitted trees to receive full marks**.
 
-Submit the Marsupial tree as **Figure 2** (5 marks).
+Produce a Bayesean tree for the whole mitochondrial genome of the Australidelphia order of marsupials (including all Australasian speccies and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
 
-You can get the Marsupial mitochondrial genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
+Submit the Australidelphia tree as **Figure 2** (5 marks).
+
+You can get the Australidelphia mitochondrial genomes by installing the `fetch` program on your VM from [this location](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch) <https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/evolutionary_prac/fetch> using `wget`. You will need to `chmod -x` it before you can use it. You can download it to your `Practical_5` subdirectory and run it from there. `Fetch` is a program that allows you to search the NCBI databases and batch download the results of your search; this is much more convenient than using a browser to retrieve things one by one. In order to get the sequences from NCBI you will need to run the command:
 ```
-./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
+./fetch -email <youremailaddress> -query "mitochondrion[All Fields] AND \"Metatheria\"[Organism] NOT \"Didelphimorphia\"[Organism] AND \"complete genome\"[All fields] AND \"RefSeq\"[All fields]" -out metatheria_mtDNA.fa
 ```
 The server requires your email to fetch the sequences and the `-out <outfile>` is required unless you want to stream the sequences to `stdout`.
 
@@ -280,12 +283,12 @@ Alternatively, these genomes can be obtained the way a biologist would from [her
 
 
 
-**Q12. What two species are the best to use as an outgroup?**(1 mark)  
+**Q12. Does this tree agree with the known taxonomic groupings? If not, propose possible explanations.**(1 mark)  
 **Q13. Which two leaves are the closest related/have the shortest branch?**(1 mark)  
 **Q14. What is the evolutionary distance between these two leaves?**(1 mark)  
-**Q15. Which of the following two species are more closely related?**(1 mark)  
-    1. **silky-shrew oppossum**  
-    2. **Tasmanian wolf**  
-    3. **koala**  
-    4. **platypus**  
+**Q15. Based on your tree, which of the following two species are more closely related? Provide evidence supporting your answer.**(1 mark)  
+    1. **Brush-tailed phascogale**  
+    2. **Julia Creek dunnart**  
+    3. **Yellow-footed antechinus**  
+    4. **Numbat**  
 
