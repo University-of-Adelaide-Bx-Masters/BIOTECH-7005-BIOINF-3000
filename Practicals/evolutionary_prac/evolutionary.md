@@ -1,4 +1,4 @@
-# Evolutionary Processes assignment (Due 12/09/2025)
+# Evolutionary Processes assignment (Due 05/09/2025)
 
 In today's practical we are trying to wean you off of detailed instructions and will expect you to be able to do basic things that have been covered before, such as renaming a file or using `wget`. You should read through the practical fully before beginning so that you understand the sequence of operations and what is expected. 
 
@@ -245,15 +245,13 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 
 **Q8. Do the trees from the two models differ?** 
 
-**Q9. How does the branch support differ between the two trees?** 
-
-**Q11. Do the trees agree with the known taxonomic groupings? If not, propose possible explanations.** 
+**Q9. Do the trees agree with the known taxonomic groupings? If not, propose possible explanations.** 
 
 #### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106)
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear_tree_withmya.jpg)
 
-## Tasks (due 12/09/2025)
+## Tasks (due 05/09/2025)
 
 ### Practical questions
 
@@ -265,7 +263,7 @@ You will have produced two trees for Bovidae (two different models), submit them
 
 **All text must be fully legible in your submitted trees to receive full marks**.
 
-Produce a Bayesean tree for the whole mitochondrial genome of the Australidelphia order of marsupials (including all Australasian species and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
+Produce a Bayesean tree for the whole mitochondrial genomes of the Australidelphia order of marsupials (including all Australasian species and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
 
 Submit the Australidelphia tree as **Figure 2** (5 marks).
 
@@ -283,12 +281,12 @@ Alternatively, these genomes can be obtained the way a biologist would from [her
 
 
 
-**Q12. Does this tree agree with the known taxonomic groupings? If not, propose possible explanations.**(1 mark)  
-**Q13. Which two leaves are the closest related/have the shortest branch?**(1 mark)  
-**Q14. What is the evolutionary distance between these two leaves?**(1 mark)  
-**Q15. Based on your tree, which of the following two species are more closely related? Provide evidence supporting your answer.**(1 mark)  
+**Q10. Does this tree agree with the known taxonomic groupings? If not, propose possible explanations.**(1 mark)  
+**Q11. Which two leaves are the closest related/have the shortest branch?**(1 mark)  
+**Q12. What is the evolutionary distance between these two leaves?**(1 mark)  
+**Q13. Based on your tree, which of the following two species are more closely related? Provide evidence supporting your answer.**(1 mark)  
     1. **Brush-tailed phascogale**  
     2. **Julia Creek dunnart**  
     3. **Yellow-footed antechinus**  
     4. **Numbat**  
-
+**Q14. Why is it that we chose to use the mitochondria to generate this tree? Comparing the topology of your trees to those in the provided literature, name a key factor that would affect the quality of a phylogeny made using a whole mitochondrial alignment.** (2 marks)
