@@ -186,7 +186,7 @@ gunzip GCF_000182855.2_ASM18285v1_genomic.gff.gz
 ```
 
 This file is in `gff` format, which is very commonly used.
-The first 5 lines of this file is what we refer to as a *header*, which contains important information about how the file was generated in a standardised format.
+The first 9 lines of this file is what we refer to as a *header*, which contains important information about how the file was generated in a standardised format.
 Many file formats have these structures at the beginning, but for our purposes today we don't need to use any of this information so we can move on.
 Have a look at the beginning of the file just to see what it looks like.
 
@@ -204,7 +204,7 @@ The first feature is annotated as a *region* in the third field, whilst the seco
 - *How many features are contained in this file?*
 - *If we tried the following*: `wc -l GCF_000182855.2_ASM18285v1_genomic.gff` *would it be correct?*
 
-This will give 4521, but we know the first 9 lines are header lines.
+This will give 4524, but we know the first 9 lines are header lines.
 To count the non-header lines you could try several things:
 
 ```
@@ -218,7 +218,7 @@ grep -c '^[^#]' GCF_000182855.2_ASM18285v1_genomic.gff
 
 **Make sure you understand both of the above commands as it may not be immediately obvious!**
 
-There are 9 header/comment lines we can see at the top fo the file, is this the number that you got?  
+There are 9 header/comment lines we can see at the top of the file, is this the number that you got?  
 
 What do you think is going on?  
 
@@ -287,9 +287,19 @@ Now we could use our `egrep` approach and we know we're counting the correct fie
 cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | egrep -c 'gene'
 ```
 
+But 2204 is greater than what we got when we searched for 'gene' surrounded by whitespace (2100). 
+
+What do you think could be happening? What is the difference between these two approaches that might explain this difference? 
+
+Let's see exactly what features our second attempt is counting. We'll use `sort` and `uniq` along with the pipe symbol to stream the output between commands. 
+
+```
+cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | egrep 'gene' | sort | uniq -c
+```
+
 A similar question would be: *How many* **types** *of features are in this file?*
 
-The commands `cut`, along with `sort` and `uniq` may prove to be useful when answering this
+We can again use the command `cut`, along with `sort` and `uniq`.
 
 ```
 cut -f3 -s GCF_000182855.2_ASM18285v1_genomic.gff | sort | uniq -c
