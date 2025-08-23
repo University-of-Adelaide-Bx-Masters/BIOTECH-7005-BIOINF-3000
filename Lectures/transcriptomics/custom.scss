@@ -1,0 +1,72 @@
+/*-- scss:defaults --*/
+
+//
+// Color system
+//
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #EAEEE8 !default;
+$gray-300: #D8DCD7 !default;
+$gray-400: #C7CBC7 !default;
+$gray-500: #B5BAB7 !default;
+$gray-600: #939797 !default;
+$gray-700: #707576 !default;
+$gray-800: #4D5256 !default;
+$gray-900: #3C4146 !default;
+$black:    #2B3036 !default;
+
+$blue:    #368AC4 !default;
+$purple:  #6f42c1 !default;
+$red:     #9E2900 !default;
+$orange:  #F58C05 !default;
+$yellow:  #f39c12 !default;
+$green:   #759C78 !default;
+$teal:    #68B0E3 !default;
+$cyan:    #85B8DB !default;
+
+$code-block-font-size: 0.6em !important;
+$presentation-font-size-root: 36px !important;
+$body-bg: #FFFFFF;
+$body-color: #2B3036;
+$dark-bg-text-color: #D6E8F2;
+$link-color: #F58C05;
+$light-bg-text-color: #9E2900;
+$code-color: #759C78;
+$code-block-bg: #D6E8F2;
+$code-block-border-color: #368AC4;
+
+.text-red {
+  color: $red;
+}
+
+.bg-red {
+  background-color: $red;
+}
+
+
+/*-- scss:rules --*/
+
+.reveal .slide-logo {
+  height: 80px !important;
+  width: 100px!important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+
+.notes {
+  display: none;
+}
+
+/* Hide headers marked with slide-only class */
+h1.slide-only,
+h2.slide-only,
+h3.slide-only,
+h4.slide-only,
+h5.slide-only,
+h6.slide-only {
+  display: none;
+}
+
+
