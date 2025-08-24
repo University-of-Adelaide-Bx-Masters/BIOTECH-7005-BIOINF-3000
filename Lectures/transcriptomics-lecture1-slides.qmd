@@ -343,7 +343,7 @@ The C~T~ values as actually estimated to a decimal value
 
 :::: {.columns}
 
-::: {.column width="55%"}
+::: {.column width="58%"}
 
 ::: {.incremental}
 - mRNA $\rightarrow$ cDNA using biotinylated primers
@@ -354,9 +354,11 @@ The C~T~ values as actually estimated to a decimal value
 :::
 :::
 
-::: {.column width="45%"}
+::: {.column width="42%"}
+::: {style="font-size: 80%; text-align: center;"}
 ::: {.fragment}
-![](transcriptomics/SAGE.png)
+![Thomas Shafee, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), via Wikimedia Commons](transcriptomics/SAGE.png)
+:::
 :::
 :::
 
