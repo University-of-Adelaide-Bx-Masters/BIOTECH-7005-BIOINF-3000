@@ -41,6 +41,7 @@ format:
 
 :::
 
+# Introduction To Transcriptomics
 
 ## Introduction
 
@@ -83,15 +84,15 @@ format:
 - DNA $\rightarrow$ mRNA $\rightarrow$ Proteins
     + Commonly referred to as the Central Dogma of Biology
 - Proteins are the *workhorses* of the cell & body
-    + They do most of the work, and are responsible for most of the structure
-    + Things like keratin (hair), haemoglobin (oxygen transport) etc
+    + Do most of the work, and are responsible for most of the structure
+    + Examples like keratin (hair), haemoglobin (oxygen transport) etc
   
 ::: {.fragment}
   
 - ncRNAs are also highly functional
     + Ribosomal RNA (rRNA) essential for translation from mRNA to Protein
     + microRNAs play a role in gene-regulation via mRNA stability
-    + lncRNAs: Xist coats the *entire X chromosome* during X inactivation
+    + The lncRNA Xist coats the *entire X chromosome* during X inactivation
     
 :::
 
@@ -99,11 +100,14 @@ format:
 
 ### Definition
 
-> The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition [@Wang2009-hf]
+Based on @Wang2009-hf
+
+> The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition 
+
 
 ::: {.fragment}
 - Transcriptomics is simply the study of the transcriptome
-- Can be the *entire RNA content of a cell* (or cells) or a subset of molecules (e.g. mRNA)
+- Can be the *entire RNA content of a cell* (or cells) or a subset of molecules (e.g. mRNA, miRNA)
 :::
 
 ## Why Transcriptomics? {.slide-only .unlisted}
@@ -132,11 +136,11 @@ format:
     + Key drivers of correlated gene networks
     + Early drivers of neurodegeneration in Alzheimers
 - Assumed to be low-level
-    + DNA $\rightarrow$ RNA $\rightarrow$ Protein $\rightarrow$ Metabolites, Signalling molecules, etc ...
+    + DNA $\rightarrow$ [RNA]{.text-red} [$\rightarrow$ Protein $\rightarrow$ Metabolites, Signalling molecules, etc ...]{.fragment}
 
 ## Why Transcriptomics? {.slide-only .unlisted}
 
-- Is the first molecular level where quantity becomes relevant
+- Is the first molecular level where quantity becomes a key aspect
     + Highly-expressed, or low-expressed genes are important
     + Changes in response to stimulus impact gene expression levels
 
@@ -151,11 +155,226 @@ format:
 ## Why Transcriptomics? {.slide-only .unlisted}
 
 - Early techniques were often using large numbers of cells
-    + Often multiple cell types withing a bilogical sample
+    + Often multiple cell types within a biological sample
 - Modern techniques are incredibly detailed
     + Single-Cell RNA characterises exact cell types and cell trajectories
     + Spatial transcriptomics used to identify co-located cells in tissue
+    + Identify cell-cell signalling *in situ*
+
+## What Is Transcription
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+### Definition
+
+> Transcription is the process of making an RNA copy of a gene sequence
+
+:::
+
+::: {.column width='60%'}
+
+::: {style="font-size: 90%; text-align: center;"}
+
+![Figure taken from [^1] Licensed under CC-BY 4.0 by OpenStax](transcriptomics/transcription.jpg)
+
+:::
+
+:::
+
+::::
+
+[^1]: https://openoregon.pressbooks.pub/mhccbiology102/chapter/transcription/
+
+## Steps of Transcription 
 
 
+1. **RNA polymerase binds to the promoter** along with $\geq1$ transcription factors
+
+::: {.incremental}
+2. **RNA polymerase creates a transcription bubble**
+    + separates the two DNA strands, breaking hydrogen bonds between complementary DNA nucleotides.
+3. **RNA polymerase adds RNA nucleotides**
+    + complementary to the antisense DNA strand.
+4. **RNA sugar-phosphate backbone forms**
+5. **Hydrogen bonds of the RNA–DNA complex break** freeing the newly synthesized RNA strand.
+
+:::
+
+## Steps of Transcription {.slide-only .unlisted}
+
+#### If the cell is a eukaryotic cell
+
+6. **RNA processing**
+    + This may include polyadenylation, capping and splicing
+    + Occurs during (or immediately after) transcription
+7. **RNA Localisation**
+    + The RNA may remain in the nucleus or exit to the cytoplasm through the nuclear pore complex
+
+::: {.fragment}
+- Eukaryotic mRNA, miRNA & snRNA transcription uses *RNA Polymerase II*
+    + RNA Pol I: rRNA
+    + RNA Pol III: tRNA, 5S RNA some small RNAs
+    
+:::
+
+## Eukaryotic mRNA Processing
+
+- Nuclear mRNA have 5' cap added
+    + Protects single-stranded mRNA from degradation
+    + Regulates nuclear export
+    + Promotes translation
+    
+::: {.fragment}
+- mRNAs are polyadenylated at the 3' end
+    + Also protects from degradation
+    + Aids in transcription termination, export and translation
+    
+:::
+::: {.fragment}
+- Introns are spliced out as required    
+:::
+
+
+## Eukaryotic mRNA Processing {.slide-only .unlisted}
+
+![Taken from @Shafee2017-zv](transcriptomics/eukaryotic_mrna_processing.svg)
+
+## Alternate Transcripts and Isoforms
+
+
+![Image by the National Human Genome Research Institute](transcriptomics/DNA_alternative_splicing.png)
+
+## Transcriptome Resources
+
+- Reference Transcriptomes & Genomes are now commonly available
+    + Incorporate experimentally derived & predicted sequences + loci
+- Gencode[^2] provide highest quality for mouse & human
+    + Release 48 (GRCh38): 78,686 genes + 385,669 transcripts
+
+::: {.fragment}
+- Other organisms from Ensembl, RefSeq, UCSC etc
+     + Zebrafish, Rat, Chicken, Drosophila, Wheat, Yeast, *E. Coli* etc
+
+:::
+
+::: {.fragment}
+- Sometimes we build novel transcriptomes from specific tissues
+    + e.g. sea snake venom gland, shiraz fruit
+    
+:::
+
+
+[^2]: https://www.gencodegenes.org/
+
+# Early Transcriptomics
+
+## Northern Blotting
+
+- Northern blot [@1977NorthernBlot] extended DNA-based methods (i.e Southern blot)
+    + Earliest single-gene method
+- Gel Electrophoresis then hybridisation with labelled probe
+    + Requires some knowledge of RNA sequence
+- Images scanned $\rightarrow$ *Densitometric Analysis* for crude quantitation
+- Possible for different isoforms to be detected
+    + Sequence dependent
+
+## RT-qPCR
+
+::: {.notes}
+The C~T~ values as actually estimated to a decimal value
+:::
+
+- “Gold-standard” for measurement of transcription levels
+    + Single gene $\implies$ not a high-throughput technique
+- Targets a single transcript region with specific primers to produce cDNA <br>$\rightarrow$ Polymerase Chain Reaction (PCR)
+- Each PCR cycle approximately doubles the target region
+    
+::: {.fragment}    
+- cDNA produced is identified using fluorophores
+    + Fluorescence doubles with each cycle
+- Once fluoresence passes a detection threshold, the cycle number is recorded
+    + Known as the Cycle Threshold (C~T~) value
+
+:::
+
+## RT-qPCR {.slide-only .unlisted}
+
+![A 10-fold dilution series](transcriptomics/qPCR.png){fig-align="left"}
+
+## RT-qPCR {.slide-only .unlisted}
+
+- Higher C~T~ values $\implies$ lower numbers of target molecule at the beginning
+- These can be used to estimate and compare abundance levels (i.e. gene expression)
+
+::: {.fragment}
+- Is vulnerable to technical artefacts (e.g. pipetting variability)
+- Often includes one or more "housekeeper" genes thought to be stably expressed
+:::
+
+::: {.incremental}
+- C~T~ values are then *normalised* to the housekeeper genes $\implies \Delta C_T$
+    + log~2~ transformed values are used
+- Comparison between conditions is the change in $\Delta C_T \implies \Delta\Delta C_T$
+- Represents change on the log~2~ scale, i.e. *log fold-change*
+:::
+
+## Expressed Sequence Tags
+
+::: {.notes}
+- The senior author on the EST paper was J Craing Ventner who played an important role in the Human Genome Project
+:::
+
+- The first attempt at capturing the larger transcriptome was ESTs [@1991VenterEST]
+- Identified 609 human brain mRNA sequences
+    + Selected for polyA-mRNA then reverse transcribed
+    + Used random primers $\rightarrow$ Sanger Sequencing
+- 10 years before the Human Genome Project
+    + Gene discovery was a hot topic
+
+## Sanger Sequencing
+
+![Estevezj, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons](transcriptomics/Sanger-sequencing.svg){fig-align="left"}
+
+## SAGE & CAGE
+
+- First high-throughput quantification method was *Serial Analysis of Gene Expression* (SAGE) [@pmid7570003]
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+::: {.incremental}
+- mRNA $\rightarrow$ cDNA using biotinylated primers
+- cDNA bound to beads (using biotin) & cleaved 
+- 11mer "tags" were ligated into long sequenced using linker sequences
+- Sequenced using Sanger Sequencing
+- Deconvolution & counting
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](transcriptomics/SAGE.png)
+:::
+:::
+
+::::
+
+## SAGE & CAGE {.slide-only .unlisted}
+
+- The terminology of counting *tags* is still used by some manuals & software to represent counting of sequences
+- Was described as Digital Gene Expression (DGE)
+    + DGE still used but can be confused with Differential Gene Expression
+    
+::: {.fragment}
+- A variant called Cap Analysis of Gene Expression (CAGE) targeted the 5' Cap
+- Heavily used by FANTOM project [@Abugessaisa2021-fn] to identify exact Transcription Start Sites (TSS)
+
+:::
+
+
+## Microarray Technology
 
 ## References

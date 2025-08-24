@@ -172,6 +172,11 @@ The University of Adelaide</div><p></p>
 <p><em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
 </div>
 </section>
+<section>
+<section id="introduction-to-transcriptomics" class="title-slide slide level1 center">
+<h1>Introduction To Transcriptomics</h1>
+
+</section>
 <section id="introduction" class="slide level2">
 <h2>Introduction</h2>
 <ul>
@@ -213,8 +218,8 @@ The University of Adelaide</div><p></p>
 </ul></li>
 <li>Proteins are the <em>workhorses</em> of the cell &amp; body
 <ul>
-<li>They do most of the work, and are responsible for most of the structure</li>
-<li>Things like keratin (hair), haemoglobin (oxygen transport) etc</li>
+<li>Do most of the work, and are responsible for most of the structure</li>
+<li>Examples like keratin (hair), haemoglobin (oxygen transport) etc</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -223,7 +228,7 @@ The University of Adelaide</div><p></p>
 <ul>
 <li>Ribosomal RNA (rRNA) essential for translation from mRNA to Protein</li>
 <li>microRNAs play a role in gene-regulation via mRNA stability</li>
-<li>lncRNAs: Xist coats the <em>entire X chromosome</em> during X inactivation</li>
+<li>The lncRNA Xist coats the <em>entire X chromosome</em> during X inactivation</li>
 </ul></li>
 </ul>
 </div>
@@ -231,13 +236,14 @@ The University of Adelaide</div><p></p>
 <section id="why-transcriptomics-2" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
 <h3 id="definition">Definition</h3>
+<p>Based on <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span></p>
 <blockquote>
-<p>The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition <span class="citation" data-cites="Wang2009-hf">(<a href="#/references" role="doc-biblioref" onclick="">Wang, Gerstein, and Snyder 2009</a>)</span></p>
+<p>The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition</p>
 </blockquote>
 <div class="fragment">
 <ul>
 <li>Transcriptomics is simply the study of the transcriptome</li>
-<li>Can be the <em>entire RNA content of a cell</em> (or cells) or a subset of molecules (e.g.&nbsp;mRNA)</li>
+<li>Can be the <em>entire RNA content of a cell</em> (or cells) or a subset of molecules (e.g.&nbsp;mRNA, miRNA)</li>
 </ul>
 </div>
 </section>
@@ -274,14 +280,14 @@ The University of Adelaide</div><p></p>
 </ul></li>
 <li>Assumed to be low-level
 <ul>
-<li>DNA <span class="math inline">\(\rightarrow\)</span> RNA <span class="math inline">\(\rightarrow\)</span> Protein <span class="math inline">\(\rightarrow\)</span> Metabolites, Signalling molecules, etc …</li>
+<li>DNA <span class="math inline">\(\rightarrow\)</span> <span class="text-red">RNA</span> <span class="fragment"><span class="math inline">\(\rightarrow\)</span> Protein <span class="math inline">\(\rightarrow\)</span> Metabolites, Signalling molecules, etc …</span></li>
 </ul></li>
 </ul>
 </section>
 <section id="why-transcriptomics-5" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
 <ul>
-<li>Is the first molecular level where quantity becomes relevant
+<li>Is the first molecular level where quantity becomes a key aspect
 <ul>
 <li>Highly-expressed, or low-expressed genes are important</li>
 <li>Changes in response to stimulus impact gene expression levels</li>
@@ -305,27 +311,325 @@ The University of Adelaide</div><p></p>
 <ul>
 <li>Early techniques were often using large numbers of cells
 <ul>
-<li>Often multiple cell types withing a bilogical sample</li>
+<li>Often multiple cell types within a biological sample</li>
 </ul></li>
 <li>Modern techniques are incredibly detailed
 <ul>
 <li>Single-Cell RNA characterises exact cell types and cell trajectories</li>
 <li>Spatial transcriptomics used to identify co-located cells in tissue</li>
+<li>Identify cell-cell signalling <em>in situ</em></li>
 </ul></li>
 </ul>
+</section>
+<section id="what-is-transcription" class="slide level2">
+<h2>What Is Transcription</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="definition-1">Definition</h3>
+<blockquote>
+<p>Transcription is the process of making an RNA copy of a gene sequence</p>
+</blockquote>
+</div><div class="column" style="width:60%;">
+<div style="font-size: 90%; text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/transcription.jpg"></p>
+<figcaption>Figure taken from <sup>1</sup> Licensed under CC-BY 4.0 by OpenStax</figcaption>
+</figure>
+</div>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>https://openoregon.pressbooks.pub/mhccbiology102/chapter/transcription/</p></li></ol></aside></section>
+<section id="steps-of-transcription" class="slide level2">
+<h2>Steps of Transcription</h2>
+<ol type="1">
+<li><strong>RNA polymerase binds to the promoter</strong> along with <span class="math inline">\(\geq1\)</span> transcription factors</li>
+</ol>
+<ol start="2" type="1">
+<li class="fragment"><strong>RNA polymerase creates a transcription bubble</strong>
+<ul>
+<li class="fragment">separates the two DNA strands, breaking hydrogen bonds between complementary DNA nucleotides.</li>
+</ul></li>
+<li class="fragment"><strong>RNA polymerase adds RNA nucleotides</strong>
+<ul>
+<li class="fragment">complementary to the antisense DNA strand.</li>
+</ul></li>
+<li class="fragment"><strong>RNA sugar-phosphate backbone forms</strong></li>
+<li class="fragment"><strong>Hydrogen bonds of the RNA–DNA complex break</strong> freeing the newly synthesized RNA strand.</li>
+</ol>
+</section>
+<section id="steps-of-transcription-1" class="slide level2 slide-only unlisted">
+<h2>Steps of Transcription</h2>
+<h4 id="if-the-cell-is-a-eukaryotic-cell">If the cell is a eukaryotic cell</h4>
+<ol start="6" type="1">
+<li><strong>RNA processing</strong>
+<ul>
+<li>This may include polyadenylation, capping and splicing</li>
+<li>Occurs during (or immediately after) transcription</li>
+</ul></li>
+<li><strong>RNA Localisation</strong>
+<ul>
+<li>The RNA may remain in the nucleus or exit to the cytoplasm through the nuclear pore complex</li>
+</ul></li>
+</ol>
+<div class="fragment">
+<ul>
+<li>Eukaryotic mRNA, miRNA &amp; snRNA transcription uses <em>RNA Polymerase II</em>
+<ul>
+<li>RNA Pol I: rRNA</li>
+<li>RNA Pol III: tRNA, 5S RNA some small RNAs</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="eukaryotic-mrna-processing" class="slide level2">
+<h2>Eukaryotic mRNA Processing</h2>
+<ul>
+<li>Nuclear mRNA have 5’ cap added
+<ul>
+<li>Protects single-stranded mRNA from degradation</li>
+<li>Regulates nuclear export</li>
+<li>Promotes translation</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>mRNAs are polyadenylated at the 3’ end
+<ul>
+<li>Also protects from degradation</li>
+<li>Aids in transcription termination, export and translation</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Introns are spliced out as required<br>
+</li>
+</ul>
+</div>
+</section>
+<section id="eukaryotic-mrna-processing-1" class="slide level2 slide-only unlisted">
+<h2>Eukaryotic mRNA Processing</h2>
+
+<img data-src="transcriptomics/eukaryotic_mrna_processing.svg" class="r-stretch quarto-figure-center"><p class="caption">Taken from <span class="citation" data-cites="Shafee2017-zv">Shafee and Lowe (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p></section>
+<section id="alternate-transcripts-and-isoforms" class="slide level2">
+<h2>Alternate Transcripts and Isoforms</h2>
+
+<img data-src="transcriptomics/DNA_alternative_splicing.png" class="r-stretch quarto-figure-center"><p class="caption">Image by the National Human Genome Research Institute</p></section>
+<section id="transcriptome-resources" class="slide level2">
+<h2>Transcriptome Resources</h2>
+<ul>
+<li>Reference Transcriptomes &amp; Genomes are now commonly available
+<ul>
+<li>Incorporate experimentally derived &amp; predicted sequences + loci</li>
+</ul></li>
+<li>Gencode<sup>1</sup> provide highest quality for mouse &amp; human
+<ul>
+<li>Release 48 (GRCh38): 78,686 genes + 385,669 transcripts</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Other organisms from Ensembl, RefSeq, UCSC etc
+<ul>
+<li>Zebrafish, Rat, Chicken, Drosophila, Wheat, Yeast, <em>E. Coli</em> etc</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Sometimes we build novel transcriptomes from specific tissues
+<ul>
+<li>e.g.&nbsp;sea snake venom gland, shiraz fruit</li>
+</ul></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>https://www.gencodegenes.org/</p></li></ol></aside></section></section>
+<section>
+<section id="early-transcriptomics" class="title-slide slide level1 center">
+<h1>Early Transcriptomics</h1>
+
+</section>
+<section id="northern-blotting" class="slide level2">
+<h2>Northern Blotting</h2>
+<ul>
+<li>Northern blot <span class="citation" data-cites="1977NorthernBlot">(<a href="#/references" role="doc-biblioref" onclick="">Alwine, Kemp, and Stark 1977</a>)</span> extended DNA-based methods (i.e Southern blot)
+<ul>
+<li>Earliest single-gene method</li>
+</ul></li>
+<li>Gel Electrophoresis then hybridisation with labelled probe
+<ul>
+<li>Requires some knowledge of RNA sequence</li>
+</ul></li>
+<li>Images scanned <span class="math inline">\(\rightarrow\)</span> <em>Densitometric Analysis</em> for crude quantitation</li>
+<li>Possible for different isoforms to be detected
+<ul>
+<li>Sequence dependent</li>
+</ul></li>
+</ul>
+</section>
+<section id="rt-qpcr" class="slide level2">
+<h2>RT-qPCR</h2>
+<aside class="notes">
+<p>The C<sub>T</sub> values as actually estimated to a decimal value</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>“Gold-standard” for measurement of transcription levels
+<ul>
+<li>Single gene <span class="math inline">\(\implies\)</span> not a high-throughput technique</li>
+</ul></li>
+<li>Targets a single transcript region with specific primers to produce cDNA <br><span class="math inline">\(\rightarrow\)</span> Polymerase Chain Reaction (PCR)</li>
+<li>Each PCR cycle approximately doubles the target region</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>cDNA produced is identified using fluorophores
+<ul>
+<li>Fluorescence doubles with each cycle</li>
+</ul></li>
+<li>Once fluoresence passes a detection threshold, the cycle number is recorded
+<ul>
+<li>Known as the Cycle Threshold (C<sub>T</sub>) value</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="rt-qpcr-1" class="slide level2 slide-only unlisted">
+<h2>RT-qPCR</h2>
+
+<img data-src="transcriptomics/qPCR.png" class="r-stretch quarto-figure-left"><p class="caption">A 10-fold dilution series</p></section>
+<section id="rt-qpcr-2" class="slide level2 slide-only unlisted">
+<h2>RT-qPCR</h2>
+<ul>
+<li>Higher C<sub>T</sub> values <span class="math inline">\(\implies\)</span> lower numbers of target molecule at the beginning</li>
+<li>These can be used to estimate and compare abundance levels (i.e.&nbsp;gene expression)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Is vulnerable to technical artefacts (e.g.&nbsp;pipetting variability)</li>
+<li>Often includes one or more “housekeeper” genes thought to be stably expressed</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">C<sub>T</sub> values are then <em>normalised</em> to the housekeeper genes <span class="math inline">\(\implies \Delta C_T\)</span>
+<ul>
+<li class="fragment">log<sub>2</sub> transformed values are used</li>
+</ul></li>
+<li class="fragment">Comparison between conditions is the change in <span class="math inline">\(\Delta C_T \implies \Delta\Delta C_T\)</span></li>
+<li class="fragment">Represents change on the log<sub>2</sub> scale, i.e.&nbsp;<em>log fold-change</em></li>
+</ul>
+</section>
+<section id="expressed-sequence-tags" class="slide level2">
+<h2>Expressed Sequence Tags</h2>
+<aside class="notes">
+<ul>
+<li>The senior author on the EST paper was J Craing Ventner who played an important role in the Human Genome Project</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>The first attempt at capturing the larger transcriptome was ESTs <span class="citation" data-cites="1991VenterEST">(<a href="#/references" role="doc-biblioref" onclick="">Adams et al. 1991</a>)</span></li>
+<li>Identified 609 human brain mRNA sequences
+<ul>
+<li>Selected for polyA-mRNA then reverse transcribed</li>
+<li>Used random primers <span class="math inline">\(\rightarrow\)</span> Sanger Sequencing</li>
+</ul></li>
+<li>10 years before the Human Genome Project
+<ul>
+<li>Gene discovery was a hot topic</li>
+</ul></li>
+</ul>
+</section>
+<section id="sanger-sequencing" class="slide level2">
+<h2>Sanger Sequencing</h2>
+
+<img data-src="transcriptomics/Sanger-sequencing.svg" class="r-stretch quarto-figure-left"><p class="caption">Estevezj, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</p></section>
+<section id="sage-cage" class="slide level2">
+<h2>SAGE &amp; CAGE</h2>
+<ul>
+<li>First high-throughput quantification method was <em>Serial Analysis of Gene Expression</em> (SAGE) <span class="citation" data-cites="pmid7570003">(<a href="#/references" role="doc-biblioref" onclick="">Velculescu et al. 1995</a>)</span></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li class="fragment">mRNA <span class="math inline">\(\rightarrow\)</span> cDNA using biotinylated primers</li>
+<li class="fragment">cDNA bound to beads (using biotin) &amp; cleaved</li>
+<li class="fragment">11mer “tags” were ligated into long sequenced using linker sequences</li>
+<li class="fragment">Sequenced using Sanger Sequencing</li>
+<li class="fragment">Deconvolution &amp; counting</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<p><img data-src="transcriptomics/SAGE.png"></p>
+</div>
+</div></div>
+</section>
+<section id="sage-cage-1" class="slide level2 slide-only unlisted">
+<h2>SAGE &amp; CAGE</h2>
+<ul>
+<li>The terminology of counting <em>tags</em> is still used by some manuals &amp; software to represent counting of sequences</li>
+<li>Was described as Digital Gene Expression (DGE)
+<ul>
+<li>DGE still used but can be confused with Differential Gene Expression</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>A variant called Cap Analysis of Gene Expression (CAGE) targeted the 5’ Cap</li>
+<li>Heavily used by FANTOM project <span class="citation" data-cites="Abugessaisa2021-fn">(<a href="#/references" role="doc-biblioref" onclick="">Abugessaisa et al. 2020</a>)</span> to identify exact Transcription Start Sites (TSS)</li>
+</ul>
+</div>
+</section>
+<section id="microarray-technology" class="slide level2">
+<h2>Microarray Technology</h2>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Abugessaisa2021-fn" class="csl-entry" role="listitem">
+Abugessaisa, Imad, Jordan A Ramilowski, Marina Lizio, Jesicca Severin, Akira Hasegawa, Jayson Harshbarger, Atsushi Kondo, et al. 2020. <span>“FANTOM Enters 20th Year: Expansion of Transcriptomic Atlases and Functional Annotation of Non-Coding RNAs.”</span> <em>Nucleic Acids Research</em> 49 (D1): D892–98. <a href="https://doi.org/10.1093/nar/gkaa1054">https://doi.org/10.1093/nar/gkaa1054</a>.
+</div>
+<div id="ref-1991VenterEST" class="csl-entry" role="listitem">
+Adams, Mark D., Jenny M. Kelley, Jeannine D. Gocayne, Mark Dubnick, Mihael H. Polymeropoulos, Hong Xiao, Carl R. Merril, et al. 1991. <span>“Complementary DNA Sequencing: Expressed Sequence Tags and Human Genome Project.”</span> <em>Science</em> 252 (5013): 1651–56. <a href="http://www.jstor.org/stable/2876333">http://www.jstor.org/stable/2876333</a>.
+</div>
+<div id="ref-1977NorthernBlot" class="csl-entry" role="listitem">
+Alwine, J. C., D. J. Kemp, and G. R. Stark. 1977. <span>“<span class="nocase"><span>M</span>ethod for detection of specific <span>R</span><span>N</span><span>A</span>s in agarose gels by transfer to diazobenzyloxymethyl-paper and hybridization with <span>D</span><span>N</span><span>A</span> probes</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 74 (12): 5350–54.
+</div>
 <div id="ref-Fang2015-uq" class="csl-entry" role="listitem">
 Fang, Rui, Walter N Moss, Michael Rutenberg-Schoenberg, and Matthew D Simon. 2015. <span>“Probing Xist <span>RNA</span> Structure in Cells Using Targeted Structure-Seq.”</span> <em>PLoS Genet.</em> 11 (12): e1005668.
+</div>
+<div id="ref-Shafee2017-zv" class="csl-entry" role="listitem">
+Shafee, Thomas, and Rohan Lowe. 2017. <span>“Eukaryotic and Prokaryotic Gene Structure.”</span> <em><span>WikiJournal</span> of Medicine</em>, January. <a href="https://doi.org/10.15347/WJM/2017.002">https://doi.org/10.15347/WJM/2017.002</a>.
+</div>
+<div id="ref-pmid7570003" class="csl-entry" role="listitem">
+Velculescu, V. E., L. Zhang, B. Vogelstein, and K. W. Kinzler. 1995. <span>“<span class="nocase"><span>S</span>erial analysis of gene expression</span>.”</span> <em>Science</em> 270 (5235): 484–87.
 </div>
 <div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
 Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.
 </div>
 </div>
-</section>
+</section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
