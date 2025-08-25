@@ -579,7 +579,6 @@ The University of Adelaide</div><p></p>
 </ul>
 </div><div class="column" style="width:42%;">
 <div style="font-size: 80%; text-align: center;">
-<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="transcriptomics/SAGE.png"></p>
@@ -587,16 +586,18 @@ The University of Adelaide</div><p></p>
 </figure>
 </div>
 </div>
-</div>
 </div></div>
 </section>
 <section id="sage-cage-1" class="slide level2 slide-only unlisted">
 <h2>SAGE &amp; CAGE</h2>
 <ul>
-<li>The terminology of counting <em>tags</em> is still used by some manuals &amp; software to represent counting of sequences</li>
+<li>The terminology of counting <em>tags</em> is still used by some manuals &amp; software
+<ul>
+<li>Statistical models still form the basis of modern transcriptomics</li>
+</ul></li>
 <li>Was described as Digital Gene Expression (DGE)
 <ul>
-<li>DGE still used but can be confused with Differential Gene Expression</li>
+<li>The term DGE is still used but easily confused with Differential Gene Expression</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -608,7 +609,290 @@ The University of Adelaide</div><p></p>
 </section>
 <section id="microarray-technology" class="slide level2">
 <h2>Microarray Technology</h2>
+<aside class="notes">
+<ul>
+<li>My search last week showed 69000 public miroarray datasets in the GEO database</li>
+<li>I reviewed a Scientific Reports submission using public array data last month</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Microarrays represent the <em>birth of modern transcriptomics</em>
+<ul>
+<li>Thousands of genes could be measured simultaneously!!!</li>
+<li>Tens of thousands of public datasets <span class="math inline">\(\implies\)</span> still being mined</li>
+</ul></li>
+<li>Established concurrently with the Human Genome Project (1990-2003)
+<ul>
+<li>Databases &amp; complete reference sequences become widely available</li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">All require fluorescently labelled cDNA copies of RNA</li>
+<li class="fragment">Hybridised to the array using probes for known sequences
+<ul>
+<li class="fragment"><span class="math inline">\(\uparrow\)</span> fluorescence <span class="math inline">\(\implies \uparrow\)</span> RNA abundance</li>
+</ul></li>
+</ul>
 </section>
+<section id="microarray-technology-1" class="slide level2 slide-only unlisted">
+<h2>Microarray Technology</h2>
+<ul>
+<li>All microarrays follow the same basic process</li>
+</ul>
+
+<img data-src="transcriptomics/Microarray_exp_horizontal.svg" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of Squidonius, Public domain, via Wikimedia Commons</p></section>
+<section id="two-colour-arrays" class="slide level2">
+<h2>Two Colour Arrays</h2>
+<div class="columns">
+<div class="column" style="width:57%;">
+<ul>
+<li>Two colour microarrays were printed microscope slides</li>
+<li>Known probe sequences were <em>printed</em> to the surface in defined locations
+<ul>
+<li>60-75mer oligonucleotide probes</li>
+<li>Highly customisable by project</li>
+<li>Two samples per array</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>One sample labelled with Cy5 (Red)</li>
+<li>Other sample labelled with Cy3 (Green)</li>
+<li>Scanned at 570nm (Cy3) and 670nm (Cy5)</li>
+</ul>
+</div>
+</div><div class="column" style="width:43%;">
+<div class="fragment">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/2colour.jpg" style="width:100.0%"></p>
+<figcaption>Section of two-colour array taken from <span class="citation" data-cites="Shalon01071996">Shalon, Smith, and Brown (<a href="#/references" role="doc-biblioref" onclick="">1996</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="single-channel-arrays" class="slide level2">
+<h2>Single Channel Arrays</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Affymetrix Arrays became dominant
+<ul>
+<li>Factory manufactured</li>
+</ul></li>
+<li>Standardised layout for each organism</li>
+<li>Single sample per array
+<ul>
+<li>Only scanned at one frequency</li>
+</ul></li>
+<li>More genes/array</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>25mer probes targeting 3’ end of transcript
+<ul>
+<li>Captured only intact transcripts</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<div style="font-size: 80%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/Affymetrix.jpg"></p>
+<figcaption>No author known. Schutz assumed based on copyright claims. <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="single-channel-arrays-1" class="slide level2 slide-only unlisted">
+<h2>Single Channel Arrays</h2>
+<div class="columns">
+<div class="column" style="width:85%;">
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/microarrayLayout.jpg" style="width:100.0%"></p>
+<figcaption>The basic methodology underpinning Affymetrix array design. Source unknown</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="arrays" class="slide level2">
+<h2>3’ Arrays</h2>
+<ul>
+<li>Each 3’ exon targeted by 11 unique 25mer probes <span class="math inline">\(\implies\)</span> <em>a probeset</em></li>
+<li>Possible to detect different transcripts only if 3’ exons differ</li>
+</ul>
+<ul>
+<li class="fragment"><em>Perfect Match</em> (PM) probes <span class="math inline">\(\implies\)</span> exactly matches target sequence
+<ul>
+<li class="fragment">Known to capture off-target signal <span class="math inline">\(\implies\)</span> non-specific binding</li>
+</ul></li>
+<li class="fragment">Arrays included <em>mismatch</em> probes (MM) with a change at the 13th position
+<ul>
+<li class="fragment">Sometimes returned more signal than PM probes 🤪</li>
+</ul></li>
+<li class="fragment">Gene-level expression estimate obtained taking a robust average across probeset
+<ul>
+<li class="fragment">Model also included BG signal (but not always from MM probes)</li>
+</ul></li>
+</ul>
+</section>
+<section id="whole-transcript-arrays" class="slide level2">
+<h2>Whole Transcript Arrays</h2>
+<ul>
+<li>Whole Transcript Arrays released by Affymetrix in mid-2000s
+<ul>
+<li>Marketed as Exon Arrays and Gene Arrays</li>
+</ul></li>
+<li>Probes along entire transcript <em>BUT</em> <span class="math inline">\(\leq\)</span> 4 probes/exon</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/ArrayProbeLayout.png" style="width:70.0%"></p>
+<figcaption>Source: Affymetrix Technical Note</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="whole-transcript-arrays-1" class="slide level2 slide-only unlisted">
+<h2>Whole Transcript Arrays</h2>
+<aside class="notes">
+<ul>
+<li>Detecting alternate isoform usage on Exon Arrays was the focus of my PhD</li>
+<li>My method was rubbish, but still better than anything else</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>No successful methods for determining alternate isoform usage
+<ul>
+<li>Most people reverted back to gene-level signal</li>
+<li>No real gains over 3’ Arrays beside more genes/array</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>RNA-Seq appeared at a similar time &amp; <strong>obliterated</strong> their market share
+<ul>
+<li>Alternate isoform usage in RNA-seq is <em>still</em> considered a bit exploratory</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="microarray-analysis" class="title-slide slide level1 center">
+<h1>Microarray Analysis</h1>
+
+</section>
+<section id="single-channel-data" class="slide level2">
+<h2>Single Channel Data</h2>
+<ul>
+<li>We will have multiple arrays from each condition
+<ul>
+<li>Biological Replicates (hopefully <span class="math inline">\(\geq4\)</span> per condition)</li>
+<li>Want to find changed expression in response to our biological hypothesis</li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">Will the some arrays have higher/lower overall signal?
+<ul>
+<li class="fragment">Pipetting errors, hybridisation variability etc</li>
+</ul></li>
+<li class="fragment">Two Initial Problems to solve</li>
+</ul>
+<ol type="1">
+<li class="fragment">Adjust for overall differences in signal <span class="fragment"><span class="math inline">\(\implies\)</span> Normalisation</span></li>
+<li class="fragment">Removal of Background Signal (non-specific binding + optical noise) <br> <span class="fragment"><span class="math inline">\(\implies\)</span>Background Correction</span></li>
+</ol>
+</section>
+<section id="normalisation" class="slide level2">
+<h2>Normalisation</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/quantileNorm.png"></p>
+<figcaption>Example of raw PM probe intensities. Taken from <span class="citation" data-cites="pmid12538238">Bolstad et al. (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:35%;">
+<ul>
+<li>The variation here is technical<br><span class="math inline">\(\implies\)</span> <em>not</em> due to biology</li>
+<li>Higher variance reduces power of statistical testing</li>
+<li>Can we reduce this?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Quantile normalisation</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="normalisation-1" class="slide level2 slide-only unlisted">
+<h2>Normalisation</h2>
+<ul>
+<li>Quantile normalisation is perfect for arrays with probes and probesets
+<ul>
+<li>Normalise probes, but estimate signal at the probeset level</li>
+</ul></li>
+</ul>
+<ol type="1">
+<li class="fragment">Find the lowest signal probe on each array</li>
+<li class="fragment">Calculate the average signal across all arrays</li>
+<li class="fragment">Give each of the probes the average signal</li>
+<li class="fragment">Move to the next lowest signal probe until finished</li>
+</ol>
+<div class="fragment">
+<ul>
+<li>The lowest signal probes will be completely different across arrays</li>
+<li>Effectively randomises noise</li>
+<li>Leads to arrays with identical distributions</li>
+</ul>
+</div>
+</section>
+<section id="normalisation-2" class="slide level2 slide-only unlisted">
+<h2>Normalisation</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/preNorm.png"></p>
+<figcaption>Before quantile normalisation</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/postNorm.png"></p>
+<figcaption>After quantile normalisation<sup>1</sup></figcaption>
+</figure>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001</p></li></ol></aside></section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
@@ -622,11 +906,17 @@ Adams, Mark D., Jenny M. Kelley, Jeannine D. Gocayne, Mark Dubnick, Mihael H. Po
 <div id="ref-1977NorthernBlot" class="csl-entry" role="listitem">
 Alwine, J. C., D. J. Kemp, and G. R. Stark. 1977. <span>“<span class="nocase"><span>M</span>ethod for detection of specific <span>R</span><span>N</span><span>A</span>s in agarose gels by transfer to diazobenzyloxymethyl-paper and hybridization with <span>D</span><span>N</span><span>A</span> probes</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 74 (12): 5350–54.
 </div>
+<div id="ref-pmid12538238" class="csl-entry" role="listitem">
+Bolstad, B. M., R. A. Irizarry, M. Astrand, and T. P. Speed. 2003. <span>“<span class="nocase"><span>A</span> comparison of normalization methods for high density oligonucleotide array data based on variance and bias</span>.”</span> <em>Bioinformatics</em> 19 (2): 185–93.
+</div>
 <div id="ref-Fang2015-uq" class="csl-entry" role="listitem">
 Fang, Rui, Walter N Moss, Michael Rutenberg-Schoenberg, and Matthew D Simon. 2015. <span>“Probing Xist <span>RNA</span> Structure in Cells Using Targeted Structure-Seq.”</span> <em>PLoS Genet.</em> 11 (12): e1005668.
 </div>
 <div id="ref-Shafee2017-zv" class="csl-entry" role="listitem">
 Shafee, Thomas, and Rohan Lowe. 2017. <span>“Eukaryotic and Prokaryotic Gene Structure.”</span> <em><span>WikiJournal</span> of Medicine</em>, January. <a href="https://doi.org/10.15347/WJM/2017.002">https://doi.org/10.15347/WJM/2017.002</a>.
+</div>
+<div id="ref-Shalon01071996" class="csl-entry" role="listitem">
+Shalon, D, S J Smith, and P O Brown. 1996. <span>“A DNA Microarray System for Analyzing Complex DNA Samples Using Two-Color Fluorescent Probe Hybridization.”</span> <em>Genome Research</em> 6 (7): 639–45. <a href="https://doi.org/10.1101/gr.6.7.639">https://doi.org/10.1101/gr.6.7.639</a>.
 </div>
 <div id="ref-pmid7570003" class="csl-entry" role="listitem">
 Velculescu, V. E., L. Zhang, B. Vogelstein, and K. W. Kinzler. 1995. <span>“<span class="nocase"><span>S</span>erial analysis of gene expression</span>.”</span> <em>Science</em> 270 (5235): 484–87.

@@ -356,9 +356,7 @@ The C~T~ values as actually estimated to a decimal value
 
 ::: {.column width="42%"}
 ::: {style="font-size: 80%; text-align: center;"}
-::: {.fragment}
 ![Thomas Shafee, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), via Wikimedia Commons](transcriptomics/SAGE.png)
-:::
 :::
 :::
 
@@ -366,9 +364,10 @@ The C~T~ values as actually estimated to a decimal value
 
 ## SAGE & CAGE {.slide-only .unlisted}
 
-- The terminology of counting *tags* is still used by some manuals & software to represent counting of sequences
+- The terminology of counting *tags* is still used by some manuals & software
+    + Statistical models still form the basis of modern transcriptomics
 - Was described as Digital Gene Expression (DGE)
-    + DGE still used but can be confused with Differential Gene Expression
+    + The term DGE is still used but easily confused with Differential Gene Expression
     
 ::: {.fragment}
 - A variant called Cap Analysis of Gene Expression (CAGE) targeted the 5' Cap
@@ -378,5 +377,221 @@ The C~T~ values as actually estimated to a decimal value
 
 
 ## Microarray Technology
+
+::: {.notes}
+- My search last week showed 69000 public miroarray datasets in the GEO database
+- I reviewed a Scientific Reports submission using public array data last month
+:::
+
+- Microarrays represent the *birth of modern transcriptomics*
+    + Thousands of genes could be measured simultaneously!!!
+    + Tens of thousands of public datasets $\implies$ still being mined
+- Established concurrently with the Human Genome Project (1990-2003)
+    + Databases & complete reference sequences become widely available
+
+::: {.incremental}
+- All require fluorescently labelled cDNA copies of RNA
+- Hybridised to the array using probes for known sequences
+    + $\uparrow$ fluorescence $\implies \uparrow$ RNA abundance
+:::
+
+## Microarray Technology {.slide-only .unlisted}
+
+- All microarrays follow the same basic process
+
+![Image courtesy of Squidonius, Public domain, via Wikimedia Commons](transcriptomics/Microarray_exp_horizontal.svg)
+
+## Two Colour Arrays
+
+:::: {.columns}
+
+::: {.column width="57%"}
+
+- Two colour microarrays were printed microscope slides
+- Known probe sequences were *printed* to the surface in defined locations
+    + 60-75mer oligonucleotide probes
+    + Highly customisable by project
+    + Two samples per array
+    
+::: {.fragment}
+- One sample labelled with Cy5 (Red)
+- Other sample labelled with Cy3 (Green)
+- Scanned at 570nm (Cy3) and 670nm (Cy5)
+
+:::
+
+:::
+
+::: {.column width="43%"}
+
+::: {.fragment}
+
+![Section of two-colour array taken from @Shalon01071996](transcriptomics/2colour.jpg){width="100%" fig-align="left"}
+
+:::
+:::
+
+::::
+
+
+
+## Single Channel Arrays
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+
+- Affymetrix Arrays became dominant
+    + Factory manufactured
+- Standardised layout for each organism
+- Single sample per array
+    + Only scanned at one frequency
+- More genes/array
+
+::: {.fragment}
+- 25mer probes targeting 3' end of transcript
+    + Captured only intact transcripts
+:::
+
+
+:::
+
+::: {.column width="45%"}
+::: {style="font-size: 80%"}
+![No author known. Schutz assumed based on copyright claims. [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/), via Wikimedia Commons](transcriptomics/Affymetrix.jpg)
+:::
+:::
+
+::::
+
+## Single Channel Arrays  {.slide-only .unlisted}
+
+:::: {.columns}
+
+::: {.column width='85%'}
+
+<br>
+
+![The basic methodology underpinning Affymetrix array design. Source unknown](transcriptomics/microarrayLayout.jpg){width="100%"}
+
+:::
+::::
+
+## 3' Arrays
+
+- Each 3' exon targeted by 11 unique 25mer probes $\implies$ *a probeset*
+- Possible to detect different transcripts only if 3' exons differ
+
+::: {.incremental}
+- *Perfect Match* (PM) probes $\implies$ exactly matches target sequence
+    + Known to capture off-target signal $\implies$ non-specific binding
+- Arrays included *mismatch* probes (MM) with a change at the 13th position
+    + Sometimes returned more signal than PM probes &#129322;
+- Gene-level expression estimate obtained taking a robust average across probeset
+    + Model also included BG signal (but not always from MM probes)
+    
+:::
+
+## Whole Transcript Arrays
+
+
+
+- Whole Transcript Arrays released by Affymetrix in mid-2000s
+    + Marketed as Exon Arrays and Gene Arrays
+- Probes along entire transcript *BUT* $\leq$ 4 probes/exon
+
+::: {.fragment}
+
+![Source: Affymetrix Technical Note](transcriptomics/ArrayProbeLayout.png){fig-align="left" width="70%"}
+:::
+
+## Whole Transcript Arrays  {.slide-only .unlisted}
+
+::: {.notes}
+- Detecting alternate isoform usage on Exon Arrays was the focus of my PhD
+- My method was rubbish, but still better than anything else
+:::
+
+- No successful methods for determining alternate isoform usage
+    + Most people reverted back to gene-level signal
+    + No real gains over 3' Arrays beside more genes/array
+
+::: {.fragment}
+
+- RNA-Seq appeared at a similar time & **obliterated** their market share
+    + Alternate isoform usage in RNA-seq is *still* considered a bit exploratory
+
+:::
+
+# Microarray Analysis
+
+## Single Channel Data
+
+- We will have multiple arrays from each condition
+    + Biological Replicates (hopefully $\geq4$ per condition)
+    + Want to find changed expression in response to our biological hypothesis
+    
+::: {.incremental}
+    
+- Will the some arrays have higher/lower overall signal?
+    + Pipetting errors, hybridisation variability etc
+
+- Two Initial Problems to solve
+
+1. Adjust for overall differences in signal [$\implies$ Normalisation]{.fragment}
+2. Removal of Background Signal (non-specific binding + optical noise) <br> [$\implies$Background Correction]{.fragment}
+
+:::
+
+## Normalisation
+
+:::: {.columns}
+::: {.column width="65%"}
+
+![Example of raw PM probe intensities. Taken from @pmid12538238](transcriptomics/quantileNorm.png){fig-align="left"}
+:::
+::: {.column width="35%"}
+- The variation here is technical<br>$\implies$ *not* due to biology
+- Higher variance reduces power of statistical testing
+- Can we reduce this?
+
+::: {.fragment}
+- Quantile normalisation
+:::
+:::
+::::
+
+## Normalisation {.slide-only .unlisted}
+
+- Quantile normalisation is perfect for arrays with probes and probesets
+    + Normalise probes, but estimate signal at the probeset level
+
+::: {.incremental}
+1. Find the lowest signal probe on each array
+2. Calculate the average signal across all arrays
+3. Give each of the probes the average signal
+4. Move to the next lowest signal probe until finished
+:::
+
+::: {.fragment}
+- The lowest signal probes will be completely different across arrays
+- Effectively randomises noise
+- Leads to arrays with identical distributions
+:::
+
+## Normalisation {.slide-only .unlisted}
+
+:::: {.columns}
+::: {.column}
+![Before quantile normalisation](transcriptomics/preNorm.png)
+:::
+::: {.column}
+![After quantile normalisation[^3]](transcriptomics/postNorm.png)
+:::
+::::
+
+[^3]: Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001
+
 
 ## References
