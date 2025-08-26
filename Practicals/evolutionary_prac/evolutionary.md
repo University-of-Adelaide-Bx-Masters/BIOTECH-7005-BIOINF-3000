@@ -247,7 +247,7 @@ Repeat the analysis with another model and compare the trees using the [FigTree 
 
 **Q9. Do the trees agree with the known taxonomic groupings? If not, propose possible explanations.** 
 
-#### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106)
+#### Nuclear tree from Decker *et al.* 2009 doi:[10.1073/pnas.0904691106](https://doi.org/10.1073/pnas.0904691106). A timescale has been added to show the most recent common ancestor of Ruminants existed ~27 million years ago, based on current data from [TimeTree](https://timetree.org/)
 
 ![Decker *et al.* 2009 10.1073/pnas.0904691106](nuclear_tree_withmya.jpg)
 
@@ -264,6 +264,10 @@ You will have produced two trees for Bovidae (two different models), submit them
 **All text must be fully legible in your submitted trees to receive full marks**.
 
 Produce a Bayesean tree for the whole mitochondrial genomes of the Australidelphia order of marsupials (including all Australasian species and the South American [Monito del Monte](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8645).
+
+#### Multi-loci time-tree from [Eldridge *et al.* 2018](https://academic.oup.com/sysbio/article/67/3/400/4175806?login=true))
+
+![Decker *et al.* 2009 10.1073/pnas.0904691106](Marsupial_phylogeny_2018.jpeg)
 
 Submit the Australidelphia tree as **Figure 2** (5 marks).
 
