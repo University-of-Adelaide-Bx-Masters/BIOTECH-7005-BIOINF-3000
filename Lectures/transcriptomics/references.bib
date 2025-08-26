@@ -158,3 +158,54 @@
    Pages="185--193",
    Month="Jan"
 }
+
+
+@article{rma2003,
+    author = {Irizarry, Rafael A. and Hobbs, Bridget and Collin, Francois and Beazer‐Barclay, Yasmin D. and Antonellis, Kristen J. and Scherf, Uwe and Speed, Terence P.},
+    title = {Exploration, normalization, and summaries of high density oligonucleotide array probe level data},
+    journal = {Biostatistics},
+    volume = {4},
+    number = {2},
+    pages = {249-264},
+    year = {2003},
+    month = {04},
+    abstract = {In this paper we report exploratory analyses of high‐density oligonucleotide array data from the Affymetrix GeneChip® system with the objective of improving upon currently used measures of gene expression. Our analyses make use of three data sets: a small experimental study consisting of five MGU74A mouse GeneChip® arrays, part of the data from an extensive spike‐in study conducted by Gene Logic and Wyeth's Genetics Institute involving 95 HG‐U95A human GeneChip® arrays; and part of a dilution study conducted by Gene Logic involving 75 HG‐U95A GeneChip® arrays. We display some familiar features of the perfect match and mismatch probe (PM and MM) values of these data, and examine the variance–mean relationship with probe‐level data from probes believed to be defective, and so delivering noise only. We explain why we need to normalize the arrays to one another using probe level intensities. We then examine the behavior of the PM and MM using spike‐in data and assess three commonly used summary measures: Affymetrix's (i) average difference (AvDiff) and (ii) MAS 5.0 signal, and (iii) the Li and Wong multiplicative model‐based expression index (MBEI). The exploratory data analyses of the probe level data motivate a new summary measure that is a robust multi‐array average (RMA) of background‐adjusted, normalized, and log‐transformed PM values. We evaluate the four expression summary measures using the dilution study data, assessing their behavior in terms of bias, variance and (for MBEI and RMA) model fit. Finally, we evaluate the algorithms in terms of their ability to detect known levels of differential expression using the spike‐in data. We conclude that there is no obvious downside to using RMA and attaching a standard error (SE) to this quantity using a linear model which removes probe‐specific affinities.},
+    issn = {1465-4644},
+    doi = {10.1093/biostatistics/4.2.249},
+    url = {https://doi.org/10.1093/biostatistics/4.2.249},
+    eprint = {https://academic.oup.com/biostatistics/article-pdf/4/2/249/677018/040249.pdf},
+}
+
+@article{wu2004model,
+  title={A model-based background adjustment for oligonucleotide expression arrays},
+  author={Wu, Zhijin and Irizarry, Rafael A and Gentleman, Robert and Martinez-Murillo, Francisco and Spencer, Forrest},
+  journal={Journal of the American statistical Association},
+  volume={99},
+  number={468},
+  pages={909--917},
+  year={2004},
+  publisher={Taylor \& Francis}
+}
+
+@Article{pmid16646809,
+   Author="Smyth, G. K. ",
+   Title="{{L}inear models and empirical bayes methods for assessing differential expression in microarray experiments}",
+   Journal="Stat Appl Genet Mol Biol",
+   Year="2004",
+   Volume="3",
+   Pages="Article3"
+}
+
+@article{BenjaminiHochbergFDR,
+ ISSN = {00359246},
+ URL = {http://www.jstor.org/stable/2346101},
+ abstract = {The common approach to the multiplicity problem calls for controlling the familywise error rate (FWER). This approach, though, has faults, and we point out a few. A different approach to problems of multiple significance testing is presented. It calls for controlling the expected proportion of falsely rejected hypotheses-the false discovery rate. This error rate is equivalent to the FWER when all hypotheses are true but is smaller otherwise. Therefore, in problems where the control of the false discovery rate rather than that of the FWER is desired, there is potential for a gain in power. A simple sequential Bonferroni-type procedure is proved to control the false discovery rate for independent test statistics, and a simulation study shows that the gain in power is substantial. The use of the new procedure and the appropriateness of the criterion are illustrated with examples.},
+ author = {Yoav Benjamini and Yosef Hochberg},
+ journal = {Journal of the Royal Statistical Society. Series B (Methodological)},
+ number = {1},
+ pages = {289--300},
+ publisher = {[Royal Statistical Society, Wiley]},
+ title = {Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing},
+ volume = {57},
+ year = {1995}
+}

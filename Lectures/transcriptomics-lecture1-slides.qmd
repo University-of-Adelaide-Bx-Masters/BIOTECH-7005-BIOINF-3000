@@ -4,9 +4,11 @@ subtitle: |
   | Biotech 7005/Bioinf 3000
   | Frontiers of Biotechnology: Bioinformatics and Systems Modelling
   | The University of Adelaide
-author: "<br>Dr Stevie Pederson (They/Them)"
+author: "Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au"
+email: "stevie.pederson@thekids.org.au"
 institute: |
-  | Black Ochre Data Labs, The Kids Research Institute Australia
+  | Black Ochre Data Labs
+  | The Kids Research Institute Australia
 date: "2025-09-01"
 date-format: "long"
 bibliography: transcriptomics/references.bib
@@ -134,7 +136,7 @@ Based on @Wang2009-hf
     + Identify therapeutic targets for Cardiovascular Disease
     + Biomarkers for CAR-T cells
     + Key drivers of correlated gene networks
-    + Early drivers of neurodegeneration in Alzheimers
+    + Early drivers of neurodegeneration in Alzheimer's
 - Assumed to be low-level
     + DNA $\rightarrow$ [RNA]{.text-red} [$\rightarrow$ Protein $\rightarrow$ Metabolites, Signalling molecules, etc ...]{.fragment}
 
@@ -294,7 +296,7 @@ The C~T~ values as actually estimated to a decimal value
 ::: {.fragment}    
 - cDNA produced is identified using fluorophores
     + Fluorescence doubles with each cycle
-- Once fluoresence passes a detection threshold, the cycle number is recorded
+- Once fluorescence passes a detection threshold, the cycle number is recorded
     + Known as the Cycle Threshold (C~T~) value
 
 :::
@@ -323,7 +325,7 @@ The C~T~ values as actually estimated to a decimal value
 ## Expressed Sequence Tags
 
 ::: {.notes}
-- The senior author on the EST paper was J Craing Ventner who played an important role in the Human Genome Project
+- The senior author on the EST paper was J Craig Ventner who played an important role in the Human Genome Project
 :::
 
 - The first attempt at capturing the larger transcriptome was ESTs [@1991VenterEST]
@@ -379,7 +381,7 @@ The C~T~ values as actually estimated to a decimal value
 ## Microarray Technology
 
 ::: {.notes}
-- My search last week showed 69000 public miroarray datasets in the GEO database
+- My search last week showed 69000 public microarray datasets in the GEO database
 - I reviewed a Scientific Reports submission using public array data last month
 :::
 
@@ -486,7 +488,7 @@ The C~T~ values as actually estimated to a decimal value
 ::: {.incremental}
 - *Perfect Match* (PM) probes $\implies$ exactly matches target sequence
     + Known to capture off-target signal $\implies$ non-specific binding
-- Arrays included *mismatch* probes (MM) with a change at the 13th position
+- Arrays included paired *mismatch* probes (MM) with a change at the 13th position
     + Sometimes returned more signal than PM probes &#129322;
 - Gene-level expression estimate obtained taking a robust average across probeset
     + Model also included BG signal (but not always from MM probes)
@@ -591,7 +593,155 @@ The C~T~ values as actually estimated to a decimal value
 :::
 ::::
 
+- Now we have identical distributions of signal across all arrays
+- Equivalent to having identical amounts of source material (mRNA)
+
 [^3]: Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001
+
+## Background Correction
+
+- Background Correction performed *simultaneously with estimation of signal*
+- Robust Multichip Average (RMA) [@rma2003]
+    + Estimates signal for each array ($\mu_i$)
+    + Model includes probe affinities ($\alpha_j$)
+    + Doesn't include MM probes
+    + Fitted using robust statistics to reduce impact of outlier probes
+    
+$$
+PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
+$$
+    
+::: {.fragment}
+
+- Extended to GC-RMA [@wu2004model] to include GC content of probes
+
+:::
+
+## Differential Expression Analysis
+
+- A primary challenge is to detect where gene expression levels change in response to biological question
+    + Often control samples Vs treated samples
+- Microarray data is normally distributed on the log~2~ scale
+    + Can fit standard regression models
+- For Treat Vs Control $\implies$ $T$-test for each gene
+
+::: {.fragment}
+
+$$
+H_0: \text{No difference in average gene expression levels}\\
+H_A: \text{Some difference in average gene expression levels}
+$$
+
+- NB: Experiments estimate the *true* expression level across a theoretical population
+:::
+
+## Differential Expression Analysis {.slide-only .unlisted}
+
+- The Bioconductor package `limma` is the industry standard [@pmid16646809]
+    + Still heavily used for modern RNA-Seq data
+    + Models tailored to managing variances found in transcriptomic datasets
+
+::: {.fragment}
+- After testing $\rightarrow$ $p$-value for each gene
+- Multiple testing becomes an issue (revise Steven Delean's lecture)
+:::
+
+## Multiple Testing
+
+- Researchers commonly use a $p$-value $<0.05$ to claim evidence of significant change
+    + Often described as the rejection threshold $\alpha = 0.05$
+
+> A $p$-value represent the probability of observing data (i.e. evidence of change) as extreme, or more extreme than our data if $H_0$ is true
+
+::: {.fragment}
+
+- i.e. how likely are we to see our evidence of change if nothing's actually happening
+- Using $\alpha = 0.05$ we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, *if there's really nothing happening*
+
+:::
+
+## Multiple Testing {.slide-only .unlisted}
+
+- If testing across 10,000 genes $\implies$ 10,000 $p$-values
+- If no change between groups in any gene ($H_0$ is always true) <br>$\implies$ about 500 genes will return $p<0.05$
+- These would be considered *false discoveries*, *false positives* or *Type I Errors*
+    + False negatives are Type II errors
+
+
+|              | $H_0$ True | $H_0$ False |
+|:------------ | ---------- | ----------- |
+| **Accept $H_0$** | &#x2705; | Type II Error |
+| **Reject $H_0$** | [Type I Error]{.text-red} | &#x2705; |
+
+
+## Multiple Testing {.slide-only .unlisted}
+
+- Reducing false positives is vital $\implies$ don't want to waste research \$\$\$
+- An intuitive solution would be to use a lower value for $\alpha$
+    + Using $\alpha = 0.01$ $\implies$ 1 in 100 random $p$-values under $H_0$<br>$\implies$ only 100 false discoveries in 10,000 genes
+    + But this makes it harder for *true positives* to be identified <br>$\implies$ more Type II errors (false negatives)
+- No perfect solution for minimising Type I errors without increasing Type II errors
+
+## The Bonferroni Correction
+
+- A commonly used approach is the Bonferroni Correction
+- $\alpha$ is divided by the number of tests <br>$\implies$ probability of one false discovery remains at the original $\alpha$
+    + Known as Family Wise Error Rate (FWER) control
+
+::: {.incremental}
+- For $n=10,000$ genes we would use $\alpha^* = \frac{0.05}{n} = 5\times10^{-6}$
+- The equivalent is to multiply all $p$-values by $n$ to give adjusted $p$-values
+- $p_{adj} = \min(1, p \times n)$ ensures $p$-values are always $\leq1$
+    + Referred to as Bonferroni-adjusted $p$-values
+    
+:::
+
+## The False Discovery Rate
+
+- An alternative is to allow a set proportion of your results to be *false positives*
+- Instead of controlling the FWER, we control the False Discovery Rate (FDR)
+    + Using $\alpha = 0.05$ $\implies$ 95% of results will be appropriate rejections of $H_0$
+    + Is an estimate of the true FDR
+    + Effectively allows a small amount of noise into our data
+    + For larger network-style or downstream analysis $\implies$ signal drowns out noise
+- Is almost always more powerful that the Bonferroni correction
+    + More power $\implies$ more ability to find the *true positives*
+    
+## The False Discovery Rate {.slide-only .unlisted}
+
+::: {.notes}
+- The adjustment algorithm is a bit beyond this course
+:::
+    
+- Most common FDR method is the Benjamini-Hochberg adjustment [@BenjaminiHochbergFDR]
+
+::: {.incremental}
+1. $p$-values are given rank $i = 1, 2, \ldots, n$ where we have $n$ tests (i.e. genes)
+2. Find maximum value of $i$ where $p_i \leq \alpha \frac{i}{n}$
+
+- FDR-adjusted $p$-values easily obtained using `R`
+    + `p.adjust(p, method = "BH")`
+    
+:::
+
+## Closing Comments
+
+- Microarray signal estimates follow a normal distribution ($\mathcal{N}(\mu, \sigma)$) with log-transformed
+- We can apply linear regression models
+    + In a simple A vs B experiment $\equiv$ $T$-tests
+- Estimates of change from DE analysis often referred to as logFC (log fold-change)
+- $p$-values are usually FDR-adjusted
+    + Gives best compromise of power vs error-rate control
+
+## Closing Comments {.slide-only .unlisted}
+
+- Foundations built during the microarray era enabled analysis of RNA-Seq data
+    + RNA-Seq data is not normally distributed
+- Core principles and methods developed during this era still apply
+    + Normalisation, DE analysis, multiple testing etc
+- Many bioinformaticians from the microarray era are still very active
+- A lot of development occurred in Australia (e.g. Prof Gordon Smyth, WEHI)
+    + Next generation have been trained & mentored at WEHI, USyd etc
 
 
 ## References

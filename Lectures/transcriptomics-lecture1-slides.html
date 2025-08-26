@@ -9,7 +9,7 @@
 <link href="transcriptomics-lecture1-slides_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <meta name="author" content=" Dr Stevie Pederson (They/Them)">
+  <meta name="author" content="Dr Stevie Pederson (They/Them) stevie.pederson@thekids.org.au">
   <meta name="dcterms.date" content="2025-09-01">
   <title>Transcriptomics: Lecture 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -156,10 +156,11 @@ The University of Adelaide</div><p></p>
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-<br>Dr Stevie Pederson (They/Them) 
+Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au 
 </div>
         <p class="quarto-title-affiliation">
-            </p><div class="line-block">Black Ochre Data Labs, The Kids Research Institute Australia</div>
+            </p><div class="line-block">Black Ochre Data Labs<br>
+            The Kids Research Institute Australia</div>
           <p></p>
     </div>
 </div>
@@ -276,7 +277,7 @@ The University of Adelaide</div><p></p>
 <li>Identify therapeutic targets for Cardiovascular Disease</li>
 <li>Biomarkers for CAR-T cells</li>
 <li>Key drivers of correlated gene networks</li>
-<li>Early drivers of neurodegeneration in Alzheimers</li>
+<li>Early drivers of neurodegeneration in Alzheimer’s</li>
 </ul></li>
 <li>Assumed to be low-level
 <ul>
@@ -497,7 +498,7 @@ The University of Adelaide</div><p></p>
 <ul>
 <li>Fluorescence doubles with each cycle</li>
 </ul></li>
-<li>Once fluoresence passes a detection threshold, the cycle number is recorded
+<li>Once fluorescence passes a detection threshold, the cycle number is recorded
 <ul>
 <li>Known as the Cycle Threshold (C<sub>T</sub>) value</li>
 </ul></li>
@@ -533,7 +534,7 @@ The University of Adelaide</div><p></p>
 <h2>Expressed Sequence Tags</h2>
 <aside class="notes">
 <ul>
-<li>The senior author on the EST paper was J Craing Ventner who played an important role in the Human Genome Project</li>
+<li>The senior author on the EST paper was J Craig Ventner who played an important role in the Human Genome Project</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -611,7 +612,7 @@ The University of Adelaide</div><p></p>
 <h2>Microarray Technology</h2>
 <aside class="notes">
 <ul>
-<li>My search last week showed 69000 public miroarray datasets in the GEO database</li>
+<li>My search last week showed 69000 public microarray datasets in the GEO database</li>
 <li>I reviewed a Scientific Reports submission using public array data last month</li>
 </ul>
 <style type="text/css">
@@ -741,7 +742,7 @@ The University of Adelaide</div><p></p>
 <ul>
 <li class="fragment">Known to capture off-target signal <span class="math inline">\(\implies\)</span> non-specific binding</li>
 </ul></li>
-<li class="fragment">Arrays included <em>mismatch</em> probes (MM) with a change at the 13th position
+<li class="fragment">Arrays included paired <em>mismatch</em> probes (MM) with a change at the 13th position
 <ul>
 <li class="fragment">Sometimes returned more signal than PM probes 🤪</li>
 </ul></li>
@@ -892,7 +893,232 @@ The University of Adelaide</div><p></p>
 </figure>
 </div>
 </div></div>
+<ul>
+<li>Now we have identical distributions of signal across all arrays</li>
+<li>Equivalent to having identical amounts of source material (mRNA)</li>
+</ul>
 <aside><ol class="aside-footnotes"><li id="fn3"><p>Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001</p></li></ol></aside></section>
+<section id="background-correction" class="slide level2">
+<h2>Background Correction</h2>
+<ul>
+<li>Background Correction performed <em>simultaneously with estimation of signal</em></li>
+<li>Robust Multichip Average (RMA) <span class="citation" data-cites="rma2003">(<a href="#/references" role="doc-biblioref" onclick="">Irizarry et al. 2003</a>)</span>
+<ul>
+<li>Estimates signal for each array (<span class="math inline">\(\mu_i\)</span>)</li>
+<li>Model includes probe affinities (<span class="math inline">\(\alpha_j\)</span>)</li>
+<li>Doesn’t include MM probes</li>
+<li>Fitted using robust statistics to reduce impact of outlier probes</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li>Extended to GC-RMA <span class="citation" data-cites="wu2004model">(<a href="#/references" role="doc-biblioref" onclick="">Wu et al. 2004</a>)</span> to include GC content of probes</li>
+</ul>
+</div>
+</section>
+<section id="differential-expression-analysis" class="slide level2">
+<h2>Differential Expression Analysis</h2>
+<ul>
+<li>A primary challenge is to detect where gene expression levels change in response to biological question
+<ul>
+<li>Often control samples Vs treated samples</li>
+</ul></li>
+<li>Microarray data is normally distributed on the log<sub>2</sub> scale
+<ul>
+<li>Can fit standard regression models</li>
+</ul></li>
+<li>For Treat Vs Control <span class="math inline">\(\implies\)</span> <span class="math inline">\(T\)</span>-test for each gene</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+H_0: \text{No difference in average gene expression levels}\\
+H_A: \text{Some difference in average gene expression levels}
+\]</span></p>
+<ul>
+<li>NB: Experiments estimate the <em>true</em> expression level across a theoretical population</li>
+</ul>
+</div>
+</section>
+<section id="differential-expression-analysis-1" class="slide level2 slide-only unlisted">
+<h2>Differential Expression Analysis</h2>
+<ul>
+<li>The Bioconductor package <code>limma</code> is the industry standard <span class="citation" data-cites="pmid16646809">(<a href="#/references" role="doc-biblioref" onclick="">Smyth 2004</a>)</span>
+<ul>
+<li>Still heavily used for modern RNA-Seq data</li>
+<li>Models tailored to managing variances found in transcriptomic datasets</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>After testing <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(p\)</span>-value for each gene</li>
+<li>Multiple testing becomes an issue (revise Steven Delean’s lecture)</li>
+</ul>
+</div>
+</section>
+<section id="multiple-testing" class="slide level2">
+<h2>Multiple Testing</h2>
+<ul>
+<li>Researchers commonly use a <span class="math inline">\(p\)</span>-value <span class="math inline">\(&lt;0.05\)</span> to claim evidence of significant change
+<ul>
+<li>Often described as the rejection threshold <span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>A <span class="math inline">\(p\)</span>-value represent the probability of observing data (i.e.&nbsp;evidence of change) as extreme, or more extreme than our data if <span class="math inline">\(H_0\)</span> is true</p>
+</blockquote>
+<div class="fragment">
+<ul>
+<li>i.e.&nbsp;how likely are we to see our evidence of change if nothing’s actually happening</li>
+<li>Using <span class="math inline">\(\alpha = 0.05\)</span> we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, <em>if there’s really nothing happening</em></li>
+</ul>
+</div>
+</section>
+<section id="multiple-testing-1" class="slide level2 slide-only unlisted">
+<h2>Multiple Testing</h2>
+<ul>
+<li>If testing across 10,000 genes <span class="math inline">\(\implies\)</span> 10,000 <span class="math inline">\(p\)</span>-values</li>
+<li>If no change between groups in any gene (<span class="math inline">\(H_0\)</span> is always true) <br><span class="math inline">\(\implies\)</span> about 500 genes will return <span class="math inline">\(p&lt;0.05\)</span></li>
+<li>These would be considered <em>false discoveries</em>, <em>false positives</em> or <em>Type I Errors</em>
+<ul>
+<li>False negatives are Type II errors</li>
+</ul></li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th><span class="math inline">\(H_0\)</span> True</th>
+<th><span class="math inline">\(H_0\)</span> False</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Accept <span class="math inline">\(H_0\)</span></strong></td>
+<td>✅</td>
+<td>Type II Error</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Reject <span class="math inline">\(H_0\)</span></strong></td>
+<td><span class="text-red">Type I Error</span></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="multiple-testing-2" class="slide level2 slide-only unlisted">
+<h2>Multiple Testing</h2>
+<ul>
+<li>Reducing false positives is vital <span class="math inline">\(\implies\)</span> don’t want to waste research $$$</li>
+<li>An intuitive solution would be to use a lower value for <span class="math inline">\(\alpha\)</span>
+<ul>
+<li>Using <span class="math inline">\(\alpha = 0.01\)</span> <span class="math inline">\(\implies\)</span> 1 in 100 random <span class="math inline">\(p\)</span>-values under <span class="math inline">\(H_0\)</span><br><span class="math inline">\(\implies\)</span> only 100 false discoveries in 10,000 genes</li>
+<li>But this makes it harder for <em>true positives</em> to be identified <br><span class="math inline">\(\implies\)</span> more Type II errors (false negatives)</li>
+</ul></li>
+<li>No perfect solution for minimising Type I errors without increasing Type II errors</li>
+</ul>
+</section>
+<section id="the-bonferroni-correction" class="slide level2">
+<h2>The Bonferroni Correction</h2>
+<ul>
+<li>A commonly used approach is the Bonferroni Correction</li>
+<li><span class="math inline">\(\alpha\)</span> is divided by the number of tests <br><span class="math inline">\(\implies\)</span> probability of one false discovery remains at the original <span class="math inline">\(\alpha\)</span>
+<ul>
+<li>Known as Family Wise Error Rate (FWER) control</li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">For <span class="math inline">\(n=10,000\)</span> genes we would use <span class="math inline">\(\alpha^* = \frac{0.05}{n} = 5\times10^{-6}\)</span></li>
+<li class="fragment">The equivalent is to multiply all <span class="math inline">\(p\)</span>-values by <span class="math inline">\(n\)</span> to give adjusted <span class="math inline">\(p\)</span>-values</li>
+<li class="fragment"><span class="math inline">\(p_{adj} = \min(1, p \times n)\)</span> ensures <span class="math inline">\(p\)</span>-values are always <span class="math inline">\(\leq1\)</span>
+<ul>
+<li class="fragment">Referred to as Bonferroni-adjusted <span class="math inline">\(p\)</span>-values</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-false-discovery-rate" class="slide level2">
+<h2>The False Discovery Rate</h2>
+<ul>
+<li>An alternative is to allow a set proportion of your results to be <em>false positives</em></li>
+<li>Instead of controlling the FWER, we control the False Discovery Rate (FDR)
+<ul>
+<li>Using <span class="math inline">\(\alpha = 0.05\)</span> <span class="math inline">\(\implies\)</span> 95% of results will be appropriate rejections of <span class="math inline">\(H_0\)</span></li>
+<li>Is an estimate of the true FDR</li>
+<li>Effectively allows a small amount of noise into our data</li>
+<li>For larger network-style or downstream analysis <span class="math inline">\(\implies\)</span> signal drowns out noise</li>
+</ul></li>
+<li>Is almost always more powerful that the Bonferroni correction
+<ul>
+<li>More power <span class="math inline">\(\implies\)</span> more ability to find the <em>true positives</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-false-discovery-rate-1" class="slide level2 slide-only unlisted">
+<h2>The False Discovery Rate</h2>
+<aside class="notes">
+<ul>
+<li>The adjustment algorithm is a bit beyond this course</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Most common FDR method is the Benjamini-Hochberg adjustment <span class="citation" data-cites="BenjaminiHochbergFDR">(<a href="#/references" role="doc-biblioref" onclick="">Benjamini and Hochberg 1995</a>)</span></li>
+</ul>
+<ol type="1">
+<li class="fragment"><span class="math inline">\(p\)</span>-values are given rank <span class="math inline">\(i = 1, 2, \ldots, n\)</span> where we have <span class="math inline">\(n\)</span> tests (i.e.&nbsp;genes)</li>
+<li class="fragment">Find maximum value of <span class="math inline">\(i\)</span> where <span class="math inline">\(p_i \leq \alpha \frac{i}{n}\)</span></li>
+</ol>
+<ul>
+<li class="fragment">FDR-adjusted <span class="math inline">\(p\)</span>-values easily obtained using <code>R</code>
+<ul>
+<li class="fragment"><code>p.adjust(p, method = "BH")</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="closing-comments" class="slide level2">
+<h2>Closing Comments</h2>
+<ul>
+<li>Microarray signal estimates follow a normal distribution (<span class="math inline">\(\mathcal{N}(\mu, \sigma)\)</span>) with log-transformed</li>
+<li>We can apply linear regression models
+<ul>
+<li>In a simple A vs B experiment <span class="math inline">\(\equiv\)</span> <span class="math inline">\(T\)</span>-tests</li>
+</ul></li>
+<li>Estimates of change from DE analysis often referred to as logFC (log fold-change)</li>
+<li><span class="math inline">\(p\)</span>-values are usually FDR-adjusted
+<ul>
+<li>Gives best compromise of power vs error-rate control</li>
+</ul></li>
+</ul>
+</section>
+<section id="closing-comments-1" class="slide level2 slide-only unlisted">
+<h2>Closing Comments</h2>
+<ul>
+<li>Foundations built during the microarray era enabled analysis of RNA-Seq data
+<ul>
+<li>RNA-Seq data is not normally distributed</li>
+</ul></li>
+<li>Core principles and methods developed during this era still apply
+<ul>
+<li>Normalisation, DE analysis, multiple testing etc</li>
+</ul></li>
+<li>Many bioinformaticians from the microarray era are still very active</li>
+<li>A lot of development occurred in Australia (e.g.&nbsp;Prof Gordon Smyth, WEHI)
+<ul>
+<li>Next generation have been trained &amp; mentored at WEHI, USyd etc</li>
+</ul></li>
+</ul>
+</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
@@ -906,11 +1132,17 @@ Adams, Mark D., Jenny M. Kelley, Jeannine D. Gocayne, Mark Dubnick, Mihael H. Po
 <div id="ref-1977NorthernBlot" class="csl-entry" role="listitem">
 Alwine, J. C., D. J. Kemp, and G. R. Stark. 1977. <span>“<span class="nocase"><span>M</span>ethod for detection of specific <span>R</span><span>N</span><span>A</span>s in agarose gels by transfer to diazobenzyloxymethyl-paper and hybridization with <span>D</span><span>N</span><span>A</span> probes</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 74 (12): 5350–54.
 </div>
+<div id="ref-BenjaminiHochbergFDR" class="csl-entry" role="listitem">
+Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.”</span> <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 57 (1): 289–300. <a href="http://www.jstor.org/stable/2346101">http://www.jstor.org/stable/2346101</a>.
+</div>
 <div id="ref-pmid12538238" class="csl-entry" role="listitem">
 Bolstad, B. M., R. A. Irizarry, M. Astrand, and T. P. Speed. 2003. <span>“<span class="nocase"><span>A</span> comparison of normalization methods for high density oligonucleotide array data based on variance and bias</span>.”</span> <em>Bioinformatics</em> 19 (2): 185–93.
 </div>
 <div id="ref-Fang2015-uq" class="csl-entry" role="listitem">
 Fang, Rui, Walter N Moss, Michael Rutenberg-Schoenberg, and Matthew D Simon. 2015. <span>“Probing Xist <span>RNA</span> Structure in Cells Using Targeted Structure-Seq.”</span> <em>PLoS Genet.</em> 11 (12): e1005668.
+</div>
+<div id="ref-rma2003" class="csl-entry" role="listitem">
+Irizarry, Rafael A., Bridget Hobbs, Francois Collin, Yasmin D. Beazer‐Barclay, Kristen J. Antonellis, Uwe Scherf, and Terence P. Speed. 2003. <span>“Exploration, Normalization, and Summaries of High Density Oligonucleotide Array Probe Level Data.”</span> <em>Biostatistics</em> 4 (2): 249–64. <a href="https://doi.org/10.1093/biostatistics/4.2.249">https://doi.org/10.1093/biostatistics/4.2.249</a>.
 </div>
 <div id="ref-Shafee2017-zv" class="csl-entry" role="listitem">
 Shafee, Thomas, and Rohan Lowe. 2017. <span>“Eukaryotic and Prokaryotic Gene Structure.”</span> <em><span>WikiJournal</span> of Medicine</em>, January. <a href="https://doi.org/10.15347/WJM/2017.002">https://doi.org/10.15347/WJM/2017.002</a>.
@@ -918,11 +1150,17 @@ Shafee, Thomas, and Rohan Lowe. 2017. <span>“Eukaryotic and Prokaryotic Gene S
 <div id="ref-Shalon01071996" class="csl-entry" role="listitem">
 Shalon, D, S J Smith, and P O Brown. 1996. <span>“A DNA Microarray System for Analyzing Complex DNA Samples Using Two-Color Fluorescent Probe Hybridization.”</span> <em>Genome Research</em> 6 (7): 639–45. <a href="https://doi.org/10.1101/gr.6.7.639">https://doi.org/10.1101/gr.6.7.639</a>.
 </div>
+<div id="ref-pmid16646809" class="csl-entry" role="listitem">
+Smyth, G. K. 2004. <span>“<span class="nocase"><span>L</span>inear models and empirical bayes methods for assessing differential expression in microarray experiments</span>.”</span> <em>Stat Appl Genet Mol Biol</em> 3: Article3.
+</div>
 <div id="ref-pmid7570003" class="csl-entry" role="listitem">
 Velculescu, V. E., L. Zhang, B. Vogelstein, and K. W. Kinzler. 1995. <span>“<span class="nocase"><span>S</span>erial analysis of gene expression</span>.”</span> <em>Science</em> 270 (5235): 484–87.
 </div>
 <div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
 Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.
+</div>
+<div id="ref-wu2004model" class="csl-entry" role="listitem">
+Wu, Zhijin, Rafael A Irizarry, Robert Gentleman, Francisco Martinez-Murillo, and Forrest Spencer. 2004. <span>“A Model-Based Background Adjustment for Oligonucleotide Expression Arrays.”</span> <em>Journal of the American Statistical Association</em> 99 (468): 909–17.
 </div>
 </div>
 </section></section>
