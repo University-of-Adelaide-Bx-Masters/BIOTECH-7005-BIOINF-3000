@@ -30,6 +30,11 @@ format:
     include-in-header: transcriptomics/uoa_bodl_logos.html
 ---
 
+## Helpful Links
+
+- The slides are available [here](./transcriptomics-lecture1-slides.html)
+- The same notes are available as a single-page html [here](./transcriptomics1-lecture1.html)
+
 
 ## [Welcome To Country]{.text-red}
 
