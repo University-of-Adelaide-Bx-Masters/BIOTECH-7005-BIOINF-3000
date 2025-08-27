@@ -1,0 +1,230 @@
+---
+title: "Transcriptomics: Lecture 2"
+subtitle: |
+  | Biotech 7005/Bioinf 3000
+  | Frontiers of Biotechnology: Bioinformatics and Systems Modelling
+  | The University of Adelaide
+author: "Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au"
+email: "stevie.pederson@thekids.org.au"
+institute: |
+  | Black Ochre Data Labs
+  | The Kids Research Institute Australia
+date: "2025-09-15"
+date-format: "long"
+bibliography: transcriptomics/references.bib
+format: 
+  revealjs:
+    theme: [transcriptomics/custom.scss]
+    height: 720
+    width: 1280
+    sansfont: Times New Roman
+    slide-number: c
+    show-slide-number: all
+    include-after-body: transcriptomics/uoa_bodl_logos.html
+  html: 
+    css: [transcriptomics/custom.scss]
+    output-file: transcriptomics1-lecture2.html
+    embed-resources: true    
+    toc: true
+    toc-depth: 2
+    include-in-header: transcriptomics/uoa_bodl_logos.html
+---
+
+## Helpful Links
+
+- The slides are available [here](./transcriptomics-lecture2-slides.html)
+- The same notes are available as a single-page html [here](./transcriptomics1-lecture2.html)
+
+
+## [Welcome To Country]{.text-red}
+
+::: {.text-red}
+
+*I'd like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live & work.*
+<br><br>
+*I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.*
+<br><br>
+*I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today*
+
+:::
+
+# RNA-Seq
+
+## RNA Sequencing
+
+According to @Wang2009-hf
+
+> RNA-Seq, also called RNA sequencing, is a particular technology-based sequencing technique which uses next-generation sequencing (NGS) to
+reveal the **presence** and **quantity** of RNA in a biological sample at a **given moment**, analyzing the continuously changing cellular transcriptome.
+
+
+## RNA Sequencing
+
+:::: {.columns}
+
+::: {.column}
+- Microarrays are still published regularly
+    + Also used extensively for methylation
+- RNA sequencing is now the dominant technology
+
+::: {.fragment}
+
+- Strong improvement for:
+    + transcript-level resolution
+    + un-annotated genes 
+    + allelic bias
+    + genomic variants
+    
+:::
+    
+:::
+::: {.column}
+
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-width: 6
+#| fig-height: 6
+library(tidyverse)
+theme_set(theme_bw())
+here::here("Lectures/transcriptomics") %>% 
+  fs::dir_ls(glob = "*search.csv") %>% 
+  lapply(read_csv) %>% 
+  bind_rows(.id = "platform") %>% 
+  mutate(
+    platform = platform %>% 
+      basename() %>% 
+      str_remove_all("_search.csv") %>% 
+      str_to_title() %>% 
+      str_replace_all("Rna", "RNA-")
+  ) %>% 
+  ggplot(aes(Category, `Publications (total)`)) +
+  geom_line(aes(colour = platform), linewidth = 1) +
+  ggrepel::geom_label_repel(
+    aes(label = label, colour = platform),
+    data = . %>% 
+      dplyr::filter(Category == max(Category), .by = platform) %>% 
+      mutate(
+        label = paste0(
+          Category, "\n", scales::comma(`Publications (total)`))
+      ),
+    force_pull = 0, nudge_y = -1000,
+    show.legend = FALSE, size = 4, fill = "#FFFFFF90"
+  ) +
+  ggtitle("Publication search by app.dimension.ai on 26-08-2025") +
+  labs(x = "Year", colour = "Platform") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_continuous(
+    breaks = seq(2000, as.integer(format(Sys.Date(), format = "%Y")) - 1, by = 5)
+  ) +
+  scale_colour_brewer(palette = "Set1") +
+  theme(
+    text = element_text(size = 16),
+    plot.title = element_text(face = "italic", size = 14),
+    legend.position = "inside",
+    legend.position.inside = c(0.99, 0.01),
+    legend.justification.inside = c(1, 0)
+  )
+```
+:::
+::::
+
+## RNA Sequencing {.slide-only .unlisted}
+
+- Microarrays rely on probes for transcripts defined *at design time*
+- Restricted in the number of transcripts/genes targeted
+    +  Gencode 48 (GRCh38): 78,686 genes + 385,669 transcripts
+- Probes capture non-specfic binding
+    + Affymetrix use 25-mer probes
+    + Illumina arrays use 60-mer probes $\implies$ sequences better targeted
+    
+::: {.fragment}
+[These limitations do not exist for RNA-Seq]{.text-red}
+:::
+
+## RNA Sequencing {.slide-only .unlisted}
+
+- Directly sequence the biological material
+- Map to most recent reference at any point in time
+- Assemble a transcriptome (tissue specific)
+- Detect InDels / SNPs in expressed sequences
+
+::: {.fragment} 
+
+- Multiple variations 
+    + totalRNA or polyA transcripts [$\implies$ most similar to microarrays]{.fragment}
+    + smallRNA libraries
+    + Long Reads (Oxford Nanopore, PacBio) [<br>$\implies$ originally isoform discovery, quantitative methods improving]{.fragment}
+    
+:::
+    
+## The RNA Population Of a Eukaryotic Cell
+
+::: {style= "text-align: center"}
+
+![Image taken from @ijms19051310](transcriptomics/ijms-19-01310-g001.png){width='780px'}
+
+:::
+
+## The Key Steps
+
+- Focus from here on will be sequencing mRNA using short reads
+
+::: {.incremental}
+1. Library Preparation
+    + RNA Quality assessment
+    + Selecting target molecules
+    + Adding sequencing primers
+2. Sequencing 
+3. Aligmnent + Quantitation
+4. DE Gene Detection
+5. Downstream Analysis
+6. (Optional) Nobel Prize
+
+:::
+
+<!-- ## Library Preparation -->
+
+<!-- - RNA is a single-stranded molecule $\implies$ easily degraded -->
+<!--     + Degraded RNA can skew expression levels during comparisons -->
+<!-- - RNA Integrity Number (RIN) commonly used to identify low-quality samples -->
+<!--     + Assesses 28S:18S rRNA ratio, along with overall size distribution -->
+
+## RNA Selection
+
+- rRNA makes up about 80% of cellular RNA $\rightarrow$ not of general interest
+    + tRNA ~15% + [mRNA ~5% cellular RNA[^1]]{.text-red}
+    
+::: {.fragment}
+1. Select for poly-adenylated RNA using oligo-dT-based methods
+    + Only extracts intact mRNA with a polyA tail (includes some ncRNA)
+
+
+![Image from https://www.lexogen.com/polya-rna-selection-kit/](transcriptomics/03polya_workflow1.jpg){fig-align="left"}
+:::
+
+[^1]: https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&v=5&id=100264
+
+## RNA Selection  {.slide-only .unlisted}
+
+2. Enzymatically deplete rRNA sequences 
+    + rRNA targeted using probes $\implies$ dsRNA degraded
+    + Can additionally target hbRNA (whole blood)
+
+![Image from https://support.illumina.com.cn](transcriptomics/Ribo_Zero_1.jpg){fig-align="left"}
+
+    
+
+
+## Library Preparation
+
+- RNA is then fragmented and size selected (200-300nt)
+    + Very short transcripts always lost during this step
+- cDNA produced
+- Sequencing adapters added
+    + Many adapters now contain Unique Molecular Identifiers (UMI)
+    + Helps identify PCR duplicates
+
+
+# References
