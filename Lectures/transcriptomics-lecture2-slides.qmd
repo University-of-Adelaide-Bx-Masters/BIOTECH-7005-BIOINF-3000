@@ -219,12 +219,87 @@ here::here("Lectures/transcriptomics") %>%
 
 ## Library Preparation
 
+
 - RNA is then fragmented and size selected (200-300nt)
     + Very short transcripts always lost during this step
 - cDNA produced
 - Sequencing adapters added
-    + Many adapters now contain Unique Molecular Identifiers (UMI)
-    + Helps identify PCR duplicates
+    + Indexes are unique to each individual library $\implies$ always have replicates
+    + Optionally contain Unique Molecular Identifiers (UMI)<br>$\implies$ Helps identify PCR duplicates
+- Most RNA-Seq now retains *strand-of-origin* information (Stranded RNA-Seq)
+    + During PCR only the first cDNA template retained
+
+    
+## Library Preparation {.slide-only .unlisted}
+
+![Image courtesy of https://www.lubio.ch/blog/ngs-adapters](transcriptomics/NGS-adapters_01.png)
+
+## Library Preparation {.slide-only .unlisted}
+
+- Each double-stranded cDNA then has the final structure
+
+![Image courtesy of https://www.lubio.ch/blog/ngs-adapters](transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg)
+
+## Sequencing
+
+![Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/](transcriptomics/A8.jpg){fig-align="left"}
+
+# Alignment and Quantitation
+
+## Genomic Alignment
+
+- Alignment to a reference genome requires a *splice-aware* aligner
+    + A GTF (Gene Transfer File) required when building the index<br>$\implies$ Provides all exon-transcript-gene co-ordinates
+    + New Gencode, Ensembl etc releases at regular intervals
+- Most common aligners are STAR [@Dobin2013-us] & hisat2 [@Kim2019-ib]
+    + Return alignments as a `bam` file
+- Aligned reads are then counted to provide gene-level counts
+    + htseq [@htseq2014] and featureCounts [@Liao2014-gy] are very common
+    + The same GTF should be used as during indexing
+
+## Counting Alignments
+
+:::: {.columns}
+
+::: {.column}
+![Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html](transcriptomics/count_modes.png)
+
+:::
+::: {.column}
+- Some alignments align beautifully within exon structures
+- Some overhang a little
+    + Unspliced mRNA?
+- Some genes are overlapping
+    + Stranded libraries can resolve
+- Maybe bacterial reads span genes within an operon
+
+:::
+
+::::
+
+## Gene-Level Counts
+
+- The region encoding a gene is (relatively) well defined
+- An alignment within a gene is easy to assign to that gene
+
+::: {.fragment}
+- Much more difficult to identify which transcript it came from
+    + Many transcripts share multiple exons
+- Splice Junctions were the earliest approach
+
+:::
+
+## Gene-Level Counts {.slide-only .unlisted}
+
+![Image taken from @Yu2015-f5](transcriptomics/gkv608fig1.jpeg)
+
+## Transcriptome Pseudo-Alignment
+
+- An alternative is to provide a reference transcriptome
+    + Alignments no longer need to splice aware
+- Reads can align to multiple transcripts
+
+
 
 
 # References

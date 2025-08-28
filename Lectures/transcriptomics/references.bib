@@ -224,3 +224,145 @@ ISSN = {1422-0067},
 ABSTRACT = {Noncoding RNAs (ncRNAs) constitute the majority of the human transcribed genome. This largest class of RNA transcripts plays diverse roles in a multitude of cellular processes, and has been implicated in many pathological conditions, especially cancer. The different subclasses of ncRNAs include microRNAs, a class of short ncRNAs; and a variety of long ncRNAs (lncRNAs), such as lincRNAs, antisense RNAs, pseudogenes, and circular RNAs. Many studies have demonstrated the involvement of these ncRNAs in competitive regulatory interactions, known as competing endogenous RNA (ceRNA) networks, whereby lncRNAs can act as microRNA decoys to modulate gene expression. These interactions are often interconnected, thus aberrant expression of any network component could derail the complex regulatory circuitry, culminating in cancer development and progression. Recent integrative analyses have provided evidence that new computational platforms and experimental approaches can be harnessed together to distinguish key ceRNA interactions in specific cancers, which could facilitate the identification of robust biomarkers and therapeutic targets, and hence, more effective cancer therapies and better patient outcome and survival.},
 DOI = {10.3390/ijms19051310}
 }
+
+@ARTICLE{Dobin2013-us,
+  title    = "{STAR}: ultrafast universal {RNA}-seq aligner",
+  author   = "Dobin, Alexander and Davis, Carrie A and Schlesinger, Felix and
+              Drenkow, Jorg and Zaleski, Chris and Jha, Sonali and Batut,
+              Philippe and Chaisson, Mark and Gingeras, Thomas R",
+  journal  = "Bioinformatics",
+  volume   =  29,
+  number   =  1,
+  pages    = "15--21",
+  abstract = "MOTIVATION: Accurate alignment of high-throughput RNA-seq data is
+              a challenging and yet unsolved problem because of the
+              non-contiguous transcript structure, relatively short read lengths
+              and constantly increasing throughput of the sequencing
+              technologies. Currently available RNA-seq aligners suffer from
+              high mapping error rates, low mapping speed, read length
+              limitation and mapping biases. RESULTS: To align our large (>80
+              billon reads) ENCODE Transcriptome RNA-seq dataset, we developed
+              the Spliced Transcripts Alignment to a Reference (STAR) software
+              based on a previously undescribed RNA-seq alignment algorithm that
+              uses sequential maximum mappable seed search in uncompressed
+              suffix arrays followed by seed clustering and stitching procedure.
+              STAR outperforms other aligners by a factor of >50 in mapping
+              speed, aligning to the human genome 550 million 2 × 76 bp
+              paired-end reads per hour on a modest 12-core server, while at the
+              same time improving alignment sensitivity and precision. In
+              addition to unbiased de novo detection of canonical junctions,
+              STAR can discover non-canonical splices and chimeric (fusion)
+              transcripts, and is also capable of mapping full-length RNA
+              sequences. Using Roche 454 sequencing of reverse transcription
+              polymerase chain reaction amplicons, we experimentally validated
+              1960 novel intergenic splice junctions with an 80-90\% success
+              rate, corroborating the high precision of the STAR mapping
+              strategy. AVAILABILITY AND IMPLEMENTATION: STAR is implemented as
+              a standalone C++ code. STAR is free open source software
+              distributed under GPLv3 license and can be downloaded from
+              http://code.google.com/p/rna-star/.",
+  month    =  jan,
+  year     =  2013,
+  language = "en"
+}
+
+@ARTICLE{Kim2019-ib,
+  title    = "Graph-based genome alignment and genotyping with {HISAT2} and
+              {HISAT}-genotype",
+  author   = "Kim, Daehwan and Paggi, Joseph M and Park, Chanhee and Bennett,
+              Christopher and Salzberg, Steven L",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  8,
+  pages    = "907--915",
+  abstract = "The human reference genome represents only a small number of
+              individuals, which limits its usefulness for genotyping. We
+              present a method named HISAT2 (hierarchical indexing for spliced
+              alignment of transcripts 2) that can align both DNA and RNA
+              sequences using a graph Ferragina Manzini index. We use HISAT2 to
+              represent and search an expanded model of the human reference
+              genome in which over 14.5 million genomic variants in combination
+              with haplotypes are incorporated into the data structure used for
+              searching and alignment. We benchmark HISAT2 using simulated and
+              real datasets to demonstrate that our strategy of representing a
+              population of genomes, together with a fast, memory-efficient
+              search algorithm, provides more detailed and accurate variant
+              analyses than other methods. We apply HISAT2 for HLA typing and
+              DNA fingerprinting; both applications form part of the
+              HISAT-genotype software that enables analysis of
+              haplotype-resolved genes or genomic regions. HISAT-genotype
+              outperforms other computational methods and matches or exceeds the
+              performance of laboratory-based assays.",
+  month    =  aug,
+  year     =  2019,
+  language = "en"
+}
+
+@ARTICLE{Liao2014-gy,
+  title    = "{featureCounts}: an efficient general purpose program for
+              assigning sequence reads to genomic features",
+  author   = "Liao, Yang and Smyth, Gordon K and Shi, Wei",
+  journal  = "Bioinformatics",
+  volume   =  30,
+  number   =  7,
+  pages    = "923--930",
+  abstract = "MOTIVATION: Next-generation sequencing technologies generate
+              millions of short sequence reads, which are usually aligned to a
+              reference genome. In many applications, the key information
+              required for downstream analysis is the number of reads mapping to
+              each genomic feature, for example to each exon or each gene. The
+              process of counting reads is called read summarization. Read
+              summarization is required for a great variety of genomic analyses
+              but has so far received relatively little attention in the
+              literature. RESULTS: We present featureCounts, a read
+              summarization program suitable for counting reads generated from
+              either RNA or genomic DNA sequencing experiments. featureCounts
+              implements highly efficient chromosome hashing and feature
+              blocking techniques. It is considerably faster than existing
+              methods (by an order of magnitude for gene-level summarization)
+              and requires far less computer memory. It works with either single
+              or paired-end reads and provides a wide range of options
+              appropriate for different sequencing applications. AVAILABILITY
+              AND IMPLEMENTATION: featureCounts is available under GNU General
+              Public License as part of the Subread
+              (http://subread.sourceforge.net) or Rsubread
+              (http://www.bioconductor.org) software packages.",
+  month    =  apr,
+  year     =  2014,
+  language = "en"
+}
+
+@article{htseq2014,
+    author = {Anders, Simon and Pyl, Paul Theodor and Huber, Wolfgang},
+    title = {HTSeq—a Python framework to work with high-throughput sequencing data},
+    journal = {Bioinformatics},
+    volume = {31},
+    number = {2},
+    pages = {166-169},
+    year = {2014},
+    month = {09},
+    abstract = {Motivation: A large choice of tools exists for many standard tasks in the analysis of high-throughput sequencing (HTS) data. However, once a project deviates from standard workflows, custom scripts are needed. Results: We present HTSeq, a Python library to facilitate the rapid development of such scripts. HTSeq offers parsers for many common data formats in HTS projects, as well as classes to represent data, such as genomic coordinates, sequences, sequencing reads, alignments, gene model information and variant calls, and provides data structures that allow for querying via genomic coordinates. We also present htseq-count, a tool developed with HTSeq that preprocesses RNA-Seq data for differential expression analysis by counting the overlap of reads with genes. Availability and implementation: HTSeq is released as an open-source software under the GNU General Public Licence and available from http://www-huber.embl.de/HTSeq or from the Python Package Index at https://pypi.python.org/pypi/HTSeq . Contact:  sanders@fs.tum.de},
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btu638},
+    url = {https://doi.org/10.1093/bioinformatics/btu638},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/31/2/166/49011133/bioinformatics\_31\_2\_166.pdf},
+}
+
+@article{Yu2015-f5,
+    author = {Yu, Nancy Yiu-Lin and Hallström, Björn M. and Fagerberg, Linn and Ponten, Fredrik and Kawaji, Hideya and Carninci, Piero and Forrest, Alistair R. R. and FANTOM Consortium, The and Hayashizaki, Yoshihide and Uhlén, Mathias and Daub, Carsten O.},
+    title = {Complementing tissue characterization by integrating transcriptome profiling from the Human Protein Atlas and from the FANTOM5 consortium},
+    journal = {Nucleic Acids Research},
+    volume = {43},
+    number = {14},
+    pages = {6787-6798},
+    year = {2015},
+    month = {06},
+    abstract = {Understanding the normal state of human tissue transcriptome profiles is essential for recognizing tissue disease states and identifying disease markers. Recently, the Human Protein Atlas and the FANTOM5 consortium have each published extensive transcriptome data for human samples using Illumina-sequenced RNA-Seq and Heliscope-sequenced CAGE. Here, we report on the first large-scale complex tissue transcriptome comparison between full-length versus 5′-capped mRNA sequencing data. Overall gene expression correlation was high between the 22 corresponding tissues analyzed (R \&gt; 0.8). For genes ubiquitously expressed across all tissues, the two data sets showed high genome-wide correlation (91\% agreement), with differences observed for a small number of individual genes indicating the need to update their gene models. Among the identified single-tissue enriched genes, up to 75\% showed consensus of 7-fold enrichment in the same tissue in both methods, while another 17\% exhibited multiple tissue enrichment and/or high expression variety in the other data set, likely dependent on the cell type proportions included in each tissue sample. Our results show that RNA-Seq and CAGE tissue transcriptome data sets are highly complementary for improving gene model annotations and highlight biological complexities within tissue transcriptomes. Furthermore, integration with image-based protein expression data is highly advantageous for understanding expression specificities for many genes.},
+    issn = {0305-1048},
+    doi = {10.1093/nar/gkv608},
+    url = {https://doi.org/10.1093/nar/gkv608},
+    eprint = {https://academic.oup.com/nar/article-pdf/43/14/6787/16659651/gkv608.pdf},
+}
+
+
+

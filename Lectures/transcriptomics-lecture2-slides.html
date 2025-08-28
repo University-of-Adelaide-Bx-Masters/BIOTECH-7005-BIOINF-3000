@@ -342,20 +342,133 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>cDNA produced</li>
 <li>Sequencing adapters added
 <ul>
-<li>Many adapters now contain Unique Molecular Identifiers (UMI)</li>
-<li>Helps identify PCR duplicates</li>
+<li>Indexes are unique to each individual library <span class="math inline">\(\implies\)</span> always have replicates</li>
+<li>Optionally contain Unique Molecular Identifiers (UMI)<br><span class="math inline">\(\implies\)</span> Helps identify PCR duplicates</li>
 </ul></li>
+<li>Most RNA-Seq now retains <em>strand-of-origin</em> information (Stranded RNA-Seq)
+<ul>
+<li>During PCR only the first cDNA template retained</li>
+</ul></li>
+</ul>
+</section>
+<section id="library-preparation-1" class="slide level2 slide-only unlisted">
+<h2>Library Preparation</h2>
+
+<img data-src="transcriptomics/NGS-adapters_01.png" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
+<section id="library-preparation-2" class="slide level2 slide-only unlisted">
+<h2>Library Preparation</h2>
+<ul>
+<li>Each double-stranded cDNA then has the final structure</li>
+</ul>
+
+<img data-src="transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
+<section id="sequencing" class="slide level2">
+<h2>Sequencing</h2>
+
+<img data-src="transcriptomics/A8.jpg" class="r-stretch quarto-figure-left"><p class="caption">Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/</p></section></section>
+<section>
+<section id="alignment-and-quantitation" class="title-slide slide level1 center">
+<h1>Alignment and Quantitation</h1>
+
+</section>
+<section id="genomic-alignment" class="slide level2">
+<h2>Genomic Alignment</h2>
+<ul>
+<li>Alignment to a reference genome requires a <em>splice-aware</em> aligner
+<ul>
+<li>A GTF (Gene Transfer File) required when building the index<br><span class="math inline">\(\implies\)</span> Provides all exon-transcript-gene co-ordinates</li>
+<li>New Gencode, Ensembl etc releases at regular intervals</li>
+</ul></li>
+<li>Most common aligners are STAR <span class="citation" data-cites="Dobin2013-us">(<a href="#/references" role="doc-biblioref" onclick="">Dobin et al. 2013</a>)</span> &amp; hisat2 <span class="citation" data-cites="Kim2019-ib">(<a href="#/references" role="doc-biblioref" onclick="">Kim et al. 2019</a>)</span>
+<ul>
+<li>Return alignments as a <code>bam</code> file</li>
+</ul></li>
+<li>Aligned reads are then counted to provide gene-level counts
+<ul>
+<li>htseq <span class="citation" data-cites="htseq2014">(<a href="#/references" role="doc-biblioref" onclick="">Anders, Pyl, and Huber 2014</a>)</span> and featureCounts <span class="citation" data-cites="Liao2014-gy">(<a href="#/references" role="doc-biblioref" onclick="">Liao, Smyth, and Shi 2014</a>)</span> are very common</li>
+<li>The same GTF should be used as during indexing</li>
+</ul></li>
+</ul>
+</section>
+<section id="counting-alignments" class="slide level2">
+<h2>Counting Alignments</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/count_modes.png"></p>
+<figcaption>Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Some alignments align beautifully within exon structures</li>
+<li>Some overhang a little
+<ul>
+<li>Unspliced mRNA?</li>
+</ul></li>
+<li>Some genes are overlapping
+<ul>
+<li>Stranded libraries can resolve</li>
+</ul></li>
+<li>Maybe bacterial reads span genes within an operon</li>
+</ul>
+</div></div>
+</section>
+<section id="gene-level-counts" class="slide level2">
+<h2>Gene-Level Counts</h2>
+<ul>
+<li>The region encoding a gene is (relatively) well defined</li>
+<li>An alignment within a gene is easy to assign to that gene</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Much more difficult to identify which transcript it came from
+<ul>
+<li>Many transcripts share multiple exons</li>
+</ul></li>
+<li>Splice Junctions were the earliest approach</li>
+</ul>
+</div>
+</section>
+<section id="gene-level-counts-1" class="slide level2 slide-only unlisted">
+<h2>Gene-Level Counts</h2>
+
+<img data-src="transcriptomics/gkv608fig1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Image taken from <span class="citation" data-cites="Yu2015-f5">Yu et al. (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p></section>
+<section id="transcriptome-pseudo-alignment" class="slide level2">
+<h2>Transcriptome Pseudo-Alignment</h2>
+<ul>
+<li>An alternative is to provide a reference transcriptome
+<ul>
+<li>Alignments no longer need to splice aware</li>
+</ul></li>
+<li>Reads can align to multiple transcripts</li>
 </ul>
 </section></section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
 <h1>References</h1>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-htseq2014" class="csl-entry" role="listitem">
+Anders, Simon, Paul Theodor Pyl, and Wolfgang Huber. 2014. <span>“HTSeq—a Python Framework to Work with High-Throughput Sequencing Data.”</span> <em>Bioinformatics</em> 31 (2): 166–69. <a href="https://doi.org/10.1093/bioinformatics/btu638">https://doi.org/10.1093/bioinformatics/btu638</a>.
+</div>
 <div id="ref-ijms19051310" class="csl-entry" role="listitem">
 Chan, Jia Jia, and Yvonne Tay. 2018. <span>“Noncoding RNA:RNA Regulatory Networks in Cancer.”</span> <em>International Journal of Molecular Sciences</em> 19 (5). <a href="https://doi.org/10.3390/ijms19051310">https://doi.org/10.3390/ijms19051310</a>.
 </div>
+<div id="ref-Dobin2013-us" class="csl-entry" role="listitem">
+Dobin, Alexander, Carrie A Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R Gingeras. 2013. <span>“<span>STAR</span>: Ultrafast Universal <span>RNA</span>-Seq Aligner.”</span> <em>Bioinformatics</em> 29 (1): 15–21.
+</div>
+<div id="ref-Kim2019-ib" class="csl-entry" role="listitem">
+Kim, Daehwan, Joseph M Paggi, Chanhee Park, Christopher Bennett, and Steven L Salzberg. 2019. <span>“Graph-Based Genome Alignment and Genotyping with <span>HISAT2</span> and <span>HISAT</span>-Genotype.”</span> <em>Nat. Biotechnol.</em> 37 (8): 907–15.
+</div>
+<div id="ref-Liao2014-gy" class="csl-entry" role="listitem">
+Liao, Yang, Gordon K Smyth, and Wei Shi. 2014. <span>“<span class="nocase">featureCounts</span>: An Efficient General Purpose Program for Assigning Sequence Reads to Genomic Features.”</span> <em>Bioinformatics</em> 30 (7): 923–30.
+</div>
 <div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
 Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.
+</div>
+<div id="ref-Yu2015-f5" class="csl-entry" role="listitem">
+Yu, Nancy Yiu-Lin, Björn M. Hallström, Linn Fagerberg, Fredrik Ponten, Hideya Kawaji, Piero Carninci, Alistair R. R. Forrest, et al. 2015. <span>“Complementing Tissue Characterization by Integrating Transcriptome Profiling from the Human Protein Atlas and from the FANTOM5 Consortium.”</span> <em>Nucleic Acids Research</em> 43 (14): 6787–98. <a href="https://doi.org/10.1093/nar/gkv608">https://doi.org/10.1093/nar/gkv608</a>.
 </div>
 </div>
 </section>
