@@ -366,3 +366,167 @@ DOI = {10.3390/ijms19051310}
 
 
 
+@ARTICLE{Bray2016-qq,
+  title    = "Near-optimal probabilistic {RNA}-seq quantification",
+  author   = "Bray, Nicolas L and Pimentel, Harold and Melsted, Páll and
+              Pachter, Lior",
+  journal  = "Nat. Biotechnol.",
+  volume   =  34,
+  number   =  5,
+  pages    = "525--527",
+  abstract = "We present kallisto, an RNA-seq quantification program that is two
+              orders of magnitude faster than previous approaches and achieves
+              similar accuracy. Kallisto pseudoaligns reads to a reference,
+              producing a list of transcripts that are compatible with each read
+              while avoiding alignment of individual bases. We use kallisto to
+              analyze 30 million unaligned paired-end RNA-seq reads in <10 min
+              on a standard laptop computer. This removes a major computational
+              bottleneck in RNA-seq analysis.",
+  month    =  may,
+  year     =  2016,
+  language = "en"
+}
+
+@ARTICLE{Patro2017-sn,
+  title    = "Salmon provides fast and bias-aware quantification of transcript
+              expression",
+  author   = "Patro, Rob and Duggal, Geet and Love, Michael I and Irizarry,
+              Rafael A and Kingsford, Carl",
+  journal  = "Nat. Methods",
+  volume   =  14,
+  number   =  4,
+  pages    = "417--419",
+  abstract = "We introduce Salmon, a lightweight method for quantifying
+              transcript abundance from RNA-seq reads. Salmon combines a new
+              dual-phase parallel inference algorithm and feature-rich bias
+              models with an ultra-fast read mapping procedure. It is the first
+              transcriptome-wide quantifier to correct for fragment GC-content
+              bias, which, as we demonstrate here, substantially improves the
+              accuracy of abundance estimates and the sensitivity of subsequent
+              differential expression analysis.",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
+}
+
+@ARTICLE{Baldoni2024-zf,
+  title    = "Dividing out quantification uncertainty allows efficient
+              assessment of differential transcript expression with {edgeR}",
+  author   = "Baldoni, Pedro L and Chen, Yunshun and Hediyeh-Zadeh, Soroor and
+              Liao, Yang and Dong, Xueyi and Ritchie, Matthew E and Shi, Wei and
+              Smyth, Gordon K",
+  journal  = "Nucleic Acids Res.",
+  volume   =  52,
+  number   =  3,
+  pages    = "e13",
+  abstract = "Differential expression analysis of RNA-seq is one of the most
+              commonly performed bioinformatics analyses. Transcript-level
+              quantifications are inherently more uncertain than gene-level read
+              counts because of ambiguous assignment of sequence reads to
+              transcripts. While sequence reads can usually be assigned
+              unambiguously to a gene, reads are very often compatible with
+              multiple transcripts for that gene, particularly for genes with
+              many isoforms. Software tools designed for gene-level differential
+              expression do not perform optimally on transcript counts because
+              the read-to-transcript ambiguity (RTA) disrupts the mean-variance
+              relationship normally observed for gene level RNA-seq data and
+              interferes with the efficiency of the empirical Bayes dispersion
+              estimation procedures. The pseudoaligners kallisto and Salmon
+              provide bootstrap samples from which quantification uncertainty
+              can be assessed. We show that the overdispersion arising from RTA
+              can be elegantly estimated by fitting a quasi-Poisson model to the
+              bootstrap counts for each transcript. The technical overdispersion
+              arising from RTA can then be divided out of the transcript counts,
+              leading to scaled counts that can be input for analysis by
+              established gene-level software tools with full statistical
+              efficiency. Comprehensive simulations and test data show that an
+              edgeR analysis of the scaled counts is more powerful and efficient
+              than previous differential transcript expression pipelines while
+              providing correct control of the false discovery rate. Simulations
+              explore a wide range of scenarios including the effects of paired
+              vs single-end reads, different read lengths and different numbers
+              of replicates.",
+  month    =  feb,
+  year     =  2024,
+  language = "en"
+}
+
+@ARTICLE{Chen2016-ig,
+  title    = "From reads to genes to pathways: differential expression analysis
+              of {RNA}-Seq experiments using Rsubread and the {edgeR}
+              quasi-likelihood pipeline",
+  author   = "Chen, Yunshun and Lun, Aaron T L and Smyth, Gordon K",
+  journal  = "F1000Res.",
+  volume   =  5,
+  pages    =  1438,
+  abstract = "In recent years, RNA sequencing (RNA-seq) has become a very widely
+              used technology for profiling gene expression. One of the most
+              common aims of RNA-seq profiling is to identify genes or molecular
+              pathways that are differentially expressed (DE) between two or
+              more biological conditions. This article demonstrates a
+              computational workflow for the detection of DE genes and pathways
+              from RNA-seq data by providing a complete analysis of an RNA-seq
+              experiment profiling epithelial cell subsets in the mouse mammary
+              gland. The workflow uses R software packages from the open-source
+              Bioconductor project and covers all steps of the analysis
+              pipeline, including alignment of read sequences, data exploration,
+              differential expression analysis, visualization and pathway
+              analysis. Read alignment and count quantification is conducted
+              using the Rsubread package and the statistical analyses are
+              performed using the edgeR package. The differential expression
+              analysis uses the quasi-likelihood functionality of edgeR.",
+  month    =  jun,
+  year     =  2016,
+  keywords = "R software; RNA sequencing; gene expression; molecular pathways",
+  language = "en"
+}
+
+@Article{love2014-ds,
+    title = {Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2},
+    author = {Michael I. Love and Wolfgang Huber and Simon Anders},
+    year = {2014},
+    journal = {Genome Biology},
+    doi = {10.1186/s13059-014-0550-8},
+    volume = {15},
+    issue = {12},
+    pages = {550},
+  }
+
+@ARTICLE{Law2014-xq,
+  title    = "voom: Precision weights unlock linear model analysis tools for
+              {RNA}-seq read counts",
+  author   = "Law, Charity W and Chen, Yunshun and Shi, Wei and Smyth, Gordon K",
+  journal  = "Genome Biol.",
+  volume   =  15,
+  number   =  2,
+  pages    = "R29",
+  abstract = "New normal linear modeling strategies are presented for analyzing
+              read counts from RNA-seq experiments. The voom method estimates
+              the mean-variance relationship of the log-counts, generates a
+              precision weight for each observation and enters these into the
+              limma empirical Bayes analysis pipeline. This opens access for
+              RNA-seq analysts to a large body of methodology developed for
+              microarrays. Simulation studies show that voom performs as well or
+              better than count-based RNA-seq methods even when the data are
+              generated according to the assumptions of the earlier methods. Two
+              case studies illustrate the use of linear modeling and gene set
+              testing methods.",
+  month    =  feb,
+  year     =  2014,
+  language = "en"
+}
+
+@article{dudoit02-ma,
+ ISSN = {10170405, 19968507},
+ URL = {http://www.jstor.org/stable/24307038},
+ abstract = {DNA microarrays are a new and promising biotechnology which allows the monitoring of expression levels in cells for thousands of genes simultaneously. The present paper describes statistical methods for the identification of differentially expressed genes in replicated cDNA microarray experiments. Although it is not the main focus of the paper, new methods for the important pre-processing steps of image analysis and normalization are proposed. Given suitably normalized data, the biological question of differential expression is restated as a problem in multiple hypothesis testing: the simultaneous test for each gene of the null hypothesis of no association between the expression levels and responses or covariates of interest. Differentially expressed genes are identified based on adjusted p-values for a multiple testing procedure which strongly controls the family-wise Type I error rate and takes into account the dependence structure between the gene expression levels. No specific parametric form is assumed for the distribution of the test statistics and a permutation procedure is used to estimate adjusted p-values. Several data displays are suggested for the visual identification of differentially expressed genes and of important features of these genes. The above methods are applied to microarray data from a study of gene expression in the livers of mice with very low HDL cholesterol levels. The genes identified using data from multiple slides are compared to those identified by recently published single-slide methods.},
+ author = {Sandrine Dudoit and Yee Hwa Yang and Matthew J. Callow and Terence P. Speed},
+ journal = {Statistica Sinica},
+ number = {1},
+ pages = {111--139},
+ publisher = {Institute of Statistical Science, Academia Sinica},
+ title = {STATISTICAL METHODS FOR IDENTIFYING DIFFERENTIALLY EXPRESSED GENES IN REPLICATED cDNA MICROARRAY EXPERIMENTS},
+ urldate = {2025-08-30},
+ volume = {12},
+ year = {2002}
+}

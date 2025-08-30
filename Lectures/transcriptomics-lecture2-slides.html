@@ -435,15 +435,227 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <h2>Gene-Level Counts</h2>
 
 <img data-src="transcriptomics/gkv608fig1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Image taken from <span class="citation" data-cites="Yu2015-f5">Yu et al. (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p></section>
-<section id="transcriptome-pseudo-alignment" class="slide level2">
-<h2>Transcriptome Pseudo-Alignment</h2>
+<section id="transcriptome-alignment" class="slide level2">
+<h2>Transcriptome Alignment</h2>
 <ul>
-<li>An alternative is to provide a reference transcriptome
+<li>An alternative is to provide a <em>reference transcriptome</em>
 <ul>
-<li>Alignments no longer need to splice aware</li>
+<li>Alignments no longer need to be splice aware</li>
 </ul></li>
 <li>Reads can align to multiple transcripts</li>
+<li>Much faster than traditional alignment</li>
 </ul>
+<div class="fragment">
+<ul>
+<li>Pseudo-alignment is used by kallisto <span class="citation" data-cites="Bray2016-qq">(<a href="#/references" role="doc-biblioref" onclick="">Bray et al. 2016</a>)</span></li>
+<li>Statistically modelled expression estimates used by salmon <span class="citation" data-cites="Patro2017-sn">(<a href="#/references" role="doc-biblioref" onclick="">Patro et al. 2017</a>)</span></li>
+<li>Return transcript-level counts without bam files</li>
+<li>Add transcript-level counts <span class="math inline">\(\implies\)</span> gene-level counts</li>
+</ul>
+</div>
+</section>
+<section id="pseudo-counts" class="slide level2">
+<h2>Pseudo-Counts</h2>
+<ul>
+<li>Salmon counts are actually pseudo counts output by model fitting
+<ul>
+<li>Predicts the proportion of library derived from transcript</li>
+<li>Fitted using EM-algorithm or Bayesian modelling</li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">Counts bootstrapped to provide uncertainty estimates of prediction<br><span class="math inline">\(\implies\)</span> <em>Measures how confident we are in the transcript-level counts</em></li>
+<li class="fragment">Transcript-level counts can be scaled by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/references" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span> when performing DTE analysis</li>
+</ul>
+</section></section>
+<section>
+<section id="differential-gene-expression-analysis" class="title-slide slide level1 center">
+<h1>Differential Gene Expression Analysis</h1>
+
+</section>
+<section id="count-based-data" class="slide level2">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Under both reference-types <span class="math inline">\(\rightarrow\)</span> counts to represent expression</li>
+<li>These are <em>discrete</em> data (i.e.&nbsp;not continuous values)</li>
+<li>Microarrays were continuous values (fluorescence intensity)
+<ul>
+<li>Modelled using log<sub>2</sub>-transformed values <span class="math inline">\(\implies \mathcal{N}(\mu, \sigma)\)</span></li>
+<li>Linear regression, <span class="math inline">\(t\)</span>-tests etc</li>
+<li>Mean and variance are independent variables</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Count data is commonly modelled using a Poisson Distribution <span class="math inline">\(\implies \text{Poisson}(\lambda)\)</span>
+<ul>
+<li>Poisson variance is defined as being equal to the mean i.e.&nbsp;<span class="math inline">\(\sigma^2 = \mu\)</span><br><span class="math inline">\(\implies\)</span>Mean and variance <em>are not independent variables</em></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-1" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>In most cases the observed variance is greater than the mean<span class="math inline">\(\implies\)</span> <em>over-dispersion</em></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>We use Negative Binomial distributions to model counts</li>
+</ul>
+<p><span class="math display">\[
+X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right), \text{where }E[X] = \mu \text{; Var}[X] = \sigma^2
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li>Can be thought of as like a Poisson with extra variation</li>
+<li>Extra variation is strictly defined in quadratic relationship to mean
+<ul>
+<li>Sometimes described as a combination of <em>technical</em> &amp; <em>biological</em> variation</li>
+</ul></li>
+<li>First developed for SAGE data</li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-2" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Fit <em>generalised linear models</em> (GLMs) to model counts and estimate logFC</li>
+<li>Implemented in edgeR <span class="citation" data-cites="Chen2016-ig">(<a href="#/references" role="doc-biblioref" onclick="">Chen, Lun, and Smyth 2016</a>)</span> and DESeq2 <span class="citation" data-cites="love2014-ds">(<a href="#/references" role="doc-biblioref" onclick="">Love, Huber, and Anders 2014</a>)</span>
+<ul>
+<li>Both default to FDR-adjusted <span class="math inline">\(p\)</span>-values</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Same model for transcripts, but dividing counts by uncertainty estimate</li>
+<li>Can also model transcripts as proportions of gene-level estimates</li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-3" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Poisson/NB-GLMs fit the rate of an event, i.e.&nbsp;counts per fixed measurement window</li>
+<li>Sequencing data produces ‘libraries’ of counts <span class="math inline">\(\rightarrow\)</span> total counts = <em>library size</em></li>
+<li>In model fitting <span class="math inline">\(\rightarrow\)</span> estimate rate as a function of library size</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>TMM (edgeR) or RLE (DESeq2) approaches estimate scaling factors
+<ul>
+<li>Moderates the effect of highly expressed genes which dominate library size</li>
+<li>In a perfect world <span class="math inline">\(\implies\)</span> all scaling factors = 1</li>
+</ul></li>
+<li>Library size when modelling is multiplied by scaling factors
+<ul>
+<li>The most effective normalisation methods for RNA-Seq</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-4" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>A common alternative measure is <em>counts per million</em> (CPM) <span class="fragment">or logCPM</span></li>
+<li>CPM is simply counts divided by (library size / 1,000,000)
+<ul>
+<li>No longer discrete <span class="math inline">\(\implies\)</span> continuous data</li>
+</ul></li>
+<li>Relationship between mean and variance still retained for logCPM
+<ul>
+<li>Can’t use naively in classic <code>limma</code>-based linear models</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>The limma-voom method <span class="citation" data-cites="Law2014-xq">(<a href="#/references" role="doc-biblioref" onclick="">Law et al. 2014</a>)</span> uses weights to break the mean-variance relationship
+<ul>
+<li>Can then assume normally-distributed data <br><span class="math inline">\(\implies\)</span> slightly more sophisticated and flexible models</li>
+</ul></li>
+<li>Alternatively, the <code>limma-trend</code> works effectively</li>
+</ul>
+</div>
+<!-- Put a volcano & MA plot here, maybe with tables -->
+</section></section>
+<section>
+<section id="beyond-differential-expression" class="title-slide slide level1 center">
+<h1>Beyond Differential Expression</h1>
+
+</section>
+<section id="long-read-technology" class="slide level2">
+<h2>Long Read Technology</h2>
+</section>
+<section id="long-read-technology-1" class="slide level2 slide-only unlisted">
+<h2>Long Read Technology</h2>
+</section>
+<section id="transcript-assembly" class="slide level2">
+<h2>Transcript Assembly</h2>
+<aside class="notes">
+<p>StringTie is the quick &amp; dirty method. Will also turn up some weird artefacts</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>With a good reference genome <span class="math inline">\(\implies\)</span> <em>StringTie</em> will identify novel transcripts
+<ul>
+<li>Very useful in some cancers</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Can alternatively perform a full <em>reference-guided assembly</em> (Trinity)
+<ul>
+<li>Also works with more distantly-related references</li>
+<li>Built a sea-snake venom-gland transcriptome using another snake genome</li>
+</ul></li>
+<li>Then predicted protein function from sequence homolgy</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Full <em>de novo</em> reference also possible if not viable reference</li>
+</ul>
+</div>
+</section>
+<section id="transcript-assembly-1" class="slide level2 slide-only unlisted">
+<h2>Transcript Assembly</h2>
+<ul>
+<li>Check Zhipeng’s notes</li>
+</ul>
+</section>
+<section id="wgcna" class="slide level2">
+<h2>WGCNA</h2>
+</section>
+<section id="wgcna-1" class="slide level2 slide-only unlisted">
+<h2>WGCNA</h2>
+</section>
+<section id="single-cell-transcriptomics" class="slide level2">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="single-cell-transcriptomics-1" class="slide level2 slide-only unlisted">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="single-cell-transcriptomics-2" class="slide level2 slide-only unlisted">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics" class="slide level2">
+<h2>Spatial Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics-1" class="slide level2 slide-only unlisted">
+<h2>Spatial Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics-2" class="slide level2 slide-only unlisted">
+<h2>Spatial Transcriptomics</h2>
 </section></section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
 <h1>References</h1>
@@ -452,8 +664,17 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <div id="ref-htseq2014" class="csl-entry" role="listitem">
 Anders, Simon, Paul Theodor Pyl, and Wolfgang Huber. 2014. <span>“HTSeq—a Python Framework to Work with High-Throughput Sequencing Data.”</span> <em>Bioinformatics</em> 31 (2): 166–69. <a href="https://doi.org/10.1093/bioinformatics/btu638">https://doi.org/10.1093/bioinformatics/btu638</a>.
 </div>
+<div id="ref-Baldoni2024-zf" class="csl-entry" role="listitem">
+Baldoni, Pedro L, Yunshun Chen, Soroor Hediyeh-Zadeh, Yang Liao, Xueyi Dong, Matthew E Ritchie, Wei Shi, and Gordon K Smyth. 2024. <span>“Dividing Out Quantification Uncertainty Allows Efficient Assessment of Differential Transcript Expression with <span class="nocase">edgeR</span>.”</span> <em>Nucleic Acids Res.</em> 52 (3): e13.
+</div>
+<div id="ref-Bray2016-qq" class="csl-entry" role="listitem">
+Bray, Nicolas L, Harold Pimentel, Páll Melsted, and Lior Pachter. 2016. <span>“Near-Optimal Probabilistic <span>RNA</span>-Seq Quantification.”</span> <em>Nat. Biotechnol.</em> 34 (5): 525–27.
+</div>
 <div id="ref-ijms19051310" class="csl-entry" role="listitem">
 Chan, Jia Jia, and Yvonne Tay. 2018. <span>“Noncoding RNA:RNA Regulatory Networks in Cancer.”</span> <em>International Journal of Molecular Sciences</em> 19 (5). <a href="https://doi.org/10.3390/ijms19051310">https://doi.org/10.3390/ijms19051310</a>.
+</div>
+<div id="ref-Chen2016-ig" class="csl-entry" role="listitem">
+Chen, Yunshun, Aaron T L Lun, and Gordon K Smyth. 2016. <span>“From Reads to Genes to Pathways: Differential Expression Analysis of <span>RNA</span>-Seq Experiments Using Rsubread and the <span class="nocase">edgeR</span> Quasi-Likelihood Pipeline.”</span> <em>F1000Res.</em> 5 (June): 1438.
 </div>
 <div id="ref-Dobin2013-us" class="csl-entry" role="listitem">
 Dobin, Alexander, Carrie A Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R Gingeras. 2013. <span>“<span>STAR</span>: Ultrafast Universal <span>RNA</span>-Seq Aligner.”</span> <em>Bioinformatics</em> 29 (1): 15–21.
@@ -461,8 +682,17 @@ Dobin, Alexander, Carrie A Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski
 <div id="ref-Kim2019-ib" class="csl-entry" role="listitem">
 Kim, Daehwan, Joseph M Paggi, Chanhee Park, Christopher Bennett, and Steven L Salzberg. 2019. <span>“Graph-Based Genome Alignment and Genotyping with <span>HISAT2</span> and <span>HISAT</span>-Genotype.”</span> <em>Nat. Biotechnol.</em> 37 (8): 907–15.
 </div>
+<div id="ref-Law2014-xq" class="csl-entry" role="listitem">
+Law, Charity W, Yunshun Chen, Wei Shi, and Gordon K Smyth. 2014. <span>“Voom: Precision Weights Unlock Linear Model Analysis Tools for <span>RNA</span>-Seq Read Counts.”</span> <em>Genome Biol.</em> 15 (2): R29.
+</div>
 <div id="ref-Liao2014-gy" class="csl-entry" role="listitem">
 Liao, Yang, Gordon K Smyth, and Wei Shi. 2014. <span>“<span class="nocase">featureCounts</span>: An Efficient General Purpose Program for Assigning Sequence Reads to Genomic Features.”</span> <em>Bioinformatics</em> 30 (7): 923–30.
+</div>
+<div id="ref-love2014-ds" class="csl-entry" role="listitem">
+Love, Michael I., Wolfgang Huber, and Simon Anders. 2014. <span>“Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2.”</span> <em>Genome Biology</em> 15: 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.
+</div>
+<div id="ref-Patro2017-sn" class="csl-entry" role="listitem">
+Patro, Rob, Geet Duggal, Michael I Love, Rafael A Irizarry, and Carl Kingsford. 2017. <span>“Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression.”</span> <em>Nat. Methods</em> 14 (4): 417–19.
 </div>
 <div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
 Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.

@@ -97,11 +97,28 @@ format:
 ::: {.fragment}
   
 - ncRNAs are also highly functional
-    + Ribosomal RNA (rRNA) essential for translation from mRNA to Protein
+    + Ribosomal RNA (rRNA) + tRNA $\rightarrow$ translation from mRNA to Protein
     + microRNAs play a role in gene-regulation via mRNA stability
-    + The lncRNA Xist coats the *entire X chromosome* during X inactivation
     
 :::
+
+## Why Transcriptomics? {.slide-only .unlisted}
+
+:::: {.columns}
+
+::: {.column}
+![Taken from @Fang2015-uq](transcriptomics/pgen.1005668.g006.png)
+:::
+
+::: {.column}
+- Most RNA is single-stranded but can have extremely complex structure
+    + Shown is a 2kb region from the lncRNA Xist (17kb in total)
+- Coats the *entire X chromosome* during X inactivation
+- Also interacts with the antisense lncRNA Tsix
+
+:::
+
+::::
 
 ## Why Transcriptomics? {.slide-only .unlisted}
 
@@ -117,22 +134,7 @@ Based on @Wang2009-hf
 - Can be the *entire RNA content of a cell* (or cells) or a subset of molecules (e.g. mRNA, miRNA)
 :::
 
-## Why Transcriptomics? {.slide-only .unlisted}
 
-:::: {.columns}
-
-::: {.column}
-![Taken from @Fang2015-uq](transcriptomics/pgen.1005668.g006.png)
-:::
-
-::: {.column}
-- Most RNA is single-stranded but can have extremely complex structure
-    + Shown is a 2kb region from the lncRNA Xist (17kb in total)
-- Also interacts with the antisense lncRNA Tsix
-
-:::
-
-::::
 
 ## Why Transcriptomics? {.slide-only .unlisted}
 
@@ -147,7 +149,7 @@ Based on @Wang2009-hf
 
 ## Why Transcriptomics? {.slide-only .unlisted}
 
-- Is the first molecular level where quantity becomes a key aspect
+- Is the lowest molecular level where quantity becomes a key aspect
     + Highly-expressed, or low-expressed genes are important
     + Changes in response to stimulus impact gene expression levels
 
@@ -279,18 +281,22 @@ Based on @Wang2009-hf
 
 ## Northern Blotting
 
-- Northern blot [@1977NorthernBlot] extended DNA-based methods (i.e Southern blot)
-    + Earliest single-gene method
+- Northern blot [@1977NorthernBlot] extended DNA-based methods (i.e Southern blot) [$\implies$ Earliest single-gene method]{.fragment}
+
+::: {.fragment}
+
 - Gel Electrophoresis then hybridisation with labelled probe
     + Requires some knowledge of RNA sequence
 - Images scanned $\rightarrow$ *Densitometric Analysis* for crude quantitation
 - Possible for different isoforms to be detected
     + Sequence dependent
 
+:::
+
 ## RT-qPCR
 
 ::: {.notes}
-The C~T~ values as actually estimated to a decimal value
+The C~T~ values is actually estimated to a decimal value
 :::
 
 - “Gold-standard” for measurement of transcription levels
@@ -321,8 +327,8 @@ The C~T~ values as actually estimated to a decimal value
 :::
 
 ::: {.incremental}
-- C~T~ values are then *normalised* to the housekeeper genes $\implies \Delta C_T$
-    + log~2~ transformed values are used
+- C~T~ values are *normalised* to the housekeeper genes $\implies \Delta C_T$
+    + log~2~ transformed values are used: $\Delta C_{T_g} = \log_2 C_{T_g} - \log_2 C_{T_{hk}}$
 - Comparison between conditions is the change in $\Delta C_T \implies \Delta\Delta C_T$
 - Represents change on the log~2~ scale, i.e. *log fold-change*
 :::
@@ -440,7 +446,23 @@ The C~T~ values as actually estimated to a decimal value
 
 ::::
 
+## MA Plots
 
+:::: {.columns}
+::: {.column}
+![Image from @dudoit02-ma](transcriptomics/dudoit_ma_plot.png)
+:::
+::: {.column}
+- Mean of Differences<br>$M = \log_2(\frac{R}{G}) = \log_2(R) - \log_2(G)$
+- Average Signal<br>$A = \frac{1}{2}\log_2(RG) = \frac{\log_2(R) + \log_2(G)}{2}$
+
+::: {.fragment}
+- Used to assess any bias
+- Also to show DE genes
+:::
+
+:::
+:::: 
 
 ## Single Channel Arrays
 

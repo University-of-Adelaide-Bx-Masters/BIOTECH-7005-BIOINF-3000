@@ -293,13 +293,157 @@ here::here("Lectures/transcriptomics") %>%
 
 ![Image taken from @Yu2015-f5](transcriptomics/gkv608fig1.jpeg)
 
-## Transcriptome Pseudo-Alignment
+## Transcriptome Alignment
 
-- An alternative is to provide a reference transcriptome
-    + Alignments no longer need to splice aware
+- An alternative is to provide a *reference transcriptome*
+    + Alignments no longer need to be splice aware
 - Reads can align to multiple transcripts
+- Much faster than traditional alignment
 
+::: {.fragment}
 
+- Pseudo-alignment is used by kallisto [@Bray2016-qq] 
+- Statistically modelled expression estimates used by salmon [@Patro2017-sn]
+- Return transcript-level counts without bam files
+- Add transcript-level counts $\implies$ gene-level counts
 
+:::
+
+## Pseudo-Counts
+
+- Salmon counts are actually pseudo counts output by model fitting
+    + Predicts the proportion of library derived from transcript
+    + Fitted using EM-algorithm or Bayesian modelling
+
+::: {.incremental}
+- Counts bootstrapped to provide uncertainty estimates of prediction<br>$\implies$ *Measures how confident we are in the transcript-level counts*
+- Transcript-level counts can be scaled by uncertainty estimate [@Baldoni2024-zf] when performing DTE analysis
+:::
+
+# Differential Gene Expression Analysis
+
+## Count-Based Data
+
+- Under both reference-types $\rightarrow$ counts to represent expression
+- These are *discrete* data (i.e. not continuous values)
+- Microarrays were continuous values (fluorescence intensity)
+    + Modelled using log~2~-transformed values $\implies \mathcal{N}(\mu, \sigma)$
+    + Linear regression, $t$-tests etc
+    + Mean and variance are independent variables
+    
+::: {.fragment}
+- Count data is commonly modelled using a Poisson Distribution $\implies \text{Poisson}(\lambda)$
+    + Poisson variance is defined as being equal to the mean i.e. $\sigma^2 = \mu$<br>$\implies$Mean and variance *are not independent variables*
+    
+:::
+
+## Count-Based Data {.slide-only .unlisted}
+
+- In most cases the observed variance is greater than the mean$\implies$ *over-dispersion*
+
+::: {.fragment}
+- We use Negative Binomial distributions to model counts
+
+$$
+X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right), \text{where }E[X] = \mu \text{; Var}[X] = \sigma^2
+$$
+:::
+::: {.fragment}
+
+- Can be thought of as like a Poisson with extra variation
+- Extra variation is strictly defined in quadratic relationship to mean
+    + Sometimes described as a combination of *technical* & *biological* variation
+- First developed for SAGE data
+
+:::
+
+## Count-Based Data {.slide-only .unlisted}
+
+- Fit *generalised linear models* (GLMs) to model counts and estimate logFC
+- Implemented in edgeR [@Chen2016-ig] and DESeq2 [@love2014-ds]
+    + Both default to FDR-adjusted $p$-values
+    
+::: {.fragment}
+- Same model for transcripts, but dividing counts by uncertainty estimate
++ Can also model transcripts as proportions of gene-level estimates
+:::
+
+## Count-Based Data {.slide-only .unlisted}
+
+- Poisson/NB-GLMs fit the rate of an event, i.e. counts per fixed measurement window
+- Sequencing data produces 'libraries' of counts $\rightarrow$ total counts = *library size*
+- In model fitting $\rightarrow$ estimate rate as a function of library size
+    
+::: {.fragment}
+- TMM (edgeR) or RLE (DESeq2) approaches estimate scaling factors
+    + Moderates the effect of highly expressed genes which dominate library size
+    + In a perfect world $\implies$ all scaling factors = 1
+- Library size when modelling is multiplied by scaling factors
+    + The most effective normalisation methods for RNA-Seq
+    
+:::
+
+## Count-Based Data {.slide-only .unlisted}
+
+- A common alternative measure is *counts per million* (CPM) [or logCPM]{.fragment}
+- CPM is simply counts divided by (library size / 1,000,000)
+    + No longer discrete $\implies$ continuous data
+- Relationship between mean and variance still retained for logCPM
+    + Can't use naively in classic `limma`-based linear models
+
+::: {.fragment}
+- The limma-voom method [@Law2014-xq] uses weights to break the mean-variance relationship
+    + Can then assume normally-distributed data <br>$\implies$ slightly more sophisticated and flexible models
+- Alternatively, the `limma-trend` works effectively
+:::
+
+<!-- Put a volcano & MA plot here, maybe with tables -->
+
+# Beyond Differential Expression
+
+## Long Read Technology
+
+## Long Read Technology {.slide-only .unlisted}
+
+## Transcript Assembly
+
+::: {.notes}
+StringTie is the quick & dirty method. Will also turn up some weird artefacts
+:::
+
+- With a good reference genome $\implies$ *StringTie* will identify novel transcripts
+    + Very useful in some cancers
+
+::: {.fragment}
+- Can alternatively perform a full *reference-guided assembly* (Trinity)
+    + Also works with more distantly-related references
+    + Built a sea-snake venom-gland transcriptome using another snake genome
+- Then predicted protein function from sequence homolgy
+    
+:::
+
+::: {.fragment}
+- Full *de novo* reference also possible if not viable reference
+:::
+
+## Transcript Assembly {.slide-only .unlisted}
+
+- Check Zhipeng's notes
+
+## WGCNA
+
+## WGCNA {.slide-only .unlisted}
+
+## Single-Cell Transcriptomics
+
+## Single-Cell Transcriptomics {.slide-only .unlisted}
+
+## Single-Cell Transcriptomics {.slide-only .unlisted}
+
+## Spatial Transcriptomics 
+
+## Spatial Transcriptomics {.slide-only .unlisted}
+
+## Spatial Transcriptomics {.slide-only .unlisted}
 
 # References

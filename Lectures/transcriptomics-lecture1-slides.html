@@ -234,28 +234,13 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>ncRNAs are also highly functional
 <ul>
-<li>Ribosomal RNA (rRNA) essential for translation from mRNA to Protein</li>
+<li>Ribosomal RNA (rRNA) + tRNA <span class="math inline">\(\rightarrow\)</span> translation from mRNA to Protein</li>
 <li>microRNAs play a role in gene-regulation via mRNA stability</li>
-<li>The lncRNA Xist coats the <em>entire X chromosome</em> during X inactivation</li>
 </ul></li>
 </ul>
 </div>
 </section>
 <section id="why-transcriptomics-2" class="slide level2 slide-only unlisted">
-<h2>Why Transcriptomics?</h2>
-<h3 id="definition">Definition</h3>
-<p>Based on <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span></p>
-<blockquote>
-<p>The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition</p>
-</blockquote>
-<div class="fragment">
-<ul>
-<li>Transcriptomics is simply the study of the transcriptome</li>
-<li>Can be the <em>entire RNA content of a cell</em> (or cells) or a subset of molecules (e.g.&nbsp;mRNA, miRNA)</li>
-</ul>
-</div>
-</section>
-<section id="why-transcriptomics-3" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
 <div class="columns">
 <div class="column">
@@ -271,9 +256,24 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Shown is a 2kb region from the lncRNA Xist (17kb in total)</li>
 </ul></li>
+<li>Coats the <em>entire X chromosome</em> during X inactivation</li>
 <li>Also interacts with the antisense lncRNA Tsix</li>
 </ul>
 </div></div>
+</section>
+<section id="why-transcriptomics-3" class="slide level2 slide-only unlisted">
+<h2>Why Transcriptomics?</h2>
+<h3 id="definition">Definition</h3>
+<p>Based on <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span></p>
+<blockquote>
+<p>The transcriptome can be defined as the complete set of (RNA) transcripts in a cell, or a population of cells, for a specific developmental stage or physiological condition</p>
+</blockquote>
+<div class="fragment">
+<ul>
+<li>Transcriptomics is simply the study of the transcriptome</li>
+<li>Can be the <em>entire RNA content of a cell</em> (or cells) or a subset of molecules (e.g.&nbsp;mRNA, miRNA)</li>
+</ul>
+</div>
 </section>
 <section id="why-transcriptomics-4" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
@@ -295,7 +295,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <section id="why-transcriptomics-5" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
 <ul>
-<li>Is the first molecular level where quantity becomes a key aspect
+<li>Is the lowest molecular level where quantity becomes a key aspect
 <ul>
 <li>Highly-expressed, or low-expressed genes are important</li>
 <li>Changes in response to stimulus impact gene expression levels</li>
@@ -461,10 +461,10 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <section id="northern-blotting" class="slide level2">
 <h2>Northern Blotting</h2>
 <ul>
-<li>Northern blot <span class="citation" data-cites="1977NorthernBlot">(<a href="#/references" role="doc-biblioref" onclick="">Alwine, Kemp, and Stark 1977</a>)</span> extended DNA-based methods (i.e Southern blot)
+<li>Northern blot <span class="citation" data-cites="1977NorthernBlot">(<a href="#/references" role="doc-biblioref" onclick="">Alwine, Kemp, and Stark 1977</a>)</span> extended DNA-based methods (i.e Southern blot) <span class="fragment"><span class="math inline">\(\implies\)</span> Earliest single-gene method</span></li>
+</ul>
+<div class="fragment">
 <ul>
-<li>Earliest single-gene method</li>
-</ul></li>
 <li>Gel Electrophoresis then hybridisation with labelled probe
 <ul>
 <li>Requires some knowledge of RNA sequence</li>
@@ -475,11 +475,12 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>Sequence dependent</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="rt-qpcr" class="slide level2">
 <h2>RT-qPCR</h2>
 <aside class="notes">
-<p>The C<sub>T</sub> values as actually estimated to a decimal value</p>
+<p>The C<sub>T</sub> values is actually estimated to a decimal value</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -529,9 +530,9 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 </div>
 <ul>
-<li class="fragment">C<sub>T</sub> values are then <em>normalised</em> to the housekeeper genes <span class="math inline">\(\implies \Delta C_T\)</span>
+<li class="fragment">C<sub>T</sub> values are <em>normalised</em> to the housekeeper genes <span class="math inline">\(\implies \Delta C_T\)</span>
 <ul>
-<li class="fragment">log<sub>2</sub> transformed values are used</li>
+<li class="fragment">log<sub>2</sub> transformed values are used: <span class="math inline">\(\Delta C_{T_g} = \log_2 C_{T_g} - \log_2 C_{T_{hk}}\)</span></li>
 </ul></li>
 <li class="fragment">Comparison between conditions is the change in <span class="math inline">\(\Delta C_T \implies \Delta\Delta C_T\)</span></li>
 <li class="fragment">Represents change on the log<sub>2</sub> scale, i.e.&nbsp;<em>log fold-change</em></li>
@@ -687,6 +688,29 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <figcaption>Section of two-colour array taken from <span class="citation" data-cites="Shalon01071996">Shalon, Smith, and Brown (<a href="#/references" role="doc-biblioref" onclick="">1996</a>)</span></figcaption>
 </figure>
 </div>
+</div>
+</div></div>
+</section>
+<section id="ma-plots" class="slide level2">
+<h2>MA Plots</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/dudoit_ma_plot.png"></p>
+<figcaption>Image from <span class="citation" data-cites="dudoit02-ma">Dudoit et al. (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Mean of Differences<br><span class="math inline">\(M = \log_2(\frac{R}{G}) = \log_2(R) - \log_2(G)\)</span></li>
+<li>Average Signal<br><span class="math inline">\(A = \frac{1}{2}\log_2(RG) = \frac{\log_2(R) + \log_2(G)}{2}\)</span></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Used to assess any bias</li>
+<li>Also to show DE genes</li>
+</ul>
 </div>
 </div></div>
 </section>
@@ -1144,6 +1168,9 @@ Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False Discov
 </div>
 <div id="ref-pmid12538238" class="csl-entry" role="listitem">
 Bolstad, B. M., R. A. Irizarry, M. Astrand, and T. P. Speed. 2003. <span>“<span class="nocase"><span>A</span> comparison of normalization methods for high density oligonucleotide array data based on variance and bias</span>.”</span> <em>Bioinformatics</em> 19 (2): 185–93.
+</div>
+<div id="ref-dudoit02-ma" class="csl-entry" role="listitem">
+Dudoit, Sandrine, Yee Hwa Yang, Matthew J. Callow, and Terence P. Speed. 2002. <span>“STATISTICAL METHODS FOR IDENTIFYING DIFFERENTIALLY EXPRESSED GENES IN REPLICATED cDNA MICROARRAY EXPERIMENTS.”</span> <em>Statistica Sinica</em> 12 (1): 111–39. <a href="http://www.jstor.org/stable/24307038">http://www.jstor.org/stable/24307038</a>.
 </div>
 <div id="ref-Fang2015-uq" class="csl-entry" role="listitem">
 Fang, Rui, Walter N Moss, Michael Rutenberg-Schoenberg, and Matthew D Simon. 2015. <span>“Probing Xist <span>RNA</span> Structure in Cells Using Targeted Structure-Seq.”</span> <em>PLoS Genet.</em> 11 (12): e1005668.
