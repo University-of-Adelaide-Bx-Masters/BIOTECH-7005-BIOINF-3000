@@ -177,7 +177,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <section id="welcome-to-country" class="slide level2">
 <h2><span class="text-red">Welcome To Country</span></h2>
 <div class="text-red">
-<p><em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
+<p><em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay my respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
 </div>
 </section>
 <section>
@@ -203,17 +203,18 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <div class="column">
 <ul>
 <li>DNA can be described as being like a giant book of instructions</li>
-<li>Some regions are defined as <em>genes</em>
+</ul>
 <ul>
-<li>Originally considered to be the basic unit of inheritance</li>
-<li>Now commonly used to describe a region of DNA transcribed into RNA</li>
+<li class="fragment">Some regions are defined as <em>genes</em>
+<ul>
+<li class="fragment">Originally considered to be the basic unit of inheritance</li>
+<li class="fragment">Now commonly used to describe a region of DNA transcribed into RNA</li>
+<li class="fragment">Recent discovery of enhancer-RNA (eRNA) muddies the water a little</li>
 </ul></li>
 </ul>
 </div><div class="column">
-<div class="fragment">
 <div style="font-size: 60%; text-align: center;">
 <p><img data-src="transcriptomics/DNA_to_protein_or_ncRNA.png"> <br>By <a href="//commons.wikimedia.org/wiki/User:Evolution_and_evolvability" title="User:Evolution and evolvability">Thomas Shafee</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=39441809">Wikimedia Link</a></p>
-</div>
 </div>
 </div></div>
 </section>
@@ -291,30 +292,18 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>DNA <span class="math inline">\(\rightarrow\)</span> <span class="text-red">RNA</span> <span class="fragment"><span class="math inline">\(\rightarrow\)</span> Protein <span class="math inline">\(\rightarrow\)</span> Metabolites, Signalling molecules, etc …</span></li>
 </ul></li>
 </ul>
+<!-- ## Why Transcriptomics? {.slide-only .unlisted} -->
+<!-- - Is the lowest molecular level where quantity becomes a key aspect -->
+<!--     + Highly-expressed, or low-expressed genes are important -->
+<!--     + Changes in response to stimulus impact gene expression levels -->
+<!-- ::: {.fragment} -->
+<!-- - Much of the early transcriptomic analyses were quantitative -->
+<!--     + Sequence variation often captured at DNA-level -->
+<!-- - Now extending to transcript structure and modifications -->
+<!--     + Identification of fusion transcripts, RNA-methylation etc -->
+<!-- ::: -->
 </section>
 <section id="why-transcriptomics-5" class="slide level2 slide-only unlisted">
-<h2>Why Transcriptomics?</h2>
-<ul>
-<li>Is the lowest molecular level where quantity becomes a key aspect
-<ul>
-<li>Highly-expressed, or low-expressed genes are important</li>
-<li>Changes in response to stimulus impact gene expression levels</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Much of the early transcriptomic analyses were quantitative
-<ul>
-<li>Sequence variation often captured at DNA-level</li>
-</ul></li>
-<li>Now extending to transcript structure and modifications
-<ul>
-<li>Identification of fusion transcripts, RNA-methylation etc</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="why-transcriptomics-6" class="slide level2 slide-only unlisted">
 <h2>Why Transcriptomics?</h2>
 <ul>
 <li>Early techniques were often using large numbers of cells
@@ -397,7 +386,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Protects single-stranded mRNA from degradation</li>
 <li>Regulates nuclear export</li>
-<li>Promotes translation</li>
+<li>Promotes translation into protein</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -469,8 +458,11 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Requires some knowledge of RNA sequence</li>
 </ul></li>
+<li>Informative for Presence/Absence calls
+<ul>
 <li>Images scanned <span class="math inline">\(\rightarrow\)</span> <em>Densitometric Analysis</em> for crude quantitation</li>
-<li>Possible for different isoforms to be detected
+</ul></li>
+<li>Possible for some different isoforms to be detected
 <ul>
 <li>Sequence dependent</li>
 </ul></li>
@@ -525,7 +517,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <div class="fragment">
 <ul>
-<li>Is vulnerable to technical artefacts (e.g.&nbsp;pipetting variability)</li>
+<li>Is vulnerable to technical artefacts (e.g.&nbsp;pipetting &amp; sample variability)</li>
 <li>Often includes one or more “housekeeper” genes thought to be stably expressed</li>
 </ul>
 </div>
@@ -615,8 +607,13 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>Heavily used by FANTOM project <span class="citation" data-cites="Abugessaisa2021-fn">(<a href="#/references" role="doc-biblioref" onclick="">Abugessaisa et al. 2020</a>)</span> to identify exact Transcription Start Sites (TSS)</li>
 </ul>
 </div>
+</section></section>
+<section>
+<section id="microarray-technology" class="title-slide slide level1 center">
+<h1>Microarray Technology</h1>
+
 </section>
-<section id="microarray-technology" class="slide level2">
+<section id="microarray-technology-1" class="slide level2">
 <h2>Microarray Technology</h2>
 <aside class="notes">
 <ul>
@@ -640,7 +637,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>Thousands of genes could be measured simultaneously!!!</li>
 <li>Tens of thousands of public datasets <span class="math inline">\(\implies\)</span> still being mined</li>
 </ul></li>
-<li>Established concurrently with the Human Genome Project (1990-2003)
+<li>Established during latter stages of the Human Genome Project (1990-2003)
 <ul>
 <li>Databases &amp; complete reference sequences become widely available</li>
 </ul></li>
@@ -653,7 +650,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul></li>
 </ul>
 </section>
-<section id="microarray-technology-1" class="slide level2 slide-only unlisted">
+<section id="microarray-technology-2" class="slide level2 slide-only unlisted">
 <h2>Microarray Technology</h2>
 <ul>
 <li>All microarrays follow the same basic process</li>
@@ -670,18 +667,19 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>60-75mer oligonucleotide probes</li>
 <li>Highly customisable by project</li>
-<li>Two samples per array</li>
 </ul></li>
 </ul>
-<div class="fragment">
+<div class="fragment" data-fragment-index="1">
 <ul>
-<li>One sample labelled with Cy5 (Red)</li>
-<li>Other sample labelled with Cy3 (Green)</li>
+<li>Two samples per array
+<ul>
+<li>Samples labelled with Cy5 (Red) or Cy3 (Green)</li>
+</ul></li>
 <li>Scanned at 570nm (Cy3) and 670nm (Cy5)</li>
 </ul>
 </div>
 </div><div class="column" style="width:43%;">
-<div class="fragment">
+<div class="fragment" data-fragment-index="1">
 <div class="quarto-figure quarto-figure-left">
 <figure>
 <p><img data-src="transcriptomics/2colour.jpg" style="width:100.0%"></p>
@@ -708,8 +706,13 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <div class="fragment">
 <ul>
-<li>Used to assess any bias</li>
+<li>Assess bias within and between arrays</li>
 <li>Also to show DE genes</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Term “MA Plot” still used in RNA-Seq despite no connection to formula</li>
 </ul>
 </div>
 </div></div>
@@ -726,7 +729,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>Standardised layout for each organism</li>
 <li>Single sample per array
 <ul>
-<li>Only scanned at one frequency</li>
+<li>Only scanned at one frequency<br><span class="math inline">\(\implies\)</span> no dye bias</li>
 </ul></li>
 <li>More genes/array</li>
 </ul>
@@ -757,7 +760,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="transcriptomics/microarrayLayout.jpg" style="width:100.0%"></p>
-<figcaption>The basic methodology underpinning Affymetrix array design. Source unknown</figcaption>
+<figcaption>The basic methodology underpinning Affymetrix array design. Source Affymetrix</figcaption>
 </figure>
 </div>
 </div></div>
@@ -771,15 +774,13 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li class="fragment"><em>Perfect Match</em> (PM) probes <span class="math inline">\(\implies\)</span> exactly matches target sequence
 <ul>
-<li class="fragment">Known to capture off-target signal <span class="math inline">\(\implies\)</span> non-specific binding</li>
+<li class="fragment">Known to capture off-target signal <span class="math inline">\(\implies\)</span> non-specific binding (NSB)</li>
 </ul></li>
-<li class="fragment">Arrays included paired <em>mismatch</em> probes (MM) with a change at the 13th position
+<li class="fragment">3’ arrays include paired <em>mismatch</em> probes (MM) with a change at the 13th position
 <ul>
-<li class="fragment">Sometimes returned more signal than PM probes 🤪</li>
-</ul></li>
-<li class="fragment">Gene-level expression estimate obtained taking a robust average across probeset
-<ul>
-<li class="fragment">Model also included BG signal (but not always from MM probes)</li>
+<li class="fragment">Literally half the array</li>
+<li class="fragment">Intended to quantify NSB properties of each probe</li>
+<li class="fragment">Sometimes returned more signal than PM probes 🤪 <!-- - Gene-level expression estimate obtained taking a robust average across probeset --> <!--     + Model also included BG signal (but not always from MM probes) --></li>
 </ul></li>
 </ul>
 </section>
@@ -828,12 +829,39 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <div class="fragment">
 <ul>
-<li>RNA-Seq appeared at a similar time &amp; <strong>obliterated</strong> their market share
+<li>RNA-Seq appeared at a similar time &amp; destroyed Affymetrix’s market share
 <ul>
 <li>Alternate isoform usage in RNA-seq is <em>still</em> considered a bit exploratory</li>
 </ul></li>
 </ul>
 </div>
+</section>
+<section id="microarrays-vs-rna-seq" class="slide level2">
+<h2>Microarrays Vs RNA-Seq</h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="transcriptomics-lecture1-slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div style="font-size:92%">
+<ul>
+<li>Exon Arrays released in 2006 (dashed line)</li>
+<li>Publications usually lag purchasing by 2-3 years
+<ul>
+<li>Microarrays peaked in 2008 (i.e.&nbsp;2005-6)</li>
+<li>Affymetrix owned by Thermo-Fisher since 2016</li>
+</ul></li>
+<li>Microarrays continue to be extensively used in DNA-methylation analysis</li>
+</ul>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="microarray-analysis" class="title-slide slide level1 center">
@@ -850,7 +878,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul></li>
 </ul>
 <ul>
-<li class="fragment">Will the some arrays have higher/lower overall signal?
+<li class="fragment">Will some arrays have higher/lower overall signal?
 <ul>
 <li class="fragment">Pipetting errors, hybridisation variability etc</li>
 </ul></li>
@@ -873,7 +901,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </div>
 </div><div class="column" style="width:35%;">
 <ul>
-<li>The variation here is technical<br><span class="math inline">\(\implies\)</span> <em>not</em> due to biology</li>
+<li>The variation here is primarily technical<br><span class="math inline">\(\implies\)</span> <em>not</em> due to biology</li>
 <li>Higher variance reduces power of statistical testing</li>
 <li>Can we reduce this?</li>
 </ul>
@@ -889,18 +917,18 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Quantile normalisation is perfect for arrays with probes and probesets
 <ul>
-<li>Normalise probes, but estimate signal at the probeset level</li>
+<li>Normalise probe-level signal, but estimate gene expression at the probeset level</li>
+<li>Smooths out any normalisation artefacts</li>
 </ul></li>
 </ul>
 <ol type="1">
-<li class="fragment">Find the lowest signal probe on each array</li>
+<li class="fragment">Select the lowest signal probe on each array<br><span class="math inline">\(\rightarrow\)</span> Likely to be a different probe on each array</li>
 <li class="fragment">Calculate the average signal across all arrays</li>
-<li class="fragment">Give each of the probes the average signal</li>
+<li class="fragment">Give each of the selected probes the average signal</li>
 <li class="fragment">Move to the next lowest signal probe until finished</li>
 </ol>
 <div class="fragment">
 <ul>
-<li>The lowest signal probes will be completely different across arrays</li>
 <li>Effectively randomises noise</li>
 <li>Leads to arrays with identical distributions</li>
 </ul>
@@ -924,10 +952,13 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </figure>
 </div>
 </div></div>
+<div style="font-size:95%">
 <ul>
 <li>Now we have identical distributions of signal across all arrays</li>
 <li>Equivalent to having identical amounts of source material (mRNA)</li>
+<li>Reduces technical noise across dataset <span class="math inline">\(\implies\)</span> more statistical power</li>
 </ul>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn3"><p>Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001</p></li></ol></aside></section>
 <section id="background-correction" class="slide level2">
 <h2>Background Correction</h2>
@@ -942,7 +973,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul></li>
 </ul>
 <p><span class="math display">\[
-PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
+\log_2 PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
 \]</span></p>
 <div class="fragment">
 <ul>
@@ -961,7 +992,6 @@ PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
 <ul>
 <li>Can fit standard regression models</li>
 </ul></li>
-<li>For Treat Vs Control <span class="math inline">\(\implies\)</span> <span class="math inline">\(T\)</span>-test for each gene</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
@@ -975,6 +1005,30 @@ H_A: \text{Some difference in average gene expression levels}
 </section>
 <section id="differential-expression-analysis-1" class="slide level2 slide-only unlisted">
 <h2>Differential Expression Analysis</h2>
+<p><span class="math display">\[
+T = \frac{\beta}{\sigma/\sqrt{n}}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta\)</span> is estimate of effect size (i.e.&nbsp;logFC)</li>
+</ul>
+<ul>
+<li class="fragment">Some estimates for <span class="math inline">\(\sigma\)</span> are too low, others too high
+<ul>
+<li class="fragment">Too low <span class="math inline">\(\implies T \uparrow\)</span> <span class="fragment"><span class="math inline">\(\implies\)</span> significant result where no change</span></li>
+<li class="fragment">Too high <span class="math inline">\(\implies T\downarrow\)</span> <span class="fragment"><span class="math inline">\(\implies\)</span> no significant result where there is change</span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Variance estimates moderated by <em>taking distribution of</em> <span class="math inline">\(\sigma\)</span> <em>across all genes</em>
+<ul>
+<li>Bayesian posterior estimate of variance <span class="math inline">\(\implies\)</span> moderated t-statistic <span class="citation" data-cites="pmid16646809">(<a href="#/references" role="doc-biblioref" onclick="">Smyth 2004</a>)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="differential-expression-analysis-2" class="slide level2 slide-only unlisted">
+<h2>Differential Expression Analysis</h2>
 <ul>
 <li>The Bioconductor package <code>limma</code> is the industry standard <span class="citation" data-cites="pmid16646809">(<a href="#/references" role="doc-biblioref" onclick="">Smyth 2004</a>)</span>
 <ul>
@@ -985,137 +1039,212 @@ H_A: \text{Some difference in average gene expression levels}
 <div class="fragment">
 <ul>
 <li>After testing <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(p\)</span>-value for each gene</li>
-<li>Multiple testing becomes an issue (revise Steven Delean’s lecture)</li>
+<li>Multiple testing becomes an issue (revise Steven Delean’s lecture)
+<ul>
+<li>Mostly use the Benjamini-Hochberg FDR</li>
+</ul></li>
 </ul>
 </div>
 </section>
-<section id="multiple-testing" class="slide level2">
-<h2>Multiple Testing</h2>
+<section id="example-results" class="slide level2">
+<h2>Example Results</h2>
+<pre><code>         logFC AveExpr     t  P.Value adj.P.Val     B
+Gene 1   2.180  1.0834  7.96 4.78e-05   0.00478  2.52
+Gene 34  1.361  0.1829  3.12 1.44e-02   0.53387 -3.47
+Gene 2   1.980  1.3416  2.90 2.02e-02   0.53387 -3.82
+Gene 72  1.127 -0.0684  2.86 2.15e-02   0.53387 -3.88
+Gene 75 -0.524 -0.1168 -2.72 2.67e-02   0.53387 -4.10
+Gene 86  0.771 -0.1801  2.52 3.60e-02   0.59375 -4.41
+Gene 16 -0.501 -0.0495 -2.43 4.16e-02   0.59375 -4.55
+Gene 83  0.453 -0.1065  2.27 5.35e-02   0.65833 -4.80
+Gene 33 -0.932 -0.5752 -2.15 6.39e-02   0.65833 -4.97
+Gene 89  0.467 -0.1272  2.13 6.58e-02   0.65833 -5.00</code></pre>
+<p><br><br><em>Taken from the</em> <code>limma</code> <em>help page examples</em></p>
+</section>
+<section id="volcano-plots" class="slide level2">
+<h2>Volcano Plots</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="transcriptomics/plot-volcano-1.png"></p>
+</div><div class="column" style="width:40%;">
 <ul>
-<li>Researchers commonly use a <span class="math inline">\(p\)</span>-value <span class="math inline">\(&lt;0.05\)</span> to claim evidence of significant change
+<li>Show estimated of logFC against significance (-log<sub>10</sub><span class="math inline">\(p\)</span>)</li>
+<li>Actually taken from RNA-Seq but plots are identical</li>
+</ul>
+</div></div>
+<!-- ## Multiple Testing -->
+<!-- - Researchers commonly use a $p$-value $<0.05$ to claim evidence of significant change -->
+<!--     + Often described as the rejection threshold $\alpha = 0.05$ -->
+<!-- > A $p$-value represent the probability of observing data (i.e. evidence of change) as extreme, or more extreme than our data if $H_0$ is true -->
+<!-- ::: {.fragment} -->
+<!-- - i.e. how likely are we to see our evidence of change if nothing's actually happening -->
+<!-- - Using $\alpha = 0.05$ we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, *if there's really nothing happening* -->
+<!-- ::: -->
+<!-- ## Multiple Testing {.slide-only .unlisted} -->
+<!-- - If testing across 10,000 genes $\implies$ 10,000 $p$-values -->
+<!-- - If no change between groups in any gene ($H_0$ is always true) <br>$\implies$ about 500 genes will return $p<0.05$ -->
+<!-- - These would be considered *false discoveries*, *false positives* or *Type I Errors* -->
+<!--     + False negatives are Type II errors -->
+<!-- |              | $H_0$ True | $H_0$ False | -->
+<!-- |:------------ | ---------- | ----------- | -->
+<!-- | **Accept $H_0$** | &#x2705; | Type II Error | -->
+<!-- | **Reject $H_0$** | [Type I Error]{.text-red} | &#x2705; | -->
+<!-- ## Multiple Testing {.slide-only .unlisted} -->
+<!-- - Reducing false positives is vital $\implies$ don't want to waste research \$\$\$ -->
+<!-- - An intuitive solution would be to use a lower value for $\alpha$ -->
+<!--     + Using $\alpha = 0.01$ $\implies$ 1 in 100 random $p$-values under $H_0$<br>$\implies$ only 100 false discoveries in 10,000 genes -->
+<!--     + But this makes it harder for *true positives* to be identified <br>$\implies$ more Type II errors (false negatives) -->
+<!-- - No perfect solution for minimising Type I errors without increasing Type II errors -->
+<!-- ## The Bonferroni Correction -->
+<!-- - A commonly used approach is the Bonferroni Correction -->
+<!-- - $\alpha$ is divided by the number of tests <br>$\implies$ probability of one false discovery remains at the original $\alpha$ -->
+<!--     + Known as Family Wise Error Rate (FWER) control -->
+<!-- ::: {.incremental} -->
+<!-- - For $n=10,000$ genes we would use $\alpha^* = \frac{0.05}{n} = 5\times10^{-6}$ -->
+<!-- - The equivalent is to multiply all $p$-values by $n$ to give adjusted $p$-values -->
+<!-- - $p_{adj} = \min(1, p \times n)$ ensures $p$-values are always $\leq1$ -->
+<!--     + Referred to as Bonferroni-adjusted $p$-values -->
+<!-- ::: -->
+<!-- ## The False Discovery Rate -->
+<!-- - An alternative is to allow a set proportion of your results to be *false positives* -->
+<!-- - Instead of controlling the FWER, we control the False Discovery Rate (FDR) -->
+<!--     + Using $\alpha = 0.05$ $\implies$ 95% of results will be appropriate rejections of $H_0$ -->
+<!--     + Is an estimate of the true FDR -->
+<!--     + Effectively allows a small amount of noise into our data -->
+<!--     + For larger network-style or downstream analysis $\implies$ signal drowns out noise -->
+<!-- - Is almost always more powerful that the Bonferroni correction -->
+<!--     + More power $\implies$ more ability to find the *true positives* -->
+<!-- ## The False Discovery Rate {.slide-only .unlisted} -->
+<!-- ::: {.notes} -->
+<!-- - The adjustment algorithm is a bit beyond this course -->
+<!-- ::: -->
+<!-- - Most common FDR method is the Benjamini-Hochberg adjustment [@BenjaminiHochbergFDR] -->
+<!-- ::: {.incremental} -->
+<!-- 1. $p$-values are given rank $i = 1, 2, \ldots, n$ where we have $n$ tests (i.e. genes) -->
+<!-- 2. Find maximum value of $i$ where $p_i \leq \alpha \frac{i}{n}$ -->
+<!-- - FDR-adjusted $p$-values easily obtained using `R` -->
+<!--     + `p.adjust(p, method = "BH")` -->
+<!-- ::: -->
+</section>
+<section id="enrichment-testing" class="slide level2">
+<h2>Enrichment Testing</h2>
 <ul>
-<li>Often described as the rejection threshold <span class="math inline">\(\alpha = 0.05\)</span></li>
+<li>Often want to identify key pathways associated with results
+<ul>
+<li>Are genes from specific pathways or gene-sets most impacted</li>
 </ul></li>
 </ul>
-<blockquote>
-<p>A <span class="math inline">\(p\)</span>-value represent the probability of observing data (i.e.&nbsp;evidence of change) as extreme, or more extreme than our data if <span class="math inline">\(H_0\)</span> is true</p>
-</blockquote>
+<div class="columns">
+<div class="column">
+<p><img data-src="transcriptomics/apoptosisDAG.png" style="width:85.0%"></p>
+</div><div class="column">
+<ul>
+<li>Gene Ontology (GO) Terms:
+<ul>
+<li>Carefully constructed, hierarchical database of terms</li>
+<li>Biological Process, Molecular Function and Cellular Component</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="enrichment-testing-1" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/hsa00190.png" style="width:95.0%"></p>
+<figcaption>Oxidative Phosphorylation pathway as annotated in the KEGG database</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Kyoto Encyclopedia of Genes and Genomes (KEGG):
+<ul>
+<li>Molecular pathways with complete topology</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="enrichment-testing-2" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div class="columns">
+<div class="column" style="width:&quot;55%';">
+<ul>
+<li>Often use approaches based on Fisher’s Exact Test
+<ul>
+<li>Compare enrichment of DE genes in a pathway vs not DE Genes in pathway</li>
+</ul></li>
+<li>Pathways often share DE genes <span class="math inline">\(\implies\)</span> often need biological expertise</li>
+<li>Multiple Testing across 1000s of pathways</li>
+</ul>
 <div class="fragment">
 <ul>
-<li>i.e.&nbsp;how likely are we to see our evidence of change if nothing’s actually happening</li>
-<li>Using <span class="math inline">\(\alpha = 0.05\)</span> we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, <em>if there’s really nothing happening</em></li>
+<li>20% of pathway is DE vs 6.7% of “not-pathway” genes</li>
 </ul>
 </div>
-</section>
-<section id="multiple-testing-1" class="slide level2 slide-only unlisted">
-<h2>Multiple Testing</h2>
-<ul>
-<li>If testing across 10,000 genes <span class="math inline">\(\implies\)</span> 10,000 <span class="math inline">\(p\)</span>-values</li>
-<li>If no change between groups in any gene (<span class="math inline">\(H_0\)</span> is always true) <br><span class="math inline">\(\implies\)</span> about 500 genes will return <span class="math inline">\(p&lt;0.05\)</span></li>
-<li>These would be considered <em>false discoveries</em>, <em>false positives</em> or <em>Type I Errors</em>
-<ul>
-<li>False negatives are Type II errors</li>
-</ul></li>
-</ul>
+</div><div class="column" style="width:45%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th><span class="math inline">\(H_0\)</span> True</th>
-<th><span class="math inline">\(H_0\)</span> False</th>
+<th style="text-align: right;">DE Genes</th>
+<th style="text-align: right;">Not DE Genes</th>
+<th style="text-align: right;">%</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Accept <span class="math inline">\(H_0\)</span></strong></td>
-<td>✅</td>
-<td>Type II Error</td>
+<td style="text-align: left;">In Pathway</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">20%</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Reject <span class="math inline">\(H_0\)</span></strong></td>
-<td><span class="text-red">Type I Error</span></td>
-<td>✅</td>
+<td style="text-align: left;">Not In Pathway</td>
+<td style="text-align: right;">990</td>
+<td style="text-align: right;">14000</td>
+<td style="text-align: right;">6.7%</td>
 </tr>
 </tbody>
 </table>
+</div></div>
 </section>
-<section id="multiple-testing-2" class="slide level2 slide-only unlisted">
-<h2>Multiple Testing</h2>
+<section id="enrichment-testing-3" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div style="font-size:95%">
+<div class="columns">
+<div class="column" style="width:45%;">
 <ul>
-<li>Reducing false positives is vital <span class="math inline">\(\implies\)</span> don’t want to waste research $$$</li>
-<li>An intuitive solution would be to use a lower value for <span class="math inline">\(\alpha\)</span>
+<li>An alternative approach is to use ranked lists
 <ul>
-<li>Using <span class="math inline">\(\alpha = 0.01\)</span> <span class="math inline">\(\implies\)</span> 1 in 100 random <span class="math inline">\(p\)</span>-values under <span class="math inline">\(H_0\)</span><br><span class="math inline">\(\implies\)</span> only 100 false discoveries in 10,000 genes</li>
-<li>But this makes it harder for <em>true positives</em> to be identified <br><span class="math inline">\(\implies\)</span> more Type II errors (false negatives)</li>
+<li>Gene Set Enrichment Analysis (GSEA)</li>
 </ul></li>
-<li>No perfect solution for minimising Type I errors without increasing Type II errors</li>
+<li>No requirement to classify genes as DE or not DE</li>
 </ul>
-</section>
-<section id="the-bonferroni-correction" class="slide level2">
-<h2>The Bonferroni Correction</h2>
+<div class="fragment">
 <ul>
-<li>A commonly used approach is the Bonferroni Correction</li>
-<li><span class="math inline">\(\alpha\)</span> is divided by the number of tests <br><span class="math inline">\(\implies\)</span> probability of one false discovery remains at the original <span class="math inline">\(\alpha\)</span>
+<li>Walk along the ranked list of genes increasing score if gene in gene-set
 <ul>
-<li>Known as Family Wise Error Rate (FWER) control</li>
-</ul></li>
-</ul>
-<ul>
-<li class="fragment">For <span class="math inline">\(n=10,000\)</span> genes we would use <span class="math inline">\(\alpha^* = \frac{0.05}{n} = 5\times10^{-6}\)</span></li>
-<li class="fragment">The equivalent is to multiply all <span class="math inline">\(p\)</span>-values by <span class="math inline">\(n\)</span> to give adjusted <span class="math inline">\(p\)</span>-values</li>
-<li class="fragment"><span class="math inline">\(p_{adj} = \min(1, p \times n)\)</span> ensures <span class="math inline">\(p\)</span>-values are always <span class="math inline">\(\leq1\)</span>
-<ul>
-<li class="fragment">Referred to as Bonferroni-adjusted <span class="math inline">\(p\)</span>-values</li>
+<li>In the example, begin at the right</li>
+<li>Largest deviation from zero is -ve</li>
 </ul></li>
 </ul>
-</section>
-<section id="the-false-discovery-rate" class="slide level2">
-<h2>The False Discovery Rate</h2>
-<ul>
-<li>An alternative is to allow a set proportion of your results to be <em>false positives</em></li>
-<li>Instead of controlling the FWER, we control the False Discovery Rate (FDR)
-<ul>
-<li>Using <span class="math inline">\(\alpha = 0.05\)</span> <span class="math inline">\(\implies\)</span> 95% of results will be appropriate rejections of <span class="math inline">\(H_0\)</span></li>
-<li>Is an estimate of the true FDR</li>
-<li>Effectively allows a small amount of noise into our data</li>
-<li>For larger network-style or downstream analysis <span class="math inline">\(\implies\)</span> signal drowns out noise</li>
-</ul></li>
-<li>Is almost always more powerful that the Bonferroni correction
-<ul>
-<li>More power <span class="math inline">\(\implies\)</span> more ability to find the <em>true positives</em></li>
-</ul></li>
-</ul>
-</section>
-<section id="the-false-discovery-rate-1" class="slide level2 slide-only unlisted">
-<h2>The False Discovery Rate</h2>
-<aside class="notes">
-<ul>
-<li>The adjustment algorithm is a bit beyond this course</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li>Most common FDR method is the Benjamini-Hochberg adjustment <span class="citation" data-cites="BenjaminiHochbergFDR">(<a href="#/references" role="doc-biblioref" onclick="">Benjamini and Hochberg 1995</a>)</span></li>
-</ul>
-<ol type="1">
-<li class="fragment"><span class="math inline">\(p\)</span>-values are given rank <span class="math inline">\(i = 1, 2, \ldots, n\)</span> where we have <span class="math inline">\(n\)</span> tests (i.e.&nbsp;genes)</li>
-<li class="fragment">Find maximum value of <span class="math inline">\(i\)</span> where <span class="math inline">\(p_i \leq \alpha \frac{i}{n}\)</span></li>
-</ol>
-<ul>
-<li class="fragment">FDR-adjusted <span class="math inline">\(p\)</span>-values easily obtained using <code>R</code>
-<ul>
-<li class="fragment"><code>p.adjust(p, method = "BH")</code></li>
-</ul></li>
-</ul>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/gseaplot2-1.png"></p>
+<figcaption>Image taken from clusterProfiler vignette https://yulab-smu.github.io/clusterProfiler-book/chapter12.html</figcaption>
+</figure>
+</div>
+</div></div>
+</div>
+</section></section>
+<section>
+<section id="closing-summary" class="title-slide slide level1 center">
+<h1>Closing Summary</h1>
+
 </section>
 <section id="closing-comments" class="slide level2">
 <h2>Closing Comments</h2>
@@ -1126,6 +1255,7 @@ H_A: \text{Some difference in average gene expression levels}
 <li>In a simple A vs B experiment <span class="math inline">\(\equiv\)</span> <span class="math inline">\(T\)</span>-tests</li>
 </ul></li>
 <li>Estimates of change from DE analysis often referred to as logFC (log fold-change)</li>
+<li>Variances can be moderated for improved performance</li>
 <li><span class="math inline">\(p\)</span>-values are usually FDR-adjusted
 <ul>
 <li>Gives best compromise of power vs error-rate control</li>
@@ -1137,17 +1267,18 @@ H_A: \text{Some difference in average gene expression levels}
 <ul>
 <li>Foundations built during the microarray era enabled analysis of RNA-Seq data
 <ul>
-<li>RNA-Seq data is not normally distributed</li>
+<li>R/Bioconductor Community</li>
 </ul></li>
 <li>Core principles and methods developed during this era still apply
 <ul>
-<li>Normalisation, DE analysis, multiple testing etc</li>
+<li>Normalisation, DE analysis, multiple testing, enrichment testing etc</li>
 </ul></li>
 <li>Many bioinformaticians from the microarray era are still very active</li>
 <li>A lot of development occurred in Australia (e.g.&nbsp;Prof Gordon Smyth, WEHI)
 <ul>
 <li>Next generation have been trained &amp; mentored at WEHI, USyd etc</li>
 </ul></li>
+<li>RNA-Seq data is not normally distributed <span class="math inline">\(\implies\)</span> discrete counts not continuous fluorescence</li>
 </ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
@@ -1162,9 +1293,6 @@ Adams, Mark D., Jenny M. Kelley, Jeannine D. Gocayne, Mark Dubnick, Mihael H. Po
 </div>
 <div id="ref-1977NorthernBlot" class="csl-entry" role="listitem">
 Alwine, J. C., D. J. Kemp, and G. R. Stark. 1977. <span>“<span class="nocase"><span>M</span>ethod for detection of specific <span>R</span><span>N</span><span>A</span>s in agarose gels by transfer to diazobenzyloxymethyl-paper and hybridization with <span>D</span><span>N</span><span>A</span> probes</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 74 (12): 5350–54.
-</div>
-<div id="ref-BenjaminiHochbergFDR" class="csl-entry" role="listitem">
-Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.”</span> <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 57 (1): 289–300. <a href="http://www.jstor.org/stable/2346101">http://www.jstor.org/stable/2346101</a>.
 </div>
 <div id="ref-pmid12538238" class="csl-entry" role="listitem">
 Bolstad, B. M., R. A. Irizarry, M. Astrand, and T. P. Speed. 2003. <span>“<span class="nocase"><span>A</span> comparison of normalization methods for high density oligonucleotide array data based on variance and bias</span>.”</span> <em>Bioinformatics</em> 19 (2): 185–93.
@@ -1470,6 +1598,44 @@ Wu, Zhijin, Rafael A Irizarry, Robert Gentleman, Francisco Martinez-Murillo, and
     document.addEventListener('DOMContentLoaded', positionLogos);
     setTimeout(positionLogos, 100);
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

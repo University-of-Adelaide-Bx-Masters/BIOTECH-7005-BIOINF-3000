@@ -44,7 +44,7 @@ format:
 <br><br>
 *I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.*
 <br><br>
-*I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today*
+*I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay my respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today*
 
 :::
 
@@ -66,21 +66,23 @@ format:
 ::: {.column}
 
 - DNA can be described as being like a giant book of instructions
+
+:::{.incremental}
 - Some regions are defined as *genes*
     + Originally considered to be the basic unit of inheritance
     + Now commonly used to describe a region of DNA transcribed into RNA
+    + Recent discovery of enhancer-RNA (eRNA) muddies the water a little
 
+:::
 :::
 ::: {.column}
 
-::: {.fragment}
 
 ::: {style="font-size: 60%; text-align: center;"}
 
 ![](transcriptomics/DNA_to_protein_or_ncRNA.png)
 <br>By <a href="//commons.wikimedia.org/wiki/User:Evolution_and_evolvability" title="User:Evolution and evolvability">Thomas Shafee</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=39441809">Wikimedia Link</a>
 
-:::
 :::
 :::
 
@@ -147,19 +149,19 @@ Based on @Wang2009-hf
 - Assumed to be low-level
     + DNA $\rightarrow$ [RNA]{.text-red} [$\rightarrow$ Protein $\rightarrow$ Metabolites, Signalling molecules, etc ...]{.fragment}
 
-## Why Transcriptomics? {.slide-only .unlisted}
+<!-- ## Why Transcriptomics? {.slide-only .unlisted} -->
 
-- Is the lowest molecular level where quantity becomes a key aspect
-    + Highly-expressed, or low-expressed genes are important
-    + Changes in response to stimulus impact gene expression levels
+<!-- - Is the lowest molecular level where quantity becomes a key aspect -->
+<!--     + Highly-expressed, or low-expressed genes are important -->
+<!--     + Changes in response to stimulus impact gene expression levels -->
 
-::: {.fragment}
-- Much of the early transcriptomic analyses were quantitative
-    + Sequence variation often captured at DNA-level
-- Now extending to transcript structure and modifications
-    + Identification of fusion transcripts, RNA-methylation etc
+<!-- ::: {.fragment} -->
+<!-- - Much of the early transcriptomic analyses were quantitative -->
+<!--     + Sequence variation often captured at DNA-level -->
+<!-- - Now extending to transcript structure and modifications -->
+<!--     + Identification of fusion transcripts, RNA-methylation etc -->
 
-:::
+<!-- ::: -->
 
 ## Why Transcriptomics? {.slide-only .unlisted}
 
@@ -233,7 +235,7 @@ Based on @Wang2009-hf
 - Nuclear mRNA have 5' cap added
     + Protects single-stranded mRNA from degradation
     + Regulates nuclear export
-    + Promotes translation
+    + Promotes translation into protein
     
 ::: {.fragment}
 - mRNAs are polyadenylated at the 3' end
@@ -287,8 +289,9 @@ Based on @Wang2009-hf
 
 - Gel Electrophoresis then hybridisation with labelled probe
     + Requires some knowledge of RNA sequence
-- Images scanned $\rightarrow$ *Densitometric Analysis* for crude quantitation
-- Possible for different isoforms to be detected
+- Informative for Presence/Absence calls
+    + Images scanned $\rightarrow$ *Densitometric Analysis* for crude quantitation
+- Possible for some different isoforms to be detected
     + Sequence dependent
 
 :::
@@ -322,7 +325,7 @@ The C~T~ values is actually estimated to a decimal value
 - These can be used to estimate and compare abundance levels (i.e. gene expression)
 
 ::: {.fragment}
-- Is vulnerable to technical artefacts (e.g. pipetting variability)
+- Is vulnerable to technical artefacts (e.g. pipetting & sample variability)
 - Often includes one or more "housekeeper" genes thought to be stably expressed
 :::
 
@@ -388,6 +391,7 @@ The C~T~ values is actually estimated to a decimal value
 
 :::
 
+# Microarray Technology
 
 ## Microarray Technology
 
@@ -399,7 +403,7 @@ The C~T~ values is actually estimated to a decimal value
 - Microarrays represent the *birth of modern transcriptomics*
     + Thousands of genes could be measured simultaneously!!!
     + Tens of thousands of public datasets $\implies$ still being mined
-- Established concurrently with the Human Genome Project (1990-2003)
+- Established during latter stages of the Human Genome Project (1990-2003)
     + Databases & complete reference sequences become widely available
 
 ::: {.incremental}
@@ -424,11 +428,10 @@ The C~T~ values is actually estimated to a decimal value
 - Known probe sequences were *printed* to the surface in defined locations
     + 60-75mer oligonucleotide probes
     + Highly customisable by project
-    + Two samples per array
     
-::: {.fragment}
-- One sample labelled with Cy5 (Red)
-- Other sample labelled with Cy3 (Green)
+::: {.fragment fragment-index=1}
+- Two samples per array
+    + Samples labelled with Cy5 (Red) or Cy3 (Green)
 - Scanned at 570nm (Cy3) and 670nm (Cy5)
 
 :::
@@ -437,7 +440,7 @@ The C~T~ values is actually estimated to a decimal value
 
 ::: {.column width="43%"}
 
-::: {.fragment}
+::: {.fragment fragment-index=1}
 
 ![Section of two-colour array taken from @Shalon01071996](transcriptomics/2colour.jpg){width="100%" fig-align="left"}
 
@@ -457,10 +460,12 @@ The C~T~ values is actually estimated to a decimal value
 - Average Signal<br>$A = \frac{1}{2}\log_2(RG) = \frac{\log_2(R) + \log_2(G)}{2}$
 
 ::: {.fragment}
-- Used to assess any bias
+- Assess bias within and between arrays
 - Also to show DE genes
 :::
-
+::: {.fragment}
+- Term "MA Plot" still used in RNA-Seq despite no connection to formula
+:::
 :::
 :::: 
 
@@ -475,7 +480,7 @@ The C~T~ values is actually estimated to a decimal value
     + Factory manufactured
 - Standardised layout for each organism
 - Single sample per array
-    + Only scanned at one frequency
+    + Only scanned at one frequency<br>$\implies$ no dye bias
 - More genes/array
 
 ::: {.fragment}
@@ -502,7 +507,7 @@ The C~T~ values is actually estimated to a decimal value
 
 <br>
 
-![The basic methodology underpinning Affymetrix array design. Source unknown](transcriptomics/microarrayLayout.jpg){width="100%"}
+![The basic methodology underpinning Affymetrix array design. Source Affymetrix](transcriptomics/microarrayLayout.jpg){width="100%"}
 
 :::
 ::::
@@ -514,11 +519,13 @@ The C~T~ values is actually estimated to a decimal value
 
 ::: {.incremental}
 - *Perfect Match* (PM) probes $\implies$ exactly matches target sequence
-    + Known to capture off-target signal $\implies$ non-specific binding
-- Arrays included paired *mismatch* probes (MM) with a change at the 13th position
+    + Known to capture off-target signal $\implies$ non-specific binding (NSB)
+- 3' arrays include paired *mismatch* probes (MM) with a change at the 13th position
+    + Literally half the array
+    + Intended to quantify NSB properties of each probe
     + Sometimes returned more signal than PM probes &#129322;
-- Gene-level expression estimate obtained taking a robust average across probeset
-    + Model also included BG signal (but not always from MM probes)
+<!-- - Gene-level expression estimate obtained taking a robust average across probeset -->
+<!--     + Model also included BG signal (but not always from MM probes) -->
     
 :::
 
@@ -548,10 +555,76 @@ The C~T~ values is actually estimated to a decimal value
 
 ::: {.fragment}
 
-- RNA-Seq appeared at a similar time & **obliterated** their market share
+- RNA-Seq appeared at a similar time & destroyed Affymetrix's market share
     + Alternate isoform usage in RNA-seq is *still* considered a bit exploratory
 
 :::
+
+## Microarrays Vs RNA-Seq
+
+:::: {.columns}
+::: {.column}
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-width: 6
+#| fig-height: 6
+library(tidyverse)
+theme_set(theme_bw())
+here::here("Lectures/transcriptomics") %>% 
+  fs::dir_ls(glob = "*search.csv") %>% 
+  lapply(read_csv) %>% 
+  bind_rows(.id = "platform") %>% 
+  mutate(
+    platform = platform %>% 
+      basename() %>% 
+      str_remove_all("_search.csv") %>% 
+      str_to_title() %>% 
+      str_replace_all("Rna", "RNA-")
+  ) %>% 
+  ggplot(aes(Category, `Publications (total)`)) +
+  geom_line(aes(colour = platform), linewidth = 1) +
+  ggrepel::geom_label_repel(
+    aes(label = label, colour = platform),
+    data = . %>% 
+      dplyr::filter(Category == max(Category), .by = platform) %>% 
+      mutate(
+        label = paste0(
+          Category, "\n", scales::comma(`Publications (total)`))
+      ),
+    force_pull = 0, nudge_y = -1000,
+    show.legend = FALSE, size = 4, fill = "#FFFFFF90"
+  ) +
+  geom_vline(xintercept = 2006, linetype = 2) +
+  ggtitle("Publication search by app.dimension.ai on 26-08-2025") +
+  labs(x = "Year", colour = "Platform") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_continuous(
+    breaks = seq(2000, as.integer(format(Sys.Date(), format = "%Y")) - 1, by = 5)
+  ) +
+  scale_colour_brewer(palette = "Set1") +
+  theme(
+    text = element_text(size = 16),
+    plot.title = element_text(face = "italic", size = 14),
+    legend.position = "inside",
+    legend.position.inside = c(0.99, 0.01),
+    legend.justification.inside = c(1, 0)
+  )
+```
+
+:::
+::: {.column}
+::: {style="font-size:92%"}
+- Exon Arrays released in 2006 (dashed line)
+- Publications usually lag purchasing by 2-3 years
+    + Microarrays peaked in 2008 (i.e. 2005-6)
+    + Affymetrix owned by Thermo-Fisher since 2016
+- Microarrays continue to be extensively used in DNA-methylation analysis
+
+:::
+:::
+::::
 
 # Microarray Analysis
 
@@ -563,7 +636,7 @@ The C~T~ values is actually estimated to a decimal value
     
 ::: {.incremental}
     
-- Will the some arrays have higher/lower overall signal?
+- Will some arrays have higher/lower overall signal?
     + Pipetting errors, hybridisation variability etc
 
 - Two Initial Problems to solve
@@ -581,7 +654,7 @@ The C~T~ values is actually estimated to a decimal value
 ![Example of raw PM probe intensities. Taken from @pmid12538238](transcriptomics/quantileNorm.png){fig-align="left"}
 :::
 ::: {.column width="35%"}
-- The variation here is technical<br>$\implies$ *not* due to biology
+- The variation here is primarily technical<br>$\implies$ *not* due to biology
 - Higher variance reduces power of statistical testing
 - Can we reduce this?
 
@@ -594,17 +667,17 @@ The C~T~ values is actually estimated to a decimal value
 ## Normalisation {.slide-only .unlisted}
 
 - Quantile normalisation is perfect for arrays with probes and probesets
-    + Normalise probes, but estimate signal at the probeset level
+    + Normalise probe-level signal, but estimate gene expression at the probeset level
+    + Smooths out any normalisation artefacts
 
 ::: {.incremental}
-1. Find the lowest signal probe on each array
+1. Select the lowest signal probe on each array<br>$\rightarrow$ Likely to be a different probe on each array
 2. Calculate the average signal across all arrays
-3. Give each of the probes the average signal
+3. Give each of the selected probes the average signal
 4. Move to the next lowest signal probe until finished
 :::
 
 ::: {.fragment}
-- The lowest signal probes will be completely different across arrays
 - Effectively randomises noise
 - Leads to arrays with identical distributions
 :::
@@ -620,8 +693,11 @@ The C~T~ values is actually estimated to a decimal value
 :::
 ::::
 
+::: {style="font-size:95%"}
 - Now we have identical distributions of signal across all arrays
 - Equivalent to having identical amounts of source material (mRNA)
+- Reduces technical noise across dataset $\implies$ more statistical power
+:::
 
 [^3]: Images taken from: Bolstad, Probe Level Quantile Normalization for High Density Oligonucleotide Array Data Unpublished Manuscript, 2001
 
@@ -635,7 +711,7 @@ The C~T~ values is actually estimated to a decimal value
     + Fitted using robust statistics to reduce impact of outlier probes
     
 $$
-PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
+\log_2 PM_{ij} = \mu_i + \alpha_j + \epsilon_{ij}
 $$
     
 ::: {.fragment}
@@ -650,7 +726,7 @@ $$
     + Often control samples Vs treated samples
 - Microarray data is normally distributed on the log~2~ scale
     + Can fit standard regression models
-- For Treat Vs Control $\implies$ $T$-test for each gene
+
 
 ::: {.fragment}
 
@@ -664,6 +740,29 @@ $$
 
 ## Differential Expression Analysis {.slide-only .unlisted}
 
+
+$$
+T = \frac{\beta}{\sigma/\sqrt{n}}
+$$
+
+- $\beta$ is estimate of effect size (i.e. logFC)
+
+::: {.incremental}
+- Some estimates for $\sigma$ are too low, others too high
+    + Too low $\implies T \uparrow$ [$\implies$ significant result where no change]{.fragment}
+    + Too high $\implies T\downarrow$ [$\implies$ no significant result where there is change]{.fragment}
+    
+:::
+
+::: {.fragment}
+- Variance estimates moderated by *taking distribution of* $\sigma$ *across all genes*
+    + Bayesian posterior estimate of variance $\implies$ moderated t-statistic [@pmid16646809]
+    
+:::
+
+
+## Differential Expression Analysis {.slide-only .unlisted}
+
 - The Bioconductor package `limma` is the industry standard [@pmid16646809]
     + Still heavily used for modern RNA-Seq data
     + Models tailored to managing variances found in transcriptomic datasets
@@ -671,85 +770,217 @@ $$
 ::: {.fragment}
 - After testing $\rightarrow$ $p$-value for each gene
 - Multiple testing becomes an issue (revise Steven Delean's lecture)
+    + Mostly use the Benjamini-Hochberg FDR
+    
 :::
 
-## Multiple Testing
+## Example Results
 
-- Researchers commonly use a $p$-value $<0.05$ to claim evidence of significant change
-    + Often described as the rejection threshold $\alpha = 0.05$
+```
+         logFC AveExpr     t  P.Value adj.P.Val     B
+Gene 1   2.180  1.0834  7.96 4.78e-05   0.00478  2.52
+Gene 34  1.361  0.1829  3.12 1.44e-02   0.53387 -3.47
+Gene 2   1.980  1.3416  2.90 2.02e-02   0.53387 -3.82
+Gene 72  1.127 -0.0684  2.86 2.15e-02   0.53387 -3.88
+Gene 75 -0.524 -0.1168 -2.72 2.67e-02   0.53387 -4.10
+Gene 86  0.771 -0.1801  2.52 3.60e-02   0.59375 -4.41
+Gene 16 -0.501 -0.0495 -2.43 4.16e-02   0.59375 -4.55
+Gene 83  0.453 -0.1065  2.27 5.35e-02   0.65833 -4.80
+Gene 33 -0.932 -0.5752 -2.15 6.39e-02   0.65833 -4.97
+Gene 89  0.467 -0.1272  2.13 6.58e-02   0.65833 -5.00
+```
 
-> A $p$-value represent the probability of observing data (i.e. evidence of change) as extreme, or more extreme than our data if $H_0$ is true
+<br><br>*Taken from the* `limma` *help page examples*
+
+## Volcano Plots
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+![](transcriptomics/plot-volcano-1.png)
+
+:::
+
+::: {.column width="40%"}
+
+- Show estimated of logFC against significance (-log~10~$p$)
+- Actually taken from RNA-Seq but plots are identical
+
+:::
+
+::::
+
+<!-- ## Multiple Testing -->
+
+<!-- - Researchers commonly use a $p$-value $<0.05$ to claim evidence of significant change -->
+<!--     + Often described as the rejection threshold $\alpha = 0.05$ -->
+
+<!-- > A $p$-value represent the probability of observing data (i.e. evidence of change) as extreme, or more extreme than our data if $H_0$ is true -->
+
+<!-- ::: {.fragment} -->
+
+<!-- - i.e. how likely are we to see our evidence of change if nothing's actually happening -->
+<!-- - Using $\alpha = 0.05$ we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, *if there's really nothing happening* -->
+
+<!-- ::: -->
+
+<!-- ## Multiple Testing {.slide-only .unlisted} -->
+
+<!-- - If testing across 10,000 genes $\implies$ 10,000 $p$-values -->
+<!-- - If no change between groups in any gene ($H_0$ is always true) <br>$\implies$ about 500 genes will return $p<0.05$ -->
+<!-- - These would be considered *false discoveries*, *false positives* or *Type I Errors* -->
+<!--     + False negatives are Type II errors -->
+
+
+<!-- |              | $H_0$ True | $H_0$ False | -->
+<!-- |:------------ | ---------- | ----------- | -->
+<!-- | **Accept $H_0$** | &#x2705; | Type II Error | -->
+<!-- | **Reject $H_0$** | [Type I Error]{.text-red} | &#x2705; | -->
+
+
+<!-- ## Multiple Testing {.slide-only .unlisted} -->
+
+<!-- - Reducing false positives is vital $\implies$ don't want to waste research \$\$\$ -->
+<!-- - An intuitive solution would be to use a lower value for $\alpha$ -->
+<!--     + Using $\alpha = 0.01$ $\implies$ 1 in 100 random $p$-values under $H_0$<br>$\implies$ only 100 false discoveries in 10,000 genes -->
+<!--     + But this makes it harder for *true positives* to be identified <br>$\implies$ more Type II errors (false negatives) -->
+<!-- - No perfect solution for minimising Type I errors without increasing Type II errors -->
+
+<!-- ## The Bonferroni Correction -->
+
+<!-- - A commonly used approach is the Bonferroni Correction -->
+<!-- - $\alpha$ is divided by the number of tests <br>$\implies$ probability of one false discovery remains at the original $\alpha$ -->
+<!--     + Known as Family Wise Error Rate (FWER) control -->
+
+<!-- ::: {.incremental} -->
+<!-- - For $n=10,000$ genes we would use $\alpha^* = \frac{0.05}{n} = 5\times10^{-6}$ -->
+<!-- - The equivalent is to multiply all $p$-values by $n$ to give adjusted $p$-values -->
+<!-- - $p_{adj} = \min(1, p \times n)$ ensures $p$-values are always $\leq1$ -->
+<!--     + Referred to as Bonferroni-adjusted $p$-values -->
+
+<!-- ::: -->
+
+<!-- ## The False Discovery Rate -->
+
+<!-- - An alternative is to allow a set proportion of your results to be *false positives* -->
+<!-- - Instead of controlling the FWER, we control the False Discovery Rate (FDR) -->
+<!--     + Using $\alpha = 0.05$ $\implies$ 95% of results will be appropriate rejections of $H_0$ -->
+<!--     + Is an estimate of the true FDR -->
+<!--     + Effectively allows a small amount of noise into our data -->
+<!--     + For larger network-style or downstream analysis $\implies$ signal drowns out noise -->
+<!-- - Is almost always more powerful that the Bonferroni correction -->
+<!--     + More power $\implies$ more ability to find the *true positives* -->
+
+<!-- ## The False Discovery Rate {.slide-only .unlisted} -->
+
+<!-- ::: {.notes} -->
+<!-- - The adjustment algorithm is a bit beyond this course -->
+<!-- ::: -->
+
+<!-- - Most common FDR method is the Benjamini-Hochberg adjustment [@BenjaminiHochbergFDR] -->
+
+<!-- ::: {.incremental} -->
+<!-- 1. $p$-values are given rank $i = 1, 2, \ldots, n$ where we have $n$ tests (i.e. genes) -->
+<!-- 2. Find maximum value of $i$ where $p_i \leq \alpha \frac{i}{n}$ -->
+
+<!-- - FDR-adjusted $p$-values easily obtained using `R` -->
+<!--     + `p.adjust(p, method = "BH")` -->
+
+<!-- ::: -->
+
+
+
+## Enrichment Testing
+
+- Often want to identify key pathways associated with results
+    + Are genes from specific pathways or gene-sets most impacted
+
+:::: {.columns}
+
+
+::: {.column}
+![](transcriptomics/apoptosisDAG.png){width="85%"}
+:::
+
+
+::: {.column}
+- Gene Ontology (GO) Terms:
+    + Carefully constructed, hierarchical database of terms
+    + Biological Process, Molecular Function and Cellular Component
+    
+:::
+
+::::
+
+
+## Enrichment Testing {.slide-only .unlisted}
+
+:::: {.columns}
+
+
+::: {.column width="60%"}
+![Oxidative Phosphorylation pathway as annotated in the KEGG database](transcriptomics/hsa00190.png){width="95%"}
+:::
+
+
+::: {.column width='40%'}
+- Kyoto Encyclopedia of Genes and Genomes (KEGG):
+    + Molecular pathways with complete topology
+    
+:::
+
+::::
+
+## Enrichment Testing {.slide-only .unlisted}
+
+:::: {.columns}
+::: {.column width="55%'}
+
+- Often use approaches based on Fisher's Exact Test
+    + Compare enrichment of DE genes in a pathway vs not DE Genes in pathway
+- Pathways often share DE genes $\implies$ often need biological expertise
+- Multiple Testing across 1000s of pathways
 
 ::: {.fragment}
+- 20% of pathway is DE vs 6.7% of "not-pathway" genes
+:::
 
-- i.e. how likely are we to see our evidence of change if nothing's actually happening
-- Using $\alpha = 0.05$ we will randomly see evidence as strong as observed (or stronger) about 1 in 20 times, *if there's really nothing happening*
+:::
+::: {.column width='45%'}
+|     | DE Genes | Not DE Genes | % |
+|:--- | --------:| ------------:| --:|
+| In Pathway | 10 | 40 | 20% |
+| Not In Pathway | 990 | 14000 | 6.7% |
+:::
+::::
+
+## Enrichment Testing {.slide-only .unlisted}
+
+::: {style='font-size:95%'}
+
+:::: {.columns}
+::: {.column width='45%'}
+- An alternative approach is to use ranked lists
+    + Gene Set Enrichment Analysis (GSEA)
+- No requirement to classify genes as DE or not DE
+
+::: {.fragment}
+- Walk along the ranked list of genes increasing score if gene in gene-set
+    + In the example, begin at the right
+    + Largest deviation from zero is -ve
+
+:::
+:::
+::: {.column width='55%'}
+![Image taken from clusterProfiler vignette https://yulab-smu.github.io/clusterProfiler-book/chapter12.html](transcriptomics/gseaplot2-1.png)
+:::
+::::
 
 :::
 
-## Multiple Testing {.slide-only .unlisted}
 
-- If testing across 10,000 genes $\implies$ 10,000 $p$-values
-- If no change between groups in any gene ($H_0$ is always true) <br>$\implies$ about 500 genes will return $p<0.05$
-- These would be considered *false discoveries*, *false positives* or *Type I Errors*
-    + False negatives are Type II errors
-
-
-|              | $H_0$ True | $H_0$ False |
-|:------------ | ---------- | ----------- |
-| **Accept $H_0$** | &#x2705; | Type II Error |
-| **Reject $H_0$** | [Type I Error]{.text-red} | &#x2705; |
-
-
-## Multiple Testing {.slide-only .unlisted}
-
-- Reducing false positives is vital $\implies$ don't want to waste research \$\$\$
-- An intuitive solution would be to use a lower value for $\alpha$
-    + Using $\alpha = 0.01$ $\implies$ 1 in 100 random $p$-values under $H_0$<br>$\implies$ only 100 false discoveries in 10,000 genes
-    + But this makes it harder for *true positives* to be identified <br>$\implies$ more Type II errors (false negatives)
-- No perfect solution for minimising Type I errors without increasing Type II errors
-
-## The Bonferroni Correction
-
-- A commonly used approach is the Bonferroni Correction
-- $\alpha$ is divided by the number of tests <br>$\implies$ probability of one false discovery remains at the original $\alpha$
-    + Known as Family Wise Error Rate (FWER) control
-
-::: {.incremental}
-- For $n=10,000$ genes we would use $\alpha^* = \frac{0.05}{n} = 5\times10^{-6}$
-- The equivalent is to multiply all $p$-values by $n$ to give adjusted $p$-values
-- $p_{adj} = \min(1, p \times n)$ ensures $p$-values are always $\leq1$
-    + Referred to as Bonferroni-adjusted $p$-values
-    
-:::
-
-## The False Discovery Rate
-
-- An alternative is to allow a set proportion of your results to be *false positives*
-- Instead of controlling the FWER, we control the False Discovery Rate (FDR)
-    + Using $\alpha = 0.05$ $\implies$ 95% of results will be appropriate rejections of $H_0$
-    + Is an estimate of the true FDR
-    + Effectively allows a small amount of noise into our data
-    + For larger network-style or downstream analysis $\implies$ signal drowns out noise
-- Is almost always more powerful that the Bonferroni correction
-    + More power $\implies$ more ability to find the *true positives*
-    
-## The False Discovery Rate {.slide-only .unlisted}
-
-::: {.notes}
-- The adjustment algorithm is a bit beyond this course
-:::
-    
-- Most common FDR method is the Benjamini-Hochberg adjustment [@BenjaminiHochbergFDR]
-
-::: {.incremental}
-1. $p$-values are given rank $i = 1, 2, \ldots, n$ where we have $n$ tests (i.e. genes)
-2. Find maximum value of $i$ where $p_i \leq \alpha \frac{i}{n}$
-
-- FDR-adjusted $p$-values easily obtained using `R`
-    + `p.adjust(p, method = "BH")`
-    
-:::
+# Closing Summary
 
 ## Closing Comments
 
@@ -757,18 +988,20 @@ $$
 - We can apply linear regression models
     + In a simple A vs B experiment $\equiv$ $T$-tests
 - Estimates of change from DE analysis often referred to as logFC (log fold-change)
+- Variances can be moderated for improved performance
 - $p$-values are usually FDR-adjusted
     + Gives best compromise of power vs error-rate control
 
 ## Closing Comments {.slide-only .unlisted}
 
 - Foundations built during the microarray era enabled analysis of RNA-Seq data
-    + RNA-Seq data is not normally distributed
+    + R/Bioconductor Community
 - Core principles and methods developed during this era still apply
-    + Normalisation, DE analysis, multiple testing etc
+    + Normalisation, DE analysis, multiple testing, enrichment testing etc
 - Many bioinformaticians from the microarray era are still very active
 - A lot of development occurred in Australia (e.g. Prof Gordon Smyth, WEHI)
     + Next generation have been trained & mentored at WEHI, USyd etc
+- RNA-Seq data is not normally distributed $\implies$ discrete counts not continuous fluorescence
 
 
 ## References
