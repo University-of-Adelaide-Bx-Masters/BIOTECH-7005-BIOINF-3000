@@ -948,7 +948,7 @@ Gene 89  0.467 -0.1272  2.13 6.58e-02   0.65833 -5.00
 
 :::
 ::: {.column width='45%'}
-|     | DE Genes | Not DE Genes | % |
+|     | DE Genes | Not DE Genes | %DE |
 |:--- | --------:| ------------:| --:|
 | In Pathway | 10 | 40 | 20% |
 | Not In Pathway | 990 | 14000 | 6.7% |
