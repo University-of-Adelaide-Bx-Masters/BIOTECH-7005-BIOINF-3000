@@ -312,10 +312,10 @@ for bam in ../rmdups/{D10,D11,D12,D13,Y47,BaliVD}*rmdup.bam; do
   mapDamage -i $bam -r $ref --no-stats
 done</code></pre>
 <blockquote class="blockquote">
-<li><strong>Q6:</strong> What samples do you think are ancient?</li>
+<p><strong>Q6:</strong> What samples do you think are ancient?</p>
 </blockquote>
 <blockquote class="blockquote">
-<li><strong>Q7:</strong> What do you notice about the fragment length of the ancient and modern samples?</li>
+<p><strong>Q7:</strong> What do you notice about the fragment length of the ancient and modern samples?</p>
 </blockquote>
 </section>
 <section id="trimming-the-damaged-reads" class="level2">
@@ -324,7 +324,7 @@ done</code></pre>
 <p>In this practical session, for the sake of simplicity and uniformity, we will trim two bases from both the 5’ and 3’ ends of every read, regardless of whether the sample is modern or ancient. However, in real-world scenarios, this step is typically only applied to aDNA samples where damage is observed, and the extent of trimming is determined by the damage patterns seen in mapDamage results.</p>
 <p>We will be using a tool called <code>trimBam</code> from <a href="https://genome.sph.umich.edu/wiki/BamUtil">BamUtil</a> <span class="citation" data-cites="jun_efficient_2015">(<a href="#ref-jun_efficient_2015" role="doc-biblioref">Jun et al. 2015</a>)</span></p>
 <blockquote class="blockquote">
-<li><strong>Q8:</strong> Based on the mapDamage plot how many bases should we trim?</li>
+<p><strong>Q8:</strong> Based on the mapDamage plot how many bases should we trim?</p>
 </blockquote>
 <pre class="{bash}"><code>cd ~/Prac10/trim_bam
 
@@ -393,7 +393,7 @@ seqmagick convert --alphabet dna aligned.fasta aligned.nex</code></pre>
 <p><img src="aDNA_prac_files/assets/LoadNexus.png" id="fig-loadnexus" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Load Nexus file into PopArt"> <img src="aDNA_prac_files/assets/MaskSites.png" id="fig-removesite" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Remove sites with missing data"> <img src="aDNA_prac_files/assets/RemoveSamples.png" id="fig-removesamples" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Remove samples with missing data"> <img src="aDNA_prac_files/assets/MedianJoiningNetwork.png" id="fig-mjn" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="Create a Medium-Joining Network"></p>
 <p>We should be able to create something like this. <img src="aDNA_prac_files/assets/aligned_mafft_traits.png" id="fig-mjn" class="quarto-figure quarto-figure-center anchored" style="width:70.0%;height:70.0%" alt="A Medium-Joining Network with ancient and modern Dingoes, as well as New Guinea Singing dogs and Bali Village Dog"></p>
 <blockquote class="blockquote">
-<li><strong>Q9:</strong> What can you infer about the population structure of dingoes?</li>
+<p><strong>Q9:</strong> What can you infer about the population structure of dingoes?</p>
 </blockquote>
 </section>
 <section id="references" class="level3">
