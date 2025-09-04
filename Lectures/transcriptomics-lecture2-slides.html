@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="transcriptomics-lecture2-slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="transcriptomics-lecture2-slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="transcriptomics-lecture2-slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="transcriptomics-lecture2-slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="transcriptomics-lecture2-slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="transcriptomics-lecture2-slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="transcriptomics-lecture2-slides_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Dr Stevie Pederson (They/Them) stevie.pederson@thekids.org.au">
+  <meta name="dcterms.date" content="2025-09-15">
+  <title>Transcriptomics: Lecture 2</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="transcriptomics-lecture2-slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="transcriptomics-lecture2-slides_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="transcriptomics-lecture2-slides_files/libs/revealjs/dist/theme/quarto-6a216ba96c5c25e91d68b44b6d1a2940.css">
+  <link href="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Transcriptomics: Lecture 2</h1>
+  <p class="subtitle"></p><div class="line-block">Biotech 7005/Bioinf 3000<br>
+Frontiers of Biotechnology: Bioinformatics and Systems Modelling<br>
+The University of Adelaide</div><p></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au 
+</div>
+        <p class="quarto-title-affiliation">
+            </p><div class="line-block">Black Ochre Data Labs<br>
+            The Kids Research Institute Australia</div>
+          <p></p>
+    </div>
+</div>
+
+  <p class="date">September 15, 2025</p>
+</section>
+<section id="helpful-links" class="slide level2">
+<h2>Helpful Links</h2>
+<ul>
+<li>The slides are available <a href="./transcriptomics-lecture2-slides.html">here</a></li>
+<li>The same notes are available as a single-page html <a href="./transcriptomics1-lecture2.html">here</a></li>
+</ul>
+</section>
+<section id="welcome-to-country" class="slide level2">
+<h2><span class="text-red">Welcome To Country</span></h2>
+<div class="text-red">
+<p><em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
+</div>
+</section>
+<section>
+<section id="rna-seq" class="title-slide slide level1 center">
+<h1>RNA-Seq</h1>
+
+</section>
+<section id="rna-sequencing" class="slide level2">
+<h2>RNA Sequencing</h2>
+<p>According to <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span></p>
+<blockquote>
+<p>RNA-Seq, also called RNA sequencing, is a particular technology-based sequencing technique which uses next-generation sequencing (NGS) to reveal the <strong>presence</strong> and <strong>quantity</strong> of RNA in a biological sample at a <strong>given moment</strong>, analyzing the continuously changing cellular transcriptome.</p>
+</blockquote>
+</section>
+<section id="rna-sequencing-1" class="slide level2">
+<h2>RNA Sequencing</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Microarrays are still published regularly
+<ul>
+<li>Also used extensively for methylation</li>
+</ul></li>
+<li>RNA sequencing is now the dominant technology</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Strong improvement for:
+<ul>
+<li>transcript-level resolution</li>
+<li>un-annotated genes</li>
+<li>allelic bias</li>
+<li>genomic variants</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="transcriptomics-lecture2-slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="rna-sequencing-2" class="slide level2 slide-only unlisted">
+<h2>RNA Sequencing</h2>
+<ul>
+<li>Microarrays rely on probes for transcripts defined <em>at design time</em></li>
+<li>Restricted in the number of transcripts/genes targeted
+<ul>
+<li>Gencode 48 (GRCh38): 78,686 genes + 385,669 transcripts</li>
+</ul></li>
+<li>Probes capture non-specfic binding
+<ul>
+<li>Affymetrix use 25-mer probes</li>
+<li>Illumina arrays use 60-mer probes <span class="math inline">\(\implies\)</span> sequences better targeted</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><span class="text-red">These limitations do not exist for RNA-Seq</span></p>
+</div>
+</section>
+<section id="rna-sequencing-3" class="slide level2 slide-only unlisted">
+<h2>RNA Sequencing</h2>
+<ul>
+<li>Directly sequence the biological material</li>
+<li>Map to most recent reference at any point in time</li>
+<li>Assemble a transcriptome (tissue specific)</li>
+<li>Detect InDels / SNPs in expressed sequences</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Multiple variations
+<ul>
+<li>totalRNA or polyA transcripts <span class="fragment"><span class="math inline">\(\implies\)</span> most similar to microarrays</span></li>
+<li>smallRNA libraries</li>
+<li>Long Reads (Oxford Nanopore, PacBio) <span class="fragment"><br><span class="math inline">\(\implies\)</span> originally isoform discovery, quantitative methods improving</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="the-rna-population-of-a-eukaryotic-cell" class="slide level2">
+<h2>The RNA Population Of a Eukaryotic Cell</h2>
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/ijms-19-01310-g001.png" width="780"></p>
+<figcaption>Image taken from <span class="citation" data-cites="ijms19051310">Chan and Tay (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="the-key-steps" class="slide level2">
+<h2>The Key Steps</h2>
+<ul>
+<li>Focus from here on will be sequencing mRNA using short reads</li>
+</ul>
+<ol type="1">
+<li class="fragment">Library Preparation
+<ul>
+<li class="fragment">RNA Quality assessment</li>
+<li class="fragment">Selecting target molecules</li>
+<li class="fragment">Adding sequencing primers</li>
+</ul></li>
+<li class="fragment">Sequencing</li>
+<li class="fragment">Aligmnent + Quantitation</li>
+<li class="fragment">DE Gene Detection</li>
+<li class="fragment">Downstream Analysis</li>
+<li class="fragment">(Optional) Nobel Prize</li>
+</ol>
+<!-- ## Library Preparation -->
+<!-- - RNA is a single-stranded molecule $\implies$ easily degraded -->
+<!--     + Degraded RNA can skew expression levels during comparisons -->
+<!-- - RNA Integrity Number (RIN) commonly used to identify low-quality samples -->
+<!--     + Assesses 28S:18S rRNA ratio, along with overall size distribution -->
+</section>
+<section id="rna-selection" class="slide level2">
+<h2>RNA Selection</h2>
+<ul>
+<li>rRNA makes up about 80% of cellular RNA <span class="math inline">\(\rightarrow\)</span> not of general interest
+<ul>
+<li>tRNA ~15% + <span class="text-red">mRNA ~5% cellular RNA<sup>1</sup></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ol type="1">
+<li>Select for poly-adenylated RNA using oligo-dT-based methods
+<ul>
+<li>Only extracts intact mRNA with a polyA tail (includes some ncRNA)</li>
+</ul></li>
+</ol>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/03polya_workflow1.jpg"></p>
+<figcaption>Image from https://www.lexogen.com/polya-rna-selection-kit/</figcaption>
+</figure>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&amp;v=5&amp;id=100264</p></li></ol></aside></section>
+<section id="rna-selection-1" class="slide level2 slide-only unlisted">
+<h2>RNA Selection</h2>
+<ol start="2" type="1">
+<li>Enzymatically deplete rRNA sequences
+<ul>
+<li>rRNA targeted using probes <span class="math inline">\(\implies\)</span> dsRNA degraded</li>
+<li>Can additionally target hbRNA (whole blood)</li>
+</ul></li>
+</ol>
+
+<img data-src="transcriptomics/Ribo_Zero_1.jpg" class="r-stretch quarto-figure-left"><p class="caption">Image from https://support.illumina.com.cn</p></section>
+<section id="library-preparation" class="slide level2">
+<h2>Library Preparation</h2>
+<ul>
+<li>RNA is then fragmented and size selected (200-300nt)
+<ul>
+<li>Very short transcripts always lost during this step</li>
+</ul></li>
+<li>cDNA produced</li>
+<li>Sequencing adapters added
+<ul>
+<li>Indexes are unique to each individual library <span class="math inline">\(\implies\)</span> always have replicates</li>
+<li>Optionally contain Unique Molecular Identifiers (UMI)<br><span class="math inline">\(\implies\)</span> Helps identify PCR duplicates</li>
+</ul></li>
+<li>Most RNA-Seq now retains <em>strand-of-origin</em> information (Stranded RNA-Seq)
+<ul>
+<li>During PCR only the first cDNA template retained</li>
+</ul></li>
+</ul>
+</section>
+<section id="library-preparation-1" class="slide level2 slide-only unlisted">
+<h2>Library Preparation</h2>
+
+<img data-src="transcriptomics/NGS-adapters_01.png" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
+<section id="library-preparation-2" class="slide level2 slide-only unlisted">
+<h2>Library Preparation</h2>
+<ul>
+<li>Each double-stranded cDNA then has the final structure</li>
+</ul>
+
+<img data-src="transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
+<section id="sequencing" class="slide level2">
+<h2>Sequencing</h2>
+
+<img data-src="transcriptomics/A8.jpg" class="r-stretch quarto-figure-left"><p class="caption">Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/</p></section></section>
+<section>
+<section id="alignment-and-quantitation" class="title-slide slide level1 center">
+<h1>Alignment and Quantitation</h1>
+
+</section>
+<section id="genomic-alignment" class="slide level2">
+<h2>Genomic Alignment</h2>
+<ul>
+<li>Alignment to a reference genome requires a <em>splice-aware</em> aligner
+<ul>
+<li>A GTF (Gene Transfer File) required when building the index<br><span class="math inline">\(\implies\)</span> Provides all exon-transcript-gene co-ordinates</li>
+<li>New Gencode, Ensembl etc releases at regular intervals</li>
+</ul></li>
+<li>Most common aligners are STAR <span class="citation" data-cites="Dobin2013-us">(<a href="#/references" role="doc-biblioref" onclick="">Dobin et al. 2013</a>)</span> &amp; hisat2 <span class="citation" data-cites="Kim2019-ib">(<a href="#/references" role="doc-biblioref" onclick="">Kim et al. 2019</a>)</span>
+<ul>
+<li>Return alignments as a <code>bam</code> file</li>
+</ul></li>
+<li>Aligned reads are then counted to provide gene-level counts
+<ul>
+<li>htseq <span class="citation" data-cites="htseq2014">(<a href="#/references" role="doc-biblioref" onclick="">Anders, Pyl, and Huber 2014</a>)</span> and featureCounts <span class="citation" data-cites="Liao2014-gy">(<a href="#/references" role="doc-biblioref" onclick="">Liao, Smyth, and Shi 2014</a>)</span> are very common</li>
+<li>The same GTF should be used as during indexing</li>
+</ul></li>
+</ul>
+</section>
+<section id="counting-alignments" class="slide level2">
+<h2>Counting Alignments</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/count_modes.png"></p>
+<figcaption>Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Some alignments align beautifully within exon structures</li>
+<li>Some overhang a little
+<ul>
+<li>Unspliced mRNA?</li>
+</ul></li>
+<li>Some genes are overlapping
+<ul>
+<li>Stranded libraries can resolve</li>
+</ul></li>
+<li>Maybe bacterial reads span genes within an operon</li>
+</ul>
+</div></div>
+</section>
+<section id="gene-level-counts" class="slide level2">
+<h2>Gene-Level Counts</h2>
+<ul>
+<li>The region encoding a gene is (relatively) well defined</li>
+<li>An alignment within a gene is easy to assign to that gene</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Much more difficult to identify which transcript it came from
+<ul>
+<li>Many transcripts share multiple exons</li>
+</ul></li>
+<li>Splice Junctions were the earliest approach</li>
+</ul>
+</div>
+</section>
+<section id="gene-level-counts-1" class="slide level2 slide-only unlisted">
+<h2>Gene-Level Counts</h2>
+
+<img data-src="transcriptomics/gkv608fig1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Image taken from <span class="citation" data-cites="Yu2015-f5">Yu et al. (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p></section>
+<section id="transcriptome-alignment" class="slide level2">
+<h2>Transcriptome Alignment</h2>
+<ul>
+<li>An alternative is to provide a <em>reference transcriptome</em>
+<ul>
+<li>Alignments no longer need to be splice aware</li>
+</ul></li>
+<li>Reads can align to multiple transcripts</li>
+<li>Much faster than traditional alignment</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Pseudo-alignment is used by kallisto <span class="citation" data-cites="Bray2016-qq">(<a href="#/references" role="doc-biblioref" onclick="">Bray et al. 2016</a>)</span></li>
+<li>Statistically modelled expression estimates used by salmon <span class="citation" data-cites="Patro2017-sn">(<a href="#/references" role="doc-biblioref" onclick="">Patro et al. 2017</a>)</span></li>
+<li>Return transcript-level counts without bam files</li>
+<li>Add transcript-level counts <span class="math inline">\(\implies\)</span> gene-level counts</li>
+</ul>
+</div>
+</section>
+<section id="pseudo-counts" class="slide level2">
+<h2>Pseudo-Counts</h2>
+<ul>
+<li>Salmon counts are actually pseudo counts output by model fitting
+<ul>
+<li>Predicts the proportion of library derived from transcript</li>
+<li>Fitted using EM-algorithm or Bayesian modelling</li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">Counts bootstrapped to provide uncertainty estimates of prediction<br><span class="math inline">\(\implies\)</span> <em>Measures how confident we are in the transcript-level counts</em></li>
+<li class="fragment">Transcript-level counts can be scaled by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/references" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span> when performing DTE analysis</li>
+</ul>
+</section></section>
+<section>
+<section id="differential-gene-expression-analysis" class="title-slide slide level1 center">
+<h1>Differential Gene Expression Analysis</h1>
+
+</section>
+<section id="count-based-data" class="slide level2">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Under both reference-types <span class="math inline">\(\rightarrow\)</span> counts to represent expression</li>
+<li>These are <em>discrete</em> data (i.e.&nbsp;not continuous values)</li>
+<li>Microarrays were continuous values (fluorescence intensity)
+<ul>
+<li>Modelled using log<sub>2</sub>-transformed values <span class="math inline">\(\implies \mathcal{N}(\mu, \sigma)\)</span></li>
+<li>Linear regression, <span class="math inline">\(t\)</span>-tests etc</li>
+<li>Mean and variance are independent variables</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Count data is commonly modelled using a Poisson Distribution <span class="math inline">\(\implies \text{Poisson}(\lambda)\)</span>
+<ul>
+<li>Poisson variance is defined as being equal to the mean i.e.&nbsp;<span class="math inline">\(\sigma^2 = \mu\)</span><br><span class="math inline">\(\implies\)</span>Mean and variance <em>are not independent variables</em></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-1" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>In most cases the observed variance is greater than the mean<span class="math inline">\(\implies\)</span> <em>over-dispersion</em></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>We use Negative Binomial distributions to model counts</li>
+</ul>
+<p><span class="math display">\[
+X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right), \text{where }E[X] = \mu \text{; Var}[X] = \sigma^2
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li>Can be thought of as like a Poisson with extra variation</li>
+<li>Extra variation is strictly defined in quadratic relationship to mean
+<ul>
+<li>Sometimes described as a combination of <em>technical</em> &amp; <em>biological</em> variation</li>
+</ul></li>
+<li>First developed for SAGE data</li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-2" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Fit <em>generalised linear models</em> (GLMs) to model counts and estimate logFC</li>
+<li>Implemented in edgeR <span class="citation" data-cites="Chen2016-ig">(<a href="#/references" role="doc-biblioref" onclick="">Chen, Lun, and Smyth 2016</a>)</span> and DESeq2 <span class="citation" data-cites="love2014-ds">(<a href="#/references" role="doc-biblioref" onclick="">Love, Huber, and Anders 2014</a>)</span>
+<ul>
+<li>Both default to FDR-adjusted <span class="math inline">\(p\)</span>-values</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Same model for transcripts, but dividing counts by uncertainty estimate</li>
+<li>Can also model transcripts as proportions of gene-level estimates</li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-3" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>Poisson/NB-GLMs fit the rate of an event, i.e.&nbsp;counts per fixed measurement window</li>
+<li>Sequencing data produces ‘libraries’ of counts <span class="math inline">\(\rightarrow\)</span> total counts = <em>library size</em></li>
+<li>In model fitting <span class="math inline">\(\rightarrow\)</span> estimate rate as a function of library size</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>TMM (edgeR) or RLE (DESeq2) approaches estimate scaling factors
+<ul>
+<li>Moderates the effect of highly expressed genes which dominate library size</li>
+<li>In a perfect world <span class="math inline">\(\implies\)</span> all scaling factors = 1</li>
+</ul></li>
+<li>Library size when modelling is multiplied by scaling factors
+<ul>
+<li>The most effective normalisation methods for RNA-Seq</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="count-based-data-4" class="slide level2 slide-only unlisted">
+<h2>Count-Based Data</h2>
+<ul>
+<li>A common alternative measure is <em>counts per million</em> (CPM) <span class="fragment">or logCPM</span></li>
+<li>CPM is simply counts divided by (library size / 1,000,000)
+<ul>
+<li>No longer discrete <span class="math inline">\(\implies\)</span> continuous data</li>
+</ul></li>
+<li>Relationship between mean and variance still retained for logCPM
+<ul>
+<li>Can’t use naively in classic <code>limma</code>-based linear models</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>The limma-voom method <span class="citation" data-cites="Law2014-xq">(<a href="#/references" role="doc-biblioref" onclick="">Law et al. 2014</a>)</span> uses weights to break the mean-variance relationship
+<ul>
+<li>Can then assume normally-distributed data <br><span class="math inline">\(\implies\)</span> slightly more sophisticated and flexible models</li>
+</ul></li>
+<li>Alternatively, the <code>limma-trend</code> works effectively</li>
+</ul>
+</div>
+<!-- Put a volcano & MA plot here, maybe with tables -->
+</section></section>
+<section>
+<section id="beyond-differential-expression" class="title-slide slide level1 center">
+<h1>Beyond Differential Expression</h1>
+
+</section>
+<section id="long-read-technology" class="slide level2">
+<h2>Long Read Technology</h2>
+</section>
+<section id="long-read-technology-1" class="slide level2 slide-only unlisted">
+<h2>Long Read Technology</h2>
+</section>
+<section id="transcript-assembly" class="slide level2">
+<h2>Transcript Assembly</h2>
+<aside class="notes">
+<p>StringTie is the quick &amp; dirty method. Will also turn up some weird artefacts</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>With a good reference genome <span class="math inline">\(\implies\)</span> <em>StringTie</em> will identify novel transcripts
+<ul>
+<li>Very useful in some cancers</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Can alternatively perform a full <em>reference-guided assembly</em> (Trinity)
+<ul>
+<li>Also works with more distantly-related references</li>
+<li>Built a sea-snake venom-gland transcriptome using another snake genome</li>
+</ul></li>
+<li>Then predicted protein function from sequence homolgy</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Full <em>de novo</em> reference also possible if not viable reference</li>
+</ul>
+</div>
+</section>
+<section id="transcript-assembly-1" class="slide level2 slide-only unlisted">
+<h2>Transcript Assembly</h2>
+<ul>
+<li>Check Zhipeng’s notes</li>
+</ul>
+</section>
+<section id="wgcna" class="slide level2">
+<h2>WGCNA</h2>
+</section>
+<section id="wgcna-1" class="slide level2 slide-only unlisted">
+<h2>WGCNA</h2>
+</section>
+<section id="single-cell-transcriptomics" class="slide level2">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="single-cell-transcriptomics-1" class="slide level2 slide-only unlisted">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="single-cell-transcriptomics-2" class="slide level2 slide-only unlisted">
+<h2>Single-Cell Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics" class="slide level2">
+<h2>Spatial Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics-1" class="slide level2 slide-only unlisted">
+<h2>Spatial Transcriptomics</h2>
+</section>
+<section id="spatial-transcriptomics-2" class="slide level2 slide-only unlisted">
+<h2>Spatial Transcriptomics</h2>
+</section></section>
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-htseq2014" class="csl-entry" role="listitem">
+Anders, Simon, Paul Theodor Pyl, and Wolfgang Huber. 2014. <span>“HTSeq—a Python Framework to Work with High-Throughput Sequencing Data.”</span> <em>Bioinformatics</em> 31 (2): 166–69. <a href="https://doi.org/10.1093/bioinformatics/btu638">https://doi.org/10.1093/bioinformatics/btu638</a>.
+</div>
+<div id="ref-Baldoni2024-zf" class="csl-entry" role="listitem">
+Baldoni, Pedro L, Yunshun Chen, Soroor Hediyeh-Zadeh, Yang Liao, Xueyi Dong, Matthew E Ritchie, Wei Shi, and Gordon K Smyth. 2024. <span>“Dividing Out Quantification Uncertainty Allows Efficient Assessment of Differential Transcript Expression with <span class="nocase">edgeR</span>.”</span> <em>Nucleic Acids Res.</em> 52 (3): e13.
+</div>
+<div id="ref-Bray2016-qq" class="csl-entry" role="listitem">
+Bray, Nicolas L, Harold Pimentel, Páll Melsted, and Lior Pachter. 2016. <span>“Near-Optimal Probabilistic <span>RNA</span>-Seq Quantification.”</span> <em>Nat. Biotechnol.</em> 34 (5): 525–27.
+</div>
+<div id="ref-ijms19051310" class="csl-entry" role="listitem">
+Chan, Jia Jia, and Yvonne Tay. 2018. <span>“Noncoding RNA:RNA Regulatory Networks in Cancer.”</span> <em>International Journal of Molecular Sciences</em> 19 (5). <a href="https://doi.org/10.3390/ijms19051310">https://doi.org/10.3390/ijms19051310</a>.
+</div>
+<div id="ref-Chen2016-ig" class="csl-entry" role="listitem">
+Chen, Yunshun, Aaron T L Lun, and Gordon K Smyth. 2016. <span>“From Reads to Genes to Pathways: Differential Expression Analysis of <span>RNA</span>-Seq Experiments Using Rsubread and the <span class="nocase">edgeR</span> Quasi-Likelihood Pipeline.”</span> <em>F1000Res.</em> 5 (June): 1438.
+</div>
+<div id="ref-Dobin2013-us" class="csl-entry" role="listitem">
+Dobin, Alexander, Carrie A Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R Gingeras. 2013. <span>“<span>STAR</span>: Ultrafast Universal <span>RNA</span>-Seq Aligner.”</span> <em>Bioinformatics</em> 29 (1): 15–21.
+</div>
+<div id="ref-Kim2019-ib" class="csl-entry" role="listitem">
+Kim, Daehwan, Joseph M Paggi, Chanhee Park, Christopher Bennett, and Steven L Salzberg. 2019. <span>“Graph-Based Genome Alignment and Genotyping with <span>HISAT2</span> and <span>HISAT</span>-Genotype.”</span> <em>Nat. Biotechnol.</em> 37 (8): 907–15.
+</div>
+<div id="ref-Law2014-xq" class="csl-entry" role="listitem">
+Law, Charity W, Yunshun Chen, Wei Shi, and Gordon K Smyth. 2014. <span>“Voom: Precision Weights Unlock Linear Model Analysis Tools for <span>RNA</span>-Seq Read Counts.”</span> <em>Genome Biol.</em> 15 (2): R29.
+</div>
+<div id="ref-Liao2014-gy" class="csl-entry" role="listitem">
+Liao, Yang, Gordon K Smyth, and Wei Shi. 2014. <span>“<span class="nocase">featureCounts</span>: An Efficient General Purpose Program for Assigning Sequence Reads to Genomic Features.”</span> <em>Bioinformatics</em> 30 (7): 923–30.
+</div>
+<div id="ref-love2014-ds" class="csl-entry" role="listitem">
+Love, Michael I., Wolfgang Huber, and Simon Anders. 2014. <span>“Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2.”</span> <em>Genome Biology</em> 15: 550. <a href="https://doi.org/10.1186/s13059-014-0550-8">https://doi.org/10.1186/s13059-014-0550-8</a>.
+</div>
+<div id="ref-Patro2017-sn" class="csl-entry" role="listitem">
+Patro, Rob, Geet Duggal, Michael I Love, Rafael A Irizarry, and Carl Kingsford. 2017. <span>“Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression.”</span> <em>Nat. Methods</em> 14 (4): 417–19.
+</div>
+<div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
+Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.
+</div>
+<div id="ref-Yu2015-f5" class="csl-entry" role="listitem">
+Yu, Nancy Yiu-Lin, Björn M. Hallström, Linn Fagerberg, Fredrik Ponten, Hideya Kawaji, Piero Carninci, Alistair R. R. Forrest, et al. 2015. <span>“Complementing Tissue Characterization by Integrating Transcriptome Profiling from the Human Protein Atlas and from the FANTOM5 Consortium.”</span> <em>Nucleic Acids Research</em> 43 (14): 6787–98. <a href="https://doi.org/10.1093/nar/gkv608">https://doi.org/10.1093/nar/gkv608</a>.
+</div>
+</div>
+</section>
+
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="transcriptomics-lecture2-slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <div id="logo-tki" style="position: fixed; z-index: 1000;">
+      <img src="https://www.thekids.org.au/Static/Theme/images/TheKids-RGB_Logo_Colour-Pattern.svg" style="height: 80px;">
+    </div>
+    <div id="logo-bodl" style="position: fixed; z-index: 1000;">
+      <img src="https://raw.githubusercontent.com/black-ochre-data-labs/20250902_ASI_RWorkshop/refs/heads/main/assets/bodl_logo_white_background.jpg" style="height: 80px;">
+    </div>
+    <div id="logo-uoa" style="z-index: 1000;">
+      <img src="transcriptomics/UoA_logo_col_vert.png" style="height: 80px;">
+    </div>
+
+
+    <script>
+    function positionLogos() {
+      const tkiLogo = document.getElementById('logo-tki');
+      const uoaLogo = document.getElementById('logo-uoa');
+      const bodlLogo = document.getElementById('logo-bodl');
+
+      // Check if this is RevealJS
+      const isRevealJS = document.body.classList.contains('reveal') ||
+                         document.querySelector('.reveal') !== null ||
+                         typeof Reveal !== 'undefined';
+
+      if (isRevealJS) {
+        // RevealJS - both logos at bottom
+        tkiLogo.style.bottom = '10px';
+        tkiLogo.style.right = '340px';
+        tkiLogo.style.top = 'auto';
+        tkiLogo.style.display = 'block';
+
+        bodlLogo.style.bottom = '10px';
+        bodlLogo.style.right = '160px';
+        bodlLogo.style.top = 'auto';
+        bodlLogo.style.display = 'block';
+
+        uoaLogo.style.bottom = '10px';
+        uoaLogo.style.right = '40px';
+        uoaLogo.style.top = 'auto';
+        uoaLogo.style.display = 'block';
+        uoaLogo.style.position = 'fixed';
+      } else {
+        // Flat HTML - only right logo at top
+        tkiLogo.style.display = 'none';
+        bodlLogo.style.display = 'none';
+
+        uoaLogo.style.top = '30px';
+        uoaLogo.style.left = '60%';
+        uoaLogo.style.bottom = 'auto';
+        uoaLogo.style.position = 'absolute';
+        uoaLogo.style.display = 'block';
+      }
+    }
+
+    // Run positioning
+    document.addEventListener('DOMContentLoaded', positionLogos);
+    setTimeout(positionLogos, 100);
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

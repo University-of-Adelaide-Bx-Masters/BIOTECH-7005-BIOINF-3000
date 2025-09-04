@@ -1,0 +1,56 @@
+<div id="logo-tki" style="position: fixed; z-index: 1000;">
+  <img src="https://www.thekids.org.au/Static/Theme/images/TheKids-RGB_Logo_Colour-Pattern.svg" style="height: 80px;">
+</div>
+<div id="logo-bodl" style="position: fixed; z-index: 1000;">
+  <img src="https://raw.githubusercontent.com/black-ochre-data-labs/20250902_ASI_RWorkshop/refs/heads/main/assets/bodl_logo_white_background.jpg" style="height: 80px;">
+</div>
+<div  id="logo-uoa" style="z-index: 1000;">
+  <img src="transcriptomics/UoA_logo_col_vert.png" style="height: 80px;">
+</div>
+
+
+<script>
+function positionLogos() {
+  const tkiLogo = document.getElementById('logo-tki');
+  const uoaLogo = document.getElementById('logo-uoa');
+  const bodlLogo = document.getElementById('logo-bodl');
+
+  // Check if this is RevealJS
+  const isRevealJS = document.body.classList.contains('reveal') ||
+                     document.querySelector('.reveal') !== null ||
+                     typeof Reveal !== 'undefined';
+
+  if (isRevealJS) {
+    // RevealJS - both logos at bottom
+    tkiLogo.style.bottom = '10px';
+    tkiLogo.style.right = '340px';
+    tkiLogo.style.top = 'auto';
+    tkiLogo.style.display = 'block';
+
+    bodlLogo.style.bottom = '10px';
+    bodlLogo.style.right = '160px';
+    bodlLogo.style.top = 'auto';
+    bodlLogo.style.display = 'block';
+
+    uoaLogo.style.bottom = '10px';
+    uoaLogo.style.right = '40px';
+    uoaLogo.style.top = 'auto';
+    uoaLogo.style.display = 'block';
+    uoaLogo.style.position = 'fixed';
+  } else {
+    // Flat HTML - only right logo at top
+    tkiLogo.style.display = 'none';
+    bodlLogo.style.display = 'none';
+
+    uoaLogo.style.top = '30px';
+    uoaLogo.style.left = '60%';
+    uoaLogo.style.bottom = 'auto';
+    uoaLogo.style.position = 'absolute';
+    uoaLogo.style.display = 'block';
+  }
+}
+
+// Run positioning
+document.addEventListener('DOMContentLoaded', positionLogos);
+setTimeout(positionLogos, 100);
+</script>
