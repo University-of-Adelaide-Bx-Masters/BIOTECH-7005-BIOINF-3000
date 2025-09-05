@@ -183,6 +183,7 @@ mkdir -p ~/Prac10/{rmdups,mapdamage,trim_bam,fasta,msa}
 cd ~/Prac10/
 
 # Copy the input data
+<!-- FIXME: The data folder is not located in the home directory. The correct path is /shared/data/ancient_dna/data.tar.gz. -->
 cp -r ~/data/ancient_dna/data.tar.gz ~/Prac10/
 
 # Uncompress the data for the prac
@@ -192,6 +193,7 @@ tar -xvf data.tar.gz
 rm data.tar.gz
 
 # Activate the software environment
+<!-- FIXME: The conda environment adna does not exist. Might need to verify the environment name or create it.-->
 conda activate adna</code></pre>
 </section>
 <section id="the-raw-sequencing-data" class="level2">
@@ -276,6 +278,7 @@ multiqc .</code></pre>
 <h3 class="anchored" data-anchor-id="markduplicates">3.1 MarkDuplicates</h3>
 <p>We will use a tool called <a href="http://broadinstitute.github.io/picard/">MarkDuplicates</a> <span class="citation" data-cites="Picard2018toolkit">(<a href="#ref-Picard2018toolkit" role="doc-biblioref">Broad Institute, n.d.</a>)</span> which is part of the Picard suite of tools. Picard is a toolkit to manipulate mapped sequence data.</p>
 <pre class="{bash}"><code># Lets reactivate adna environment
+<!-- FIXME: The conda environment adna does not exist. Might need to verify the environment name or create it.-->
 conda activate adna
 
 cd ~/Prac10/rmdups/
@@ -307,7 +310,7 @@ Figure&nbsp;3: Fragment misincorporations as predicted by mapDamage. Notice the 
 <p>Lets run mapDamage on a few samples and check the results.</p>
 <pre class="{bash}"><code>cd ~/Prac10/mapdamage/
 ref="../data/reference/dog_mtDNA.fasta"
- 
+ <!-- FIXME: Unable to run this command due to the error: KeyError: "tag 'RG' not present". This can likely be fixed by ensuring the read group (`RG`) tag is properly added during the `bwa` alignment step. -->
 for bam in ../rmdups/{D10,D11,D12,D13,Y47,BaliVD}*rmdup.bam; do
   mapDamage -i $bam -r $ref --no-stats
 done</code></pre>
@@ -354,7 +357,7 @@ Figure&nbsp;4: Nuclear DNA is inherited from both parents while mtDNA is only ma
 
 for bam in ../trim_bam/*.trimmed.bam; do
   sn=$(basename $bam .trimmed.bam)
-
+<!-- FIXME: Attempted to run `samtools consensus` from the `bioinfo` conda environment (I’m aware it should be run in the `adna` environment), but it only includes version 1.13. If the `adna` environment is not used, `samtools` must be updated to version >1.16 to enable the `consensus` function. -->
   samtools consensus -r chrM \
     -o ${sn}_consensus.fasta -a \
     --min-MQ 25 --min-BQ 30 -c 0.75 \
