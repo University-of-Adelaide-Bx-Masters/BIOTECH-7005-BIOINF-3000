@@ -638,10 +638,13 @@ glMDPlot(
 
 ## Part 5 Additional analysis
 
-After we get a list of differentially expressed genes between groups (e.g. treatment group vs control group in our dataset),
+After we get a list of DE genes between groups (e.g. treatment group vs control group in our dataset),
 we can do all different kinds downstream analyses based on this DE gene list.
 One common downstream analysis is the functional enrichment/over-representation analysis.
 
 There are many tools/packages which can be used to do functional enrichment analysis for DE genes. 
-One popular and easy-to use tool is the web-based [DAVID](https://david.ncifcrf.gov/) (Database for Annotation, Visualization and Integrated Discovery). 
-I'll briefly show you how to do the GO/KEGG functional enrichment analysis for the DE gene list that we obtained in this Prac.
+One popular and easy-to use tool is the web-based [DAVID](https://davidbioinformatics.nih.gov) (Database for Annotation, Visualization and Integrated Discovery). 
+The question we'll ask using this tool is to see which gene-sets or pathways appear in our set of DE genes more often than we might expect.
+This requires a set of background (i.e. not DE) genes, and using the background genes we can determine of a pathway is *enriched* amongst the DE genes.
+
+See if you can find your way around the DAVID interface and ask for help if the questions the tool asks are confusing.
