@@ -161,11 +161,24 @@ here::here("Lectures/transcriptomics") %>%
     
 ## The RNA Population Of a Eukaryotic Cell
 
-::: {style= "text-align: center"}
+:::: {.columns}
 
-![Image taken from @ijms19051310](transcriptomics/ijms-19-01310-g001.png){width='780px'}
+::: {.column width='60%'}
+
+![Image taken from @ijms19051310](transcriptomics/ijms-19-01310-g001.png){width='700px' fig-align="left"}
 
 :::
+::: {.column width='40%'}
+<br>
+
+- rRNA $\approx$ 80%[^1]
+- tRNA $\approx$ 15% 
+- All other RNA $\approx$ 5%
+
+[^1]: https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&v=5&id=100264
+:::
+::::
+
 
 ## The Key Steps
 
@@ -193,18 +206,14 @@ here::here("Lectures/transcriptomics") %>%
 
 ## RNA Selection
 
-- rRNA makes up about 80% of cellular RNA $\rightarrow$ not of general interest
-    + tRNA ~15% + [mRNA ~5% cellular RNA[^1]]{.text-red}
-    
-::: {.fragment}
 1. Select for poly-adenylated RNA using oligo-dT-based methods
     + Only extracts intact mRNA with a polyA tail (includes some ncRNA)
 
+:::: {.columns}
 
-![Image from https://www.lexogen.com/polya-rna-selection-kit/](transcriptomics/03polya_workflow1.jpg){fig-align="left"}
-:::
+![Image from https://www.lexogen.com/polya-rna-selection-kit/](transcriptomics/03polya_workflow1.jpg){width='950px' fig-align="left"}
 
-[^1]: https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&v=5&id=100264
+::::
 
 ## RNA Selection  {.slide-only .unlisted}
 
@@ -236,7 +245,7 @@ here::here("Lectures/transcriptomics") %>%
 
 ## Library Preparation {.slide-only .unlisted}
 
-- Each double-stranded cDNA then has the final structure
+- Each double-stranded cDNA then has the final structure (+UMI)
 
 ![Image courtesy of https://www.lubio.ch/blog/ngs-adapters](transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg)
 
@@ -297,14 +306,14 @@ here::here("Lectures/transcriptomics") %>%
 
 - An alternative is to provide a *reference transcriptome*
     + Alignments no longer need to be splice aware
-- Reads can align to multiple transcripts
+- Reads can (& commonly do) align to multiple transcripts
 - Much faster than traditional alignment
 
 ::: {.fragment}
 
 - Pseudo-alignment is used by kallisto [@Bray2016-qq] 
 - Statistically modelled expression estimates used by salmon [@Patro2017-sn]
-- Return transcript-level counts without bam files
+- Return *transcript-level counts* without bam files
 - Add transcript-level counts $\implies$ gene-level counts
 
 :::
@@ -322,9 +331,20 @@ here::here("Lectures/transcriptomics") %>%
 
 # Differential Gene Expression Analysis
 
+## Differential Gene Expression Analysis
+
+- A fundamental question:
+
+**Does the overall abundance of a gene differ between experimental conditions?**
+
+::: {.fragment}
+- Need a statistical approach to answer this question
+:::
+
+
 ## Count-Based Data
 
-- Under both reference-types $\rightarrow$ counts to represent expression
+- Under both reference-types $\rightarrow$ counts represent expression
 - These are *discrete* data (i.e. not continuous values)
 - Microarrays were continuous values (fluorescence intensity)
     + Modelled using log~2~-transformed values $\implies \mathcal{N}(\mu, \sigma)$
@@ -342,10 +362,10 @@ here::here("Lectures/transcriptomics") %>%
 - In most cases the observed variance is greater than the mean$\implies$ *over-dispersion*
 
 ::: {.fragment}
-- We use Negative Binomial distributions to model counts
+- We use the Negative Binomial distribution to model counts for gene $g$ in sample $i$
 
 $$
-X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right), \text{where }E[X] = \mu \text{; Var}[X] = \sigma^2
+y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where} \phi > 0
 $$
 :::
 ::: {.fragment}
@@ -353,7 +373,6 @@ $$
 - Can be thought of as like a Poisson with extra variation
 - Extra variation is strictly defined in quadratic relationship to mean
     + Sometimes described as a combination of *technical* & *biological* variation
-- First developed for SAGE data
 
 :::
 
@@ -361,10 +380,11 @@ $$
 
 - Fit *generalised linear models* (GLMs) to model counts and estimate logFC
 - Implemented in edgeR [@Chen2016-ig] and DESeq2 [@love2014-ds]
+    + Slight differences in handling of over-dispersions
     + Both default to FDR-adjusted $p$-values
     
 ::: {.fragment}
-- Same model for transcripts, but dividing counts by uncertainty estimate
+- Same model for transcripts, but dividing counts by uncertainty estimate [@Baldoni2024-zf]
 + Can also model transcripts as proportions of gene-level estimates
 :::
 
@@ -388,7 +408,7 @@ $$
 - A common alternative measure is *counts per million* (CPM) [or logCPM]{.fragment}
 - CPM is simply counts divided by (library size / 1,000,000)
     + No longer discrete $\implies$ continuous data
-- Relationship between mean and variance still retained for logCPM
+- Relationship between mean and variance *still retained* for logCPM
     + Can't use naively in classic `limma`-based linear models
 
 ::: {.fragment}
@@ -399,11 +419,102 @@ $$
 
 <!-- Put a volcano & MA plot here, maybe with tables -->
 
+## Enrichment Testing
+
+:::: {.columns}
+
+
+::: {.column}
+![](transcriptomics/apoptosisDAG.png)
+:::
+
+
+::: {.column}
+- Often want to identify key pathways associated with results
+    + Are genes from specific pathways or gene-sets most impacted
+
+::: {.fragment}
+- Gene Ontology (GO) Terms:
+    + Carefully constructed, hierarchical database of terms
+    + Biological Process, Molecular Function and Cellular Component
+    
+:::
+:::
+
+::::
+
+
+## Enrichment Testing {.slide-only .unlisted}
+
+:::: {.columns}
+
+
+::: {.column width="60%"}
+![Oxidative Phosphorylation pathway as annotated in the KEGG database](transcriptomics/hsa00190.png){width="95%"}
+:::
+
+
+::: {.column width='40%'}
+- Kyoto Encyclopedia of Genes and Genomes (KEGG):
+    + Molecular pathways with complete topology
+    
+:::
+
+::::
+
+## Enrichment Testing {.slide-only .unlisted}
+
+:::: {.columns}
+::: {.column width="55%'}
+
+- Often use approaches based on Fisher's Exact Test
+    + Compare enrichment of DE genes in a pathway vs not DE Genes in pathway
+    + NotDE $\equiv$ Background
+- Pathways often share DE genes $\implies$ biological expertise
+- Multiple Testing across 1000s of pathways
+
+
+
+:::
+::: {.column width='45%'}
+|     | DE Genes | Not DE Genes | %DE |
+|:--- | --------:| ------------:| --:|
+| In Pathway | 10 | 40 | 20% |
+| Not In Pathway | 990 | 14000 | 6.7% |
+:::
+::::
+
+::: {.fragment}
+- 20% of pathway is DE vs 6.7% of "not-pathway" genes
+:::
+
+## Enrichment Testing {.slide-only .unlisted}
+
+::: {style='font-size:95%'}
+
+:::: {.columns}
+::: {.column width='45%'}
+- An alternative approach is to use ranked lists
+    + Gene Set Enrichment Analysis (GSEA)
+- No requirement to classify genes as DE or not DE
+
+::: {.fragment}
+- Walk along the ranked list of genes increasing score if gene in gene-set
+    + In the example, begin at the right
+    + Largest deviation from zero is -ve
+
+:::
+:::
+::: {.column width='55%'}
+![Image taken from clusterProfiler vignette https://yulab-smu.github.io/clusterProfiler-book/chapter12.html](transcriptomics/gseaplot2-1.png)
+:::
+::::
+
+:::
+
+
+
 # Beyond Differential Expression
-
-## Long Read Technology
-
-## Long Read Technology {.slide-only .unlisted}
 
 ## Transcript Assembly
 
@@ -418,7 +529,7 @@ StringTie is the quick & dirty method. Will also turn up some weird artefacts
 - Can alternatively perform a full *reference-guided assembly* (Trinity)
     + Also works with more distantly-related references
     + Built a sea-snake venom-gland transcriptome using another snake genome
-- Then predicted protein function from sequence homolgy
+- Then predicted protein function from sequence homology
     
 :::
 
@@ -430,9 +541,13 @@ StringTie is the quick & dirty method. Will also turn up some weird artefacts
 
 - Check Zhipeng's notes
 
-## WGCNA
+## Long Read Technology
 
-## WGCNA {.slide-only .unlisted}
+## Long Read Technology {.slide-only .unlisted}
+
+<!-- ## WGCNA -->
+
+<!-- ## WGCNA {.slide-only .unlisted} -->
 
 ## Single-Cell Transcriptomics
 

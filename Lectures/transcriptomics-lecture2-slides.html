@@ -265,15 +265,23 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </section>
 <section id="the-rna-population-of-a-eukaryotic-cell" class="slide level2">
 <h2>The RNA Population Of a Eukaryotic Cell</h2>
-<div style="text-align: center">
-<div class="quarto-figure quarto-figure-center">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="transcriptomics/ijms-19-01310-g001.png" width="780"></p>
+<p><img data-src="transcriptomics/ijms-19-01310-g001.png" width="700"></p>
 <figcaption>Image taken from <span class="citation" data-cites="ijms19051310">Chan and Tay (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
 </figure>
 </div>
-</div>
-</section>
+</div><div class="column" style="width:40%;">
+<p><br></p>
+<ul>
+<li>rRNA <span class="math inline">\(\approx\)</span> 80%<sup>1</sup></li>
+<li>tRNA <span class="math inline">\(\approx\)</span> 15%</li>
+<li>All other RNA <span class="math inline">\(\approx\)</span> 5%</li>
+</ul>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&amp;v=5&amp;id=100264</p></li></ol></aside></section>
 <section id="the-key-steps" class="slide level2">
 <h2>The Key Steps</h2>
 <ul>
@@ -300,27 +308,21 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </section>
 <section id="rna-selection" class="slide level2">
 <h2>RNA Selection</h2>
-<ul>
-<li>rRNA makes up about 80% of cellular RNA <span class="math inline">\(\rightarrow\)</span> not of general interest
-<ul>
-<li>tRNA ~15% + <span class="text-red">mRNA ~5% cellular RNA<sup>1</sup></span></li>
-</ul></li>
-</ul>
-<div class="fragment">
 <ol type="1">
 <li>Select for poly-adenylated RNA using oligo-dT-based methods
 <ul>
 <li>Only extracts intact mRNA with a polyA tail (includes some ncRNA)</li>
 </ul></li>
 </ol>
+<div class="columns">
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="transcriptomics/03polya_workflow1.jpg"></p>
+<p><img data-src="transcriptomics/03polya_workflow1.jpg" width="950"></p>
 <figcaption>Image from https://www.lexogen.com/polya-rna-selection-kit/</figcaption>
 </figure>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>https://bionumbers.hms.harvard.edu/bionumber.aspx?s=n&amp;v=5&amp;id=100264</p></li></ol></aside></section>
+</section>
 <section id="rna-selection-1" class="slide level2 slide-only unlisted">
 <h2>RNA Selection</h2>
 <ol start="2" type="1">
@@ -358,7 +360,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <section id="library-preparation-2" class="slide level2 slide-only unlisted">
 <h2>Library Preparation</h2>
 <ul>
-<li>Each double-stranded cDNA then has the final structure</li>
+<li>Each double-stranded cDNA then has the final structure (+UMI)</li>
 </ul>
 
 <img data-src="transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
@@ -442,14 +444,14 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Alignments no longer need to be splice aware</li>
 </ul></li>
-<li>Reads can align to multiple transcripts</li>
+<li>Reads can (&amp; commonly do) align to multiple transcripts</li>
 <li>Much faster than traditional alignment</li>
 </ul>
 <div class="fragment">
 <ul>
 <li>Pseudo-alignment is used by kallisto <span class="citation" data-cites="Bray2016-qq">(<a href="#/references" role="doc-biblioref" onclick="">Bray et al. 2016</a>)</span></li>
 <li>Statistically modelled expression estimates used by salmon <span class="citation" data-cites="Patro2017-sn">(<a href="#/references" role="doc-biblioref" onclick="">Patro et al. 2017</a>)</span></li>
-<li>Return transcript-level counts without bam files</li>
+<li>Return <em>transcript-level counts</em> without bam files</li>
 <li>Add transcript-level counts <span class="math inline">\(\implies\)</span> gene-level counts</li>
 </ul>
 </div>
@@ -473,10 +475,22 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <h1>Differential Gene Expression Analysis</h1>
 
 </section>
+<section id="differential-gene-expression-analysis-1" class="slide level2">
+<h2>Differential Gene Expression Analysis</h2>
+<ul>
+<li>A fundamental question:</li>
+</ul>
+<p><strong>Does the overall abundance of a gene differ between experimental conditions?</strong></p>
+<div class="fragment">
+<ul>
+<li>Need a statistical approach to answer this question</li>
+</ul>
+</div>
+</section>
 <section id="count-based-data" class="slide level2">
 <h2>Count-Based Data</h2>
 <ul>
-<li>Under both reference-types <span class="math inline">\(\rightarrow\)</span> counts to represent expression</li>
+<li>Under both reference-types <span class="math inline">\(\rightarrow\)</span> counts represent expression</li>
 <li>These are <em>discrete</em> data (i.e.&nbsp;not continuous values)</li>
 <li>Microarrays were continuous values (fluorescence intensity)
 <ul>
@@ -501,10 +515,10 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <div class="fragment">
 <ul>
-<li>We use Negative Binomial distributions to model counts</li>
+<li>We use the Negative Binomial distribution to model counts for gene <span class="math inline">\(g\)</span> in sample <span class="math inline">\(i\)</span></li>
 </ul>
 <p><span class="math display">\[
-X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right), \text{where }E[X] = \mu \text{; Var}[X] = \sigma^2
+y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where} \phi &gt; 0
 \]</span></p>
 </div>
 <div class="fragment">
@@ -514,7 +528,6 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 <ul>
 <li>Sometimes described as a combination of <em>technical</em> &amp; <em>biological</em> variation</li>
 </ul></li>
-<li>First developed for SAGE data</li>
 </ul>
 </div>
 </section>
@@ -524,12 +537,13 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 <li>Fit <em>generalised linear models</em> (GLMs) to model counts and estimate logFC</li>
 <li>Implemented in edgeR <span class="citation" data-cites="Chen2016-ig">(<a href="#/references" role="doc-biblioref" onclick="">Chen, Lun, and Smyth 2016</a>)</span> and DESeq2 <span class="citation" data-cites="love2014-ds">(<a href="#/references" role="doc-biblioref" onclick="">Love, Huber, and Anders 2014</a>)</span>
 <ul>
+<li>Slight differences in handling of over-dispersions</li>
 <li>Both default to FDR-adjusted <span class="math inline">\(p\)</span>-values</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>Same model for transcripts, but dividing counts by uncertainty estimate</li>
+<li>Same model for transcripts, but dividing counts by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/references" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span></li>
 <li>Can also model transcripts as proportions of gene-level estimates</li>
 </ul>
 </div>
@@ -563,7 +577,7 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 <ul>
 <li>No longer discrete <span class="math inline">\(\implies\)</span> continuous data</li>
 </ul></li>
-<li>Relationship between mean and variance still retained for logCPM
+<li>Relationship between mean and variance <em>still retained</em> for logCPM
 <ul>
 <li>Can’t use naively in classic <code>limma</code>-based linear models</li>
 </ul></li>
@@ -578,17 +592,129 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 </ul>
 </div>
 <!-- Put a volcano & MA plot here, maybe with tables -->
+</section>
+<section id="enrichment-testing" class="slide level2">
+<h2>Enrichment Testing</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="transcriptomics/apoptosisDAG.png"></p>
+</div><div class="column">
+<ul>
+<li>Often want to identify key pathways associated with results
+<ul>
+<li>Are genes from specific pathways or gene-sets most impacted</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Gene Ontology (GO) Terms:
+<ul>
+<li>Carefully constructed, hierarchical database of terms</li>
+<li>Biological Process, Molecular Function and Cellular Component</li>
+</ul></li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="enrichment-testing-1" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/hsa00190.png" style="width:95.0%"></p>
+<figcaption>Oxidative Phosphorylation pathway as annotated in the KEGG database</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Kyoto Encyclopedia of Genes and Genomes (KEGG):
+<ul>
+<li>Molecular pathways with complete topology</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="enrichment-testing-2" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div class="columns">
+<div class="column" style="width:&quot;55%';">
+<ul>
+<li>Often use approaches based on Fisher’s Exact Test
+<ul>
+<li>Compare enrichment of DE genes in a pathway vs not DE Genes in pathway</li>
+<li>NotDE <span class="math inline">\(\equiv\)</span> Background</li>
+</ul></li>
+<li>Pathways often share DE genes <span class="math inline">\(\implies\)</span> biological expertise</li>
+<li>Multiple Testing across 1000s of pathways</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DE Genes</th>
+<th style="text-align: right;">Not DE Genes</th>
+<th style="text-align: right;">%DE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">In Pathway</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">20%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Not In Pathway</td>
+<td style="text-align: right;">990</td>
+<td style="text-align: right;">14000</td>
+<td style="text-align: right;">6.7%</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="fragment">
+<ul>
+<li>20% of pathway is DE vs 6.7% of “not-pathway” genes</li>
+</ul>
+</div>
+</section>
+<section id="enrichment-testing-3" class="slide level2 slide-only unlisted">
+<h2>Enrichment Testing</h2>
+<div style="font-size:95%">
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>An alternative approach is to use ranked lists
+<ul>
+<li>Gene Set Enrichment Analysis (GSEA)</li>
+</ul></li>
+<li>No requirement to classify genes as DE or not DE</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Walk along the ranked list of genes increasing score if gene in gene-set
+<ul>
+<li>In the example, begin at the right</li>
+<li>Largest deviation from zero is -ve</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/gseaplot2-1.png"></p>
+<figcaption>Image taken from clusterProfiler vignette https://yulab-smu.github.io/clusterProfiler-book/chapter12.html</figcaption>
+</figure>
+</div>
+</div></div>
+</div>
 </section></section>
 <section>
 <section id="beyond-differential-expression" class="title-slide slide level1 center">
 <h1>Beyond Differential Expression</h1>
 
-</section>
-<section id="long-read-technology" class="slide level2">
-<h2>Long Read Technology</h2>
-</section>
-<section id="long-read-technology-1" class="slide level2 slide-only unlisted">
-<h2>Long Read Technology</h2>
 </section>
 <section id="transcript-assembly" class="slide level2">
 <h2>Transcript Assembly</h2>
@@ -618,7 +744,7 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 <li>Also works with more distantly-related references</li>
 <li>Built a sea-snake venom-gland transcriptome using another snake genome</li>
 </ul></li>
-<li>Then predicted protein function from sequence homolgy</li>
+<li>Then predicted protein function from sequence homology</li>
 </ul>
 </div>
 <div class="fragment">
@@ -633,11 +759,13 @@ X \sim \text{NB}\left(\frac{\mu}{\sigma^2}, \frac{\mu^2}{\sigma^2 - \mu}\right),
 <li>Check Zhipeng’s notes</li>
 </ul>
 </section>
-<section id="wgcna" class="slide level2">
-<h2>WGCNA</h2>
+<section id="long-read-technology" class="slide level2">
+<h2>Long Read Technology</h2>
 </section>
-<section id="wgcna-1" class="slide level2 slide-only unlisted">
-<h2>WGCNA</h2>
+<section id="long-read-technology-1" class="slide level2 slide-only unlisted">
+<h2>Long Read Technology</h2>
+<!-- ## WGCNA -->
+<!-- ## WGCNA {.slide-only .unlisted} -->
 </section>
 <section id="single-cell-transcriptomics" class="slide level2">
 <h2>Single-Cell Transcriptomics</h2>
