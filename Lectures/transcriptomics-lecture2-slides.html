@@ -295,7 +295,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li class="fragment">Adding sequencing primers</li>
 </ul></li>
 <li class="fragment">Sequencing</li>
-<li class="fragment">Aligmnent + Quantitation</li>
+<li class="fragment">Alignment + Quantitation</li>
 <li class="fragment">DE Gene Detection</li>
 <li class="fragment">Downstream Analysis</li>
 <li class="fragment">(Optional) Nobel Prize</li>
@@ -638,7 +638,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <section id="enrichment-testing-2" class="slide level2 slide-only unlisted">
 <h2>Enrichment Testing</h2>
 <div class="columns">
-<div class="column" style="width:&quot;55%';">
+<div class="column" style="width:&quot;60%';">
 <ul>
 <li>Often use approaches based on Fisher’s Exact Test
 <ul>
@@ -648,13 +648,14 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <li>Pathways often share DE genes <span class="math inline">\(\implies\)</span> biological expertise</li>
 <li>Multiple Testing across 1000s of pathways</li>
 </ul>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:40%;">
+<div class="text-red">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: right;">DE Genes</th>
-<th style="text-align: right;">Not DE Genes</th>
+<th style="text-align: right;">DE</th>
+<th style="text-align: right;">Not DE</th>
 <th style="text-align: right;">%DE</th>
 </tr>
 </thead>
@@ -673,12 +674,14 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 </tr>
 </tbody>
 </table>
-</div></div>
 <div class="fragment">
 <ul>
-<li>20% of pathway is DE vs 6.7% of “not-pathway” genes</li>
+<li>0.28% not DE genes in pathway</li>
+<li>1% of DE genes in pathway</li>
 </ul>
 </div>
+</div>
+</div></div>
 </section>
 <section id="enrichment-testing-3" class="slide level2 slide-only unlisted">
 <h2>Enrichment Testing</h2>
@@ -731,41 +734,105 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<ul>
-<li>With a good reference genome <span class="math inline">\(\implies\)</span> <em>StringTie</em> will identify novel transcripts
-<ul>
-<li>Very useful in some cancers</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Can alternatively perform a full <em>reference-guided assembly</em> (Trinity)
-<ul>
-<li>Also works with more distantly-related references</li>
-<li>Built a sea-snake venom-gland transcriptome using another snake genome</li>
-</ul></li>
-<li>Then predicted protein function from sequence homology</li>
-</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/stringtie.png"></p>
+<figcaption>Image taken from <span class="citation" data-cites="Pertea2015-zd">(<a href="#/references" role="doc-biblioref" onclick="">Pertea et al. 2015</a>)</span></figcaption>
+</figure>
 </div>
-<div class="fragment">
+</div><div class="column" style="width:40%;">
 <ul>
-<li>Full <em>de novo</em> reference also possible if not viable reference</li>
+<li>With a good reference genome <span class="math inline">\(\implies\)</span> <em>StringTie</em> can identify novel transcripts</li>
+<li>Un-annotated genes/lncRNA</li>
 </ul>
-</div>
+</div></div>
 </section>
 <section id="transcript-assembly-1" class="slide level2 slide-only unlisted">
 <h2>Transcript Assembly</h2>
 <ul>
-<li>Check Zhipeng’s notes</li>
+<li>StringTie returns a GTF with novel transcripts added to reference (See <a href="https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#output">here</a>)
+<ul>
+<li>Gene &amp; Transcript annotations capture the entire transcribed region</li>
+<li>Exons are annotated by transcript + gene</li>
+</ul></li>
+<li>Also returns counts for DE analysis</li>
 </ul>
 </section>
+<section id="transcript-assembly-2" class="slide level2 slide-only unlisted">
+<h2>Transcript Assembly</h2>
+<ul>
+<li>Complete <em>de novo</em> transcriptome assembly using Trinity <span class="citation" data-cites="Grabherr2011-bh">(<a href="#/references" role="doc-biblioref" onclick="">Grabherr et al. 2011</a>)</span></li>
+<li>Can alternatively perform a full <em>reference-guided assembly</em>
+<ul>
+<li>Also works with more distantly-related references <!-- + Built a sea-snake venom-gland transcriptome using another snake genome --></li>
+</ul></li>
+</ul>
+<ul>
+<li class="fragment">Three basic modules
+<ol type="1">
+<li class="fragment">Inchworm: Naively assembles reads into contigs</li>
+<li class="fragment">Chrysalis: Pools contigs into <em>de Bruijn</em> graph</li>
+<li class="fragment">Butterfly: Trims <em>de Bruijn</em> graph and compares against raw reads</li>
+</ol></li>
+<li class="fragment">Check assembly against known conserved orthologs (BUSCO) <!-- - Predict protein function from sequence homology --></li>
+</ul>
+</section>
+<section id="transcript-assembly-3" class="slide level2 slide-only unlisted">
+<h2>Transcript Assembly</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="transcriptomics/debruijn.jpg"></p>
+<figcaption><em>An example de Bruijn graph</em> (Wikimedia commons)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Reads represent fragmented transcripts</li>
+<li>Reads broken into shorter <em>k</em>-mers</li>
+<li>Adjacent <em>k</em>-mers <span class="math inline">\(\rightarrow\)</span> graph</li>
+<li>Wise choice of <em>k</em> helps extend graph well beyond read length</li>
+<li>Well-represented paths through graph <span class="math inline">\(\rightarrow\)</span> transcripts</li>
+</ul>
+</div></div>
+</section>
+<section id="transcript-assembly-4" class="slide level2 slide-only unlisted">
+<h2>Transcript Assembly</h2>
+
+<img data-src="transcriptomics/trinity.jpg" class="r-stretch quarto-figure-left"><p class="caption">Figure from <span class="citation" data-cites="Haas2013-ma">Haas et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></p></section>
 <section id="long-read-technology" class="slide level2">
 <h2>Long Read Technology</h2>
+<ul>
+<li>Most transcriptome assemblies performed using Trinity/StringTie</li>
+<li>Long Reads are now becoming the dominant platform
+<ul>
+<li>Oxford Nanopore (ONT) reads from 50 bp to &gt;4 Mb</li>
+<li>Pacific Biosciences (PacBio) up to 25kb</li>
+<li>Illumina maxes out around 2x150nt</li>
+</ul></li>
+<li>Can both sequence complete transcripts!</li>
+</ul>
 </section>
 <section id="long-read-technology-1" class="slide level2 slide-only unlisted">
 <h2>Long Read Technology</h2>
+<ul>
+<li>Much more error prone
+<ul>
+<li>Originally ~15% but now approaching Illumina error-rates</li>
+<li>Same molecule repeatedly sequenced</li>
+</ul></li>
+<li>Repeat sequencing makes quantitation more challenging<br><span class="math inline">\(\implies\)</span> Now becoming viable</li>
+</ul>
 <!-- ## WGCNA -->
 <!-- ## WGCNA {.slide-only .unlisted} -->
+</section></section>
+<section>
+<section id="high-resolution-technologies" class="title-slide slide level1 center">
+<h1>High Resolution Technologies</h1>
+
 </section>
 <section id="single-cell-transcriptomics" class="slide level2">
 <h2>Single-Cell Transcriptomics</h2>
@@ -807,6 +874,12 @@ Chen, Yunshun, Aaron T L Lun, and Gordon K Smyth. 2016. <span>“From Reads to G
 <div id="ref-Dobin2013-us" class="csl-entry" role="listitem">
 Dobin, Alexander, Carrie A Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R Gingeras. 2013. <span>“<span>STAR</span>: Ultrafast Universal <span>RNA</span>-Seq Aligner.”</span> <em>Bioinformatics</em> 29 (1): 15–21.
 </div>
+<div id="ref-Grabherr2011-bh" class="csl-entry" role="listitem">
+Grabherr, Manfred G, Brian J Haas, Moran Yassour, Joshua Z Levin, Dawn A Thompson, Ido Amit, Xian Adiconis, et al. 2011. <span>“Full-Length Transcriptome Assembly from <span>RNA</span>-Seq Data Without a Reference Genome.”</span> <em>Nat. Biotechnol.</em> 29 (7): 644–52.
+</div>
+<div id="ref-Haas2013-ma" class="csl-entry" role="listitem">
+Haas, Brian J, Alexie Papanicolaou, Moran Yassour, Manfred Grabherr, Philip D Blood, Joshua Bowden, Matthew Brian Couger, et al. 2013. <span>“De Novo Transcript Sequence Reconstruction from <span>RNA</span>-Seq Using the Trinity Platform for Reference Generation and Analysis.”</span> <em>Nat. Protoc.</em> 8 (8): 1494–1512.
+</div>
 <div id="ref-Kim2019-ib" class="csl-entry" role="listitem">
 Kim, Daehwan, Joseph M Paggi, Chanhee Park, Christopher Bennett, and Steven L Salzberg. 2019. <span>“Graph-Based Genome Alignment and Genotyping with <span>HISAT2</span> and <span>HISAT</span>-Genotype.”</span> <em>Nat. Biotechnol.</em> 37 (8): 907–15.
 </div>
@@ -821,6 +894,9 @@ Love, Michael I., Wolfgang Huber, and Simon Anders. 2014. <span>“Moderated Est
 </div>
 <div id="ref-Patro2017-sn" class="csl-entry" role="listitem">
 Patro, Rob, Geet Duggal, Michael I Love, Rafael A Irizarry, and Carl Kingsford. 2017. <span>“Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression.”</span> <em>Nat. Methods</em> 14 (4): 417–19.
+</div>
+<div id="ref-Pertea2015-zd" class="csl-entry" role="listitem">
+Pertea, Mihaela, Geo M Pertea, Corina M Antonescu, Tsung-Cheng Chang, Joshua T Mendell, and Steven L Salzberg. 2015. <span>“<span>StringTie</span> Enables Improved Reconstruction of a Transcriptome from <span>RNA</span>-Seq Reads.”</span> <em>Nat. Biotechnol.</em> 33 (3): 290–95.
 </div>
 <div id="ref-Wang2009-hf" class="csl-entry" role="listitem">
 Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-Seq: A Revolutionary Tool for Transcriptomics.”</span> <em>Nat. Rev. Genet.</em> 10 (1): 57–63.

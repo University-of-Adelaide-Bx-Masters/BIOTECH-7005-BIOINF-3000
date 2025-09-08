@@ -190,7 +190,7 @@ here::here("Lectures/transcriptomics") %>%
     + Selecting target molecules
     + Adding sequencing primers
 2. Sequencing 
-3. Aligmnent + Quantitation
+3. Alignment + Quantitation
 4. DE Gene Detection
 5. Downstream Analysis
 6. (Optional) Nobel Prize
@@ -465,7 +465,7 @@ $$
 ## Enrichment Testing {.slide-only .unlisted}
 
 :::: {.columns}
-::: {.column width="55%'}
+::: {.column width="60%'}
 
 - Often use approaches based on Fisher's Exact Test
     + Compare enrichment of DE genes in a pathway vs not DE Genes in pathway
@@ -476,17 +476,20 @@ $$
 
 
 :::
-::: {.column width='45%'}
-|     | DE Genes | Not DE Genes | %DE |
-|:--- | --------:| ------------:| --:|
+::: {.column width='40%'}
+::: {.text-red}
+|       | DE | Not DE | %DE |
+|:----- | --------:| ------------:| ----:|
 | In Pathway | 10 | 40 | 20% |
 | Not In Pathway | 990 | 14000 | 6.7% |
-:::
-::::
 
 ::: {.fragment}
-- 20% of pathway is DE vs 6.7% of "not-pathway" genes
+- `r scales::percent(40/14040, 0.01)` not DE genes in pathway
+- `r scales::percent(10/1000, 1)` of DE genes in pathway
 :::
+:::
+:::
+::::
 
 ## Enrichment Testing {.slide-only .unlisted}
 
@@ -522,32 +525,87 @@ $$
 StringTie is the quick & dirty method. Will also turn up some weird artefacts
 :::
 
-- With a good reference genome $\implies$ *StringTie* will identify novel transcripts
-    + Very useful in some cancers
+:::: {.columns}
+::: {.column width='60%'}
 
-::: {.fragment}
-- Can alternatively perform a full *reference-guided assembly* (Trinity)
-    + Also works with more distantly-related references
-    + Built a sea-snake venom-gland transcriptome using another snake genome
-- Then predicted protein function from sequence homology
-    
+![Image taken from [@Pertea2015-zd]](transcriptomics/stringtie.png){fig-align="left"}
 :::
+::: {.column width='40%'}
 
-::: {.fragment}
-- Full *de novo* reference also possible if not viable reference
+- With a good reference genome $\implies$ *StringTie* can identify novel transcripts
+- Un-annotated genes/lncRNA
+:::
+::::
+
+
+
+
+## Transcript Assembly {.slide-only .unlisted}
+
+- StringTie returns a GTF with novel transcripts added to reference (See [here](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#output))
+    + Gene & Transcript annotations capture the entire transcribed region
+    + Exons are annotated by transcript + gene
+- Also returns counts for DE analysis
+
+
+## Transcript Assembly {.slide-only .unlisted}
+
+- Complete *de novo* transcriptome assembly using Trinity [@Grabherr2011-bh]
+- Can alternatively perform a full *reference-guided assembly* 
+    + Also works with more distantly-related references
+    <!-- + Built a sea-snake venom-gland transcriptome using another snake genome -->
+
+::: {.incremental}
+- Three basic modules
+    1. Inchworm: Naively assembles reads into contigs
+    2. Chrysalis: Pools contigs into *de Bruijn* graph
+    3. Butterfly: Trims *de Bruijn* graph and compares against raw reads
+- Check assembly against known conserved orthologs (BUSCO)
+<!-- - Predict protein function from sequence homology -->
+
 :::
 
 ## Transcript Assembly {.slide-only .unlisted}
 
-- Check Zhipeng's notes
+:::: {.columns}
+::: {.column width='60%'}
+
+![*An example de Bruijn graph* (Wikimedia commons)](transcriptomics/debruijn.jpg)
+:::
+::: {.column width='40%'}
+- Reads represent fragmented transcripts
+- Reads broken into shorter *k*-mers
+- Adjacent *k*-mers $\rightarrow$ graph
+- Wise choice of *k* helps extend graph well beyond read length
+- Well-represented paths through graph $\rightarrow$ transcripts
+:::
+::::
+
+## Transcript Assembly {.slide-only .unlisted}
+
+![Figure from @Haas2013-ma](transcriptomics/trinity.jpg){fig-align="left"}
 
 ## Long Read Technology
 
+- Most transcriptome assemblies performed using Trinity/StringTie
+- Long Reads are now becoming the dominant platform 
+    + Oxford Nanopore (ONT) reads from 50 bp to >4 Mb
+    + Pacific Biosciences (PacBio) up to 25kb
+    + Illumina maxes out around 2x150nt
+- Can both sequence complete transcripts!
+    
 ## Long Read Technology {.slide-only .unlisted}
+
+- Much more error prone
+    + Originally ~15% but now approaching Illumina error-rates
+    + Same molecule repeatedly sequenced
+- Repeat sequencing makes quantitation more challenging<br>$\implies$ Now becoming viable
 
 <!-- ## WGCNA -->
 
 <!-- ## WGCNA {.slide-only .unlisted} -->
+
+# High Resolution Technologies
 
 ## Single-Cell Transcriptomics
 
