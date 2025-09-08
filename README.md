@@ -103,7 +103,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 5](Assignments/Assignment5_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 18/10/25     |
 | [Assessment 6](Assignments/Assignment6.md)                   | Version Control             |              |          | Friday 07/11/25  |
 | Tests (x6)                                                   |                             |  10%  for all tests combined           | 10% for all tests combined           |                       |
-| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 20/09/25
+| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 19/09/25
 | [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 14/11/25  |
 
 
