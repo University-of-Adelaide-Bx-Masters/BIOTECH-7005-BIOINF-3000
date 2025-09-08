@@ -47,7 +47,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **5**    | 25/8       | Alignment Process (recording) | *NGS test* / [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
 | **6**    | 1/9        | Alignment Process (recording), [Transcriptomics][7] (Stevie) | [Alignment/NGS (1)] (Chelsea)  | [Alignment/NGS (2)] (Chelsea)             |
 | **7**    | 8/9        | [Ancient DNA][11] (Bastien) | *Alignment test* / [aDNA][12] (Bastien)  | [Transcriptomics - DE analysis] (1) (Stevie)  |
-| **8**    | 15/9       | Transcriptomics (Stevie)  | *Gene expression test* / [Transcriptomics - DE analysis] (2) (Stevie)    | [Transcriptomics - assembly] (1) (Stevie) |
+| **8**    | 15/9       | Transcriptomics (Stevie)  | [Transcriptomics - DE analysis] (2) (Stevie)    | *Gene expression test* / [Transcriptomics - assembly] (1) (Stevie) |
 | **-**    | 22/9       | *Mid-Semester Break*     |                                        |                                          |
 | **-**    | 29/9       | *Mid-Semester Break*     |                                        |                                          |
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture* | *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie) |
