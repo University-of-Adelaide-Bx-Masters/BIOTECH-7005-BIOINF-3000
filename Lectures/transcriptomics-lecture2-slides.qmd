@@ -36,10 +36,10 @@ format:
 - The same notes are available as a single-page html [here](./transcriptomics1-lecture2.html)
 
 
-## [Welcome To Country]{.text-red}
+## 
 
 ::: {.text-red}
-
+<br>
 *I'd like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live & work.*
 <br><br>
 *I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.*
@@ -58,7 +58,7 @@ According to @Wang2009-hf
 reveal the **presence** and **quantity** of RNA in a biological sample at a **given moment**, analyzing the continuously changing cellular transcriptome.
 
 
-## RNA Sequencing
+## RNA Sequencing {.slide-only .unlisted}
 
 :::: {.columns}
 
@@ -72,8 +72,8 @@ reveal the **presence** and **quantity** of RNA in a biological sample at a **gi
 - Strong improvement for:
     + transcript-level resolution
     + un-annotated genes 
-    + allelic bias
     + genomic variants
+    + allelic bias
     
 :::
     
@@ -135,7 +135,7 @@ here::here("Lectures/transcriptomics") %>%
 - Microarrays rely on probes for transcripts defined *at design time*
 - Restricted in the number of transcripts/genes targeted
     +  Gencode 48 (GRCh38): 78,686 genes + 385,669 transcripts
-- Probes capture non-specfic binding
+- Probes capture non-specific binding
     + Affymetrix use 25-mer probes
     + Illumina arrays use 60-mer probes $\implies$ sequences better targeted
     
@@ -153,8 +153,8 @@ here::here("Lectures/transcriptomics") %>%
 ::: {.fragment} 
 
 - Multiple variations 
-    + totalRNA or polyA transcripts [$\implies$ most similar to microarrays]{.fragment}
-    + smallRNA libraries
+    + total-RNA or polyA transcripts [$\implies$ most similar to microarrays]{.fragment}
+    + small-RNA libraries
     + Long Reads (Oxford Nanopore, PacBio) [<br>$\implies$ originally isoform discovery, quantitative methods improving]{.fragment}
     
 :::
@@ -184,18 +184,31 @@ here::here("Lectures/transcriptomics") %>%
 
 - Focus from here on will be sequencing mRNA using short reads
 
-::: {.incremental}
+:::: {.columns}
+::: {.column}
+
+::: {.fragment}
 1. Library Preparation
-    + RNA Quality assessment
+    + RNA Quality assessment <br>(i.e. RNA degradation)
     + Selecting target molecules
     + Adding sequencing primers
+:::
+
+::: {.fragment}
 2. Sequencing 
 3. Alignment + Quantitation
+:::
+:::
+::: {.column}
+
+::: {.fragment}
 4. DE Gene Detection
 5. Downstream Analysis
 6. (Optional) Nobel Prize
 
 :::
+:::
+::::
 
 <!-- ## Library Preparation -->
 
@@ -251,7 +264,17 @@ here::here("Lectures/transcriptomics") %>%
 
 ## Sequencing
 
+:::: {.columns}
+
+::: {.column width='60%'}
+
 ![Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/](transcriptomics/A8.jpg){fig-align="left"}
+:::
+::: {.column width='40%'}
+:::
+::::
+
+
 
 # Alignment and Quantitation
 
@@ -265,16 +288,21 @@ here::here("Lectures/transcriptomics") %>%
 - Aligned reads are then counted to provide gene-level counts
     + htseq [@htseq2014] and featureCounts [@Liao2014-gy] are very common
     + The same GTF should be used as during indexing
+    
+    
+## Genomic Alignment  {.slide-only .unlisted}
+
+![Image from https://ucdavis-bioinformatics-training.github.io/2019_March_UCSF_mRNAseq_Workshop/data_reduction/alignment.html](transcriptomics/index_igv17.png)
 
 ## Counting Alignments
 
 :::: {.columns}
 
-::: {.column}
-![Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html](transcriptomics/count_modes.png)
+::: {.column width='50%'}
+![Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html](transcriptomics/count_modes.png){width='85%' fig-align='left'}
 
 :::
-::: {.column}
+::: {.column width='50%'}
 - Some alignments align beautifully within exon structures
 - Some overhang a little
     + Unspliced mRNA?
@@ -365,7 +393,7 @@ here::here("Lectures/transcriptomics") %>%
 - We use the Negative Binomial distribution to model counts for gene $g$ in sample $i$
 
 $$
-y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where} \phi > 0
+y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where } \phi > 0
 $$
 :::
 ::: {.fragment}
@@ -413,7 +441,7 @@ $$
 
 ::: {.fragment}
 - The limma-voom method [@Law2014-xq] uses weights to break the mean-variance relationship
-    + Can then assume normally-distributed data <br>$\implies$ slightly more sophisticated and flexible models
+    + Can then assume normally-distributed data >$\implies$ slightly more flexible models
 - Alternatively, the `limma-trend` works effectively
 :::
 
@@ -469,7 +497,7 @@ $$
 
 - Often use approaches based on Fisher's Exact Test
     + Compare enrichment of DE genes in a pathway vs not DE Genes in pathway
-    + NotDE $\equiv$ Background
+    + Not-DE $\equiv$ Background
 - Pathways often share DE genes $\implies$ biological expertise
 - Multiple Testing across 1000s of pathways
 
@@ -592,7 +620,7 @@ StringTie is the quick & dirty method. Will also turn up some weird artefacts
     + Oxford Nanopore (ONT) reads from 50 bp to >4 Mb
     + Pacific Biosciences (PacBio) up to 25kb
     + Illumina maxes out around 2x150nt
-- Can both sequence complete transcripts!
+- Both can sequence complete transcripts!
     
 ## Long Read Technology {.slide-only .unlisted}
 
@@ -609,14 +637,53 @@ StringTie is the quick & dirty method. Will also turn up some weird artefacts
 
 ## Single-Cell Transcriptomics
 
-## Single-Cell Transcriptomics {.slide-only .unlisted}
+- Single-Cell RNA-Seq is becoming a dominant transcriptomics platform
+    + Conventional RNA-Seq is now sometimes called *bulk* RNA-Seq
+- Enables insights into highly heterogeneous samples (e.g. immune cells)
+- Originally polyA-selected 3' sequences $\rightarrow$ full-length
+- Incomplete transcript capture $\implies$ many missing genes in each cell
 
 ## Single-Cell Transcriptomics {.slide-only .unlisted}
+
+![Figure taken from @Haque2017-ae](transcriptomics/scRNAWorkflow.png)
+
+## Single-Cell Transcriptomics {.slide-only .unlisted}
+
+- Single-Cell expression patterns used to cluster similar cells
+    + Clustering can be highly subjective
+    + Key marker genes identified to identify cell-types
+- Often visualised using PCA, tSNE or UMAP to summarise expression values
+- Clusters annotated as key cell-types
+    + Can be *pseudo-bulked* for DE comparison between cell-types within sample
+    
+::: {.fragment}
+- Methods such as CITE-Seq also label cells using tagged antibodies
+    + Cell types identified from cell-surface markers
+    
+:::
 
 ## Spatial Transcriptomics 
 
-## Spatial Transcriptomics {.slide-only .unlisted}
+- Spatial Transcriptomics uses tissue slices on a microscope slide
+- Each spot on the slide contains oligo-dT probes with a unique spatial barcode
+    + Spatial barcode helps assign reads to a tissue region
+- Interaction between key cell-types can be identified
+
+::: {.fragment}
+- Some techniques use Fluorescence In Situ Hybridisation (FISH) to detect transcripts
+    + Cell boundaries detected in combination with classic stains
+    + Transcript location *within the cell*
+- Can also cluster cell-types like scRNA then map back to tissue
+- Multiple tissue layers possible $\rightarrow$ \$\$\$
+:::
+
+
 
 ## Spatial Transcriptomics {.slide-only .unlisted}
+
+![Figure from @Zhang2023-sa](transcriptomics/41586_2023_6808_Fig4_HTML.png)
+
 
 # References
+
+##

@@ -174,10 +174,10 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>The same notes are available as a single-page html <a href="./transcriptomics1-lecture2.html">here</a></li>
 </ul>
 </section>
-<section id="welcome-to-country" class="slide level2">
-<h2><span class="text-red">Welcome To Country</span></h2>
+<section id="section" class="slide level2">
+<h2></h2>
 <div class="text-red">
-<p><em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
+<p><br> <em>I’d like to acknowledge the Kaurna people as the traditional owners and custodians of the land we know today as the Adelaide Plains, where I live &amp; work.</em> <br><br> <em>I also acknowledge the deep feelings of attachment and relationship of the Kaurna people to their place.</em> <br><br> <em>I pay my respects to the cultural authority of Aboriginal and Torres Strait Islander peoples from other areas of Australia, and pay our respects to Elders past, present and emerging, and acknowledge any Aboriginal Australians who may be with us today</em></p>
 </div>
 </section>
 <section>
@@ -187,12 +187,12 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </section>
 <section id="rna-sequencing" class="slide level2">
 <h2>RNA Sequencing</h2>
-<p>According to <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span></p>
+<p>According to <span class="citation" data-cites="Wang2009-hf">Wang, Gerstein, and Snyder (<a href="#/section-1" role="doc-biblioref" onclick="">2009</a>)</span></p>
 <blockquote>
 <p>RNA-Seq, also called RNA sequencing, is a particular technology-based sequencing technique which uses next-generation sequencing (NGS) to reveal the <strong>presence</strong> and <strong>quantity</strong> of RNA in a biological sample at a <strong>given moment</strong>, analyzing the continuously changing cellular transcriptome.</p>
 </blockquote>
 </section>
-<section id="rna-sequencing-1" class="slide level2">
+<section id="rna-sequencing-1" class="slide level2 slide-only unlisted">
 <h2>RNA Sequencing</h2>
 <div class="columns">
 <div class="column">
@@ -209,8 +209,8 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>transcript-level resolution</li>
 <li>un-annotated genes</li>
-<li>allelic bias</li>
 <li>genomic variants</li>
+<li>allelic bias</li>
 </ul></li>
 </ul>
 </div>
@@ -234,7 +234,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Gencode 48 (GRCh38): 78,686 genes + 385,669 transcripts</li>
 </ul></li>
-<li>Probes capture non-specfic binding
+<li>Probes capture non-specific binding
 <ul>
 <li>Affymetrix use 25-mer probes</li>
 <li>Illumina arrays use 60-mer probes <span class="math inline">\(\implies\)</span> sequences better targeted</li>
@@ -256,8 +256,8 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Multiple variations
 <ul>
-<li>totalRNA or polyA transcripts <span class="fragment"><span class="math inline">\(\implies\)</span> most similar to microarrays</span></li>
-<li>smallRNA libraries</li>
+<li>total-RNA or polyA transcripts <span class="fragment"><span class="math inline">\(\implies\)</span> most similar to microarrays</span></li>
+<li>small-RNA libraries</li>
 <li>Long Reads (Oxford Nanopore, PacBio) <span class="fragment"><br><span class="math inline">\(\implies\)</span> originally isoform discovery, quantitative methods improving</span></li>
 </ul></li>
 </ul>
@@ -270,7 +270,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <div class="quarto-figure quarto-figure-left">
 <figure>
 <p><img data-src="transcriptomics/ijms-19-01310-g001.png" width="700"></p>
-<figcaption>Image taken from <span class="citation" data-cites="ijms19051310">Chan and Tay (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
+<figcaption>Image taken from <span class="citation" data-cites="ijms19051310">Chan and Tay (<a href="#/section-1" role="doc-biblioref" onclick="">2018</a>)</span></figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -287,19 +287,33 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <ul>
 <li>Focus from here on will be sequencing mRNA using short reads</li>
 </ul>
+<div class="columns">
+<div class="column">
+<div class="fragment">
 <ol type="1">
-<li class="fragment">Library Preparation
+<li>Library Preparation
 <ul>
-<li class="fragment">RNA Quality assessment</li>
-<li class="fragment">Selecting target molecules</li>
-<li class="fragment">Adding sequencing primers</li>
+<li>RNA Quality assessment <br>(i.e.&nbsp;RNA degradation)</li>
+<li>Selecting target molecules</li>
+<li>Adding sequencing primers</li>
 </ul></li>
-<li class="fragment">Sequencing</li>
-<li class="fragment">Alignment + Quantitation</li>
-<li class="fragment">DE Gene Detection</li>
-<li class="fragment">Downstream Analysis</li>
-<li class="fragment">(Optional) Nobel Prize</li>
 </ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Sequencing</li>
+<li>Alignment + Quantitation</li>
+</ol>
+</div>
+</div><div class="column">
+<div class="fragment">
+<ol start="4" type="1">
+<li>DE Gene Detection</li>
+<li>Downstream Analysis</li>
+<li>(Optional) Nobel Prize</li>
+</ol>
+</div>
+</div></div>
 <!-- ## Library Preparation -->
 <!-- - RNA is a single-stranded molecule $\implies$ easily degraded -->
 <!--     + Degraded RNA can skew expression levels during comparisons -->
@@ -366,8 +380,18 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <img data-src="transcriptomics/csm_NGS-Y-adapters_a9077b39d0.jpg" class="r-stretch quarto-figure-center"><p class="caption">Image courtesy of https://www.lubio.ch/blog/ngs-adapters</p></section>
 <section id="sequencing" class="slide level2">
 <h2>Sequencing</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="transcriptomics/A8.jpg"></p>
+<figcaption>Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
 
-<img data-src="transcriptomics/A8.jpg" class="r-stretch quarto-figure-left"><p class="caption">Image taken from https://www.bmkgene.com/dnarna-sequencing-illumina-sequencer-product/</p></section></section>
+</div></div>
+</section></section>
 <section>
 <section id="alignment-and-quantitation" class="title-slide slide level1 center">
 <h1>Alignment and Quantitation</h1>
@@ -381,28 +405,32 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>A GTF (Gene Transfer File) required when building the index<br><span class="math inline">\(\implies\)</span> Provides all exon-transcript-gene co-ordinates</li>
 <li>New Gencode, Ensembl etc releases at regular intervals</li>
 </ul></li>
-<li>Most common aligners are STAR <span class="citation" data-cites="Dobin2013-us">(<a href="#/references" role="doc-biblioref" onclick="">Dobin et al. 2013</a>)</span> &amp; hisat2 <span class="citation" data-cites="Kim2019-ib">(<a href="#/references" role="doc-biblioref" onclick="">Kim et al. 2019</a>)</span>
+<li>Most common aligners are STAR <span class="citation" data-cites="Dobin2013-us">(<a href="#/section-1" role="doc-biblioref" onclick="">Dobin et al. 2013</a>)</span> &amp; hisat2 <span class="citation" data-cites="Kim2019-ib">(<a href="#/section-1" role="doc-biblioref" onclick="">Kim et al. 2019</a>)</span>
 <ul>
 <li>Return alignments as a <code>bam</code> file</li>
 </ul></li>
 <li>Aligned reads are then counted to provide gene-level counts
 <ul>
-<li>htseq <span class="citation" data-cites="htseq2014">(<a href="#/references" role="doc-biblioref" onclick="">Anders, Pyl, and Huber 2014</a>)</span> and featureCounts <span class="citation" data-cites="Liao2014-gy">(<a href="#/references" role="doc-biblioref" onclick="">Liao, Smyth, and Shi 2014</a>)</span> are very common</li>
+<li>htseq <span class="citation" data-cites="htseq2014">(<a href="#/section-1" role="doc-biblioref" onclick="">Anders, Pyl, and Huber 2014</a>)</span> and featureCounts <span class="citation" data-cites="Liao2014-gy">(<a href="#/section-1" role="doc-biblioref" onclick="">Liao, Smyth, and Shi 2014</a>)</span> are very common</li>
 <li>The same GTF should be used as during indexing</li>
 </ul></li>
 </ul>
 </section>
+<section id="genomic-alignment-1" class="slide level2 slide-only unlisted">
+<h2>Genomic Alignment</h2>
+
+<img data-src="transcriptomics/index_igv17.png" class="r-stretch quarto-figure-center"><p class="caption">Image from https://ucdavis-bioinformatics-training.github.io/2019_March_UCSF_mRNAseq_Workshop/data_reduction/alignment.html</p></section>
 <section id="counting-alignments" class="slide level2">
 <h2>Counting Alignments</h2>
 <div class="columns">
-<div class="column">
-<div class="quarto-figure quarto-figure-center">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="transcriptomics/count_modes.png"></p>
+<p><img data-src="transcriptomics/count_modes.png" style="width:85.0%"></p>
 <figcaption>Image taken from https://htseq.readthedocs.io/en/latest/htseqcount.html</figcaption>
 </figure>
 </div>
-</div><div class="column">
+</div><div class="column" style="width:50%;">
 <ul>
 <li>Some alignments align beautifully within exon structures</li>
 <li>Some overhang a little
@@ -436,7 +464,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <section id="gene-level-counts-1" class="slide level2 slide-only unlisted">
 <h2>Gene-Level Counts</h2>
 
-<img data-src="transcriptomics/gkv608fig1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Image taken from <span class="citation" data-cites="Yu2015-f5">Yu et al. (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p></section>
+<img data-src="transcriptomics/gkv608fig1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Image taken from <span class="citation" data-cites="Yu2015-f5">Yu et al. (<a href="#/section-1" role="doc-biblioref" onclick="">2015</a>)</span></p></section>
 <section id="transcriptome-alignment" class="slide level2">
 <h2>Transcriptome Alignment</h2>
 <ul>
@@ -449,8 +477,8 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <div class="fragment">
 <ul>
-<li>Pseudo-alignment is used by kallisto <span class="citation" data-cites="Bray2016-qq">(<a href="#/references" role="doc-biblioref" onclick="">Bray et al. 2016</a>)</span></li>
-<li>Statistically modelled expression estimates used by salmon <span class="citation" data-cites="Patro2017-sn">(<a href="#/references" role="doc-biblioref" onclick="">Patro et al. 2017</a>)</span></li>
+<li>Pseudo-alignment is used by kallisto <span class="citation" data-cites="Bray2016-qq">(<a href="#/section-1" role="doc-biblioref" onclick="">Bray et al. 2016</a>)</span></li>
+<li>Statistically modelled expression estimates used by salmon <span class="citation" data-cites="Patro2017-sn">(<a href="#/section-1" role="doc-biblioref" onclick="">Patro et al. 2017</a>)</span></li>
 <li>Return <em>transcript-level counts</em> without bam files</li>
 <li>Add transcript-level counts <span class="math inline">\(\implies\)</span> gene-level counts</li>
 </ul>
@@ -467,7 +495,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 </ul>
 <ul>
 <li class="fragment">Counts bootstrapped to provide uncertainty estimates of prediction<br><span class="math inline">\(\implies\)</span> <em>Measures how confident we are in the transcript-level counts</em></li>
-<li class="fragment">Transcript-level counts can be scaled by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/references" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span> when performing DTE analysis</li>
+<li class="fragment">Transcript-level counts can be scaled by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/section-1" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span> when performing DTE analysis</li>
 </ul>
 </section></section>
 <section>
@@ -518,7 +546,7 @@ Dr Stevie Pederson (They/Them)<br>stevie.pederson@thekids.org.au
 <li>We use the Negative Binomial distribution to model counts for gene <span class="math inline">\(g\)</span> in sample <span class="math inline">\(i\)</span></li>
 </ul>
 <p><span class="math display">\[
-y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where} \phi &gt; 0
+y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right), \text{where } \phi &gt; 0
 \]</span></p>
 </div>
 <div class="fragment">
@@ -535,7 +563,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <h2>Count-Based Data</h2>
 <ul>
 <li>Fit <em>generalised linear models</em> (GLMs) to model counts and estimate logFC</li>
-<li>Implemented in edgeR <span class="citation" data-cites="Chen2016-ig">(<a href="#/references" role="doc-biblioref" onclick="">Chen, Lun, and Smyth 2016</a>)</span> and DESeq2 <span class="citation" data-cites="love2014-ds">(<a href="#/references" role="doc-biblioref" onclick="">Love, Huber, and Anders 2014</a>)</span>
+<li>Implemented in edgeR <span class="citation" data-cites="Chen2016-ig">(<a href="#/section-1" role="doc-biblioref" onclick="">Chen, Lun, and Smyth 2016</a>)</span> and DESeq2 <span class="citation" data-cites="love2014-ds">(<a href="#/section-1" role="doc-biblioref" onclick="">Love, Huber, and Anders 2014</a>)</span>
 <ul>
 <li>Slight differences in handling of over-dispersions</li>
 <li>Both default to FDR-adjusted <span class="math inline">\(p\)</span>-values</li>
@@ -543,7 +571,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 </ul>
 <div class="fragment">
 <ul>
-<li>Same model for transcripts, but dividing counts by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/references" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span></li>
+<li>Same model for transcripts, but dividing counts by uncertainty estimate <span class="citation" data-cites="Baldoni2024-zf">(<a href="#/section-1" role="doc-biblioref" onclick="">Baldoni et al. 2024</a>)</span></li>
 <li>Can also model transcripts as proportions of gene-level estimates</li>
 </ul>
 </div>
@@ -584,9 +612,9 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 </ul>
 <div class="fragment">
 <ul>
-<li>The limma-voom method <span class="citation" data-cites="Law2014-xq">(<a href="#/references" role="doc-biblioref" onclick="">Law et al. 2014</a>)</span> uses weights to break the mean-variance relationship
+<li>The limma-voom method <span class="citation" data-cites="Law2014-xq">(<a href="#/section-1" role="doc-biblioref" onclick="">Law et al. 2014</a>)</span> uses weights to break the mean-variance relationship
 <ul>
-<li>Can then assume normally-distributed data <br><span class="math inline">\(\implies\)</span> slightly more sophisticated and flexible models</li>
+<li>Can then assume normally-distributed data &gt;<span class="math inline">\(\implies\)</span> slightly more flexible models</li>
 </ul></li>
 <li>Alternatively, the <code>limma-trend</code> works effectively</li>
 </ul>
@@ -643,7 +671,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <li>Often use approaches based on Fisher’s Exact Test
 <ul>
 <li>Compare enrichment of DE genes in a pathway vs not DE Genes in pathway</li>
-<li>NotDE <span class="math inline">\(\equiv\)</span> Background</li>
+<li>Not-DE <span class="math inline">\(\equiv\)</span> Background</li>
 </ul></li>
 <li>Pathways often share DE genes <span class="math inline">\(\implies\)</span> biological expertise</li>
 <li>Multiple Testing across 1000s of pathways</li>
@@ -739,7 +767,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <div class="quarto-figure quarto-figure-left">
 <figure>
 <p><img data-src="transcriptomics/stringtie.png"></p>
-<figcaption>Image taken from <span class="citation" data-cites="Pertea2015-zd">(<a href="#/references" role="doc-biblioref" onclick="">Pertea et al. 2015</a>)</span></figcaption>
+<figcaption>Image taken from <span class="citation" data-cites="Pertea2015-zd">(<a href="#/section-1" role="doc-biblioref" onclick="">Pertea et al. 2015</a>)</span></figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -763,7 +791,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <section id="transcript-assembly-2" class="slide level2 slide-only unlisted">
 <h2>Transcript Assembly</h2>
 <ul>
-<li>Complete <em>de novo</em> transcriptome assembly using Trinity <span class="citation" data-cites="Grabherr2011-bh">(<a href="#/references" role="doc-biblioref" onclick="">Grabherr et al. 2011</a>)</span></li>
+<li>Complete <em>de novo</em> transcriptome assembly using Trinity <span class="citation" data-cites="Grabherr2011-bh">(<a href="#/section-1" role="doc-biblioref" onclick="">Grabherr et al. 2011</a>)</span></li>
 <li>Can alternatively perform a full <em>reference-guided assembly</em>
 <ul>
 <li>Also works with more distantly-related references <!-- + Built a sea-snake venom-gland transcriptome using another snake genome --></li>
@@ -802,7 +830,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <section id="transcript-assembly-4" class="slide level2 slide-only unlisted">
 <h2>Transcript Assembly</h2>
 
-<img data-src="transcriptomics/trinity.jpg" class="r-stretch quarto-figure-left"><p class="caption">Figure from <span class="citation" data-cites="Haas2013-ma">Haas et al. (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span></p></section>
+<img data-src="transcriptomics/trinity.jpg" class="r-stretch quarto-figure-left"><p class="caption">Figure from <span class="citation" data-cites="Haas2013-ma">Haas et al. (<a href="#/section-1" role="doc-biblioref" onclick="">2013</a>)</span></p></section>
 <section id="long-read-technology" class="slide level2">
 <h2>Long Read Technology</h2>
 <ul>
@@ -813,7 +841,7 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 <li>Pacific Biosciences (PacBio) up to 25kb</li>
 <li>Illumina maxes out around 2x150nt</li>
 </ul></li>
-<li>Can both sequence complete transcripts!</li>
+<li>Both can sequence complete transcripts!</li>
 </ul>
 </section>
 <section id="long-read-technology-1" class="slide level2 slide-only unlisted">
@@ -836,24 +864,76 @@ y_{gi} \sim \text{NB}\left(\mu_{gi}, \sigma^2_g(\mu_{gi} +\phi\mu^2_{gi})\right)
 </section>
 <section id="single-cell-transcriptomics" class="slide level2">
 <h2>Single-Cell Transcriptomics</h2>
+<ul>
+<li>Single-Cell RNA-Seq is becoming a dominant transcriptomics platform
+<ul>
+<li>Conventional RNA-Seq is now sometimes called <em>bulk</em> RNA-Seq</li>
+</ul></li>
+<li>Enables insights into highly heterogeneous samples (e.g.&nbsp;immune cells)</li>
+<li>Originally polyA-selected 3’ sequences <span class="math inline">\(\rightarrow\)</span> full-length</li>
+<li>Incomplete transcript capture <span class="math inline">\(\implies\)</span> many missing genes in each cell</li>
+</ul>
 </section>
 <section id="single-cell-transcriptomics-1" class="slide level2 slide-only unlisted">
 <h2>Single-Cell Transcriptomics</h2>
-</section>
+
+<img data-src="transcriptomics/scRNAWorkflow.png" class="r-stretch quarto-figure-center"><p class="caption">Figure taken from <span class="citation" data-cites="Haque2017-ae">Haque et al. (<a href="#/section-1" role="doc-biblioref" onclick="">2017</a>)</span></p></section>
 <section id="single-cell-transcriptomics-2" class="slide level2 slide-only unlisted">
 <h2>Single-Cell Transcriptomics</h2>
+<ul>
+<li>Single-Cell expression patterns used to cluster similar cells
+<ul>
+<li>Clustering can be highly subjective</li>
+<li>Key marker genes identified to identify cell-types</li>
+</ul></li>
+<li>Often visualised using PCA, tSNE or UMAP to summarise expression values</li>
+<li>Clusters annotated as key cell-types
+<ul>
+<li>Can be <em>pseudo-bulked</em> for DE comparison between cell-types within sample</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Methods such as CITE-Seq also label cells using tagged antibodies
+<ul>
+<li>Cell types identified from cell-surface markers</li>
+</ul></li>
+</ul>
+</div>
 </section>
 <section id="spatial-transcriptomics" class="slide level2">
 <h2>Spatial Transcriptomics</h2>
+<ul>
+<li>Spatial Transcriptomics uses tissue slices on a microscope slide</li>
+<li>Each spot on the slide contains oligo-dT probes with a unique spatial barcode
+<ul>
+<li>Spatial barcode helps assign reads to a tissue region</li>
+</ul></li>
+<li>Interaction between key cell-types can be identified</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Some techniques use Fluorescence In Situ Hybridisation (FISH) to detect transcripts
+<ul>
+<li>Cell boundaries detected in combination with classic stains</li>
+<li>Transcript location <em>within the cell</em></li>
+</ul></li>
+<li>Can also cluster cell-types like scRNA then map back to tissue</li>
+<li>Multiple tissue layers possible <span class="math inline">\(\rightarrow\)</span> $$$</li>
+</ul>
+</div>
 </section>
 <section id="spatial-transcriptomics-1" class="slide level2 slide-only unlisted">
 <h2>Spatial Transcriptomics</h2>
-</section>
-<section id="spatial-transcriptomics-2" class="slide level2 slide-only unlisted">
-<h2>Spatial Transcriptomics</h2>
-</section></section>
-<section id="references" class="title-slide slide level1 smaller scrollable">
+
+<img data-src="transcriptomics/41586_2023_6808_Fig4_HTML.png" class="r-stretch quarto-figure-center"><p class="caption">Figure from <span class="citation" data-cites="Zhang2023-sa">Zhang et al. (<a href="#/section-1" role="doc-biblioref" onclick="">2023</a>)</span></p></section></section>
+<section>
+<section id="references" class="title-slide slide level1 center">
 <h1>References</h1>
+
+</section>
+<section id="section-1" class="slide level2 smaller scrollable">
+<h2></h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-htseq2014" class="csl-entry" role="listitem">
@@ -880,6 +960,9 @@ Grabherr, Manfred G, Brian J Haas, Moran Yassour, Joshua Z Levin, Dawn A Thompso
 <div id="ref-Haas2013-ma" class="csl-entry" role="listitem">
 Haas, Brian J, Alexie Papanicolaou, Moran Yassour, Manfred Grabherr, Philip D Blood, Joshua Bowden, Matthew Brian Couger, et al. 2013. <span>“De Novo Transcript Sequence Reconstruction from <span>RNA</span>-Seq Using the Trinity Platform for Reference Generation and Analysis.”</span> <em>Nat. Protoc.</em> 8 (8): 1494–1512.
 </div>
+<div id="ref-Haque2017-ae" class="csl-entry" role="listitem">
+Haque, Ashraful, Jessica Engel, Sarah A Teichmann, and Tapio Lönnberg. 2017. <span>“A Practical Guide to Single-Cell <span>RNA</span>-Sequencing for Biomedical Research and Clinical Applications.”</span> <em>Genome Med.</em> 9 (1): 75.
+</div>
 <div id="ref-Kim2019-ib" class="csl-entry" role="listitem">
 Kim, Daehwan, Joseph M Paggi, Chanhee Park, Christopher Bennett, and Steven L Salzberg. 2019. <span>“Graph-Based Genome Alignment and Genotyping with <span>HISAT2</span> and <span>HISAT</span>-Genotype.”</span> <em>Nat. Biotechnol.</em> 37 (8): 907–15.
 </div>
@@ -904,9 +987,11 @@ Wang, Zhong, Mark Gerstein, and Michael Snyder. 2009. <span>“<span>RNA</span>-
 <div id="ref-Yu2015-f5" class="csl-entry" role="listitem">
 Yu, Nancy Yiu-Lin, Björn M. Hallström, Linn Fagerberg, Fredrik Ponten, Hideya Kawaji, Piero Carninci, Alistair R. R. Forrest, et al. 2015. <span>“Complementing Tissue Characterization by Integrating Transcriptome Profiling from the Human Protein Atlas and from the FANTOM5 Consortium.”</span> <em>Nucleic Acids Research</em> 43 (14): 6787–98. <a href="https://doi.org/10.1093/nar/gkv608">https://doi.org/10.1093/nar/gkv608</a>.
 </div>
+<div id="ref-Zhang2023-sa" class="csl-entry" role="listitem">
+Zhang, Meng, Xingjie Pan, Won Jung, Aaron R Halpern, Stephen W Eichhorn, Zhiyun Lei, Limor Cohen, et al. 2023. <span>“Molecularly Defined and Spatially Resolved Cell Atlas of the Whole Mouse Brain.”</span> <em>Nature</em> 624 (7991): 343–54.
 </div>
-</section>
-
+</div>
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
