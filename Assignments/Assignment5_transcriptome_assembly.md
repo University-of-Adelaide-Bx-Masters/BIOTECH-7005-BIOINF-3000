@@ -1,6 +1,6 @@
-# Assignment 5 - Transcriptome analysis [*35 marks*] Due Friday 01 November 2024
+# Assignment 5 - Transcriptome analysis [*35 marks*] Due Friday 18th October 2025
 
-**Due Friday 01 November**
+**Due Friday 18th October**
 
 Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, a screenshot file showing alternative splicing events in **Step6**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
 
