@@ -302,7 +302,7 @@ We have installed all required packages in your VM.
 Log into your VM and open the Rstudio.
 
 #### Create an R Project for This Practical
-
+<!-- FIXME: Incorrect path — should be `~/prac_transcriptomics_DE/04_results/04_DE` instead of `~/prac_transcriptomics_DE/03_results/04_DE`. -->
 We will do the DE analysis in the folder `~/prac_transcriptomics_DE/03_results/04_DE`.
 
 Let's make an R Project for this folder
@@ -310,7 +310,7 @@ Let's make an R Project for this folder
 1. `File` > `New Project`
 2. Select `Existing Directory`
 3. Click the `Browse` button
-4. Navigate to the `~/prac_transcriptomics_DE/03_results/04_DE` folder and select `Choose`
+4. Navigate to the `~/prac_transcriptomics_DE/03_results/04_DE` folder and select `Choose` <!-- FIXME: Incorrect path — should be `~/prac_transcriptomics_DE/04_results/04_DE` instead of `~/prac_transcriptomics_DE/03_results/04_DE`. -->
 5. Click `Create Project`
 
 
@@ -391,6 +391,10 @@ count_genes$gene_name <- rownames(raw_count_mt)
 rownames(count_genes) <- count_genes$gene_name
 
 # save raw count table
+
+<!-- FIXME: `raw_count_df` is not a data frame — wrap with `%>% as.data.frame()` to fix:  
+`raw_count_df <- cbind(gene_name = rownames(raw_count_mt), raw_count_mt) %>% as.data.frame()` -->
+
 raw_count_df <- cbind(gene_name = rownames(raw_count_mt), raw_count_mt)
 write_csv(
   raw_count_df, 
@@ -609,7 +613,6 @@ plotMD(dgeList, status = rownames(dgeList) %in% sigGenes, column = 1)
 ```
 
 An alternative is to plot the logFC in relation to the $p$-value, to make what is known as a volcano plot.
-
 ```r
 topTable %>%
   mutate(DE = Geneid %in% sigGenes) %>%
