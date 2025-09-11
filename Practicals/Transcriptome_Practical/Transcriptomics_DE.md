@@ -393,7 +393,7 @@ rownames(count_genes) <- count_genes$gene_name
 # save raw count table
 raw_count_df <- cbind(gene_name = rownames(raw_count_mt), raw_count_mt)
 write_csv(
-  raw_count_df, 
+  as.data.frame(raw_count_df), 
   file = "~/prac_transcriptomics_DE/04_results/04_DE/Table1_reference_gene_raw_count.csv"
 )
 
@@ -583,7 +583,7 @@ Inspect a few more of the highly ranked genes, so make sure you can understand t
 Let's get a list of significant genes, by using an FDR of 0.01.
 
 ```r
-sigGenes <- filter(topTable, FDR < 0.01)$Geneid
+sigGenes <- filter(topTable, FDR < 0.01)$gene_name
 ```
 
 And we can check the number of significant genes
