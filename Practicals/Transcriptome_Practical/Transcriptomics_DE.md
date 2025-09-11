@@ -303,6 +303,7 @@ Log into your VM and open the Rstudio.
 
 #### Create an R Project for This Practical
 
+<!-- FIXME: The correct path is  ~/prac_transcriptomics_DE/04_results/04_DE instead of 03_results-->
 We will do the DE analysis in the folder `~/prac_transcriptomics_DE/03_results/04_DE`.
 
 Let's make an R Project for this folder
@@ -310,7 +311,7 @@ Let's make an R Project for this folder
 1. `File` > `New Project`
 2. Select `Existing Directory`
 3. Click the `Browse` button
-4. Navigate to the `~/prac_transcriptomics_DE/03_results/04_DE` folder and select `Choose`
+4. Navigate to the `~/prac_transcriptomics_DE/03_results/04_DE` folder and select `Choose` <!-- FIXME: The correct path is  ~/prac_transcriptomics_DE/04_results/04_DE instead of 03_results-->
 5. Click `Create Project`
 
 
