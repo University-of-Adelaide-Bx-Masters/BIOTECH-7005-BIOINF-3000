@@ -2,7 +2,7 @@
 
 # Assignment 4 [*30 marks*]
 
-**Due before 5pm, Friday 13th September**
+**Friday 19th September**
 
 ## Assignment overview [*5 marks for general format*]
 

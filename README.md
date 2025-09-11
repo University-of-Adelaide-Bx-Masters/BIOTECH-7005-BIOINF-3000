@@ -47,7 +47,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **5**    | 25/8       | Alignment Process (recording) | *NGS test* / [Evolutionary Processes] (1) (Alex) | [Evolutionary processes] (2) (Alex)    |
 | **6**    | 1/9        | Alignment Process (recording), [Transcriptomics][7] (Stevie) | [Alignment/NGS (1)] (Chelsea)  | [Alignment/NGS (2)] (Chelsea)             |
 | **7**    | 8/9        | [Ancient DNA][11] (Bastien) | *Alignment test* / [aDNA][12] (Bastien)  | [Transcriptomics - DE analysis] (1) (Stevie)  |
-| **8**    | 15/9       | Transcriptomics (Stevie)  | *Gene expression test* / [Transcriptomics - DE analysis] (2) (Stevie)    | [Transcriptomics - assembly] (1) (Stevie) |
+| **8**    | 15/9       | [Transcriptomics][8] (Stevie)  | [Transcriptomics - DE analysis] (2) (Stevie)    | *Gene expression test* / [Transcriptomics - assembly] (1) (Stevie) |
 | **-**    | 22/9       | *Mid-Semester Break*     |                                        |                                          |
 | **-**    | 29/9       | *Mid-Semester Break*     |                                        |                                          |
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture* | *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie) |
@@ -63,10 +63,10 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [5]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
 [6]: http://biotech7005.services.adelaide.edu.au/05-alignment.slide
 [7]: Lectures/transcriptomics1-lecture1.html
-[8]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/
+[8]: Lectures/transcriptomics1-lecture2.html
 [9]: Practicals/VCF_Analysis/Week_8_Practical-VCF_Analysis.md
 [10]: Practicals/Transcriptome_Practical/Transcriptome_assembly.md
-[11]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Lectures/12_ancient_DNA-compressed.pdf
+[11]: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/Lectures/ancient_DNA_lecture.pdf
 [12]: https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/ancient_DNA_practical/aDNA_prac.html
 
 
@@ -99,11 +99,11 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | [Assessment 1](Assignments/Assignment1.md)                   | R programming               |  90% for all assignments combined           | 60% for all assignments combined         | Friday 15/08/25     |
 | [Assessment 2](Assignments/Assignment2.md)                   | Bash Scripting & Statistics |              |         | Friday 29/08/25     |
 | [Assessment 3](Practicals/evolutionary_prac/evolutionary.md) | Evolutionary processes      |              |          | Friday 05/09/25  |
-| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 20/09/25  |
+| [Assessment 4](Assignments/Assignment4.md)                   | Alignment/NGS               |              |          | Friday 19/09/25  |
 | [Assessment 5](Assignments/Assignment5_transcriptome_assembly.md)      | Transcriptomics   |              |          | Friday 18/10/25     |
 | [Assessment 6](Assignments/Assignment6.md)                   | Version Control             |              |          | Friday 07/11/25  |
 | Tests (x6)                                                   |                             |  10%  for all tests combined           | 10% for all tests combined           |                       |
-| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 20/09/25
+| Major Project topic acceptance/confirmation | Differential gene expression  | N/A | 10% of total mark | Friday 19/09/25
 | [Major Project](Assignments/major_project.md)                     | Differential gene expression   |  N/A            | 20% of total mark            |  Friday 14/11/25  |
 
 
