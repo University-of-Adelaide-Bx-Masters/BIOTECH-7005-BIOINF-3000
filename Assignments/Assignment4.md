@@ -28,8 +28,8 @@ All other folders must be created as subdirectories of this. It will be simplest
     + Identify how many unique genes are located in the genome, and send this information to `stdout`? [*2 marks*]
     + Create a genome index for use with `bwa`[*1 marks*] 
 2. Script 2 must do the following: download the sequencing data contained at the following links (using `curl` or `wget`) to the directory `01_rawData/fastq` (note that the filename in the Box link is not informative; **make sure you rename your files as below**()): [*2 marks*]
-    - [SRR5882797_10M_1.fastq.gz](https://universityofadelaide.box.com/shared/static/egl3n16r0ziaxlvbs9074xqd1liktnuz.gz) https://universityofadelaide.box.com/shared/static/egl3n16r0ziaxlvbs9074xqd1liktnuz.gz 
-    - [SRR5882797_10M_2.fastq.gz](https://universityofadelaide.box.com/shared/static/g2ly4kzz1blus5juy426i37zl45o38pu.gz) https://universityofadelaide.box.com/shared/static/g2ly4kzz1blus5juy426i37zl45o38pu.gz 
+    - [SRR5882797_10M_1.fastq.gz](https://adelaideuniversity.box.com/shared/static/egl3n16r0ziaxlvbs9074xqd1liktnuz.gz) https://adelaideuniversity.box.com/shared/static/egl3n16r0ziaxlvbs9074xqd1liktnuz.gz 
+    - [SRR5882797_10M_2.fastq.gz](https://adelaideuniversity.box.com/shared/static/g2ly4kzz1blus5juy426i37zl45o38pu.gz) https://adelaideuniversity.box.com/shared/static/g2ly4kzz1blus5juy426i37zl45o38pu.gz 
     + Trim your data for poor quality bases and remove adapters using cutadapt. Write your output to the directory `02_trimmedData/fastq` [*3 marks*]
     + Align paired-end reads to the genome index using `bwa mem`, resulting in a single `.bam` file in the directory `03_alignedData/bam`. Ensure there are no intermediary `.sam` files saved. [*3 marks*]
     + Sort and index your bam file [*2 marks*] 
