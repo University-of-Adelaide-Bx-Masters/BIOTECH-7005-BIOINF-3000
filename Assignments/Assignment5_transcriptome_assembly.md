@@ -1,5 +1,7 @@
 # Assignment 5 - Transcriptome analysis [*35 marks*] Due Friday 18th October 2025
 
+## Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
+
 **Due Friday 18th October**
 
 Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, a screenshot file showing alternative splicing events in **Step6**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
