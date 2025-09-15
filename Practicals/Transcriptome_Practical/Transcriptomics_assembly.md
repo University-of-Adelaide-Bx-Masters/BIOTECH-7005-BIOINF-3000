@@ -8,18 +8,35 @@
 
 ## Introduction
 
-In this practical, we will use a RNA-Seq dataset from a model plant *Arabidopsis thaliana* (Wang et al, 2017, <https://onlinelibrary.wiley.com/doi/10.1111/tpj.13481>). This dataset was initially used for identification of long non-coding RNAs by transcriptome assembly of RNA-Seq.
+In this practical, we will use a RNA-Seq dataset from a model plant *Arabidopsis thaliana* (Wang et al, 2017, <https://onlinelibrary.wiley.com/doi/10.1111/tpj.13481>). 
+This dataset was initially used for identification of long non-coding RNAs by transcriptome assembly of RNA-Seq.
+
+Our aim will be to assemble transcripts using genomic alignments followed by StringTie.
+Following that, we will perform a *de novo* assembly using Trinity, which is a far more computationally demanding approach. 
+(Please note the expected run time below)
+If we get time, we can compare the assemblies using some QC metrics.
+
+We will not be using `R` for any of today's material, so feel free to use the Terminal inside RStudio, which will also make script editing easier.
+Alternatively, you can just use `bash` and `nano` if you wish to.
+If choosing this latter approach, please ask a tutor to show you how to run `screen` so you can have multiple bash sessions running within the same terminal window.
+(NB: If choosing this approach, **please record the password somewhere** as it will disappear)
 
 ## Dataset
 
-Due to the the limitation of computing resources in our VM, we will use a subset of raw reads (reads from chromomose 2 of Arabidopsis) from one of three biological replicates sampled from leaf tissue. Here are some informations for Arabidopsis and this RNA-Seq datatset:
+Due to the the limitation of computing resources in our VM, we will use a subset of raw reads (reads from chromomose 2 of Arabidopsis) 
+from one of three biological replicates sampled from leaf tissue. 
+Here is the key information about the Arabidopsis genome and this RNA-Seq datatset:
+
+### The Arabidposis Genome
 
 - Reference genome build: TAIR10 (<https://www.arabidopsis.org/index.jsp>)
 - Number of chromosomes: 5 chromosomes + Chloroplast + Mitochondria
 - Genome size: ~135 Mb
 
+### The RNA-Seq dataset
+
 - Number of raw reads (pairs): 550,405
-- Sequencing type: PE125
+- Sequencing type: PE125 (2x125nt)
 
 ## Tools and pipeline
 
@@ -59,6 +76,7 @@ The following table shows the estimated run time in VM for the major steps:
 
 ## What you will learn in this Practical
 
+- Learn how to build and create scripts for an analysis
 - Practice bash commands you have learned
 - Practice QC for NGS data you have learned
 - Learn how to do genome-guided transcriptome assembly
@@ -66,7 +84,10 @@ The following table shows the estimated run time in VM for the major steps:
 
 # Practicals for transcriptome assembly
 
-There are three parts to the transcriptome assembly in this Prac. Please follow the instructions __in order__, because some commands will rely on the results from previous commands. Feel free to talk to tutors/instructors if you have a problem/question.
+There are three parts to the transcriptome assembly in this Prac. 
+Please follow the instructions __in order__, because later commands will rely on the results from previous commands. 
+Feel free to talk to tutors/instructors if you have a problem/question.
+We're here to help & love to talk about these types of analysis.
 
 ## Part 1, Setup and data preparation
 
@@ -74,87 +95,207 @@ In this part, we will create some folders to keep files (including input RNA-Seq
 
 ### 1.1 Prepare folder structure for the project
 
-For each project, I normally store files at different processing stages in different folders. I put initial input data into a `data` folder, and output files from different processing stages into separate folders in a `results` folder. If there are databases involved, I also create a `DB` folder. I store all scripts in a separate `scripts` folder (we won't use this folder in this Prac).
+For each project, I normally store files at different processing stages in different folders. 
+I put initial input data into a `data` folder, and output files from different processing stages into separate folders in a `results` folder. 
+If there are databases involved, I also create a `DB` folder. 
+I store all scripts in a separate `scripts` folder.
 
-```bash
-mkdir prac_transcriptomics_assembly
-cd prac_transcriptomics_assembly
-mkdir 01_bin 02_DB 03_raw_data 04_results
-cd 04_results
-mkdir 01_QC 02_clean_data 03_genome_guided_assembly 04_denovo_assembly 05_final_assembly
+Let's use a slightly different directory structure to last time.
+
+``` bash
+## First we'll make the directory for the entire practical session
+## Notice that we're using the absolute path here, given that '~' stands for 
+## your 'home' directory (/home/rstudio for all of us)
+mkdir ~/prac_transcriptomics_assembly
 ```
+
+Now that we've made a directory for today, let's configure the rest of the structure.
+Instead of numbering directories, we can use a series of sensible names
+
+``` bash
+## Change into to practical directory we have just created
+cd ~/prac_transcriptomics_assembly
+## Now it's easier to make a series of lower-level directories
+mkdir data
+mkdir logs
+mkdir output
+mkdir reference
+mkdir scripts
+```
+
+Now let's make some subdirectories for key steps during our analysis
+
+
+``` bash
+## We can place our FastQ files in subdirectories in data
+mkdir data/raw
+mkdir data/trimmed
+mkdir data/aligned
+```
+
+The FastQC reports can go in our output directory
+
+``` bash
+## Using the -p flag allows the parent directories to be created
+mkdir -p output/fastqc/raw
+mkdir -p output/fastqc/trimmed
+```
+
+Next we'll make some directories for the assemblies
+
+``` bash
+mkdir output/stringtie
+mkdir output/trinity
+```
+
+Finally, we'll create a directory to place any logfiles
+
+``` bash
+mkdir output/logs
+```
+
 
 The final folder structure for this project will look like this:
 
 ```
 prac_transcriptomics_assembly/
-├── 01_bin
-├── 02_DB
-├── 03_raw_data
-└── 04_results
-    ├── 01_QC
-    ├── 02_clean_data
-    ├── 03_genome_guided_assembly
-    ├── 04_denovo_assembly
-    └── 05_final_assembly
+├── data
+│   ├── aligned
+│   ├── raw
+│   └── trimmed
+├── logs
+├── output
+│   ├── fastqc
+│   │   ├── raw
+│   │   └── trimmed
+│   ├── stringtie
+│   ├── trinity
+├── reference
+└── scripts
 ```
+
+We can see this structure by typing the command `tree` from our current directory
 
 ### 1.2 Raw data and DB
 
 The initial RNA-Seq raw data is stored in the shared data directory `~/data/prac_assembly_week12`.
 
-Copy the raw data to your `data` folder
+Copy the raw data to your `data/raw` folder
 
 ```bash
-cp ~/data/prac_assembly_week12/*.fastq.gz ~/prac_transcriptomics_assembly/03_raw_data/
-
+cp ~/data/prac_assembly_week12/*.fastq.gz ./data/raw/
 ```
 
-The databases, including Arabidopsis reference genome (TAIR10_chrALL.fa), annotated genes (TAIR10_GFF3_genes.gtf), and BUSCO lineages file (viridiplantae_odb10.2020-09-10.tar.gz) need to be copied to `~/data/prac_assembly_week12` and the tarball decompressed and untarred..
+The databases, including Arabidopsis reference genome (TAIR10_chrALL.fa), 
+annotated genes (TAIR10_GFF3_genes.gtf), 
+and BUSCO lineages file (viridiplantae_odb10.2020-09-10.tar.gz) need to be copied 
+from `~/data/prac_assembly_week12` and the tarball decompressed and extracted (i.e. untarred)
 
 ```bash
-cp ~/data/prac_assembly_week12/TAIR10_* ~/prac_transcriptomics_assembly/02_DB/
-cp ~/data/prac_assembly_week12/viridiplantae_odb10.2020-09-10.tar.gz ~/prac_transcriptomics_assembly/02_DB/
-cd ~/prac_transcriptomics_assembly/02_DB
-tar -zxvf viridiplantae_odb10.2020-09-10.tar.gz
+## Copy the reference genome. Both files will begin with TAIR10_ so can just use
+## the wildcard (*) to copy them across in one easy command
+cp ~/data/prac_assembly_week12/TAIR10_* ./reference/
+
+## Now copy our databset of conserved orthologs
+cp ~/data/prac_assembly_week12/viridiplantae_odb10.2020-09-10.tar.gz ./reference/
+
+## This is the type of file known as a 'tarball', which contains a complete
+## directory structure in a compressed form. We use the command 'tar' to create 
+## or extract these structures. The flags '-xzvf' let tar know that the tarball
+## is to be extracted (x), is compressed (z), that we want to see the files being
+## extracted (i.e. verbose: v), and that the file is a tarball (f)
+tar -zxvf ~/prac_transcriptomics_assembly/reference/viridiplantae_odb10.2020-09-10.tar.gz --directory ./reference
 ```
 
 Now, all the setup work is done. Let's move to part 2.
+From here, we'll start to record all of our commands as `bash` scripts too.
 
 ## Part 2, QC
 
-In This part, we will use the skills that we learned from the `NGS_practicals` to do QC and trim adaptors and low-quality sequences from our RNA-Seq raw data.
+In This part, we will use the skills that we learned from the `NGS_practicals` to do QC and trim adapters and low-quality sequences from our RNA-Seq raw data.
+This is also quite similar to the previous Differential Expression practical
 
 ### 2.1 QC for raw reads
 
-The first step is to do QC for the raw reads using fastQC
+The first step is to do QC for the raw reads using fastQC.
+Whilst we could do this in the terminal like we did previously, let's start building a script
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/01_QC
-fastqc -t 2 -o ./ ~/prac_transcriptomics_assembly/03_raw_data/*.fastq.gz
+``` bash
+touch scripts/pre_processing.sh
 ```
 
-Then we can check the QC report of the raw reads.
+Now open this file in either `nano` or the RStudio editor and add the shebang in the first line.
+
+``` bash
+#! /bin/bash
+```
+
+Now add a blank line or two, then enter the following in the script to define our directories.
+This defines our key directories to use in subsequent commands
+
+``` bash
+ROOTDIR=~/prac_transcriptomics_assembly
+DATADIR="${ROOTDIR}/data"
+FQCDIR="${ROOTDIR}/output/fastqc"
+LOGDIR="${ROOTDIR}/output/logs"
+PREFIX="Col_leaf_chr2"
+```
+
+Now add a couple more blank lines, then the commands to run FastQC.
+We won't run this just yet, but will run the entire script in a minute
+
+``` bash
+## Run FastQC on the raw data
+echo "Running FastQC on raw data"
+fastqc -t 2 -o ${FQCDIR}/raw ${DATADIR}/raw/*.fastq.gz
+```
 
 ### 2.2 Adaptor and low-quality sequence trimming
 
-After we finish the QC for raw reads, we need to trim adaptor and low-quality sequences from the raw reads. The adapters for this RNA-Seq dataset are Illumina TrueSeq adapters as `AGATCGGAAGAGCACACGTCTGAACTCCAGTCA` and `AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT`.
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/02_clean_data
-cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o Col_leaf_chr2_R1.clean.fastq.gz -p Col_leaf_chr2_R2.clean.fastq.gz --minimum-length 25 --quality-cutoff 20 ~/prac_transcriptomics_assembly/03_raw_data/Col_leaf_chr2_R1.fastq.gz ~/prac_transcriptomics_assembly/03_raw_data/Col_leaf_chr2_R2.fastq.gz
+The next step in the script will be to run `cutadapt`, just like in the DE Genes practical
+The adapters for this RNA-Seq dataset are Illumina TrueSeq adapters as `AGATCGGAAGAGCACACGTCTGAACTCCAGTCA` and `AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT`.
+
+
+``` bash
+echo "Running cutadapt"
+cutadapt \
+  -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT \
+  -o ${DATADIR}/trimmed/${PREFIX}_R1.fastq.gz \
+  -p ${DATADIR}/trimmed/${PREFIX}_R2.fastq.gz \
+  --minimum-length 25 \
+  --quality-cutoff 20 \
+  ${DATADIR}/raw/${PREFIX}_R1.fastq.gz ${DATADIR}/raw/${PREFIX}_R2.fastq.gz > ${LOGDIR}/${PREFIX}_cutadapt.log
 ```
 
-Then we can do QC to check the clean reads.
+Now we've trimmed the reads, we should run FastQC again
 
-### 2.3 QC for clean reads
-
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/02_clean_data
-fastqc -t 2 -o ./ *.clean.fastq.gz
+``` bash
+echo "Running FastQC on trimmed data"
+fastqc -t 2 -o ${FQCDIR}/trimmed/ ${DATADIR}/trimmed/*.fastq.gz
 ```
 
-We can check the QC reports for the clean reads and compare them with the raw reads.
+### 2.3 Run the Pre-Processinf Script
+
+Now save this script and try running it
+
+``` bash
+bash scripts/scripts/pre_processing.sh
+```
+
+This should run in only a few minutes.
+Once complete, check the raw FastQC reports, then the trimmed FastQC reports.
+Given we only have ~500,000 reads in this dataset some of the plots
+
+### Key Questions
+
+1. How many reads were discarded when trimming R1 and R2
+2. What did the command ` > ${LOGDIR}/${PREFIX}_cutadapt.log` do?
+3. Inspect the output file from the previous command
+
+These kind of log files capture the output tools like `cutadapt` write to the screen and can be valuable for downstream QC, 
+especially if processing multiple files of variable quality.
+
 
 ## Part 3, Genome guided transcriptome assembly (Only applicable if there is a reference genome)
 
@@ -165,60 +306,167 @@ In this section, we will do genome guided transcriptome assembly using STAR and 
 The first step for genome guided transcriptome assembly is to map RNA-Seq reads to a reference genome. We will use STAR to do this job in this practical (You can also choose other short RNA aligners to do the mapping).
 
 For genome mapping using STAR, we first need to build the genome index.
+This index is exactly like the index at the back of a book, but instead of keywords and page numbers, it has sequences and genome co-ordinates.
 
-```bash
-cd ~/prac_transcriptomics_assembly/02_DB
-STAR --runThreadN 2 --runMode genomeGenerate --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --genomeFastaFiles TAIR10_chrALL.fa --sjdbGTFfile TAIR10_GFF3_genes.gtf --sjdbOverhang 124 --genomeSAindexNbases 12
+Again, we'll write this as a script for future reference
+
+``` bash
+touch scripts/build_star_index.sh
 ```
 
-And then, we map the clean reads to the reference genome. The command line for this is a little complicated, it is broken down below so that you can see what it is doing.
+Then open the file in `nano` or the RStudio editor and add the *shebang* on the first line (`#! /bin/bash`)
+
+Then add a couple of blank lines, followed by the commands to build the STAR index.
+We'll also define the paths in this script so it can be run from anywhere on the VM
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-STAR --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --readFilesIn ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \
-~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz --readFilesCommand zcat \
---runThreadN 2 --outSAMstrandField intronMotif --outSAMattributes All \
---outFilterMismatchNoverLmax 0.03 --alignIntronMax 10000 --outSAMtype BAM SortedByCoordinate \
---outFileNamePrefix Col_leaf_chr2. --quantMode GeneCounts
+ROOTDIR=~/prac_transcriptomics_assembly
+REFDIR=${ROOTDIR}/reference
+STAR \
+  --runThreadN 2 \
+  --runMode genomeGenerate \
+  --genomeDir ${REFDIR}/TAIR10_STAR125 \
+  --genomeFastaFiles ${REFDIR}/TAIR10_chrALL.fa \
+  --sjdbGTFfile ${REFDIR}/TAIR10_GFF3_genes.gtf \
+  --sjdbOverhang 124 \
+  --genomeSAindexNbases 12
 ```
 
-You can copy and paste this version.
+Now save the script and run it
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-STAR --genomeDir ~/prac_transcriptomics_assembly/02_DB/TAIR10_STAR125 --readFilesIn ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz --readFilesCommand zcat --runThreadN 2 --outSAMstrandField intronMotif --outSAMattributes All --outFilterMismatchNoverLmax 0.03 --alignIntronMax 10000 --outSAMtype BAM SortedByCoordinate --outFileNamePrefix Col_leaf_chr2. --quantMode GeneCounts
+``` bash
+bash scripts/build_star_index.sh
 ```
 
-STAR will output multiple files with prefix `Col_leaf_chr2`. To get an idea about the mapping info, you can check `Col_leaf_chr2.final.Log.out`. The mapped reads are stored in a `bam` file called `Col_leaf_chr2.Aligned.sortedByCoord.out.bam`. To view this file in IGV, we need to create an index file.
+The next step will be to align our reads to the reference genome.
+Once again, we'll write a script for this
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-samtools index Col_leaf_chr2.Aligned.sortedByCoord.out.bam
+``` bash
+touch scripts/star_alignments.sh
 ```
 
-In next step, we will use this mapped bam file to do genome guided transcriptome assembly.
+Then open the file in `nano` or the RStudio editor and add the *shebang* on the first line (`#! /bin/bash`)
+
+Now add a couple of blank lines, followed by our key directories
+
+``` bash
+ROOTDIR=~/prac_transcriptomics_assembly
+REFDIR=${ROOTDIR}/reference
+FQDIR=${ROOTDIR}/data/trimmed
+BAMDIR=${ROOTDIR}/data/aligned
+PREFIX="Col_leaf_chr2"
+```
+
+Add another blank line or two, followed by the commands to align our reads
+
+``` bash
+echo "Aligning to the reference"
+STAR \
+  --genomeDir ${REFDIR}/TAIR10_STAR125 \
+  --readFilesIn ${FQDIR}/${PREFIX}_R1.fastq.gz ${FQDIR}/${PREFIX}_R2.fastq.gz \
+  --readFilesCommand zcat \
+  --runThreadN 2 \
+  --outSAMstrandField intronMotif \
+  --outSAMattributes All \
+  --outFilterMismatchNoverLmax 0.03 \
+  --alignIntronMax 10000 \
+  --outSAMtype BAM SortedByCoordinate \
+  --outFileNamePrefix ${BAMDIR}/${PREFIX}. 
+```
+
+After aligning, we (almost) always need to index the bam file
+
+``` bash
+echo "Indexing the bam file"
+samtools index -@2 ${BAMDIR}/${PREFIX}.Aligned.sortedByCoord.out.bam
+```
+
+Save this script then run using.
+
+
+``` bash
+bash scripts/star_alignments.sh
+```
+
+#### Key Questions
+
+The command we used to align the reads had quite a few parameters (or arguments).
+See if you can understand what the following arguments told `STAR` to do
+
+1. `--runThreadN 2`
+2. `--readFilesCommand zcat`
+3. `--outSAMtype BAM SortedByCoordinate`
+
 
 ### 3.2 Assembly using StringTie
 
-The command for genome guided transcriptome assembly is as follows:
+Now we have our alignments, sorted by genomic co-ordinate, we can use StringTie to assemble the alignments into transcripts.
+First, we'll call `stringtie` which will provide a gtf with all gene, transcript and exon co-ordinates.
+However, this is only part of the story and the next step will be to extract the transcript sequences themselves.
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-stringtie Col_leaf_chr2.Aligned.sortedByCoord.out.bam -o StringTie.gtf -p 2
+Once again, let's write a script for this
+
+``` bash
+touch scripts/stringtie_assembly.sh
 ```
 
-StringTie only outputs coordinates for assembled transcripts in into the assembled transcripts file. We can get the sequences of the assembled transcripts using a command called `gffread`.
+Then open the file in `nano` or the RStudio editor and add the *shebang* on the first line (`#! /bin/bash`).
+Follow this with a blank line or two, then we can define our directories and variables.
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-gffread -w StringTie.fasta -g ~/prac_transcriptomics_assembly/02_DB/TAIR10_chrALL.fa StringTie.gtf
+``` bash
+ROOTDIR=~/prac_transcriptomics_assembly
+REFDIR=${ROOTDIR}/reference
+BAMDIR=${ROOTDIR}/data/aligned
+OUTDIR=${ROOTDIR}/output/stringtie
+PREFIX="Col_leaf_chr2"
+
+echo "Running StringTie on ${PREFIX}"
+stringtie \
+  ${BAMDIR}/${PREFIX}.Aligned.sortedByCoord.out.bam \
+  -o ${OUTDIR}/${PREFIX}_stringtie.gtf \
+  -p 2
 ```
+
+To finish the script, we'll call `gffread` which will extract the transcript sequences from the reference genome
+
+``` bash
+gffread \
+  -w ${OUTDIR}/${PREFIX}_stringtie.fa \
+  -g ${REFDIR}/TAIR10_chrALL.fa \
+  ${OUTDIR}/${PREFIX}_stringtie.gtf
+```
+
+Now save the script and run it
+
+``` bash
+bash scripts/stringtie_assembly.sh
+```
+
+Let's quickly compare our reference gene annotations with the transcripts identified using StringTie
+
+``` bash
+head output/stringtie/Col_leaf_chr2_stringtie.gtf 
+sed -n 241,260p reference/TAIR10_GFF3_genes.gtf | egrep 'CDS'
+```
+
+*Can you see anything in the official annotations which resembles that first transcript identified using StringTie?*
+
 
 ### 3.3 Assessing the assembly quality using BUSCO
 
-After we get the assembled transcripts, we need to find some ways to assess the quality of the assembly, such as the completeness of genes/transcripts. One way that we can check the assembly quality is by using BUSCO (Benchmarking Universal Single-Copy Orthologs, <https://busco.ezlab.org/>). BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionary-informed expectation of gene content from near-universal single-copy orthologs selected from different lineages.
+After we get the assembled transcripts, we need to find some ways to assess the quality of the assembly, such as the completeness of genes/transcripts. 
+One way that we can check the assembly quality is by using BUSCO (Benchmarking Universal Single-Copy Orthologs, <https://busco.ezlab.org/>). 
+BUSCO provides quantitative measures for the assessment of genome assembly, gene set, 
+and transcriptome completeness, based on evolutionary-informed expectation of gene content from *near-universal single-copy orthologs* selected from different lineages.
 
-BUSCO was installed under a different conda environment in VM, before run BUSCO, we need to activate the conda environment:
+
+BUSCO was installed under a different conda environment in VM, so to make life a little easier, 
+let's first run this interactively in the terminal.
+We sometimes use `conda` environments to install software with specific dependencies in an isolated 
+environment so they don't interfere with similar dependencies for other software.
+
+To enable access to BUSCO, we need to activate the conda environment with the correct dependencies,
+and where we have `busco` installed.
 
 ```bash
 source activate busco
@@ -226,26 +474,57 @@ source activate busco
 
 You should be able to see that your terminal prompt is now showing `(busco) axxxxxxx@ip-xx-xxx-x-xx:/shared/axxxxxxx$` after the `busco` environment is activated.
 
+We'll need to include this in our script for running busco
+
+```
+touch scripts/busco.sh
+```
+
+Now paste the following into the script using your preferred editor
+
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly
-busco -i StringTie.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_StringTie_viridiplantae -m transcriptome --cpu 2
+#! /bin/bash
+
+ROOTDIR=~/prac_transcriptomics_assembly
+REFDIR=${ROOTDIR}/reference
+OUTDIR=${ROOTDIR}/output
+PREFIX="Col_leaf_chr2"
+
+echo "Activating busco conda env"
+source activate busco
+
+busco \
+  -i ${OUTDIR}/stringtie/${PREFIX}_stringtie.fa \
+  -l ${REFDIR}/viridiplantae_odb10 \
+  --out_path ${OUTDIR}/busco \
+  -o ${PREFIX}_viridiplantae_odb10 \
+  -m transcriptome \
+  --cpu 2
 ```
 
-BUSCO will output a bunch of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. In  it you will find one summary line that looks like this `C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425`. This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
+BUSCO will output a collection of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. 
+Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. 
+This should be in the directory `output/busco/Col_leaf_chr2_viridiplantae_odb10/`, which `busco` created when running with our parameters.
+
+In it you will find one summary line that looks like this `C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425`. 
+This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
 
 ```
-        --------------------------------------------------
-        |Results from dataset viridiplantae_odb10         |
-        --------------------------------------------------
-        |C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425     |
-        |86     Complete BUSCOs (C)                       |
-        |63     Complete and single-copy BUSCOs (S)       |
-        |23     Complete and duplicated BUSCOs (D)        |
-        |22     Fragmented BUSCOs (F)                     |
-        |317    Missing BUSCOs (M)                        |
-        |425    Total BUSCO groups searched               |
-        --------------------------------------------------
+	***** Results: *****
+
+	C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425	   
+	86	Complete BUSCOs (C)			   
+	63	Complete and single-copy BUSCOs (S)	   
+	23	Complete and duplicated BUSCOs (D)	   
+	22	Fragmented BUSCOs (F)			   
+	317	Missing BUSCOs (M)			   
+	425	Total BUSCO groups searched	
 ```
+
+#### Key Questions
+
+1. Given our small initial number of reads, do you think StringTie did an OK job?
+
 
 ## Part 4, De novo transcriptome assembly
 
