@@ -1,5 +1,7 @@
 # Assignment 6 [*30 marks*] Due Friday 7th November 2025
 
+## Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
+
 ## Assignment overview [*4 marks for general format*]
 
 This assignment is based on the Local version control and GitHub repository practicals. 
