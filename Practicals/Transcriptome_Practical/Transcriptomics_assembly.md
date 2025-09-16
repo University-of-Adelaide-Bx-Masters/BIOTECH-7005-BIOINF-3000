@@ -16,10 +16,33 @@ Following that, we will perform a *de novo* assembly using Trinity, which is a f
 (Please note the expected run time below)
 If we get time, we can compare the assemblies using some QC metrics.
 
-We will not be using `R` for any of today's material, so feel free to use the Terminal inside RStudio, which will also make script editing easier.
-Alternatively, you can just use `bash` and `nano` if you wish to.
-If choosing this latter approach, please ask a tutor to show you how to run `screen` so you can have multiple bash sessions running within the same terminal window.
-(NB: If choosing this approach, **please record the password somewhere** as it will disappear)
+We will not be using `R` for any of today's material, but the material has been tested using the Terminal inside RStudio so please use the Terminal inside the RStudio IDE.
+
+### StringTie
+
+The first step will be to identify novel transcripts using `stringtie` (Pertea et al, 2015, <https://www.nature.com/articles/nbt.3122>).
+We'll first trim and check QC for the underlying data, then we'll move onto the assembly itself.
+
+As shown briefly in the lecture notes, the full StringTie process would be to assemble 
+"super-reads" before aligning to the genome, however, we will simply use the reads provided, 
+given how small this dataset is.
+
+![](../../Lectures/transcriptomics/stringtie.png)
+
+After we have aligned our reads to the reference genome, Stringtie will build the "alternative splice graph", then proceed on to constructing the "flow network".
+Finally, it will identify the most likely transcripts using a network flow algorithm.
+Note that this algorithm focusses on the most commonly seen splicing patterns, and uses these to guide the assembly.
+
+### Trinity
+
+After completing our StringTie assembly, we'll attempt a full *de novo* assembly using Trinity (Haas et al, 2013, <https://www.nature.com/articles/nprot.2013.084>).
+This assembles the transcriptome directly from the reads, without aligning to a reference genome.
+The full Trinity repository with detailed help pages and guides is also accessible [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
+
+Given that this process will run for 2-3 hours, the explanation regarding the underlying methology is below, for you to read while the process is underway.
+
+
+
 
 ## Dataset
 
@@ -145,7 +168,7 @@ Next we'll make some directories for the assemblies
 
 ``` bash
 mkdir output/stringtie
-mkdir output/trinity
+mkdir output/assembly
 ```
 
 Finally, we'll create a directory to place any logfiles
@@ -165,11 +188,11 @@ prac_transcriptomics_assembly/
 │   └── trimmed
 ├── logs
 ├── output
+│   ├── assembly
 │   ├── fastqc
 │   │   ├── raw
 │   │   └── trimmed
-│   ├── stringtie
-│   ├── trinity
+│   └── stringtie
 ├── reference
 └── scripts
 ```
@@ -477,7 +500,7 @@ You should be able to see that your terminal prompt is now showing `(busco) axxx
 We'll need to include this in our script for running busco
 
 ```
-touch scripts/busco.sh
+touch scripts/stringtie_busco.sh
 ```
 
 Now paste the following into the script using your preferred editor
@@ -497,14 +520,16 @@ busco \
   -i ${OUTDIR}/stringtie/${PREFIX}_stringtie.fa \
   -l ${REFDIR}/viridiplantae_odb10 \
   --out_path ${OUTDIR}/busco \
-  -o ${PREFIX}_viridiplantae_odb10 \
+  -o ${PREFIX}_stringtie \
   -m transcriptome \
   --cpu 2
 ```
 
+Run the script using `bash scripts/stringtie_busco.sh`
+
 BUSCO will output a collection of files including the information for predicted ORFs (Open Reading Frames) from assembled transcripts and output files from a `blast` search against orthologs. 
 Of these output files, the most important one is the text file called `short_summary_BUSCO_StringTie_viridiplantae.txt`. 
-This should be in the directory `output/busco/Col_leaf_chr2_viridiplantae_odb10/`, which `busco` created when running with our parameters.
+This should be in the directory `output/busco/Col_leaf_chr2_stringtie/`, which `busco` created when running with our parameters.
 
 In it you will find one summary line that looks like this `C:20.2%[S:14.8%,D:5.4%],F:5.2%,M:74.6%,n:425`. 
 This line summarises the completeness of assembled transcripts, and explanations of these numbers can be found in the same text file after the one line summary.
@@ -538,42 +563,86 @@ source activate trinityenv
 
 ### 4.1 De novo assembly using Trinity
 
-We will use the clean reads as input.
+We will use the trimmed reads as input for this step, and will perform a complete *de novo* assembly.
+Create the script `trinity_assembly.sh`
 
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-Trinity --seqType fq --left ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R1.clean.fastq.gz \
---right ~/prac_transcriptomics_assembly/04_results/02_clean_data/Col_leaf_chr2_R2.clean.fastq.gz \
---output Col_leaf_chr2_trinity --CPU 2 --max_memory 8G --bypass_java_version_check
+``` bash
+touch scripts/trinity_assembly.sh
 ```
 
-This step will take more than 2 hours, so we will finish here today and let the VM finish the job, and we will come back to run the remaining analyses in next session.
+Open the script using your preferred editor, then paste the following.
+
+```bash
+#! /bin/bash
+
+ROOTDIR=~/prac_transcriptomics_assembly
+DATADIR=${ROOTDIR}/data/trimmed
+OUTDIR=${ROOTDIR}/output/assembly
+PREFIX="Col_leaf_chr2"
+
+echo "Activating the 'trinity' conda environment"
+source activate trinityenv
+
+echo "Running the complete do novo assembly"
+Trinity \
+  --seqType fq \
+  --left ${DATADIR}/${PREFIX}_R1.fastq.gz \
+  --right ${DATADIR}/${PREFIX}_R2.fastq.gz \
+  --output ${OUTDIR}/${PREFIX}_trinity \
+  --CPU 2 \
+  --max_memory 8G \
+  --bypass_java_version_check
+```
+
+Now we can run this script using `bash scripts.trinity_assembly.sh`.
+**Please note, that this script will run for 2-3 hours** so let's take a moment to understand what we're actually asking `Trinity` to do.
+
+
+#### Understanding Trinity
+
+
+![The overall process used by Trinity when assembling a *de novo* transcriptome](../../Lectures/transcriptomics/trinity_modules.gif)
+
+
+The first step Trinity performs (Inchworm) uses *k*-mers to form a graph which can be considered to be contigs, with a contig being loosely approximating a transcript.
+The default k-mer size for Trinity is 25nt.
+This is an inclusive process so an extensive graph is formed during this step.
+
+After sketching out the initial structure, a *de Bruijn* graph us then formed as part of the *Chrysalis* step.
+This step clusters related contigs, then constructs complete de Bruijn graphs for each cluster.
+Whilst *de Brujin* graphs can be intimidating to try and visualise in their entirety, a simplified figure below shows how k-mers are used to create a structure full of loops.
+
+![An example *de Bruijn* graph. Reads represent fragments of a transcript, then k-mers within these reads are used to form a graph.](../../Lectures/transcriptomics/debruijn.jpg)
+
+<br>Finally, the *Butterfly* step processes the individual graphs in parallel, identifying the most likely paths through the *de Bruijn* graph using the initial reads.
+This ultimately allows for the reporting of full-length transcripts as contained within the original library.
+
+
 
 ### 4.2 Get Trinity assembly statistics
 
-All results from Trinity will be stored in the folder of `Col_leaf_chr2_trinity` in the directory `~/prac_transcriptomics_assembly/04_results/04_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and with suffix `Trinity.fasta`.  
+All results from Trinity will be stored in the folder of `output/assembly/Col_leaf_chr2_trinity` in the directory `~/prac_transcriptomics_assembly/04_results/04_denovo_assembly`. It includes a lot of intermediate files and log files created during the Trinity assembly process. The final output file includes all final assembled transcripts and with suffix `Trinity.fasta`.  
 
-If you didn't successfully complete the Trinity assembly. You can copy the final assembly output file from the shared data folder using following command:
-
-```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-cp ~/data/prac_assembly_week12/Col_leaf_chr2_trinity.Trinity.fasta ./
-```
-
-The Trinity package provides a useful utility to summarise the basic assembly statistics.
+If Trinity didn't successfully complete, you can copy the final assembly output file from the shared data folder using following command:
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-/usr/local/bin/util/TrinityStats.pl ./Col_leaf_chr2_trinity.Trinity.fasta
+## Only run if your assembly didn't complete
+cp ~/data/prac_assembly_week12/Col_leaf_chr2_trinity.Trinity.fasta output/assembly/Col_leaf_chr2_trinity.Trinity.fasta
 ```
 
-And you will get output like this:
+Trinity also provides a useful utility to summarise the basic assembly statistics.
+
+```bash
+/usr/local/bin/util/TrinityStats.pl output/assembly/Col_leaf_chr2_trinity.Trinity.fasta
+```
+
+And you will get output like this in your `bash` session:
 
 ```
 ################################
 ## Counts of transcripts, etc.
 ################################
-Total trinity 'genes':  4495
+Total trinity 'genes':  4494
 Total trinity transcripts:      5473
 Percent GC: 42.33
 
@@ -583,13 +652,13 @@ Stats based on ALL transcript contigs:
 
         Contig N10: 2975
         Contig N20: 2375
-        Contig N30: 1928
-        Contig N40: 1640
-        Contig N50: 1410
+        Contig N30: 1933
+        Contig N40: 1643
+        Contig N50: 1411
 
         Median contig length: 731
-        Average contig: 965.20
-        Total assembled bases: 5282533
+        Average contig: 965.79
+        Total assembled bases: 5285771
 
 
 #####################################################
@@ -598,28 +667,35 @@ Stats based on ALL transcript contigs:
 
         Contig N10: 2975
         Contig N20: 2299
-        Contig N30: 1871
+        Contig N30: 1872
         Contig N40: 1580
         Contig N50: 1334
 
-        Median contig length: 627
-        Average contig: 895.56
-        Total assembled bases: 4025531
+        Median contig length: 627.5
+        Average contig: 895.65
+        Total assembled bases: 4025052
+
 ```
 
 This report gives us some basic statistics of the assembled transcripts from Trinity, such as the number of genes and transcripts and length of transcripts.
 
-__Questions: What is the difference between transcripts and genes? Why have we got more transcripts than genes?__
 
 ### 4.3 Assessing the assembly quality using BUSCO
 
 As we did before, we can use BUSCO to assess the assembly quality.
-
-And remember to activate `busco` environment before you run busco.
+(Remember to activate the `busco` environment before you run busco.)
+Note that the path to your Trinity fasta file *might be different to the one below*, especially if your Trinity run didn't complete.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-busco -i ./Col_leaf_chr2_trinity.Trinity.fasta -l ~/prac_transcriptomics_assembly/02_DB/viridiplantae_odb10 -o BUSCO_Trinity_viridiplantae -m transcriptome --cpu 2
+source activate busco
+busco \
+  -i output/assembly/Col_leaf_chr2_trinity.Trinity.fasta \
+  -l reference/viridiplantae_odb10 \
+  --out_path output/busco \
+  -o Col_leaf_chr2_trinity \
+  -m transcriptome \
+  --cpu 2
+conda deactivate
 ```
 
 __Questions:__
@@ -635,37 +711,61 @@ __Questions:__
 _Arabidopsis_ has a reference genome, therefore we can map the assembled transcripts to the reference genome to get a genomic coordinates file (GTF or GFF format). We will use an aligner called `GMAP` (<http://research-pub.gene.com/gmap/>) to do the genome mapping.
 
 To use `GMAP`, we first need to build the genome index.
+Some tools can be a bit fussy aobut which directory they are run from, so for this command, 
+we'll change into the `reference` directory, then go back up to the practical home.
 
 ```bash
-cd ~/prac_transcriptomics_assembly/02_DB
+cd reference
 gmap_build -D ./ -d TAIR10_GMAP TAIR10_chrALL.fa
+cd ..
 ```
 
 After building the genome index, we can map the assembled transcripts to the reference genome using following commands:
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly
-gmap -D ~/prac_transcriptomics_assembly/02_DB/TAIR10_GMAP -d TAIR10_GMAP -t 2 -f 3 -n 1 ./Col_leaf_chr2_trinity.Trinity.fasta > Trinity.gff3
+gmap \
+  -D reference/TAIR10_GMAP \
+  -d TAIR10_GMAP \
+  -t 2 -f 3 -n 1 \
+  output/assembly/Col_leaf_chr2_trinity.Trinity.fasta > output/assembly/Col_leaf_chr2_trinity.gff3
 ```
 
 This will generate a GFF3 format file, including genomic coordinates for our _de novo_ assembled transcripts, which we can import into IGV for visualisation.
 
 ## Part 5, Visualising your assembled transcripts in IGV
 
-After we finish the _de novo_ transcriptome assembly and genome guided transcriptome assembly, we can visualise our results in IGV to check the assembly quality and look for interesting genes/transcripts.
+After we finish the _de novo_ transcriptome assembly and genome guided transcriptome assembly, 
+we can visualise our results in IGV to check the assembly quality and look for interesting genes/transcripts.
 
 First, we will put all the important final files into one folder.
+The files we'll choose are:
+
+1. the original genome (.fa + .fa.fai)
+2. the annotated gtf
+3. our alignments (.bam + .bam.bai)
+4. both the stringtie and trinity gtf/gff3 files
 
 ```bash
-cd ~/prac_transcriptomics_assembly/04_results/05_final_assembly
-cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTie.fasta ./
-cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/StringTie.gtf ./
-cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam ./
-cp ~/prac_transcriptomics_assembly/04_results/03_genome_guided_assembly/Col_leaf_chr2.Aligned.sortedByCoord.out.bam.bai ./
-cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Col_leaf_chr2_trinity.Trinity.fasta ./
-cp ~/prac_transcriptomics_assembly/04_results/04_denovo_assembly/Trinity.gff3 ./
+mkdir temp
+cp reference/TAIR10_chrALL.* temp/
+cp reference/TAIR10_GFF3_genes.gtf temp/
+cp data/aligned/Col_leaf_chr2.Aligned.sortedByCoord.out.* temp/
+cp output/stringtie/Col_leaf_chr2_stringtie.gtf temp/
+cp output/assembly/Col_leaf_chr2_trinity.gff3 temp/
 ```
 
-Then we can check the assembled transcripts by loading the `Trinity.gff3` and `StringTie.gtf` into IGV. We can also load the `bam` file into IGV to check the reads supporting assembled transcripts.
+To view the results, we'll use the IGV browser using this [link](https://igv.org/app/).
+The files will need to be uploaded to this app, which means that first, we need to download them to our local laptops.
+To do this, select the `temp` directory using the checkbox, the find the Export command in the menu within the Files Pane.
+Save the file `temp.zip` anywhere on your computer (`~/Downloads` for Linux users), then extract the zip file
+It will be 100-120Mb so will take a minute to download, but it shouldn't be too long.
 
-We will use online version of IGV in this Prac, and you can accsse the online IGV using this [link](https://igv.org/app/). 
+Now go to the IGV website and:
+
+1. Upload both TAIR10_chrALL.fa and TAIR10_chrALL.fa.fai together using `Genome -> Local File`
+2. Upload the reference GTF (TAIR10_GFF3_genes.gtf)
+3. Repeat individually for our StringTie and Trinity annotations
+
+Browse to somewhere on chr2 and have a look.
+Try `Chr2:9,778,710-9,783,692` as a starting point.
+Which annotations do you think were the best?
