@@ -1,6 +1,6 @@
 # Assignment 5 - Transcriptome analysis [*35 marks*] Due Friday 18th October 2025
 
-## Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
+## Note that failure to include a coversheet will incur a 5 mark penalty.
 
 **Due Friday 18th October**
 
