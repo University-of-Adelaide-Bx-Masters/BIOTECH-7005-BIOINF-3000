@@ -2,7 +2,7 @@
 
 # Assignment 4 [*30 marks*]
 
-## Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
+## Note that failure to include a coversheet will incur a 5 mark penalty.
 
 **Friday 19th September**
 
