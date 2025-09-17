@@ -1,6 +1,6 @@
 # Assignment 6 [*30 marks*] Due Friday 7th November 2025
 
-## Note that failure to include the coversheet in the R markdown document will incur a 5 mark penalty.
+## Note that failure to include a coversheet will incur a 5 mark penalty.
 
 ## Assignment overview [*4 marks for general format*]
 
