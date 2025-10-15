@@ -2,7 +2,7 @@
 
 ## Note that failure to include a coversheet will incur a 5 mark penalty.
 
-**Due Friday 18th October**
+**Due Saturday 18th October**
 
 Your answers to all questions should be submitted to myUni as a `.zip` file containing **four** bash scripts, and a `5_final_assembly` folder including files required in **step 5**, a screenshot file showing alternative splicing events in **Step6**, and a text file inlcuding your answers to theoretical questions. [*1 mark*]
 
