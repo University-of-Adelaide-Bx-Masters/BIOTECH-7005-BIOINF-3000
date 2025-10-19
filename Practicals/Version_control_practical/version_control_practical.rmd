@@ -221,18 +221,35 @@ Or a more concise graph:
 git log --all --decorate --oneline --graph
 ```
 
-## Git diff
+You're looking at a change log, a log of changes (diffs) applied in a sequence, where each is labelled with a hash. Lets look at the changes:
 
-There are many entries - you're looking at a change log, a log of changes (diffs) applied in a sequence, where each is labelled with a hash.
+## Show / Diffs
 
-To see this, compare the commit hash BEFORE a change with the pick a commit hash of a change, eg:
+To see the details of a particular commit, copy/paste a hash, eg:
 
 ```
-# git diff (previous commit hash) (commit hash)
-git diff 141d48db593f24783169062b1e94c4259bacfaeb 97aba47a9e8a5db9fd0960df025fb11eeb20138f
+git show 23d004b56503d2aaccc5f6e39993a8d10aee334c
 ```
 
-You can also look across multiple commits - eg try diffing across 2, 3 or 4 commits
+To see the differences between two commits, you can use diff:
+
+Show is the same as the difference between a commit and the previous commit:
+
+```
+git diff 11a25fea8e15523049896381de9312501053843d 23d004b56503d2aaccc5f6e39993a8d10aee334c
+```
+
+but you can eg look across 3 commits:
+
+```
+git diff 141d48db593f24783169062b1e94c4259bacfaeb f6cec9c27eea6ef854f754f1adbe3c3310cb708d
+```
+
+Exercise:
+
+Use git log to find 2 commits, and run git diff between them.
+
+Now add a few commits before/after it to see how the size of the diff grows
 
 ## HEAD - the latest commit
 
@@ -268,33 +285,7 @@ git diff paste_latest_hash_here # Implicitly comparing to HEAD
 
 Find an earlier commit (eg 2nd to last commit) and run the above commands comparing it to HEAD explicitly then implicitly
 
-## Show / Diffs
 
-To see the details of a particular commit, copy/paste a hash, eg:
-
-```
-git show 23d004b56503d2aaccc5f6e39993a8d10aee334c
-```
-
-To see the differences between two commits, you can use diff:
-
-Show is the same as the difference between a commit and the previous commit:
-
-```
-git diff 11a25fea8e15523049896381de9312501053843d 23d004b56503d2aaccc5f6e39993a8d10aee334c
-```
-
-but you can eg look across 3 commits:
-
-```
-git diff 141d48db593f24783169062b1e94c4259bacfaeb f6cec9c27eea6ef854f754f1adbe3c3310cb708d
-```
-
-Exercise:
-
-Use git log to find 2 commits, and run git diff between them.
-
-Now add a few commits before/after it to see how the size of the diff grows
 
 **Shortcuts**
 
