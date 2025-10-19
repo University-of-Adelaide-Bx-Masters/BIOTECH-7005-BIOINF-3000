@@ -1,7 +1,7 @@
 ---
 title: "Local Version Control practical"
 author: "David Lawrence"
-date: "2022-09-15"
+date: "2025-10-19"
 output: html_document
 ---
 
@@ -32,224 +32,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * Bonus: R studio git integration
 * Bonus: GitHub preview
 
-## Git help
-
-Like most command line programs, git has command line help. Run:
-
-```
-git --help
-```
-
-This shows an overview of sub commands. It's short, read it all!
-
-```
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
-
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
-
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
-
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
-
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
-```
-
-You can get help for a subcommand via:
-
-```git clone --help```
-
-This opens a man (manual) page, and is the equivalent of ```man git-clone```
-
-Scroll through the man page with up/down keys, then page up/page down keys.
-
-Press q to quit the man page.
-
-## Git setup / config
-
-Git tracks which user did what, so you need to identify yourself.
-
-If you didn't do this in the tutorial, please run this:
-
-```
-git config --global user.name "Your name"
-git config --global user.email "your.name@student.adelaide.edu.au"
-git config --global core.editor "nano -w"
-```
-
-This is stored in your home directory and so works on all git repositories (global)
-
-To see it:
-
-```
-cat ~/.gitconfig
-```
-
-## Local repository
-
-If you have already done this in a previous tutorial, you need to update it:
-
-```
-cd BIOTECH-7005-BIOINF-3000 # Wherever you cloned it before
-git pull  # fetch changes from GitHub and update your local repository 
-# If you get errors due to changes from the last tutorial, perhaps it is easier to just delete it and clone it again.
-```
-
-If you haven't cloned the repo before, do so via:
-
-```
-# Clone a repo
-git clone https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000
-```
-
-When you clone a repo - you make a local copy of the whole version control database (history, deleted files etc)
-
-## Changelog / History
-
-A git repository is a sequence of changes, you can see a history of these via:
-
-```
-git log
-```
-
-This opens an interactive log (shows a ":" at the bottom) of commits in reverse chronological order (ie latest commits first). Press the up/down arrow keys to scroll, or page up and down. Press q to quit.
-
-Notice that at the top of every commit is a hash - which is the unique label you can use to refer to that change.
-
-There are lots of options, eg to show a summary of changes.
-
-```
-git log --stat --summary
-```
-
-Or to see a visual of branching/merging:
-
-```
-git log --graph
-```
-
-Sample output:
-
-```
-| * |   commit 4ac3e07643488adad8a5a4462c756503cc5e975a
-| |\ \  Merge: 6dea320 bbef0f4
-| | | | Author: Dave Adelson <david.adelson@adelaide.edu.au>
-| | | | Date:   Wed Sep 22 09:41:55 2021 +0930
-| | | | 
-| | | |     Merge pull request #27 from University-of-Adelaide-Bx-Masters/NewTranscriptome
-| | | |     
-| | | |     update link to merged major project document
-| |\ \  Merge: 6dea320 bbef0f4
-| | | | Author: Dave Adelson <david.adelson@adelaide.edu.au>
-| | | | Date:   Wed Sep 22 09:41:55 2021 +0930
-| | | | 
-| | | |     Merge pull request #27 from University-of-Adelaide-Bx-Masters/NewTranscriptome
-| | | |     
-| | | |     update link to merged major project document
-| | | |   
-| * | |   commit 6dea320691f4e3d5d5ec1e3b02c1c84db46f5ec6
-| |\ \ \  Merge: 8a40db2 5b9a8b1
-| | | | | Author: Dave Adelson <david.adelson@adelaide.edu.au>
-| | | | | Date:   Wed Sep 22 09:33:33 2021 +0930
-| | | | | 
-| | | | |     Merge pull request #26 from University-of-Adelaide-Bx-Masters/NewTranscriptome
-| | | | |     
-| | | | |     New transcriptome
-| | | | |   
-* | | | |   commit cff75d103c70161e44decc9bdf59f4cd8274cfeb
-|\ \ \ \ \  Merge: 8a40db2 9d41f5e
-| |/ / / /  Author: David Adelson <david.adelson@adelaide.edu.au>
-|/| | | /   Date:   Wed Sep 22 09:48:38 2021 +0930
-| | |_|/    
-| |/| |         Merge branch 'NewTranscriptome'
-| | | | 
-| * | | commit 9d41f5e071da6e179660adb8a124beb2b190c2c6
-| | |/  Author: David Adelson <david.adelson@adelaide.edu.au>
-| |/|   Date:   Wed Sep 22 09:44:34 2021 +0930
-| | |   
-| | |       deleted html
-| | | 
-| * | commit bbef0f42d9e7efd2be26cd3d281f55dfcfcfef01
-| |/  Author: David Adelson <david.adelson@adelaide.edu.au>
-| |   Date:   Wed Sep 22 09:36:20 2021 +0930
-| |   
-| |       update link to merged major project document
-```
-
-Or a more concise graph:
-
-```
-git log --all --decorate --oneline --graph
-```
-
-## Show / Diffs
-
-To see the details of a particular commit, copy/paste a hash, eg:
-
-```
-git show 23d004b56503d2aaccc5f6e39993a8d10aee334c
-```
-
-To see the differences between two commits, you can use diff:
-
-Show is the same as the difference between a commit and the previous commit:
-
-```
-git diff 11a25fea8e15523049896381de9312501053843d 23d004b56503d2aaccc5f6e39993a8d10aee334c
-```
-
-but you can eg look across 3 commits:
-
-```
-git diff 141d48db593f24783169062b1e94c4259bacfaeb f6cec9c27eea6ef854f754f1adbe3c3310cb708d
-```
-
-Exercise:
-
-Use git log to find 2 commits, and run git diff between them.
-
-Now add a few commits before/after it to see how the size of the diff grows
-
-**Shortcuts**
-
-HEAD is a shortcut to the latest commit. 
-
-If you don't specify a second hash, it will default to HEAD, to show you all the changes since that commit.
-
-Every commit usually has one "parent" commit which points to the previous state, some shortcuts:
-
-```
-# These also work on normal hashes not just HEAD
-git show HEAD^  # to see the parent of HEAD
-git show HEAD^^ # to see the grandparent of HEAD
-git show HEAD~4 # to see the great-great grandparent of HEAD
-```
-
-```
-# See last 2 commits:
-git diff HEAD^^  # Implicitly comparin to HEAD
-```
 
 ## Creating a new repository
 
@@ -305,7 +87,7 @@ It should show you have a new file README.md, now run:
 git commit
 ```
 
-Because you didn't specify a messae, this will open up your editor (which we specified as nano earlier) to make one. Enter something like "initial shopping list" then exit. It will apply a commit with the message you entered.
+Because you didn't specify a message, this will open up your editor (which we specified as nano earlier) to make one. Enter something like "initial shopping list" then exit. It will apply a commit with the message you entered.
 
 ## Staging area
 
@@ -546,27 +328,6 @@ git checkout master
 To check you're back to normal - run ```git log``` and ensure that the last commit has HEAD next to it
 
 
-## Restoring deleted files
-
-Delete the README.md, ie:
-
-```
-rm README.md
-```
-
-Now run:
-
-```
-git status  # Shows file was deleted
-git diff  # Shows patch
-```
-
-Retrieve the file from the repo - to undelete it in the working files
-
-```
-git checkout README.md
-```
-
 ## Branches
 
 So far in your new repository we've been working in a linear way.
@@ -752,3 +513,5 @@ When questioned for your password, paste in the personal access token (if you st
 * Explore your repository on the GitHub site!
 
 We will be going into GitHub in depth in the week 9 practical. Have a good mid-semester break!
+
+
