@@ -15,11 +15,6 @@ Make sure you are familiar with these terms!
 
 * Diff
 * Hashing
-* Lock / Locking
-* Repository (repo)
-* Revision
-* Changelog
-* revert
 
 ## Git help
 
@@ -67,7 +62,9 @@ collaborate (see also: git help workflows)
 
 You can get help for a subcommand via:
 
-```git clone --help```
+```
+git clone --help
+```
 
 This opens a man (manual) page, and is the equivalent of ```man git-clone```
 
@@ -77,7 +74,9 @@ Press q to quit the man page.
 
 ## Git setup / config
 
-Git tracks which user did what, so you need to identify yourself. Please run:
+Git tracks which user did what, so you need to identify yourself.
+
+Copy/paste this into the terminal, EDIT IT WITH YOUR ACTUAL INFO then run:
 
 ```
 # You need to modify things below to your actual info!
@@ -109,6 +108,9 @@ If you haven't cloned the repo before, do so via:
 ```
 # Clone a repo
 git clone https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000
+
+# Go into the repo
+cd BIOTECH-7005-BIOINF-3000
 ```
 
 ## Your repo
@@ -117,20 +119,24 @@ When you clone a repo - you make a local copy of the whole version control datab
 
 Remember this is your own personal repository, you can do whatever you like! You are not modifying the GitHub repo unless you send your changes up, and you don't have permission to do that, so don't worry!
 
-Look in the .git directory. and compare the size with the total repo:
+The files you see in this directory, the "normal" files, are not Git’s real copy of your project. To see them look in the .git directory.
+
+```
+find .git | less
+```
+
+Compare the size with the total repo:
 
 ```
 du -sh .git
 du -sh
 ```
 
-The .git directory contains the diffs.
+The .git directory contains all of the changes ever made to files, git can move files through their history depending on what changes it applies
 
-The "normal files" in the directory are created by git by applying a series of changes (diffs) 
+The "normal files" are just temporary ones made by git from that database (or edits that you have yet to tell Git about)
 
 You're looking at the latest copy - ie files made by applying all of the changes (diffs)
-
-## TODO: .git directory
 
 ## Changelog / History
 
@@ -268,30 +274,46 @@ This commit has some extra stuff after it. These are special labels that are aut
 **HEAD** - is the end of a branch, ie the latest commit
 **master (or main)** - is the default name of a branch (we'll come back to this)
 
-Copy/paste the latest commit into git diff
+To see find latest commit:
 
 ```
-git diff paste_latest_hash_here HEAD
+git log -1
 ```
 
-This compares the last commit with head. Since they are different labels for the same commit, there is no difference and nothing is displayed.
+Copy/paste the hash
+
+```
+git show <HASHCODE>
+```
+
+HEAD is simply a shortcut to the latest hash:
+
+```
+# Should show the same output as above
+git show HEAD
+```
+
+Now get the 2nd last commit:
+
+```
+git log -2
+```
+
+copy 2nd to last hash
+
+```
+git diff paste_second_to_last_hash_here HEAD
+```
+
+This compares that commit with head
 
 You use HEAD so often that it is the default argument in Git. Ie if you don't specify a commit, you are assumed to be comparing it to Git. Ie:
 
 ```
-git diff paste_latest_hash_here HEAD
-git diff paste_latest_hash_here # Implicitly comparing to HEAD
+git diff paste_second_to_last_hash_here # Implicitly comparing to HEAD
 ```
 
-Find an earlier commit (eg 2nd to last commit) and run the above commands comparing it to HEAD explicitly then implicitly
-
-
-
 **Shortcuts**
-
-HEAD is a shortcut to the latest commit.
-
-If you don't specify a second hash, it will default to HEAD, to show you all the changes since that commit.
 
 Every commit usually has one "parent" commit which points to the previous state, some shortcuts:
 
@@ -369,6 +391,8 @@ git checkout README.md
 
 ## Something scary
 
+Feel free to sit these ones out... I don't have any assignments to accidentally delete!
+
 ```
 # Make sure you are in the right directory!
 # Then run:
@@ -384,6 +408,9 @@ git ls-files -z -d | xargs -0 git checkout --
 ```
 
 Note: I didn't know how to do this before looking on Stack Overflow.
+
+Q: What would have happened if I deleted the .git directory?
+
 
 ## Modifying a file
 
