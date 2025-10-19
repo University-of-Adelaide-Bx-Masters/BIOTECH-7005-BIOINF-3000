@@ -11,11 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Outline
 
-* Git help
-* Git setup / config
-* Local repository
-* Changelog / History
-* Show / Diffs
 * Creating a new repository
 * Add/Commit
 * Staging area
