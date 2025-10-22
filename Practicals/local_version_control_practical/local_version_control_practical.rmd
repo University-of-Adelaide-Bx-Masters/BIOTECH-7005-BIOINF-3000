@@ -15,7 +15,8 @@ knitr::opts_chunk$set(echo = TRUE)
 * Add/Commit
 * Staging area
 * Second commmit
-* Git blame
+* Git Commit message best practices
+* Git blame revisited
 * Tagging
 * Bash scripts + git
 * Git ignore
@@ -31,9 +32,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Creating a new repository
 
 ```
-# Go to where you want to put a new git repository
-mkdir bioinfo_tute_wk8
-git init
+# Go to where you want to create new git repository
+mkdir bioinfo_tute_my_new_repo
+cd bioinfo_tute_my_new_repo # Go into this directory
+git init # Creates repo in current directory
 ```
 
 There is now a hidden directory called ".git"
@@ -126,13 +128,18 @@ git log
 
 You can see your comments will stored against a commit for all time - make sure you spend a bit of time making them clear and useful!
 
+## Git Commit message best practices
+
+TODO: Flesh this out
+
 Perhaps we should make that last message better, to edit it:
 
 ```
 git commit --amend -m "Add Cyan monkeys's fruit"
 ```
 
-## Git blame
+
+## Git blame revisited
 
 You can also see which was the last commit to touch a line in a file - this git command is actually easy to remember!
 
@@ -236,7 +243,7 @@ cat *.log
 This should have saved the output:
 
 ```
-Script pipeline.sh started Fri 16 Sep 2022 01:16:32 ACST in '/home/dlawrence/localwork/bioinfo_tute_wk8'
+Script pipeline.sh started Fri 16 Sep 2022 01:16:32 ACST in '/home/dlawrence/localwork/bioinfo_tute_my_new_repo'
 git: 2af18ad1033bbd5efd90a0aa88acf59dc1d9c4c4
 Input: 482b49fe8627a6a300b51f46f7e5c6ff  data/dna.fasta
 ```
@@ -292,7 +299,7 @@ To move the working files back to the state of this commit, you can run:
 git checkout <commit_hash>  # Need to copy/paste from your git history
 ```
 
-This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg master), while moving through history, it's "detached"
+This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg main), while moving through history, it's "detached"
 
 You can also see this if you run 
 
@@ -317,48 +324,82 @@ Move the repo back to this commit, and examine the README.md file
 To move back to the latest commit, run:
 
 ```
-git checkout master
+git checkout main
 ```
 
 To check you're back to normal - run ```git log``` and ensure that the last commit has HEAD next to it
 
 
-## Branches
+## Branches - Overview
 
 So far in your new repository we've been working in a linear way.
 
 But remember Git is a graph, and you can have multiple paths (think back to the ```git log --graph``` diagrams above) that split apart.
 
-The default branch is main/master, but you can diverge from this, and also merge together different branches.
+The default branch is main (or older repos: "master"), but you can diverge from this, and also merge together different branches.
 
-A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking master.
+There are 2 common conventions on how to stucture branches in a repo:
+
+* Main is stable, new features / unstable development is done in branches, then merged back into main (BIOTECH-7005 repo is like this. There's only 1 class so main makes sense)
+* Main is latest (somewhat unstable), stable versions are their own branches (usually only used if you have releases, or deployments on different servers)
+
+## Branches - dev/feature branches
+
+A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking main
+
+You can call a branch whatever you like. Some people use their name to make it clear its just for them.
 
 You can create a branch then switch to it:
 
 ```
-git branch blue_monkey # Creates a new branch from HEAD
-git checkout blue_monkey
+git branch blue_monkey_new_feature # Creates a new branch from HEAD
+git checkout blue_monkey_new_feature
 ```
 
 Or you could do this in 1 line via:
 
 ```
-git checkout -b blue_monkey # if you run this after creating the branch above it will error and do nothing
+# You would do this INSTEAD of the line above, doing it after will error and do nothing
+git checkout -b blue_monkey_new_feature
 ```
 
 Now edit the README.md and add a line "* Grapes"
 
 ```
 git add README.md
-git commit -m "blue monkey change"
+git commit -m "Blue monkey new feature change - add Grapes"
 ```
 
-Now, go back to the master branch.
+You've now saved your work, and can share with others, but its not in "main" yet.
+
+Have a look at the commits here:
 
 ```
-git checkout master
-cat README.md  # Double check that grapes are not there
-git merge blue_monkey # Merge branch back into master
+git log
+```
+
+Now, go back to the main branch.
+
+```
+git checkout main
+```
+
+Check the state of the branch:
+
+```
+git log # last change is not here
+```
+
+Check the state of the working files (remember, Git creates/modifies these to represent the state of the repo)
+
+```
+cat README.md  # Double check that grapes are not in main's working README.md file
+```
+
+Now, we want to move ALL of the changes from the feature branch back into main.
+
+```
+git merge blue_monkey_new_feature # Merge branch back into main
 ```
 
 Because there were no conflicts - the merge was done automatically.
@@ -367,7 +408,7 @@ But imagine that the blue and cyan monkeys went off and did separate work. Find 
 
 
 ```
-git checkout -b cyan_monkey HEAD^  # 1 commit back
+git checkout -b cyan_monkey_new_feature2 HEAD^  # 1 commit back
 ```
 
 Edit the README.md, say add "* Caffeinated bananas" and delete "* Watermelon"
@@ -382,7 +423,7 @@ git commit -m "cyan monkey shopping list changes"
 Then back to main again:
 
 ```
-git merge cyan_monkey
+git merge cyan_monkey_new_feature2
 ```
 
 This can't be auto-merged and is flagged as a conflict.
@@ -393,7 +434,9 @@ CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-If you look at the README.md it was merged, but with deliberate errors inserted around the merge conflict, so you have to manually edit it.
+If you look at the README.md it was merged, but with deliberate errors inserted around the merge conflict. This is to make it obvious that something went wrong, and to break any code so it doesn't execute (better to crash, than be wrong)
+
+You have to manually edit it, to pick what lines you want from the 2 changes:
 
 ```
 * Apples
@@ -402,7 +445,7 @@ If you look at the README.md it was merged, but with deliberate errors inserted 
 * Grapes
 =======
 * Chocolate covered bananas
->>>>>>> cyan_monkey
+>>>>>>> cyan_monkey_new_feature2
 * Mango
 ```
 
@@ -423,9 +466,11 @@ Notice the branch and how it was merged back
 
 **Exercise**
 
+TODO: Flesh this out
+
 * Create a new branch (and switch to it)
 * Create 2 modifications against that branch. Look at the log and pick 1 of the changes.
-* Go back to master/main
+* Go back to main
 * Run
 
 ```
@@ -450,13 +495,13 @@ and also track where you got it from (remote origin) - so it is easy to keep the
 
 When working with others, you need to decide on how to use Git in your day to day work - these work patterns are often called [git workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
 
-For instance - is it ok to have broken code in master/main? If you are working by yourself, or are making very small changes you have tested well, it may be OK to commit directly into the main/master branch.
+For instance - is it ok to have broken code in main? If you are working by yourself, or are making very small changes you have tested well, it may be OK to commit directly into the main branch.
 
 If you are running an open source project and random people download your code - maybe not!
 
-If I am working on something larger than 1 day's work, I like to create a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) so that I can push my code to Github (to have a backup + work on different computers) then merge back to master when done.
+If I am working on something larger than 1 day's work, I like to create a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) so that I can push my code to Github (to have a backup + work on different computers) then merge back to main when done.
 
-Some teams only do work in feature branches, then use pull requests to review the code by someone else before it is merged into master.
+Some teams only do work in feature branches, then use pull requests to review the code by someone else before it is merged into main
 
 ## Bonus: R studio git integration
 
@@ -500,7 +545,7 @@ git config --global credential.helper store
 
 Otherwise, just leave the tab open so you can copy/paste it, or copy/paste it into a temporary text editor
 
-* Create a new repository (eg "bioinfo_tute_wk8")
+* Create a new repository (eg "bioinfo_tute_my_new_repo")
 * Follow the instructions labelled **...or push an existing repository from the command line**
 
 When questioned for your password, paste in the personal access token (if you store credentials, it will save it now to your VM disk)
