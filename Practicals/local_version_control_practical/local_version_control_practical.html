@@ -384,14 +384,33 @@ display: none;
 <li>Bonus: GitHub preview</li>
 </ul>
 </div>
+<div id="git-setup-config" class="section level2">
+<h2>Git setup / config</h2>
+<p>Skip this if you did it last prac</p>
+<p>Git tracks which user did what, so you need to identify yourself.</p>
+<p>Copy/paste this into the terminal, EDIT IT WITH YOUR ACTUAL INFO then
+run:</p>
+<pre><code># You need to modify things below to your actual info!
+git config --global user.name &quot;Your name&quot;
+git config --global user.email &quot;your.name@student.adelaide.edu.au&quot;
+git config --global core.editor &quot;nano -w&quot;</code></pre>
+<p>This is stored in your home directory and so works on all git
+repositories (global)</p>
+<p>To see it:</p>
+<pre><code>cat ~/.gitconfig</code></pre>
+</div>
 <div id="creating-a-new-repository" class="section level2">
 <h2>Creating a new repository</h2>
 <pre><code># Go to where you want to create new git repository
 mkdir bioinfo_tute_my_new_repo
 cd bioinfo_tute_my_new_repo # Go into this directory
-git init # Creates repo in current directory</code></pre>
-<p>There is now a hidden directory called “.git”</p>
-<p><code>ls -R .git</code></p>
+git init</code></pre>
+<p>This creates a new (empty) git repository in the current
+directory</p>
+<p>You can look for a hidden directory called “.git”</p>
+<pre><code>ls -a # This shows hidden files
+
+ls -R .git # Show all the files in .git folder (recursively)</code></pre>
 </div>
 <div id="addcommit" class="section level2">
 <h2>Add/Commit</h2>
@@ -405,18 +424,27 @@ Watermelon</code></pre>
 <pre><code>git status</code></pre>
 <p>This should show you that you have 1 untracked file called
 ‘README.md’.</p>
-<p>To see this as a diff:</p>
+<p>Git diff shows shows changes in your working directory that haven’t
+been staged yet. The difference between your files and the index.</p>
 <pre><code>git diff</code></pre>
 <p>We need to tell Git about this change - run:</p>
-<pre><code>git add README.md</code></pre>
-<p>Now run:</p>
-<pre><code>git status</code></pre>
-<p>It should show you have a new file README.md, now run:</p>
+<pre><code>git add README.md
+git status # Shows state of things</code></pre>
+<p>This has been added but not comitted. So git diff (working vs staged)
+should show nothing:</p>
+<pre><code>git diff</code></pre>
+<p>But as it hasn’t been committed, this should show something (diff
+between staging and last commit):</p>
+<pre><code>git diff --staged</code></pre>
+<p>Commit it:</p>
 <pre><code>git commit</code></pre>
 <p>Because you didn’t specify a message, this will open up your editor
-(which we specified as nano earlier) to make one. Enter something like
-“initial shopping list” then exit. It will apply a commit with the
-message you entered.</p>
+so you can enter it.</p>
+<p>Note: editor was chosen when you previously entered:
+<code>git config --global core.editor &quot;nano -w&quot;</code> (you don’t need
+to re-run this)</p>
+<p>Enter something like “initial shopping list” then exit. It will apply
+a commit with the message you entered.</p>
 </div>
 <div id="staging-area" class="section level2">
 <h2>Staging area</h2>
@@ -429,15 +457,15 @@ then others in a separate commit.</p>
 <p>Think of it as a draft area where you can carefully build exactly
 what you want to commit.</p>
 </div>
-<div id="second-commmit" class="section level2">
-<h2>Second commmit</h2>
+<div id="second-commit" class="section level2">
+<h2>Second commit</h2>
 <p>Edit README.md again, adding 2 more lines:</p>
 <pre><code>Bananas
 Mango</code></pre>
 <p>Run</p>
 <pre><code>git commit</code></pre>
 <p>Again, it should say: “no changes added to commit” - because you
-haven’t added the file. Let’s do that and commit:</p>
+haven’t added the file (wasn’t staged). Let’s do that and commit:</p>
 <pre><code>git add README.md 
 git commit -m &quot;add stuff&quot;</code></pre>
 <p>We used the <code>-m</code> parameter to provide the commit message
@@ -449,9 +477,14 @@ make sure you spend a bit of time making them clear and useful!</p>
 </div>
 <div id="git-commit-message-best-practices" class="section level2">
 <h2>Git Commit message best practices</h2>
-<p>TODO: Flesh this out</p>
+<ul>
+<li>Explain the “why” (the commit is the “how”)</li>
+<li>1st line is used as summary. Keep it short (under 50 chars). If you
+want to add more lines, use a blank line then go on with more
+details</li>
+</ul>
 <p>Perhaps we should make that last message better, to edit it:</p>
-<pre><code>git commit --amend -m &quot;Add Cyan monkeys&#39;s fruit&quot;</code></pre>
+<pre><code>git commit --amend -m &quot;Add Cyan monkey&#39;s fruit&quot;</code></pre>
 </div>
 <div id="git-blame-revisited" class="section level2">
 <h2>Git blame revisited</h2>
@@ -470,9 +503,10 @@ git commit -m &quot;formatting - markdown bullet points&quot;</code></pre>
 <p>Now run git blame again:</p>
 <pre><code>git blame README.md</code></pre>
 <p>You can see that since we touched every line in the file, git blame
-is all that commit, and not very useful. So you can ignore a particular
-commit:</p>
-<pre><code>git blame README.md --ignore-rev HEAD  # Or the commit hash of your formatting change</code></pre>
+is all that commit, and not very useful.</p>
+<p>So you can ignore a particular commit. Find the hash for it</p>
+<pre><code>IGNORE_COMMIT=copy_hash_here
+git blame README.md --ignore-rev $IGNORE_COMMIT</code></pre>
 <p>You can see why logically grouping changes in commits is useful, eg
 separating formatting changes vs adding new things.</p>
 <p>I will often break up a change into multiple commits, eg “clean up
@@ -489,6 +523,11 @@ you can keep track of commits in a file and use
 anything and are hard to remember.</p>
 <p>You can give commits your own names, which is called tagging.</p>
 <pre><code>git tag my_tag &lt;hash from git log&gt;  # need to change to your hash</code></pre>
+<p>Now if you look at that commit in the log, it also has the tag</p>
+<pre><code>git log</code></pre>
+<p>Now, instead of remembering or copy/pasting hashes, you can use
+tags:</p>
+<pre><code>git show my_tag</code></pre>
 <p>A common use for tags is to label a release. This makes it easier to
 know the state of code in a release, find what releases are affected by
 bugs, and for instance show what changed between releases, eg:</p>
@@ -503,11 +542,15 @@ projects:</p>
 <p>Tip from scientific reproducibility lecture. If you always use Git,
 you can keep track of what version of a script was run.</p>
 <p>For instance, copy/paste this into a file pipeline.sh</p>
+<pre><code>touch pipeline.sh # Make empty file
+chmod a+x pipeline.sh # Make it executable</code></pre>
+<p>Then edit and add contents</p>
 <pre><code>#!/bin/bash
 
 DATA_DIR=data
 FASTA_FILE=${DATA_DIR}/dna.fasta
 TODAY=$(date --iso)
+# HEAD is latest commit - this retrieves that hash and stores it
 GIT_COMMIT=$(git rev-parse HEAD)
 RUN_LOG=pipeline_run_${TODAY}_${GIT_COMMIT}.log
 
@@ -548,6 +591,11 @@ they are enormous, and you don’t want to check them in.</p>
 echo &quot;*.log&quot; &gt;&gt; .gitignore</code></pre>
 <p>Now run:</p>
 <pre><code>git status</code></pre>
+<p>You shouldn’t see anything (as log files have been ignored)</p>
+<p>NOTE: Already tracked files aren’t retroactively ignored</p>
+<p>Here is the .gitignore on the bioinfo project: <a href="https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/.gitignore" class="uri">https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/.gitignore</a></p>
+<p>People have often build .gitignore for certain languages to hide what
+you don’t need. Search for them: <a href="https://www.google.com/search?q=git+ignore+R+lang" class="uri">https://www.google.com/search?q=git+ignore+R+lang</a></p>
 <p><strong>Exercise</strong></p>
 <p>Check in .gitignore</p>
 <p>(optional) Write a 2000 word philosophy paper describing what you
@@ -570,7 +618,9 @@ run:</p>
 <pre><code>git checkout &lt;commit_hash&gt;  # Need to copy/paste from your git history</code></pre>
 <p>This will mention having a “detached head” - HEAD keeps track of the
 current point in a repository. Usually, it is attached to a branch (eg
-main), while moving through history, it’s “detached”</p>
+main), while moving through history, it’s “detached”. This is normal
+when viewing old commits, but commits made in that state are not
+attached to a branch</p>
 <p>You can also see this if you run</p>
 <pre><code>git status</code></pre>
 <p>It will say “head detached”</p>
@@ -592,7 +642,7 @@ back to the <code>git log --graph</code> diagrams above) that split
 apart.</p>
 <p>The default branch is main (or older repos: “master”), but you can
 diverge from this, and also merge together different branches.</p>
-<p>There are 2 common conventions on how to stucture branches in a
+<p>There are 2 common conventions on how to structure branches in a
 repo:</p>
 <ul>
 <li>Main is stable, new features / unstable development is done in
@@ -608,6 +658,9 @@ different servers)</li>
 <p>A common task when working with multiple people is to create a branch
 from current HEAD to do new development, so you can store your code in
 the repository without breaking main</p>
+<p>To see branches:</p>
+<pre><code># No argument means &quot;view all&quot;
+git branch</code></pre>
 <p>You can call a branch whatever you like. Some people use their name
 to make it clear its just for them.</p>
 <p>You can create a branch then switch to it:</p>
@@ -616,6 +669,8 @@ git checkout blue_monkey_new_feature</code></pre>
 <p>Or you could do this in 1 line via:</p>
 <pre><code># You would do this INSTEAD of the line above, doing it after will error and do nothing
 git checkout -b blue_monkey_new_feature</code></pre>
+<p>If you run this, you should be able to see 2 branches now</p>
+<pre><code>git branch</code></pre>
 <p>Now edit the README.md and add a line “* Grapes”</p>
 <pre><code>git add README.md
 git commit -m &quot;Blue monkey new feature change - add Grapes&quot;</code></pre>
@@ -638,7 +693,8 @@ automatically.</p>
 <p>But imagine that the blue and cyan monkeys went off and did separate
 work. Find the commit before the merge, and create a branch from that,
 eg:</p>
-<pre><code>git checkout -b cyan_monkey_new_feature2 HEAD^  # 1 commit back</code></pre>
+<pre><code> # HEAD = current. HEAD^ = 1 commit back, HEAD^^ = 2 commits back etc
+git checkout -b cyan_monkey_new_feature2 HEAD^  # 1 commit back</code></pre>
 <p>Edit the README.md, say add “* Caffeinated bananas” and delete “*
 Watermelon”</p>
 <p>Add/commit</p>
