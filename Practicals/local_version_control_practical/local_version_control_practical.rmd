@@ -1,7 +1,7 @@
 ---
 title: "Local Version Control practical"
 author: "David Lawrence"
-date: "2025-10-19"
+date: "2025-10-23"
 output: html_document
 ---
 
@@ -464,20 +464,87 @@ git log --graph
 
 Notice the branch and how it was merged back
 
-**Exercise**
+## Commit size
 
-TODO: Flesh this out
+"Merge" brings in all of the commits from a branch, but sometimes you only want to take a few changes. For this, you can "cherry pick" individual commits into different branches.
 
-* Create a new branch (and switch to it)
-* Create 2 modifications against that branch. Look at the log and pick 1 of the changes.
-* Go back to main
-* Run
+An example here is perhaps while working in a new area, you notice a bug. You fix the bug and want that also applied to main, but not all the rest of the work on the feature which isn't tested yet.
+
+Git works at the commit level, so if you want to apply some changes but not the other, they need to be in separate commits.
+
+This is why it's recommended you keep your commits small. If you are doing 2 separate conceptual changes, do them in separate commits. 
+
+## Cherry pick
 
 ```
-git cherry-pick <the hash you want>
+git checkout main # Make sure you are back here
+git checkout -b my_new_dev_branch
 ```
 
-to only apply one change. This is useful to apply bug fixes to historical branches
+We'll create 2 commits in this branch, but only bring 1 back to main. The other we'll leave, to be merged back into main later
+
+Edit the README.md, and add another fruit, eg "* Oranges"
+
+Add/commit
+
+```
+git add README.md
+git commit -m "Add oranges to shopping list because we need to make juice for breakfast tomorrow"
+```
+
+Now edit README.md and add a different fruit, eg "* Lemons" 
+
+```
+git add README.md
+git commit -m "Add lemons for taco tuesday next week"
+```
+
+Check the status of things in the my_new_dev_branch branch:
+
+```
+git log
+```
+
+Now go back to main:
+
+```
+git checkout main
+
+# Then confirm that changes have NOT been applied
+git log
+cat README.md
+```
+
+We a copy of the commit hash that we want to apply to main. We could have copied this from the branch before we went back to main, but git log can also be passed the branch name:
+
+```
+git log my_new_branch
+```
+
+```
+git rev-parse my_new_branch # This will be the lemon one (the latest)
+# These commands are similar - if you press "UP" in the shell, you can get to previous command, and add the "^" at the end quickly rather than copy/pasting
+git rev-parse my_new_branch^ # This will be the orange one (second to last)
+
+# You can also execute commands and store the output to a variable:
+ORANGE_COMMIT=$(git rev-parse my_new_branch^)
+git show $ORANGE_COMMIT # Hopefully shows the commit we are after
+```
+
+Now, we want to cherry pick just the orange (but not lemon) commit
+
+```
+git cherry-pick $ORANGE_COMMIT
+```
+
+Now, run the standard stuff to get your bearings:
+
+```
+# Then confirm that changes have NOT been applied
+git log
+cat README.md
+```
+
 
 ## Pull / Push
 
@@ -530,7 +597,7 @@ There is now a git button in the toolbar (just below the top menu)
 * Sign up for a GitHub account if you don't have one
 * Login to the site
 
-GitHub uses "Persoanl access tokens" rather than passwords. To generate one of these for the VM:
+GitHub uses "Personal access tokens" rather than passwords. To generate one of these for the VM:
 
 * Click on your user icon in the top right
 * Click "Settings"
@@ -552,6 +619,4 @@ When questioned for your password, paste in the personal access token (if you st
 
 * Explore your repository on the GitHub site!
 
-We will be going into GitHub in depth in the week 9 practical. Have a good mid-semester break!
-
-
+We will be going into GitHub in depth next week.
