@@ -28,6 +28,28 @@ knitr::opts_chunk$set(echo = TRUE)
 * Bonus: R studio git integration
 * Bonus: GitHub preview
 
+## Git setup / config
+
+Skip this if you did it last prac
+
+Git tracks which user did what, so you need to identify yourself.
+
+Copy/paste this into the terminal, EDIT IT WITH YOUR ACTUAL INFO then run:
+
+```
+# You need to modify things below to your actual info!
+git config --global user.name "Your name"
+git config --global user.email "your.name@student.adelaide.edu.au"
+git config --global core.editor "nano -w"
+```
+
+This is stored in your home directory and so works on all git repositories (global)
+
+To see it:
+
+```
+cat ~/.gitconfig
+```
 
 ## Creating a new repository
 
@@ -35,12 +57,18 @@ knitr::opts_chunk$set(echo = TRUE)
 # Go to where you want to create new git repository
 mkdir bioinfo_tute_my_new_repo
 cd bioinfo_tute_my_new_repo # Go into this directory
-git init # Creates repo in current directory
+git init
 ```
 
-There is now a hidden directory called ".git"
+This creates a new (empty) git repository in the current directory
 
- ```ls -R .git```
+You can look for a hidden directory called ".git"
+
+```
+ls -a # This shows hidden files
+
+ls -R .git # Show all the files in .git folder (recursively)
+```
 
 ## Add/Commit
 
@@ -60,7 +88,7 @@ git status
 
 This should show you that you have 1 untracked file called 'README.md'. 
 
-To see this as a diff:
+Git diff shows shows changes in your working directory that haven’t been staged yet. The difference between your files and the index.
 
 ```
 git diff
@@ -70,21 +98,32 @@ We need to tell Git about this change - run:
 
 ```
 git add README.md
+git status # Shows state of things
 ```
 
-Now run:
+This has been added but not comitted. So git diff (working vs staged) should show nothing:
 
 ```
-git status
+git diff
 ```
 
-It should show you have a new file README.md, now run:
+But as it hasn't been committed, this should show something (diff between staging and last commit):
+
+```
+git diff --staged
+```
+
+Commit it:
 
 ```
 git commit
 ```
 
-Because you didn't specify a message, this will open up your editor (which we specified as nano earlier) to make one. Enter something like "initial shopping list" then exit. It will apply a commit with the message you entered.
+Because you didn't specify a message, this will open up your editor so you can enter it.
+
+Note: editor was chosen when you previously entered: ```git config --global core.editor "nano -w"``` (you don't need to re-run this)
+
+Enter something like "initial shopping list" then exit. It will apply a commit with the message you entered.
 
 ## Staging area
 
@@ -96,7 +135,7 @@ It allows you to carefully add/remove individual files to build a commit - ie yo
 
 Think of it as a draft area where you can carefully build exactly what you want to commit.
 
-## Second commmit
+## Second commit
 
 Edit README.md again, adding 2 more lines:
 
@@ -111,7 +150,7 @@ Run
 git commit
 ```
 
-Again, it should say: "no changes added to commit" - because you haven't added the file. Let's do that and commit:
+Again, it should say: "no changes added to commit" - because you haven't added the file (wasn't staged). Let's do that and commit:
 
 ```
 git add README.md 
@@ -130,12 +169,13 @@ You can see your comments will stored against a commit for all time - make sure 
 
 ## Git Commit message best practices
 
-TODO: Flesh this out
+* Explain the "why" (the commit is the "how")
+* 1st line is used as summary. Keep it short (under 50 chars). If you want to add more lines, use a blank line then go on with more details
 
 Perhaps we should make that last message better, to edit it:
 
 ```
-git commit --amend -m "Add Cyan monkeys's fruit"
+git commit --amend -m "Add Cyan monkey's fruit"
 ```
 
 
@@ -169,10 +209,15 @@ Now run git blame again:
 git blame README.md
 ```
 
-You can see that since we touched every line in the file, git blame is all that commit, and not very useful. So you can ignore a particular commit:
+You can see that since we touched every line in the file, git blame is all that commit, and not very useful.
+
+So you can ignore a particular commit. Find the hash for it
+
+
 
 ```
-git blame README.md --ignore-rev HEAD  # Or the commit hash of your formatting change
+IGNORE_COMMIT=copy_hash_here
+git blame README.md --ignore-rev $IGNORE_COMMIT
 ```
 
 You can see why logically grouping changes in commits is useful, eg separating formatting changes vs adding new things.
@@ -191,6 +236,19 @@ You can give commits your own names, which is called tagging.
 git tag my_tag <hash from git log>  # need to change to your hash
 ```
 
+Now if you look at that commit in the log, it also has the tag
+
+```
+git log
+```
+
+Now, instead of remembering or copy/pasting hashes, you can use tags:
+
+```
+git show my_tag
+```
+
+
 A common use for tags is to label a release. This makes it easier to know the state of code in a release, find what releases are affected by bugs, and for instance show what changed between releases, eg:
 
 [CDot change diff](https://github.com/SACGF/cdot/compare/v0.2.7...v0.2.8)
@@ -206,11 +264,19 @@ Tip from scientific reproducibility lecture. If you always use Git, you can keep
 For instance, copy/paste this into a file pipeline.sh
 
 ```
+touch pipeline.sh # Make empty file
+chmod a+x pipeline.sh # Make it executable
+```
+
+Then edit and add contents
+
+```
 #!/bin/bash
 
 DATA_DIR=data
 FASTA_FILE=${DATA_DIR}/dna.fasta
 TODAY=$(date --iso)
+# HEAD is latest commit - this retrieves that hash and stores it
 GIT_COMMIT=$(git rev-parse HEAD)
 RUN_LOG=pipeline_run_${TODAY}_${GIT_COMMIT}.log
 
@@ -277,6 +343,14 @@ Now run:
 git status
 ```
 
+You shouldn't see anything (as log files have been ignored)
+
+NOTE: Already tracked files aren't retroactively ignored
+
+Here is the .gitignore on the bioinfo project: https://github.com/University-of-Adelaide-Bx-Masters/BIOTECH-7005-BIOINF-3000/blob/master/.gitignore
+
+People have often build .gitignore for certain languages to hide what you don't need. Search for them: https://www.google.com/search?q=git+ignore+R+lang
+
 **Exercise**
 
 Check in .gitignore
@@ -299,7 +373,7 @@ To move the working files back to the state of this commit, you can run:
 git checkout <commit_hash>  # Need to copy/paste from your git history
 ```
 
-This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg main), while moving through history, it's "detached"
+This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg main), while moving through history, it's "detached". This is normal when viewing old commits, but commits made in that state are not attached to a branch
 
 You can also see this if you run 
 
@@ -338,7 +412,7 @@ But remember Git is a graph, and you can have multiple paths (think back to the 
 
 The default branch is main (or older repos: "master"), but you can diverge from this, and also merge together different branches.
 
-There are 2 common conventions on how to stucture branches in a repo:
+There are 2 common conventions on how to structure branches in a repo:
 
 * Main is stable, new features / unstable development is done in branches, then merged back into main (BIOTECH-7005 repo is like this. There's only 1 class so main makes sense)
 * Main is latest (somewhat unstable), stable versions are their own branches (usually only used if you have releases, or deployments on different servers)
@@ -346,6 +420,13 @@ There are 2 common conventions on how to stucture branches in a repo:
 ## Branches - dev/feature branches
 
 A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking main
+
+To see branches:
+
+```
+# No argument means "view all"
+git branch
+```
 
 You can call a branch whatever you like. Some people use their name to make it clear its just for them.
 
@@ -362,6 +443,13 @@ Or you could do this in 1 line via:
 # You would do this INSTEAD of the line above, doing it after will error and do nothing
 git checkout -b blue_monkey_new_feature
 ```
+
+If you run this, you should be able to see 2 branches now
+
+```
+git branch
+```
+
 
 Now edit the README.md and add a line "* Grapes"
 
@@ -408,6 +496,7 @@ But imagine that the blue and cyan monkeys went off and did separate work. Find 
 
 
 ```
+ # HEAD = current. HEAD^ = 1 commit back, HEAD^^ = 2 commits back etc
 git checkout -b cyan_monkey_new_feature2 HEAD^  # 1 commit back
 ```
 
