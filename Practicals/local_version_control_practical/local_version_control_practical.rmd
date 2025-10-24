@@ -397,8 +397,8 @@ Move the repo back to this commit, and examine the README.md file
 
 To move back to the latest commit, run:
 
-```
-git checkout main
+```  
+git checkout master 
 ```
 
 To check you're back to normal - run ```git log``` and ensure that the last commit has HEAD next to it
@@ -469,7 +469,7 @@ git log
 Now, go back to the main branch.
 
 ```
-git checkout main
+git checkout master
 ```
 
 Check the state of the branch:
@@ -566,8 +566,8 @@ This is why it's recommended you keep your commits small. If you are doing 2 sep
 ## Cherry pick
 
 ```
-git checkout main # Make sure you are back here
-git checkout -b my_new_dev_branch
+git checkout master # Make sure you are back here
+git checkout -b my_new_branch
 ```
 
 We'll create 2 commits in this branch, but only bring 1 back to main. The other we'll leave, to be merged back into main later
@@ -588,7 +588,7 @@ git add README.md
 git commit -m "Add lemons for taco tuesday next week"
 ```
 
-Check the status of things in the my_new_dev_branch branch:
+Check the status of things in the my_new_branch branch:
 
 ```
 git log
@@ -597,7 +597,7 @@ git log
 Now go back to main:
 
 ```
-git checkout main
+git checkout master
 
 # Then confirm that changes have NOT been applied
 git log
