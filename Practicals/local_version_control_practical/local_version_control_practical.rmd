@@ -178,54 +178,6 @@ Perhaps we should make that last message better, to edit it:
 git commit --amend -m "Add Cyan monkey's fruit"
 ```
 
-
-## Git blame revisited
-
-You can also see which was the last commit to touch a line in a file - this git command is actually easy to remember!
-
-```
-git blame README.md
-```
-
-Now edit README.md again, and add a "* " to the front of each line so it looks like:
-
-```
-* Apples
-* Bananas
-* Mango
-* Watermelon
-```
-
-Add/commit again:
-
-```
-git add README.md 
-git commit -m "formatting - markdown bullet points"
-```
-
-Now run git blame again:
-
-```
-git blame README.md
-```
-
-You can see that since we touched every line in the file, git blame is all that commit, and not very useful.
-
-So you can ignore a particular commit. Find the hash for it
-
-
-
-```
-IGNORE_COMMIT=copy_hash_here
-git blame README.md --ignore-rev $IGNORE_COMMIT
-```
-
-You can see why logically grouping changes in commits is useful, eg separating formatting changes vs adding new things.
-
-I will often break up a change into multiple commits, eg "clean up the area - keep existing functionality the same but make it easier to extend/change" and then a separate commit of "add the new functionality". 
-
-If you run an auto-linter / code formatting tool (and you should!), you can keep track of commits in a file and use ```--ignore-revs-file```
-
 ## Tagging
 
 All commits have unique hashes as labels, however these don't mean anything and are hard to remember.
