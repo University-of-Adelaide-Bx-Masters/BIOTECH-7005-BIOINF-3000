@@ -299,23 +299,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -630,7 +624,7 @@ attached to a branch</p>
 <p>and pick a commit, ie “initial commit”</p>
 <p>Move the repo back to this commit, and examine the README.md file</p>
 <p>To move back to the latest commit, run:</p>
-<pre><code>git checkout main</code></pre>
+<pre><code>git checkout master </code></pre>
 <p>To check you’re back to normal - run <code>git log</code> and ensure
 that the last commit has HEAD next to it</p>
 </div>
@@ -679,7 +673,7 @@ git commit -m &quot;Blue monkey new feature change - add Grapes&quot;</code></pr
 <p>Have a look at the commits here:</p>
 <pre><code>git log</code></pre>
 <p>Now, go back to the main branch.</p>
-<pre><code>git checkout main</code></pre>
+<pre><code>git checkout master</code></pre>
 <p>Check the state of the branch:</p>
 <pre><code>git log # last change is not here</code></pre>
 <p>Check the state of the working files (remember, Git creates/modifies
@@ -743,8 +737,8 @@ doing 2 separate conceptual changes, do them in separate commits.</p>
 </div>
 <div id="cherry-pick" class="section level2">
 <h2>Cherry pick</h2>
-<pre><code>git checkout main # Make sure you are back here
-git checkout -b my_new_dev_branch</code></pre>
+<pre><code>git checkout master # Make sure you are back here
+git checkout -b my_new_branch</code></pre>
 <p>We’ll create 2 commits in this branch, but only bring 1 back to main.
 The other we’ll leave, to be merged back into main later</p>
 <p>Edit the README.md, and add another fruit, eg “* Oranges”</p>
@@ -754,10 +748,10 @@ git commit -m &quot;Add oranges to shopping list because we need to make juice f
 <p>Now edit README.md and add a different fruit, eg “* Lemons”</p>
 <pre><code>git add README.md
 git commit -m &quot;Add lemons for taco tuesday next week&quot;</code></pre>
-<p>Check the status of things in the my_new_dev_branch branch:</p>
+<p>Check the status of things in the my_new_branch branch:</p>
 <pre><code>git log</code></pre>
 <p>Now go back to main:</p>
-<pre><code>git checkout main
+<pre><code>git checkout master
 
 # Then confirm that changes have NOT been applied
 git log
