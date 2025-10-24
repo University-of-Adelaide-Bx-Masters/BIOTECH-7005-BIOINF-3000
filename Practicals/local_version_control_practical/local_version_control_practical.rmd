@@ -16,7 +16,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * Staging area
 * Second commmit
 * Git Commit message best practices
-* Git blame revisited
 * Tagging
 * Bash scripts + git
 * Git ignore
@@ -325,7 +324,7 @@ To move the working files back to the state of this commit, you can run:
 git checkout <commit_hash>  # Need to copy/paste from your git history
 ```
 
-This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg main), while moving through history, it's "detached". This is normal when viewing old commits, but commits made in that state are not attached to a branch
+This will mention having a "detached head" - HEAD keeps track of the current point in a repository. Usually, it is attached to a branch (eg master), while moving through history, it's "detached". This is normal when viewing old commits, but commits made in that state are not attached to a branch
 
 You can also see this if you run 
 
@@ -362,16 +361,16 @@ So far in your new repository we've been working in a linear way.
 
 But remember Git is a graph, and you can have multiple paths (think back to the ```git log --graph``` diagrams above) that split apart.
 
-The default branch is main (or older repos: "master"), but you can diverge from this, and also merge together different branches.
+The default branch is master (for newer versions of git: "main"), but you can diverge from this, and also merge together different branches.
 
 There are 2 common conventions on how to structure branches in a repo:
 
-* Main is stable, new features / unstable development is done in branches, then merged back into main (BIOTECH-7005 repo is like this. There's only 1 class so main makes sense)
-* Main is latest (somewhat unstable), stable versions are their own branches (usually only used if you have releases, or deployments on different servers)
+* Master is stable, new features / unstable development is done in branches, then merged back into master (BIOTECH-7005 repo is like this. There's only 1 class so master makes sense)
+* Master is latest (somewhat unstable), stable versions are their own branches (usually only used if you have releases, or deployments on different servers)
 
 ## Branches - dev/feature branches
 
-A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking main
+A common task when working with multiple people is to create a branch from current HEAD to do new development, so you can store your code in the repository without breaking master
 
 To see branches:
 
@@ -385,6 +384,7 @@ You can call a branch whatever you like. Some people use their name to make it c
 You can create a branch then switch to it:
 
 ```
+git checkout master # Make sure you are on master before branching
 git branch blue_monkey_new_feature # Creates a new branch from HEAD
 git checkout blue_monkey_new_feature
 ```
@@ -410,7 +410,7 @@ git add README.md
 git commit -m "Blue monkey new feature change - add Grapes"
 ```
 
-You've now saved your work, and can share with others, but its not in "main" yet.
+You've now saved your work, and can share with others, but its not in "master" yet.
 
 Have a look at the commits here:
 
@@ -418,7 +418,7 @@ Have a look at the commits here:
 git log
 ```
 
-Now, go back to the main branch.
+Now, go back to the master branch.
 
 ```
 git checkout master
@@ -433,13 +433,13 @@ git log # last change is not here
 Check the state of the working files (remember, Git creates/modifies these to represent the state of the repo)
 
 ```
-cat README.md  # Double check that grapes are not in main's working README.md file
+cat README.md  # Double check that grapes are not in master's working README.md file
 ```
 
-Now, we want to move ALL of the changes from the feature branch back into main.
+Now, we want to move ALL of the changes from the feature branch back into master.
 
 ```
-git merge blue_monkey_new_feature # Merge branch back into main
+git merge blue_monkey_new_feature # Merge branch back into master
 ```
 
 Because there were no conflicts - the merge was done automatically.
@@ -461,9 +461,10 @@ git add README.md
 git commit -m "cyan monkey shopping list changes"
 ```
 
-Then back to main again:
+Then back to master, then merge:
 
 ```
+git checkout master
 git merge cyan_monkey_new_feature2
 ```
 
@@ -509,7 +510,7 @@ Notice the branch and how it was merged back
 
 "Merge" brings in all of the commits from a branch, but sometimes you only want to take a few changes. For this, you can "cherry pick" individual commits into different branches.
 
-An example here is perhaps while working in a new area, you notice a bug. You fix the bug and want that also applied to main, but not all the rest of the work on the feature which isn't tested yet.
+An example here is perhaps while working in a new area, you notice a bug. You fix the bug and want that also applied to master, but not all the rest of the work on the feature which isn't tested yet.
 
 Git works at the commit level, so if you want to apply some changes but not the other, they need to be in separate commits.
 
@@ -522,7 +523,7 @@ git checkout master # Make sure you are back here
 git checkout -b my_new_branch
 ```
 
-We'll create 2 commits in this branch, but only bring 1 back to main. The other we'll leave, to be merged back into main later
+We'll create 2 commits in this branch, but only bring 1 back to master. The other we'll leave, to be merged back into master later
 
 Edit the README.md, and add another fruit, eg "* Oranges"
 
@@ -546,7 +547,7 @@ Check the status of things in the my_new_branch branch:
 git log
 ```
 
-Now go back to main:
+Now go back to master:
 
 ```
 git checkout master
@@ -556,7 +557,7 @@ git log
 cat README.md
 ```
 
-We a copy of the commit hash that we want to apply to main. We could have copied this from the branch before we went back to main, but git log can also be passed the branch name:
+We a copy of the commit hash that we want to apply to master. We could have copied this from the branch before we went back to master, but git log can also be passed the branch name:
 
 ```
 git log my_new_branch
@@ -603,13 +604,13 @@ and also track where you got it from (remote origin) - so it is easy to keep the
 
 When working with others, you need to decide on how to use Git in your day to day work - these work patterns are often called [git workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
 
-For instance - is it ok to have broken code in main? If you are working by yourself, or are making very small changes you have tested well, it may be OK to commit directly into the main branch.
+For instance - is it ok to have broken code in master? If you are working by yourself, or are making very small changes you have tested well, it may be OK to commit directly into the master branch.
 
 If you are running an open source project and random people download your code - maybe not!
 
-If I am working on something larger than 1 day's work, I like to create a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) so that I can push my code to Github (to have a backup + work on different computers) then merge back to main when done.
+If I am working on something larger than 1 day's work, I like to create a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) so that I can push my code to Github (to have a backup + work on different computers) then merge back to master when done.
 
-Some teams only do work in feature branches, then use pull requests to review the code by someone else before it is merged into main
+Some teams only do work in feature branches, then use pull requests to review the code by someone else before it is merged into master
 
 ## Bonus: R studio git integration
 
