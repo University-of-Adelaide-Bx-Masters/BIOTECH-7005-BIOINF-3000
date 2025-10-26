@@ -1,3 +1,11 @@
+---
+title: "GitHub repo Prac"
+author: "David Lawrence"
+date: "2025-10-26"
+output: html_document
+---
+
+
 # GitHub repositories practical
 
 ## User security
@@ -15,7 +23,7 @@ GitHub uses [Personal access tokens](https://docs.github.com/en/authentication/k
 * Click on your user icon in the top right
 * Click "Settings"
 * In bottom left menu option - "Developer Settings", then "Personal Access token"
-* Generate new token, label it something like "bioinformatics VM". Make sure you click the first tickbox "repo" so you can use it to push/pull
+* Generate new token (classic), label it something like "bioinformatics VM". Make sure you click the first tickbox "repo" so you can use it to push/pull
 
 **DO NOT CLOSE THIS TAB** - leave it open so you can copy/paste it below
 
@@ -145,7 +153,7 @@ To experiment with wikis:
 
 ## Practical - simulated open source repo
 
-There's a [GitHub repository Practical project](https://github.com/davmlaw/2024_practical_github_repositories) which is a simulation of an open source project with bugs.
+There's a [GitHub repository Practical project](https://github.com/davmlaw/2025_practical_github_repositories) which is a simulation of an open source project with bugs.
 
 It has randomly generated data, so has the same structure (but different data) as [Assignment 5](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Assignments/Assignment5.html)
 
@@ -169,9 +177,9 @@ You can split off branches, and merge branches into each other.
 
 ## Raising an issue
 
-Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2024_practical_github_repositories) for the high severity bug (XXXXXXX)
+Raise an issue in the [GitHub repository Practical project](https://github.com/davmlaw/2025_practical_github_repositories) for the XXXXXXX bug
 
-Make sure the title includes your filename and what's wrong with it, ie "file doc/a1059391.txt contains 'XXXXXXX'"
+Make sure the title includes your filename and what's wrong with it, ie "file data/a1059391.txt contains 'XXXXXXX'"
 
 Remember to be nice - perhaps start the issue with "Hi, thanks for your project! I think I may have found an issue" - be humble and kind. You may be adding more stress to an overworked person trying to do altruistic work...
 
@@ -183,9 +191,9 @@ Write [Actual vs Expected](https://medium.com/we-are-testers/chapter-2-how-to-wr
 
 * You can now clone your private fork of the repo to your local machine.
 
-## Fix the high severity issue (XXXXXXX)
+## Fix the XXXXXXX issue
 
-* Edit your data/ file, and remove the high severity issue (XXXXXXX) ONLY (ie DO NOT change the low severity (UPPERCASE) at the same time). There should only be 1 space between the words after removing the XXXXX
+* Edit your data/ file, and remove the XXXXXXX issue ONLY (ie DO NOT change the UPPERCASE bug at the same time). There should only be 1 space between the words after removing the XXXXX
 * ```git add``` then ``git commit --message "fix issue #xxx"`` (referencing the issue in the original repo you raised)
 * ``git push`` back to your repo
 
