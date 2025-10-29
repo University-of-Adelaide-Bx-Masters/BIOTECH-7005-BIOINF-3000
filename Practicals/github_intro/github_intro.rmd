@@ -64,7 +64,7 @@ This is a matter of choice (or lab policy) but I generally release work projects
 
 ## Sign up to GitHub
 
-
+https://github.com - It's possible you may keep this GitHub account, use it for CVs etc. So I recommend NOT using a silly name or using your Adelaide uni account name
 
 ## New GitHub project
 
@@ -91,6 +91,7 @@ git clone https://github.com/YOUR_USERNAME_HERE/github_practical_example_project
 
 ```
 cd github_practical_example_project  # go into the repository you just cloned
+nano README.md # Make a change to the file so we have something to commit
 git add README.md
 git commit --message "edit README"
 git push
