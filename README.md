@@ -53,7 +53,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture* | *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie) |
 | **10**   | 13/10      | Reproducible Science (David L, recording)  | [Coding comments] (David L) |[Reproducible Science] (1) (David L)  |
 | **11**   | 20/10      | Version Control (David L, recording)  | [Version Control - Git Intro] (David L)  | [Version Control - Git Advanced] (David L) | 
-| **12**   | 27/10      | NO LECTURE | *Version control test*/[GitHub Repositories] (David L) | [GitHub Intro] (David L)  |
+| **12**   | 27/10      | NO LECTURE | *Version control test*/[GitHub Intro] (David L) | [GitHub Advanced] (David L)  |
 
 
 [1]: http://biotech7005.services.adelaide.edu.au/01-bioinformatics.slide
@@ -85,8 +85,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [Reproducible Science]: Practicals/reproducible_science_practical/reproducible_science_practical.html
 [Version Control - Git Intro]: Practicals/version_control_git_intro/version_control_git_intro.html
 [Version Control - Git Advanced]: Practicals/version_control_git_advanced/version_control_git_advanced.html
-[GitHub intro]: Practicals/github_intro_practical/github_intro_practical.html
-[GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
+[GitHub Intro]: Practicals/github_intro/github_intro.html
+[GitHub Advanced]: Practicals/github_advanced/github_advanced.html
 [Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE.md
 [Transcriptomics - assembly]: Practicals/Transcriptome_Practical/Transcriptomics_assembly.md
 

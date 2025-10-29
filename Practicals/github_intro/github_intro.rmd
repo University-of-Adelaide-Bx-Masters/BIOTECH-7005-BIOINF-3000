@@ -1,4 +1,18 @@
-# GitHub intro practical
+---
+title: "GitHub Intro"
+author: "David Lawrence"
+date: "2025-10-27"
+output: html_document
+---
+
+# GitHub Intro
+
+## Quiz
+
+Please load the Version Control Quiz in "my uni"
+
+At 11:15 I will release the password. The timers are done individually, please be quiet if you finish the test to allow others to concentrate
+
 
 ## GitHub
 
