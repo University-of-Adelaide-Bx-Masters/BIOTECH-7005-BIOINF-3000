@@ -52,7 +52,7 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 | **-**    | 29/9       | *Mid-Semester Break*     |                                        |                                          |
 | **9**    | 6/10 (PH)  | *Public Holiday 6/10* No lecture* | *Public Holiday 6/10* No Practical *| [Transcriptomics - assembly] (2) (Stevie) |
 | **10**   | 13/10      | Reproducible Science (David L, recording)  | [Coding comments] (David L) |[Reproducible Science] (1) (David L)  |
-| **11**   | 20/10      | Version Control (David L, recording)  | [Version Control] (David L)  | [Local Version Control] (David L) | 
+| **11**   | 20/10      | Version Control (David L, recording)  | [Version Control - Git Intro] (David L)  | [Version Control - Git Advanced] (David L) | 
 | **12**   | 27/10      | NO LECTURE | *Version control test*/[GitHub Repositories] (David L) | [GitHub Intro] (David L)  |
 
 
@@ -83,8 +83,8 @@ Practical 02: Friday 11am-1pm, Ingkarni Wardlii 218
 [Statistics worksheet]: Tutorials/Wk2_Statistics.html
 [Coding comments]: Practicals/Code_comments_practical/code_comments.html
 [Reproducible Science]: Practicals/reproducible_science_practical/reproducible_science_practical.html
-[Version Control]: Practicals/Version_control_practical/version_control_practical.html
-[Local Version Control]: Practicals/local_version_control_practical/local_version_control_practical.html
+[Version Control - Git Intro]: Practicals/version_control_git_intro/version_control_git_intro.html
+[Version Control - Git Advanced]: Practicals/version_control_git_advanced/version_control_git_advanced.html
 [GitHub intro]: Practicals/github_intro_practical/github_intro_practical.html
 [GitHub repositories]: Practicals/github_repositories_practical/github_repositories_practical.html
 [Transcriptomics - DE analysis]: Practicals/Transcriptome_Practical/Transcriptomics_DE.md
