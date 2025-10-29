@@ -54,6 +54,8 @@ Run a few searches. Experiment with clicking on Open/Closed. Notice how special 
 
 Again, notice how the title is critical for finding things as you can't see the contents (though you can search for it, eg "font" will bring up titles without "font" in it, as they have it in the issue)
 
+## User Access
+
 GitHub handles [user authentication](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github)
 
 You can make organisations (which are basically groups that own projects rather than individual users).
