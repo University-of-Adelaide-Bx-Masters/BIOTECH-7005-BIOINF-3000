@@ -5,8 +5,6 @@ date: "2025-10-27"
 output: html_document
 ---
 
-# GitHub Intro
-
 ## Quiz
 
 Please load the Version Control Quiz in "my uni"
@@ -44,237 +42,167 @@ Consider how different it must be from the first release, and whether the author
 
 **Note:** Notice how the commit frequency and issue tracker is a good way to evaluate a project's health.
 
-## Licences
+## Issues - searching
 
-On one of the bioinformatics project pages above, look in the top right for the licence link. If LICENCE is a standard file (as per IGV), it will show eg "MIT Licence"
+Go to [IGV issues](https://github.com/igvteam/igv/issues)
 
-Click on the [IGV licence link](https://github.com/igvteam/igv/blob/master/license.txt), and open it up and skim it quickly.... it's a lot of legalese
+Notice how all you can see are the titles. Titles are extremely important.
 
-There's a great site called [TLDR legal](https://tldrlegal.com/) that simplifies things, eg:
+Before raising a bug, you should always check it see if it has already been reported (ie don't create a "dupe")
 
-[MIT](https://www.tldrlegal.com/license/mit-license) - A short, permissive software license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source
+Run a few searches. Experiment with clicking on Open/Closed. Notice how special tokens in the search form change. 
 
-[GNU General Public License v3](https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3) (GPL-3) - You may copy, distribute and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
+Again, notice how the title is critical for finding things as you can't see the contents (though you can search for it, eg "font" will bring up titles without "font" in it, as they have it in the issue)
 
-**Task:** Please open the links above, and read through them
+GitHub handles [user authentication](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github)
 
-## GPL is a viral licence
+You can make organisations (which are basically groups that own projects rather than individual users).
 
-You can use GPL libraries in your code without worrying about the licence, however
+This is a matter of choice (or lab policy) but I generally release work projects under my organisation as it's more professional, makes it easier for my coworkers to maintain it, and our lab seems more permanent than an individual job. You can always transfer it, and have the old URL redirect, but generally it's better to make URLs permanent.
 
-* You can only copy/paste code from a GPL project if your project is also GPL
-* You can’t make it more restrictive (not release source code)
-* You also can’t downgrade the licence  (release as MIT!)
+## Sign up to GitHub
 
-Both Android (Linux) and Apple iPhone (BSD) are based on open source kernels
 
-Linux is GPL - so any changes to the kernel by Google or Samsung must be released to the world.
 
-Apple can take BSD, add their own work and not share it.
+## New GitHub project
 
-Notice for both that companies are making money reselling open source code (this is totally fine!)
+On https://github.com - create a new project:
 
-Generally: If all you care about is use (don’t care if people spin off new projects, or if they give back) then go for MIT. Due to academic norms, they would be expected to cite it.
+* In the top right hand corner, click the plus symbol, then “new repository”
+* Call it eg 'github_practical_example_project'
+* Choose a licence (any will do), add a README.
+* Make it public (you can always make it private later, or delete it) - you need it to be public to be able to use the wiki
 
-If you don't like the idea of people using your code without contributing, use GPL
+## Clone your repo
 
-**Discussion:** Licences - your thoughts?
+* Go to your project on GitHub
+* Press the green "Code" button in the mid-top-right - this should open a "clone" window
+* Copy / paste the URL, it should be something like "https://github.com/YOUR_USERNAME_HERE/github_practical_example_project"
+* Clone it to your VM:
 
-## Documentation
+```
+git clone https://github.com/YOUR_USERNAME_HERE/github_practical_example_project
+```
 
-Github has excellent help -[GitHub docs](https://docs.github.com/en)
+* If your repo is private, you will need to enter your username/password here. The password is the access token (not GitHub password)
+* Make a change to the README.md
 
-However, I tend to just Google "GitHub X" to find what I'm looking for.
+```
+cd github_practical_example_project  # go into the repository you just cloned
+git add README.md
+git commit --message "edit README"
+git push
+```
 
-# Open Source software
+If the repo is public (and you didn't have to enter it when you cloned it - as anyone can do that) you will have to enter your username / password (access token)
 
-Github is a place to find software, but if you're doing it right, GitHub is a social media site for programmers
+CTR+C out of this now.
 
-Some use the term "free software" but you should think of free as in "free speech" not "free beer" - the most important part is that you can free to see how it works, free to modify it, if it's broken.
+## Access tokens
 
-You can get paid a lot of money writing code... so why do people work on code then give it away?
+GitHub uses [Personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) rather than passwords. To generate one of these for the VM:
 
-* Usually start from "Scratching your own itch" - ie solve a problem they themselves had.
-* "I’m sick of doing this repetitive task - I’m going to write a way to automate it"
-* "All of the existing software sucks, I’m going to write something that does it properly!"
+* Click on your user icon in the top right
+* Click "Settings"
+* In bottom left menu option - "Developer Settings", then "Personal Access token"
+* Generate new token (classic), label it something like "bioinformatics VM". Make sure you click the first tickbox "repo" so you can use it to push/pull
 
-Often corporate programming is not that fun, and they want to do something different, solve a problem “the right way” (where engineering effort does not have an immediate source of income) or just work with personal freedom.
+**DO NOT CLOSE THIS TAB** - leave it open so you can copy/paste it below
 
-* Almost all open source programmers have “day jobs”
-* Some companies sponsor development, eg some Linux developers are funded by Intel, RedHat, Samsung, Google, IBM etc
-* Some developers consult, provide corporate training, write books, give talks etc
-* Academic (while academia provides grants for projects which can spin off open source software, it is very rare to provide funding to maintain software)
+You can store your token (as plaintext on the VM) via:
 
-![xkcd cartoon](https://www.explainxkcd.com/wiki/images/d/d7/dependency.png)
+```
+git config --global credential.helper store
+```
 
-"There’s a reason why open source projects are called “projects,” rather than just code. While code is the final output of a project, the term “project” refers to the entire bundle of community, code, and communication and developer tools that support its underlying production."
+If you do this you will only have to enter your token once. If someone gets this token they can make changes to your GitHub repo so please password protect your VMs
 
-- Nadia Eghbal, "Working in Public"
+## Completing git push with access tokens
 
-Software is very iterative. If you make something and put it out there. People use it (not in the way you expect!) then start making requests, asking for help, etc
+```
+git push
+# It will now ask for your username - this is what you used to sign up, and can be seen in the URL of the repo you cloned after "github.com/<YOUR_USERNAME>/your_repo"
+# Paste username then hit enter
+# Copy the Personal access token from the web page (green, click "two squares" copy button)
+# Paste access token then hit enter
+```
 
-If your project is successful you can often end up spending a lot of time managing it, and doing boring things like user support rather than the fun stuff (programming cool new features and doing science)!
+Push should complete successfully
 
-"Running a successful open source project is just Good Will Hunting in reverse, where you start out as a respected genius and end up being a janitor who gets into fights”
+If you did close the tab, just create another token now, and use that.
 
-- Byrne Hobart
+## Issues - labels
 
-But it is rewarding, and from a scientific career perspective - people are more likely to use and cite good, working tools!
+As well as titles, labels can be used to organise issues into related themes. Read the documentation [Github - managing labels](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels)
 
-Professionally - it also helps with exposure and networking. When hiring for jobs, I love to see someone list their GitHub account, you can see what they've done, and also have a glimpse into how they work (are they helpful and polite?)
+* Create some labels for your project, with distinct colours - if you're unimaginative you could use "red", "green", "blue" with appropriate colours
+* Raise some fake issues on your project, don't worry about content just make a lot of different titles (ie "problem X with red", "problem Y with red", "problem X with green", "problem Y with green")
+* Tag the issues with appropriate keywords (view each individual issue, click label cog on right hand toolbar, select from autocomplete)
+* Perform a search for keywords, and notice how the labels make it easier to find related 
+* Try clicking on a label (this does a search by label)
 
-## Advantages of Open Source
+## Issues - lifecycle
 
-* Open (no hidden spyware, security issues etc).
-* In science it’s important that you understand what’s happening!
-* Code is the ultimate documentation (papers are out of date at submission time)
-* Innovation - the corporate world is often somewhat stifling. You can create an open source project just because you have a cool idea
+Issues move througha  lifecycle, ie:
 
-## Problems in Open Source
+raised -> fixed -> tested -> closed
+raised -> tagged as "duplicate", "wontfix" -> comment about which other issue is a duplicate + close
 
-* Projects can get abandoned when the fun is gone
-* Maintenance and bug fixes are less fun than writing new code 
-* Writing documentation is less fun than writing new code
+* Find an issue, 
+* Add "wontfix" label
+* Add a comment at the bottom saying this issue is too hard / out of scope of the project and close the issue
+* Go back to the search, notice it's gone
 
-Generally - fun driven development means boring jobs don’t get done.
+## Issues - writing tips
 
-**Discussion:** Has anyone had good or bad experience with open source software? 
+Even for your own projects - try and write it with as much information as possible (aiming to be standalone, so you don't need much outside context), so that a 3rd party can come in and make sense of things.
 
-## Issues
+If it's clear - maybe it'll stop them raising a dupe. Maybe someone will fix it for you!
 
-If you find a bug in some software, please report it by raising an issue.
+Depending on the type of bug, there's certain information you want to include
 
-Check that hasn't been fixed (ie try latest version) and hasn't already been reported. Ideally work for a bit to narrow it down and make it simple to reproduce.
+For crashes: stack traces and logs
 
-Raising an issue if you find a bug is a useful contribution!
+For ones that involve complicated user steps - Try to find a way to “reproduce” the error consistently and produce clear step by step instructions. Ideally your instructions should reproduce the issue 100% of the time with a minimal amount of steps
 
-Suggesting a new feature you'd like is also useful, though it's a lot easier to think of new features to do them, and not everyone shares your priorities.
+For ones involving input files, perhaps try and produce a minimal, cut down one.
 
-There are a lot more people raising issues than fixing bugs and closing them
+For unexpected behavior, or outputs, [Actual vs Expected](https://medium.com/we-are-testers/chapter-2-how-to-write-useful-actual-and-expected-results-details-in-your-bug-report-10b83e5aaa75) is very useful
 
-Thus, number of issues continues to grow while the software is being used (and it will probably be abandoned before they are all closed)
+## Milestones
 
-If a developers says "PR welcome", that's a polite way of saying "I have other things to do, if you want this, do it yourself!"
+Milestones are a way of managing releases and deadlines
 
-## Bug fix / feature timeline
+For instance, you may have 20 issues, but your lab head says you have to stop coding and start writing up your paper in 2 weeks.
 
-In order for a bug to be fixed, the following has to happen:
+* Create a milestone called "Code complete for paper" with a deadline in 2 weeks time
+* Assign a few issues to this (you will need to go into each individual issue, click milestone cog, select from autocomplete)
+* Go back to issues, search by milestone
 
-* Bug is discovered
-* Issue raised
-* Developer reproduces bug or Agrees feature is worthwhile
-* Developer fixes bug or writes feature
-* Code is merged
+## Wiki
 
-The first steps are valuable, but developers are busy.
+Note: Free GitHub accounts can only have wikis on public projects
 
-You can wait a loooooong time for a bug fix.
+Check to see if you have a "wiki" menu item on your project. If you don't you can either skip this step or make your project public.
 
-[Here's a bug I raised](https://github.com/Ensembl/ensembl-vep/issues/1023), that took 812 days to fix. I am still super pumped.
+* Go to settings
+* Scroll all the way down into the "danger zone"
+* In "Change repository visibility" set project to public
+* In settings again, you should now have an option to enable wikis
 
-Why? I haven't written Perl in over 10 years, so had to wait for someone else to do it.
+To experiment with wikis:
 
-## 2 users 1 bug
+* Create a few wiki pages for your practical project (the one you made not forked)
+* Use 2 levels of headers "#" and "##"
+* Go to the wiki page, notice that it has built a hierarchical wiki browser for you out of your headers
+* Try out the search and expanding the wiki in the right side of the screen
 
-Two people encountered the same bug, that had a simple 15 line fix. One had to wait 2,467 days for a fix, while the other one only had to wait 5.
+## Extras
 
-* [Issue raised](https://github.com/brentp/cyvcf2/issues/17) Aug 3, 2016
-* 1st developer reply Aug 3, 2016 - 0 days
-* [Another user mentioned bug is still active](https://github.com/brentp/cyvcf2/issues/17#issuecomment-1529468360) - May 1, 2023 - 2462 days later
-* [Pull request](https://github.com/brentp/cyvcf2/pull/262) May 4, 2023 - 3 days later
-* Merged into code base May 6, 2023 - 2 days later
+* Try editing the README on GitHub as well as locally. Think about repos (GitHub's repo or yours) being a few commits ahead or behind. Try editing different lines then push/pulling. Try editing the same line then push/pulling
+* Tags are a label for a commit, and are useful for things like "tagging a release". It's easier than memorising a date or a hash. Try making some tags for your repository. Google for help on GitHub tags to find out the steps
+* Read some closed issues on some famous bioinformatics GitHub projects, eg: [IGV](https://github.com/igvteam/igv), [Samtools](https://github.com/samtools/samtools), [BWA](https://github.com/lh3/bwa) Notice how they often involve conversations over long periods of time.
 
-What's the lesson here? If you want a fix fast, do it yourself!
+[GitHub extra reading](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/github_advanced/github_extra.html)
 
-Who fixes open source code? People like me, and people like you!
 
-## Forking
-
-You generally don't have permission to modify other people's projects, so how do we modify it, or send them changes? Start by forking.
-
-Forking is a way to create a personal copy of someone else's repository on GitHub. When you fork a repo, you're essentially duplicating it under your GitHub account. This allows you to freely experiment with changes without affecting the original project.
-
-Steps for Forking on GitHub:
-
-    Navigate to the repository you want to fork.
-    Click the "Fork" button, usually located at the top right corner of the repo's page.
-    Choose where you want to fork the repo. Usually, it's your personal GitHub account.
-
-What Happens After Forking:
-
-    You get a new repository under your account that's identical to the original repo at the time of forking.
-    Your fork exists independently, meaning changes to the fork won't affect the original repo, and vice versa.
-
-Common Use Cases:
-
-    Contributing to a Project: Fork the repo, clone your fork locally, make changes, push back to your fork on GitHub, and then create a pull request to the original repo.
-    Personal Experiments: You can freely modify your fork without worrying about the original project.
-
-**Task:** Fork a bioinformatics project of your choice, then clone it to your local VM
-
-## Modfiying tools or libraries
-
-I always raise an issue before starting a fix, to confirm it is real, and 
-
-When making bug fixes, I like to write automated unit tests that reproduce the bug, and would fail with the current code.
-
-Then I make the fix, and verify that the new tests pass. I make sure all of the existing tests still pass, to show I haven't accidentally broken anything.
-
-I like to use my code for a while to thoroughly use it myself for a few days under real world conditions, this means installing it to the system, so I can use the library from my code, or my modified tool in my pipelines.
-
-Then, when I'm happy, I'll try to get it merged into the original project
-
-**Question:** I have selfish reasons to get my bug fixes merged into the project. What are they?
-
-## Pull requests
-
-Since you don't have permission to write to other people's projects (ie you can't push), you need them to pull your changes. This is called a pull request.
-
-If a pull request is still open, and you push more commits to your fork, it adds onto the currently open pull request.
-
-I like to create a branch in my repository for just that fix, then make the pull request from there.
-
-Unit tests drastically increase the chance of your merge being accepted.
-
-This allows me to make multiple pull requests, separated out per issue. This makes it easier to validate (rather than a giant pull request that fixes 4 independent issues)
-
-I put all of the fixes in the main/master branch - so if I need to replace the library/tool - this is what I use until the original project merges the fixes and makes a release.
-
-## More examples
-
-Developers have busy lives, sometimes it can take a while for the merges to get in. I try to gently remind people, and fulfill any requests they have.
-
-Be patient, don't be rude, and just keep using your forks for personal use.
-
-**Cutadapt:**
-
-* [Issue raised](https://github.com/marcelm/cutadapt/issues/64) October 30, 2012
-* 1st developer reply December 04, 2012 - 35 days
-* [Pull request](https://github.com/marcelm/cutadapt/pull/3) December 14, 2012 - 10 days
-* Merged into code base December 17, 2012 - 3 days
-
-**HTSeq:**
-
-* [Issue raised](https://github.com/htseq/htseq/issues/63) Jun 9 2023
-* 1st developer reply Jun 9 2023 - 0 days
-* [Pull request](https://github.com/htseq/htseq/pull/65) Jun 13 2023 - 4 days
-* Merged into code base Aug 1 2023 - 49 days (had to fight the automated build system)
-
-**Pronto**
-
-* [Issue raised](https://github.com/althonos/pronto/issues/176) - Jun 21, 2022
-* 1st developer reply - n/a
-* [Pull request](https://github.com/althonos/pronto/pull/179) Jun 23, 2022 - 2 days
-* Merged into code base Jun 29, 2022 - 6 days
-
-**HGVS**
-
-* [Issue raised](https://github.com/biocommons/hgvs/issues/447) - May 30, 2017
-* [Pull request](https://github.com/biocommons/hgvs/pull/660) - June 30, 2023 - 2,222 days later
-* Merged into code base - Sep 11, 2023 - 73 days
-
-More pull requests:
-
-* [Optimisation](https://github.com/biocommons/hgvs/pull/664) Reduces time of an operation from 1.5s to <2ms (by 99.8%)
-* [Fix then author suggested better fix](https://github.com/biocommons/hgvs/pull/683)
-* [Simple Bug fix](https://github.com/biocommons/hgvs/pull/666)
