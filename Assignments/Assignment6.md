@@ -6,12 +6,14 @@
 
 This assignment is based on the Local version control and GitHub repository practicals. 
 
+It is highly recommended that you attend "GitHub Advanced" Practical as we will be walking through much of this assignment (generated to have different answers)
+
 The repository at https://github.com/davmlaw/2025_assessment_6_version_control is a simulation of an open source project with bugs.
 
 This assignment involves performing actions on GitHub [*4 marks total for general format*]:
 
-* Issue for high severity bug [*1 mark*]
-* Issue for low severity bug [*1 mark*]
+* Issue for XXXXXX bug [*1 mark*]
+* Issue for "lowercase"" bug [*1 mark*]
 * Fork repo [*1 mark*]
 * Pull request for fixing the issues [*1 mark*] 
 
