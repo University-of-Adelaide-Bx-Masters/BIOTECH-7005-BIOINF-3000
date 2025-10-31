@@ -56,8 +56,8 @@ These should be treated as two separate incidents, with different severities, an
     + Edit your data/ file, and remove the high severity issue (XXXXXXX) ONLY (ie DO NOT change the low severity (UPPERCASE) at the same time). There should only be 1 space between the words after removing the XXXXX [*1 point*]
     + Edit your doc/ file, which is in the format of a [changelog](https://keepachangelog.com/en/1.0.0/) adding a CHANGED entry for your fix, that links to the high severity issue above [*1 points*]
     + Write a descriptive commit message, which references the high severity issue above [*1 point*]
-    + This bug needs to be fixed in the "stable" branch as well, so switch to that branch and cherry-pick the commit you just made [*3 points*]  
-    + Push both branches to your repo
+    + This bug needs to be fixed in the "stable" branch as well, so switch to that branch and [cherry-pick](https://university-of-adelaide-bx-masters.github.io/BIOTECH-7005-BIOINF-3000/Practicals/version_control_git_advanced/version_control_git_advanced.html#Cherry%20pick:~:text=in%20separate%20commits.-,Cherry,-pick) the commit you just made [*3 points*]  
+    + Push both the "main" and "stable" branches to your repo
 
 (total: 5 points)
 
@@ -65,11 +65,12 @@ These should be treated as two separate incidents, with different severities, an
     + Edit your data/ file, and remove the low severity issue. [*1 points*]
     + Edit your doc/ file, which is in the format of a [changelog](https://keepachangelog.com/en/1.0.0/) adding a CHANGED entry for your fix, that links to the low severity issue above [*1 points*]
     + Write a descriptive commit message, which references the low severity issue above [*1 point*]
-    + Push both branches to your repo
+    + Push the main branch to your repo
 
 (total: 4 points)
 
-6. Submit a pull request from your main/master branch
+6. Submit a pull request from your main/master branch. This pull request should be for both issues/fixes. In real life we'd do a separate pull request for each fix, but for this assignment we'll do them both in 1 PR.
+
     + Comments should link to both issues and give a brief description of the change [*2 points*] 
 
 (total: 2 points)
